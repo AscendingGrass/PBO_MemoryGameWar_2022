@@ -6,5 +6,6 @@ public class Main
         for (int i = 0; i < 10; i++) {
             System.out.println("tes2");
         }
+        System.out.println("tes3");
     }
 }
