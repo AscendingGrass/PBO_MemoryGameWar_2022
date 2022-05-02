@@ -7,5 +7,6 @@ public class Main
             System.out.println("tes2");
         }
         System.out.println("tes3");
+        Mekanisme play = new Mekanisme();
     }
 }
