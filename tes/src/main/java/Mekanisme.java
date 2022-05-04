@@ -1,5 +1,5 @@
 public class Mekanisme {
     public Mekanisme(){
-        System.out.println("Simon Kntl");
+        System.out.println("Ruben janggan bahas keyboard ya");
     }
 }
