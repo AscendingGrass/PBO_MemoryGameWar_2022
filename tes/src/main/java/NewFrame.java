@@ -26,6 +26,8 @@ public class NewFrame extends JFrame {
         LoginBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 51, 102));
+        setPreferredSize(new java.awt.Dimension(1280, 800));
 
         JudulLogin.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 36)); // NOI18N
         JudulLogin.setForeground(new java.awt.Color(204, 255, 0));
@@ -102,7 +104,7 @@ public class NewFrame extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordFieldActionPerformed
@@ -125,6 +127,7 @@ public class NewFrame extends JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -149,6 +152,7 @@ public class NewFrame extends JFrame {
                 new NewFrame().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
