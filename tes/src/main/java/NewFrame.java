@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class NewFrame extends JFrame {
-
+    ArrayList<String> username;
     /**
      * Creates new form NewFrame
      */
@@ -18,46 +19,36 @@ public class NewFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JudulLogin = new javax.swing.JLabel();
-        LabelUsername = new javax.swing.JLabel();
-        LabelPassword = new javax.swing.JLabel();
-        UsernameField = new javax.swing.JTextField();
-        PasswordField = new javax.swing.JTextField();
+        JudulGame = new javax.swing.JLabel();
         LoginBTN = new javax.swing.JButton();
+        ExitBTN = new javax.swing.JButton();
+        RegBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 102));
         setPreferredSize(new java.awt.Dimension(1280, 800));
 
-        JudulLogin.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 36)); // NOI18N
-        JudulLogin.setForeground(new java.awt.Color(204, 255, 0));
-        JudulLogin.setText("LOGIN");
-
-        LabelUsername.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        LabelUsername.setText("Username : ");
-
-        LabelPassword.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        LabelPassword.setText("Password : ");
-
-        UsernameField.setFont(new java.awt.Font("Microsoft PhagsPa", 0, 18)); // NOI18N
-        UsernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameFieldActionPerformed(evt);
-            }
-        });
-
-        PasswordField.setFont(new java.awt.Font("Microsoft JhengHei Light", 0, 18)); // NOI18N
-        PasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordFieldActionPerformed(evt);
-            }
-        });
+        JudulGame.setFont(new java.awt.Font("Goudy Stout", 0, 18)); // NOI18N
+        JudulGame.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JudulGame.setText("MEMORY GAME");
+        JudulGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         LoginBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
         LoginBTN.setText("LOGIN");
-        LoginBTN.addActionListener(new java.awt.event.ActionListener() {
+
+        ExitBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
+        ExitBTN.setText("EXit");
+        ExitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginBTNActionPerformed(evt);
+                ExitBTNActionPerformed(evt);
+            }
+        });
+
+        RegBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
+        RegBTN.setText("REGISTER");
+        RegBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegBTNActionPerformed(evt);
             }
         });
 
@@ -66,58 +57,44 @@ public class NewFrame extends JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JudulLogin)
-                .addGap(294, 294, 294))
+                .addGap(392, 392, 392)
+                .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(403, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LabelPassword)
-                    .addComponent(LabelUsername))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PasswordField)
-                    .addComponent(UsernameField))
-                .addGap(15, 15, 15))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(478, 478, 478))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(JudulLogin)
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelUsername)
-                    .addComponent(UsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelPassword)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ExitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExitBTNActionPerformed
+
+    private void RegBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegBTNActionPerformed
+        // TODO add your handling code here:
+        JFrame x = new JFrame("YOOSS");
+        
+    }//GEN-LAST:event_RegBTNActionPerformed
     
-    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordFieldActionPerformed
-
-    private void UsernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameFieldActionPerformed
-
-    private void LoginBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBTNActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showConfirmDialog(this, "HELLO " + UsernameField.getText());// coba test comment secara berbarengan
-    }//GEN-LAST:event_LoginBTNActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -156,11 +133,9 @@ public class NewFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JudulLogin;
-    private javax.swing.JLabel LabelPassword;
-    private javax.swing.JLabel LabelUsername;
+    private javax.swing.JButton ExitBTN;
+    private javax.swing.JLabel JudulGame;
     private javax.swing.JButton LoginBTN;
-    private javax.swing.JTextField PasswordField;
-    private javax.swing.JTextField UsernameField;
+    private javax.swing.JButton RegBTN;
     // End of variables declaration//GEN-END:variables
 }
