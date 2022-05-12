@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.FlowLayout;  
 
 public class NewFrame extends JFrame {
-    ArrayList<String> username;
+    static LinkList<Account> listAkun = new LinkList<>();
     /**
      * Creates new form NewFrame
      */
@@ -21,12 +22,12 @@ public class NewFrame extends JFrame {
 
         JudulGame = new javax.swing.JLabel();
         LoginBTN = new javax.swing.JButton();
-        ExitBTN = new javax.swing.JButton();
         RegBTN = new javax.swing.JButton();
+        AboutBTN = new javax.swing.JButton();
+        ExitBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 102));
-        setPreferredSize(new java.awt.Dimension(1280, 800));
 
         JudulGame.setFont(new java.awt.Font("Goudy Stout", 0, 18)); // NOI18N
         JudulGame.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -35,12 +36,9 @@ public class NewFrame extends JFrame {
 
         LoginBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
         LoginBTN.setText("LOGIN");
-
-        ExitBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
-        ExitBTN.setText("EXit");
-        ExitBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitBTNActionPerformed(evt);
+        LoginBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LoginBTNMouseClicked(evt);
             }
         });
 
@@ -52,34 +50,54 @@ public class NewFrame extends JFrame {
             }
         });
 
+        AboutBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
+        AboutBTN.setText("REGISTER");
+        AboutBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutBTNActionPerformed(evt);
+            }
+        });
+
+        ExitBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
+        ExitBTN.setText("EXit");
+        ExitBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(392, 392, 392)
-                .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(403, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(403, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(478, 478, 478))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(354, 354, 354))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AboutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(440, 440, 440))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(57, 57, 57)
                 .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(43, 43, 43)
+                .addComponent(AboutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
                 .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(99, 99, 99))
         );
 
         pack();
@@ -87,13 +105,34 @@ public class NewFrame extends JFrame {
 
     private void ExitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBTNActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ExitBTNActionPerformed
+
+    private void AboutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutBTNActionPerformed
+        // TODO add your handling code here:
+        JFrame about = new JFrame("About Memory Game");
+        JPanel panel = new JPanel();  
+        panel.setLayout(new FlowLayout());  
+        JLabel label = new JLabel("Test Button Jangan di click -> ");  
+        JButton button = new JButton();  
+        button.setText("Tombol Klik");  
+        panel.add(label);  
+        panel.add(button);  
+        about.add(panel);  
+        about.setSize(400, 900);  
+        about.setLocationRelativeTo(null);  
+        about.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        about.setVisible(true);  
+    }//GEN-LAST:event_AboutBTNActionPerformed
 
     private void RegBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegBTNActionPerformed
         // TODO add your handling code here:
-        JFrame x = new JFrame("YOOSS");
-        
     }//GEN-LAST:event_RegBTNActionPerformed
+
+    private void LoginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBTNMouseClicked
+        // TODO add your handling code here:
+        JOptionPane j = new JOptionPane(this);
+    }//GEN-LAST:event_LoginBTNMouseClicked
     
     /**
      * @param args the command line arguments
@@ -133,6 +172,7 @@ public class NewFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AboutBTN;
     private javax.swing.JButton ExitBTN;
     private javax.swing.JLabel JudulGame;
     private javax.swing.JButton LoginBTN;
