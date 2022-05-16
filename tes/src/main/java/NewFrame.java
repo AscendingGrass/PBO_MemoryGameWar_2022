@@ -38,6 +38,11 @@ public class NewFrame extends JFrame {
         JudulGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         PlayPanel.setBackground(new java.awt.Color(255, 0, 0));
+        PlayPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PlayPanelMouseEntered(evt);
+            }
+        });
 
         PlayLabel.setBackground(new java.awt.Color(255, 0, 0));
         PlayLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
@@ -62,6 +67,11 @@ public class NewFrame extends JFrame {
         AboutLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
         AboutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AboutLabel.setText("ABOUT");
+        AboutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                AboutLabelMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AboutPanelLayout = new javax.swing.GroupLayout(AboutPanel);
         AboutPanel.setLayout(AboutPanelLayout);
@@ -138,6 +148,46 @@ public class NewFrame extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PlayPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPanelMouseEntered
+        // TODO add your handling code here:
+        PlayPanel.setVisible(false);
+    }//GEN-LAST:event_PlayPanelMouseEntered
+
+    private void AboutLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutLabelMousePressed
+        // TODO add your handling code here:
+        JFrame  frame = new JFrame("JoptionPane Test");
+        frame.setSize(200, 200);
+        frame.setLocationRelativeTo(this);
+        frame.setVisible(true);
+        JOptionPane.showMessageDialog(frame, "Hello Java");
+        JOptionPane.showMessageDialog(frame, "You have less amount, please recharge","Apocalyptic message", JOptionPane.WARNING_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this, "Do you want to remove item now?");
+        switch (result) {
+           case JOptionPane.YES_OPTION:
+           System.out.println("Yes");
+           break;
+           case JOptionPane.NO_OPTION:
+           System.out.println("No");
+           break;
+           case JOptionPane.CANCEL_OPTION:
+           System.out.println("Cancel");
+           break;
+           case JOptionPane.CLOSED_OPTION:
+           System.out.println("Closed");
+           break;
+        }
+        String name = JOptionPane.showInputDialog(this, "Please enter your name.");
+        System.out.println(name);
+        JTextField userField = new JTextField();
+        JPasswordField passField = new JPasswordField();
+        String message = "Please enter your user name and password.";
+        result = JOptionPane.showOptionDialog(frame, new Object[] {message, userField, passField},
+        "Login", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if (result == JOptionPane.OK_OPTION)
+        System.out.println(userField.getText() + " " + new String(passField.getPassword()));
+        System.exit(0);
+    }//GEN-LAST:event_AboutLabelMousePressed
     
     /**
      * @param args the command line arguments
