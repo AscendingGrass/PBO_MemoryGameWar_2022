@@ -10,8 +10,7 @@ public class Player {
     }
     
     public void receiveDmg(int dmg){
-        if(hp - dmg >= 0)hp -= dmg;
-        else hp = 0;
+        hp = (hp - dmg >= 0)? hp-dmg : 0;
     }
     public void attack(Player p, Skill x){
         //p.receiveDmg(x.);
