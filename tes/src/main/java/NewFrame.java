@@ -20,11 +20,12 @@ public class NewFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MainPanel = new javax.swing.JPanel();
         JudulGame = new javax.swing.JLabel();
-        LoginBTN = new javax.swing.JButton();
-        RegBTN = new javax.swing.JButton();
-        AboutBTN = new javax.swing.JButton();
-        ExitBTN = new javax.swing.JButton();
+        PlayPanel = new javax.swing.JPanel();
+        PlayLabel = new javax.swing.JLabel();
+        AboutPanel = new javax.swing.JPanel();
+        AboutLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 102));
@@ -34,105 +35,83 @@ public class NewFrame extends JFrame {
         JudulGame.setText("MEMORY GAME");
         JudulGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        LoginBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
-        LoginBTN.setText("LOGIN");
-        LoginBTN.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoginBTNMouseClicked(evt);
-            }
-        });
+        PlayLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
+        PlayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PlayLabel.setText("PLAY");
 
-        RegBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
-        RegBTN.setText("REGISTER");
-        RegBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegBTNActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout PlayPanelLayout = new javax.swing.GroupLayout(PlayPanel);
+        PlayPanel.setLayout(PlayPanelLayout);
+        PlayPanelLayout.setHorizontalGroup(
+            PlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlayPanelLayout.createSequentialGroup()
+                .addComponent(PlayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PlayPanelLayout.setVerticalGroup(
+            PlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlayPanelLayout.createSequentialGroup()
+                .addComponent(PlayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        AboutBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
-        AboutBTN.setText("REGISTER");
-        AboutBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AboutBTNActionPerformed(evt);
-            }
-        });
+        AboutLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
+        AboutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AboutLabel.setText("ABOUT");
 
-        ExitBTN.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
-        ExitBTN.setText("EXit");
-        ExitBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitBTNActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout AboutPanelLayout = new javax.swing.GroupLayout(AboutPanel);
+        AboutPanel.setLayout(AboutPanelLayout);
+        AboutPanelLayout.setHorizontalGroup(
+            AboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(AboutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+        );
+        AboutPanelLayout.setVerticalGroup(
+            AboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(AboutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
+        MainPanel.setLayout(MainPanelLayout);
+        MainPanelLayout.setHorizontalGroup(
+            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addContainerGap(404, Short.MAX_VALUE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(347, 347, 347))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(AboutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PlayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(438, 438, 438))))
+        );
+        MainPanelLayout.setVerticalGroup(
+            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(PlayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(AboutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(281, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(403, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(354, 354, 354))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AboutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(440, 440, 440))))
+                .addContainerGap()
+                .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(RegBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(AboutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(ExitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ExitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBTNActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_ExitBTNActionPerformed
-
-    private void AboutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutBTNActionPerformed
-        // TODO add your handling code here:
-        JFrame about = new JFrame("About Memory Game");
-        JPanel panel = new JPanel();  
-        panel.setLayout(new FlowLayout());  
-        JLabel label = new JLabel("Test Button Jangan di click -> ");  
-        JButton button = new JButton();  
-        button.setText("Tombol Klik");  
-        panel.add(label);  
-        panel.add(button);  
-        about.add(panel);  
-        about.setSize(400, 900);  
-        about.setLocationRelativeTo(null);  
-        about.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        about.setVisible(true);  
-    }//GEN-LAST:event_AboutBTNActionPerformed
-
-    private void RegBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegBTNActionPerformed
-
-    private void LoginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBTNMouseClicked
-        // TODO add your handling code here:
-        JOptionPane j = new JOptionPane(this);
-    }//GEN-LAST:event_LoginBTNMouseClicked
     
     /**
      * @param args the command line arguments
@@ -172,10 +151,11 @@ public class NewFrame extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AboutBTN;
-    private javax.swing.JButton ExitBTN;
+    private javax.swing.JLabel AboutLabel;
+    private javax.swing.JPanel AboutPanel;
     private javax.swing.JLabel JudulGame;
-    private javax.swing.JButton LoginBTN;
-    private javax.swing.JButton RegBTN;
+    private javax.swing.JPanel MainPanel;
+    private javax.swing.JLabel PlayLabel;
+    private javax.swing.JPanel PlayPanel;
     // End of variables declaration//GEN-END:variables
 }
