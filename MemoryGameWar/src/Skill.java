@@ -2,7 +2,20 @@
 public abstract class Skill
 {
     public static Skill[] skills = new Skill[]{
-        
+        new Fireball(),
+        new IceBlast(),
+        new MeteorStorm(),
+        new ChainLightning(),
+        new QuickSlash(),
+        new Absorb(),
+        new DoubleEdge(),
+        new VincentS(),
+        new Dodge(),
+        new RevengeCounter(),
+        new Recover(),
+        new QuickSand(),
+        new TrapHole(),
+        new MirrorImage()
     };
     
     public final String name, description;
