@@ -66,10 +66,10 @@ class DoubleEdge extends Skill
     }
 }
 
-class Vincent extends Skill
+class VincentS extends Skill
 {
-    public Vincent(){
-	super("Vincent", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%.", 20);
+    public VincentS(){
+	super("Vincent Soesanto", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%.", 20);
     }
 }
 
