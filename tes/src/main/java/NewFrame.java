@@ -26,6 +26,8 @@ public class NewFrame extends JFrame {
         PlayLabel = new javax.swing.JLabel();
         AboutPanel = new javax.swing.JPanel();
         AboutLabel = new javax.swing.JLabel();
+        ExitPanel = new javax.swing.JPanel();
+        ExitLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 102));
@@ -35,6 +37,9 @@ public class NewFrame extends JFrame {
         JudulGame.setText("MEMORY GAME");
         JudulGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        PlayPanel.setBackground(new java.awt.Color(255, 0, 0));
+
+        PlayLabel.setBackground(new java.awt.Color(255, 0, 0));
         PlayLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
         PlayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlayLabel.setText("PLAY");
@@ -43,17 +48,17 @@ public class NewFrame extends JFrame {
         PlayPanel.setLayout(PlayPanelLayout);
         PlayPanelLayout.setHorizontalGroup(
             PlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlayPanelLayout.createSequentialGroup()
-                .addComponent(PlayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PlayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
         );
         PlayPanelLayout.setVerticalGroup(
             PlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlayPanelLayout.createSequentialGroup()
-                .addComponent(PlayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PlayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
         );
 
+        AboutPanel.setBackground(new java.awt.Color(255, 255, 0));
+        AboutPanel.setPreferredSize(new java.awt.Dimension(292, 64));
+
+        AboutLabel.setBackground(new java.awt.Color(255, 255, 0));
         AboutLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
         AboutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AboutLabel.setText("ABOUT");
@@ -62,11 +67,29 @@ public class NewFrame extends JFrame {
         AboutPanel.setLayout(AboutPanelLayout);
         AboutPanelLayout.setHorizontalGroup(
             AboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AboutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+            .addComponent(AboutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
         );
         AboutPanelLayout.setVerticalGroup(
             AboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AboutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addComponent(AboutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+        );
+
+        ExitPanel.setBackground(new java.awt.Color(0, 255, 0));
+        ExitPanel.setPreferredSize(new java.awt.Dimension(292, 64));
+
+        ExitLabel.setFont(new java.awt.Font("Orbitron", 0, 24)); // NOI18N
+        ExitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ExitLabel.setText("EXIT");
+
+        javax.swing.GroupLayout ExitPanelLayout = new javax.swing.GroupLayout(ExitPanel);
+        ExitPanel.setLayout(ExitPanelLayout);
+        ExitPanelLayout.setHorizontalGroup(
+            ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ExitLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+        );
+        ExitPanelLayout.setVerticalGroup(
+            ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ExitLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
@@ -81,8 +104,9 @@ public class NewFrame extends JFrame {
                         .addGap(347, 347, 347))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(AboutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PlayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PlayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ExitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AboutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(438, 438, 438))))
         );
         MainPanelLayout.setVerticalGroup(
@@ -92,9 +116,11 @@ public class NewFrame extends JFrame {
                 .addComponent(JudulGame, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
                 .addComponent(PlayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(42, 42, 42)
                 .addComponent(AboutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(ExitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,6 +179,8 @@ public class NewFrame extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AboutLabel;
     private javax.swing.JPanel AboutPanel;
+    private javax.swing.JLabel ExitLabel;
+    private javax.swing.JPanel ExitPanel;
     private javax.swing.JLabel JudulGame;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel PlayLabel;
