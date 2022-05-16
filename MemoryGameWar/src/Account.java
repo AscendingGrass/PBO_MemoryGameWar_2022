@@ -1,8 +1,13 @@
+
+import java.util.ArrayList;
+
 public class Account{
     public final String username;
-    //LinkList<Deck> deck;
+    ArrayList<Skill> skill = new ArrayList();
     public Account(String username) {
         this.username = username;
     }
-    
+    public void mySkill(){
+        
+    }
 }
