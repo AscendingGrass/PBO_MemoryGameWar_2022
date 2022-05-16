@@ -1,8 +1,15 @@
 public class Account{
     public final String username;
-    Skill[] skill = new Skill [5];
+    public Skill[] deck = new Skill [5];
     public Account(String username) {
         this.username = username;
+    }
+    public boolean deckIsNotFilled(){
+        for(Skill i : deck){
+            if (i == null)
+                return true;
+        }
+        return false;
     }
     
 }
