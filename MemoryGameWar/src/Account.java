@@ -1,9 +1,6 @@
-
-import java.util.ArrayList;
-
 public class Account{
     public final String username;
-    ArrayList<Skill> skill = new ArrayList();
+    Skill[] skill = new Skill [5];
     public Account(String username) {
         this.username = username;
     }
