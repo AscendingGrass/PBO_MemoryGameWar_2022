@@ -1,15 +1,7 @@
 
 import javax.swing.JFrame;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author mejap
- */
+import java.awt.*;
+import javax.swing.*;
 public class Program extends javax.swing.JFrame {
 
     /**
@@ -32,11 +24,16 @@ public class Program extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jp_mainMenu = new javax.swing.JPanel();
         jp_PlayButton = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jl_Play = new javax.swing.JLabel();
         jp_DeckButton = new javax.swing.JPanel();
+        jl_Deck = new javax.swing.JLabel();
+        jp_HelpButton = new javax.swing.JPanel();
+        jl_Help = new javax.swing.JLabel();
+        jp_ChangeAccountButton = new javax.swing.JPanel();
+        jl_ChangeAccount = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -51,64 +48,112 @@ public class Program extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jp_PlayButton.setBackground(new java.awt.Color(255, 51, 51));
+        jp_PlayButton.setBackground(new java.awt.Color(0, 0, 0));
+        jp_PlayButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PLAY");
+        jl_Play.setBackground(new java.awt.Color(255, 255, 255));
+        jl_Play.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_Play.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Play.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Play.setText("PLAY");
 
         javax.swing.GroupLayout jp_PlayButtonLayout = new javax.swing.GroupLayout(jp_PlayButton);
         jp_PlayButton.setLayout(jp_PlayButtonLayout);
         jp_PlayButtonLayout.setHorizontalGroup(
             jp_PlayButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 144, Short.MAX_VALUE)
             .addGroup(jp_PlayButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayButtonLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jl_Play, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
         );
         jp_PlayButtonLayout.setVerticalGroup(
             jp_PlayButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 32, Short.MAX_VALUE)
             .addGroup(jp_PlayButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jp_PlayButtonLayout.createSequentialGroup()
+                    .addComponent(jl_Play)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jp_DeckButton.setBackground(new java.awt.Color(255, 0, 0));
+        jp_DeckButton.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setBackground(new java.awt.Color(255, 0, 51));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("DECK");
+        jl_Deck.setBackground(new java.awt.Color(255, 255, 255));
+        jl_Deck.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_Deck.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Deck.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Deck.setText("DECK");
 
         javax.swing.GroupLayout jp_DeckButtonLayout = new javax.swing.GroupLayout(jp_DeckButton);
         jp_DeckButton.setLayout(jp_DeckButtonLayout);
         jp_DeckButtonLayout.setHorizontalGroup(
             jp_DeckButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jl_Deck, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
         );
         jp_DeckButtonLayout.setVerticalGroup(
             jp_DeckButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckButtonLayout.createSequentialGroup()
+            .addComponent(jl_Deck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jp_HelpButton.setBackground(new java.awt.Color(0, 0, 0));
+
+        jl_Help.setBackground(new java.awt.Color(255, 255, 255));
+        jl_Help.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_Help.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Help.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Help.setText("HELP");
+        jl_Help.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jp_HelpButtonLayout = new javax.swing.GroupLayout(jp_HelpButton);
+        jp_HelpButton.setLayout(jp_HelpButtonLayout);
+        jp_HelpButtonLayout.setHorizontalGroup(
+            jp_HelpButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Help, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+        );
+        jp_HelpButtonLayout.setVerticalGroup(
+            jp_HelpButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Help, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jp_ChangeAccountButton.setBackground(new java.awt.Color(255, 255, 255));
+
+        jl_ChangeAccount.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_ChangeAccount.setForeground(new java.awt.Color(0, 0, 0));
+        jl_ChangeAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_ChangeAccount.setText("Change Account");
+
+        javax.swing.GroupLayout jp_ChangeAccountButtonLayout = new javax.swing.GroupLayout(jp_ChangeAccountButton);
+        jp_ChangeAccountButton.setLayout(jp_ChangeAccountButtonLayout);
+        jp_ChangeAccountButtonLayout.setHorizontalGroup(
+            jp_ChangeAccountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_ChangeAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jp_ChangeAccountButtonLayout.setVerticalGroup(
+            jp_ChangeAccountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_ChangeAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("welcome,ready");
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("OPTION");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2))
-        );
-
-        jPanel4.setBackground(new java.awt.Color(255, 0, 51));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("HELP");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jp_mainMenuLayout = new javax.swing.GroupLayout(jp_mainMenu);
@@ -116,23 +161,39 @@ public class Program extends javax.swing.JFrame {
         jp_mainMenuLayout.setHorizontalGroup(
             jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_mainMenuLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jp_DeckButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_PlayButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(524, Short.MAX_VALUE))
+                .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mainMenuLayout.createSequentialGroup()
+                        .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(630, 630, 630))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mainMenuLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jp_ChangeAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jp_mainMenuLayout.createSequentialGroup()
+                        .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jp_mainMenuLayout.setVerticalGroup(
             jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_mainMenuLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mainMenuLayout.createSequentialGroup()
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
+                .addGap(30, 30, 30)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_ChangeAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -156,7 +217,7 @@ public class Program extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 419, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -205,11 +266,16 @@ public class Program extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jl_ChangeAccount;
+    private javax.swing.JLabel jl_Deck;
+    private javax.swing.JLabel jl_Help;
+    private javax.swing.JLabel jl_Play;
+    private javax.swing.JPanel jp_ChangeAccountButton;
     private javax.swing.JPanel jp_DeckButton;
+    private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_mainMenu;
     // End of variables declaration//GEN-END:variables
