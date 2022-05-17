@@ -13,7 +13,9 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Mekanisme play = new Mekanisme();
+        char[] temp = {'I', ' ', 'm', 'i', 's', 's', ' ', 'y', 'o', 'u', '.'};
+        String x = new String(temp, 2, 4);
+        System.out.println(x);
     }
     
 }
