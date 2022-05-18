@@ -90,34 +90,32 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jp_PlayButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jp_OptionButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="jp_DeckButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="jp_HelpButton" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jp_PlayButton" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jl_logo" min="-2" pref="114" max="-2" attributes="0"/>
-                      <EmptySpace pref="323" max="32767" attributes="0"/>
+                      <EmptySpace pref="401" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace pref="89" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jp_PlayButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jp_DeckButton" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jl_logo" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jl_logo" pref="103" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jp_OptionButton" min="-2" max="-2" attributes="0"/>
@@ -142,7 +140,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="welcome,ready"/>
+                <Property name="text" type="java.lang.String" value="welcome,yurtan"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jp_PlayButton">
@@ -195,6 +193,9 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="PLAY"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jl_PlayMousePressed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

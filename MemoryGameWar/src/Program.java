@@ -52,7 +52,7 @@ public class Program extends javax.swing.JFrame {
         jl_AccountName.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jl_AccountName.setForeground(new java.awt.Color(255, 255, 255));
         jl_AccountName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jl_AccountName.setText("welcome,ready");
+        jl_AccountName.setText("welcome,yurtan");
 
         jp_PlayButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_PlayButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -70,6 +70,11 @@ public class Program extends javax.swing.JFrame {
         jl_Play.setForeground(new java.awt.Color(255, 255, 255));
         jl_Play.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_Play.setText("PLAY");
+        jl_Play.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jl_PlayMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_PlayButtonLayout = new javax.swing.GroupLayout(jp_PlayButton);
         jp_PlayButton.setLayout(jp_PlayButtonLayout);
@@ -203,28 +208,27 @@ public class Program extends javax.swing.JFrame {
                         .addComponent(jl_AccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(jp_mainMenuLayout.createSequentialGroup()
-                .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jp_HelpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(84, 84, 84)
+                        .addComponent(jp_HelpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jl_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jp_mainMenuLayout.setVerticalGroup(
             jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_mainMenuLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
                 .addGroup(jp_mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_mainMenuLayout.createSequentialGroup()
-                        .addContainerGap(89, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(31, 31, 31)
                         .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_mainMenuLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jl_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jl_logo, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(jp_OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -304,6 +308,11 @@ public class Program extends javax.swing.JFrame {
         jp_HelpButton.setBackground(Color.black);
         jl_Help.setForeground(Color.white);
     }//GEN-LAST:event_jp_HelpButtonMouseExited
+
+    private void jl_PlayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_PlayMousePressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jl_PlayMousePressed
 
     /**
      * @param args the command line arguments
