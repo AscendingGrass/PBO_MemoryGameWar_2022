@@ -57,6 +57,9 @@ public class Program extends javax.swing.JFrame {
         jp_PlayButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_PlayButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jp_PlayButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_PlayButtonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jp_PlayButtonMouseEntered(evt);
             }
@@ -70,11 +73,6 @@ public class Program extends javax.swing.JFrame {
         jl_Play.setForeground(new java.awt.Color(255, 255, 255));
         jl_Play.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_Play.setText("PLAY");
-        jl_Play.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jl_PlayMousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jp_PlayButtonLayout = new javax.swing.GroupLayout(jp_PlayButton);
         jp_PlayButton.setLayout(jp_PlayButtonLayout);
@@ -326,11 +324,6 @@ public class Program extends javax.swing.JFrame {
         jl_Help.setForeground(Color.white);
     }//GEN-LAST:event_jp_HelpButtonMouseExited
 
-    private void jl_PlayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_PlayMousePressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jl_PlayMousePressed
-
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         // TODO add your handling code here:
         jp_changeAcc.setBackground(Color.black);
@@ -343,6 +336,13 @@ public class Program extends javax.swing.JFrame {
         jl_changeAcc.setForeground(Color.black);
     }//GEN-LAST:event_jp_changeAccMouseExited
 
+    private void jp_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseClicked
+        // TODO add your handling code here:
+        NewFrame playFrame = new NewFrame();
+        this.setVisible(false);
+        playFrame.setVisible(true);
+    }//GEN-LAST:event_jp_PlayButtonMouseClicked
+    
     /**
      * @param args the command line arguments
      */
