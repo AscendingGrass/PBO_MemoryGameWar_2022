@@ -40,7 +40,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="786" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="804" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="jp_Background" alignment="1" max="32767" attributes="0"/>
           </Group>
@@ -59,27 +59,19 @@
     <Container class="javax.swing.JPanel" name="jp_Background">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
+          <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jp_MainMenu" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+              <Component id="jp_MainMenu" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jp_MainMenu" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+              <Component id="jp_MainMenu" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -89,28 +81,25 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jp_OptionButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jp_DeckButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jp_HelpButton" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jp_PlayButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jl_logo" min="-2" pref="114" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="527" max="32767" attributes="0"/>
+                              <EmptySpace min="113" pref="551" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jp_changeAcc" min="-2" max="-2" attributes="0"/>
                                   <Component id="jl_AccountName" min="-2" pref="241" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jp_PlayButton" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jp_OptionButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jp_DeckButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jp_HelpButton" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -120,16 +109,10 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jp_PlayButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jp_DeckButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jl_logo" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="106" max="32767" attributes="0"/>
+                      <Component id="jp_PlayButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="jp_DeckButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jp_OptionButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -334,8 +317,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jl_logo">
-            </Component>
             <Container class="javax.swing.JPanel" name="jp_changeAcc">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
