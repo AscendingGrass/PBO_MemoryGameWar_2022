@@ -49,6 +49,8 @@ public class Program extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jp_Background.setBackground(new java.awt.Color(102, 102, 102));
+
         jl_AccountName.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jl_AccountName.setForeground(new java.awt.Color(255, 255, 255));
         jl_AccountName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -283,57 +285,54 @@ public class Program extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void setColor(JPanel p, JLabel x){
+        p.setBackground(Color.WHITE);
+        x.setForeground(Color.BLACK);
+    }
+    public void resetColor(JPanel p, JLabel l){
+        p.setBackground(Color.BLACK);
+        l.setForeground(Color.WHITE);
+    }
     private void jp_PlayButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseEntered
-        jp_PlayButton.setBackground(Color.white);
-        jl_Play.setForeground(Color.black);
+        setColor(jp_PlayButton, jl_Play);
     }//GEN-LAST:event_jp_PlayButtonMouseEntered
 
     private void jp_PlayButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseExited
-        jp_PlayButton.setBackground(Color.black);
-        jl_Play.setForeground(Color.white);
+        resetColor(jp_PlayButton, jl_Play);
     }//GEN-LAST:event_jp_PlayButtonMouseExited
 
     private void jp_DeckButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseEntered
-        jp_DeckButton.setBackground(Color.white);
-        jl_Deck.setForeground(Color.black);
+        setColor(jp_DeckButton, jl_Deck);
     }//GEN-LAST:event_jp_DeckButtonMouseEntered
 
     private void jp_DeckButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseExited
-        jp_DeckButton.setBackground(Color.black);
-        jl_Deck.setForeground(Color.white);
+        resetColor(jp_DeckButton, jl_Deck);
     }//GEN-LAST:event_jp_DeckButtonMouseExited
 
     private void jp_OptionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseEntered
-        jp_OptionButton.setBackground(Color.white);
-        jl_Option.setForeground(Color.black);
+        setColor(jp_OptionButton, jl_Option);
     }//GEN-LAST:event_jp_OptionButtonMouseEntered
 
     private void jp_OptionButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseExited
-        jp_OptionButton.setBackground(Color.black);
-        jl_Option.setForeground(Color.white);
+        resetColor(jp_OptionButton, jl_Option);
     }//GEN-LAST:event_jp_OptionButtonMouseExited
 
     private void jp_HelpButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseEntered
-        jp_HelpButton.setBackground(Color.white);
-        jl_Help.setForeground(Color.black);
+        setColor(jp_HelpButton, jl_Help);
     }//GEN-LAST:event_jp_HelpButtonMouseEntered
 
     private void jp_HelpButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseExited
-        jp_HelpButton.setBackground(Color.black);
-        jl_Help.setForeground(Color.white);
+        resetColor(jp_HelpButton, jl_Help);
     }//GEN-LAST:event_jp_HelpButtonMouseExited
 
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         // TODO add your handling code here:
-        jp_changeAcc.setBackground(Color.black);
-        jl_changeAcc.setForeground(Color.white);
+        resetColor(jp_changeAcc, jl_changeAcc);
     }//GEN-LAST:event_jp_changeAccMouseEntered
 
     private void jp_changeAccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseExited
         // TODO add your handling code here:
-        jp_changeAcc.setBackground(Color.white);
-        jl_changeAcc.setForeground(Color.black);
+        setColor(jp_changeAcc, jl_changeAcc);
     }//GEN-LAST:event_jp_changeAccMouseExited
 
     private void jp_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseClicked
@@ -371,13 +370,9 @@ public class Program extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame program = new Program();
-                program.setVisible(true);
-
-                
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            JFrame program = new Program();
+            program.setVisible(true);
         });
     }
 
