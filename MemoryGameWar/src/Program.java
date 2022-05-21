@@ -4,11 +4,20 @@ import java.awt.*;
 import javax.swing.*;
 public class Program extends javax.swing.JFrame {
 
+    static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    
     /**
      * Creates new form Program
      */
     public Program() {
+        this.setUndecorated(true);
         initComponents();
+    }
+    
+    public final void fullScreen()
+    {
+        this.setResizable(false);
+        gd.setFullScreenWindow(this);
     }
 
     /**
@@ -32,6 +41,8 @@ public class Program extends javax.swing.JFrame {
         jl_Help = new javax.swing.JLabel();
         jp_OptionButton = new javax.swing.JPanel();
         jl_Option = new javax.swing.JLabel();
+        jp_ExitButton = new javax.swing.JPanel();
+        jl_Exit = new javax.swing.JLabel();
         jp_changeAcc = new javax.swing.JPanel();
         jl_changeAcc = new javax.swing.JLabel();
 
@@ -62,10 +73,10 @@ public class Program extends javax.swing.JFrame {
                 jp_PlayButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_PlayButtonMouseEntered(evt);
+                jp_MenuButtonEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_PlayButtonMouseExited(evt);
+                jp_ExitButtonMouseExited(evt);
             }
         });
 
@@ -95,10 +106,10 @@ public class Program extends javax.swing.JFrame {
         jp_DeckButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_DeckButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_DeckButtonMouseEntered(evt);
+                jp_MenuButtonEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_DeckButtonMouseExited(evt);
+                jp_ExitButtonMouseExited(evt);
             }
         });
 
@@ -122,10 +133,10 @@ public class Program extends javax.swing.JFrame {
         jp_HelpButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_HelpButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_HelpButtonMouseEntered(evt);
+                jp_MenuButtonEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_HelpButtonMouseExited(evt);
+                jp_ExitButtonMouseExited(evt);
             }
         });
 
@@ -150,10 +161,10 @@ public class Program extends javax.swing.JFrame {
         jp_OptionButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_OptionButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_OptionButtonMouseEntered(evt);
+                jp_MenuButtonEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_OptionButtonMouseExited(evt);
+                jp_ExitButtonMouseExited(evt);
             }
         });
 
@@ -173,6 +184,37 @@ public class Program extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionButtonLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jl_Option))
+        );
+
+        jp_ExitButton.setBackground(new java.awt.Color(0, 0, 0));
+        jp_ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_ExitButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_ExitButtonMouseExited(evt);
+            }
+        });
+
+        jl_Exit.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_Exit.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Exit.setText("EXIT");
+
+        javax.swing.GroupLayout jp_ExitButtonLayout = new javax.swing.GroupLayout(jp_ExitButton);
+        jp_ExitButton.setLayout(jp_ExitButtonLayout);
+        jp_ExitButtonLayout.setHorizontalGroup(
+            jp_ExitButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jp_ExitButtonLayout.setVerticalGroup(
+            jp_ExitButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_ExitButtonLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jl_Exit))
         );
 
         jp_changeAcc.setBackground(new java.awt.Color(255, 255, 255));
@@ -209,20 +251,17 @@ public class Program extends javax.swing.JFrame {
         jp_MainMenuLayout.setHorizontalGroup(
             jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_MainMenuLayout.createSequentialGroup()
+                .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jp_ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_PlayButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_HelpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                 .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
-                        .addGap(113, 551, Short.MAX_VALUE)
-                        .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_AccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp_MainMenuLayout.createSequentialGroup()
-                        .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jp_HelpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_AccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jp_MainMenuLayout.setVerticalGroup(
@@ -236,10 +275,15 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jp_OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jl_AccountName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_MainMenuLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_AccountName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_MainMenuLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jp_ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
 
@@ -279,37 +323,6 @@ public class Program extends javax.swing.JFrame {
         p.setBackground(Color.BLACK);
         l.setForeground(Color.WHITE);
     }
-    private void jp_PlayButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseEntered
-        setColor(jp_PlayButton, jl_Play);
-    }//GEN-LAST:event_jp_PlayButtonMouseEntered
-
-    private void jp_PlayButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseExited
-        resetColor(jp_PlayButton, jl_Play);
-    }//GEN-LAST:event_jp_PlayButtonMouseExited
-
-    private void jp_DeckButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseEntered
-        setColor(jp_DeckButton, jl_Deck);
-    }//GEN-LAST:event_jp_DeckButtonMouseEntered
-
-    private void jp_DeckButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseExited
-        resetColor(jp_DeckButton, jl_Deck);
-    }//GEN-LAST:event_jp_DeckButtonMouseExited
-
-    private void jp_OptionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseEntered
-        setColor(jp_OptionButton, jl_Option);
-    }//GEN-LAST:event_jp_OptionButtonMouseEntered
-
-    private void jp_OptionButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseExited
-        resetColor(jp_OptionButton, jl_Option);
-    }//GEN-LAST:event_jp_OptionButtonMouseExited
-
-    private void jp_HelpButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseEntered
-        setColor(jp_HelpButton, jl_Help);
-    }//GEN-LAST:event_jp_HelpButtonMouseEntered
-
-    private void jp_HelpButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseExited
-        resetColor(jp_HelpButton, jl_Help);
-    }//GEN-LAST:event_jp_HelpButtonMouseExited
 
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         resetColor(jp_changeAcc, jl_changeAcc);
@@ -322,6 +335,29 @@ public class Program extends javax.swing.JFrame {
     private void jp_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseClicked
         
     }//GEN-LAST:event_jp_PlayButtonMouseClicked
+
+    private void jp_MenuButtonEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MenuButtonEntered
+        // TODO add your handling code here:
+        if(evt.getSource() instanceof JPanel jp)
+        {
+            ((JLabel)jp.getComponent(0)).setForeground(Color.BLACK);
+            jp.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_jp_MenuButtonEntered
+
+    private void jp_ExitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseExited
+        // TODO add your handling code here:
+        if(evt.getSource() instanceof JPanel jp)
+        {
+            ((JLabel)jp.getComponent(0)).setForeground(Color.WHITE);
+            jp.setBackground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jp_ExitButtonMouseExited
+
+    private void jp_ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jp_ExitButtonMouseClicked
     
     /**
      * @param args the command line arguments
@@ -352,8 +388,8 @@ public class Program extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            JFrame program = new Program();
-            program.setVisible(true);
+            Program program = new Program();
+            program.fullScreen();
         });
     }
 
@@ -361,12 +397,14 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_Deck;
+    private javax.swing.JLabel jl_Exit;
     private javax.swing.JLabel jl_Help;
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
     private javax.swing.JLabel jl_changeAcc;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JPanel jp_DeckButton;
+    private javax.swing.JPanel jp_ExitButton;
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
