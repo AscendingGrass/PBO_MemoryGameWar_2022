@@ -1,3 +1,5 @@
+package mgw.util;
+
 public class Node<T> {
     T konstanta;
     Node<T> right;

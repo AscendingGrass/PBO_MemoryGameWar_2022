@@ -1,4 +1,9 @@
+package mgw.gameplay;
+
+import mgw.main.Account;
+
 public class Player {
+    private Account user;
     private int hp = 100;
     private int sp = 0;
     

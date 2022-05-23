@@ -1,3 +1,5 @@
+package mgw.util;
+
 public class LinkList<T>{
     private Node<T> head;
     private int size;

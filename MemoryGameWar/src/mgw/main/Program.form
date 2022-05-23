@@ -85,11 +85,9 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jp_ExitButton" max="32767" attributes="0"/>
                           <Component id="jp_PlayButton" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jp_OptionButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jp_DeckButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jp_HelpButton" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jp_OptionButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jp_DeckButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jp_HelpButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="286" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">

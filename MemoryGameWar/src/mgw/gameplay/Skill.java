@@ -1,4 +1,6 @@
 
+package mgw.gameplay;
+
 public abstract class Skill
 {
     public static Skill[] skills = new Skill[]{

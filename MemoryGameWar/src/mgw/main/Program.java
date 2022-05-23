@@ -1,7 +1,10 @@
+package mgw.main;
+
 
 import javax.swing.JFrame;
 import java.awt.*;
 import javax.swing.*;
+
 public class Program extends javax.swing.JFrame {
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();

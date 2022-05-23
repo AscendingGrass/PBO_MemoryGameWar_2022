@@ -1,3 +1,8 @@
+package mgw.main;
+
+
+import mgw.gameplay.*;
+
 public class Account{
     public final String username;
     public Skill[] deck = new Skill [5];
