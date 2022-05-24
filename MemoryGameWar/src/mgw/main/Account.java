@@ -1,6 +1,5 @@
 package mgw.main;
 
-
 import mgw.gameplay.*;
 
 public class Account{
@@ -9,11 +8,11 @@ public class Account{
     public Account(String username) {
         this.username = username;
     }
+    
     public boolean deckIsNotFilled(){
-        for(Skill i : deck){
-            if (i == null)
-                return true;
-        }
+        for(Skill i : deck)
+            if (i == null) return true;
+
         return false;
     }
 

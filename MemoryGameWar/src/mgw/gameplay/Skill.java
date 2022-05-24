@@ -3,7 +3,7 @@ package mgw.gameplay;
 
 public abstract class Skill
 {
-    public static Skill[] skills = new Skill[]{
+    public static Skill[] list = {
         new Fireball(),
         new IceBlast(),
         new MeteorStorm(),
@@ -30,7 +30,14 @@ public abstract class Skill
 	this.skillPoint = skillPoint;
     }
     
-    abstract void use(Player user, Player target);
+    void use(Player user, Player target)
+    {
+        if (this instanceof IDamaging d) 
+            d.dealDamage(user, target);
+        
+        if (this instanceof ISpecialEffect se) 
+            se.cast(user, target);
+    }
 }
 
 abstract class DamagingSkill extends Skill implements IDamaging
@@ -49,7 +56,7 @@ abstract class DamagingSkill extends Skill implements IDamaging
 
     @Override
     public void dealDamage(Player user, Player target) {
-        target.receiveDmg(damage);
+        target.removeHP(damage);
     }
     
 }

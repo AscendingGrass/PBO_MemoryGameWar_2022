@@ -3,26 +3,67 @@ package mgw.gameplay;
 import mgw.main.Account;
 
 public class Player {
+    public final int maxHP = 100;
+
     private Account user;
-    private int hp = 100;
-    private int sp = 0;
+    private Skill[] deck;
+    private int HP = 100;
+    private int SP = 0;
     
-    public Player() {
-        
-    }
-    public void PlusSP(){
-        sp+=2;
+    public Player(Account player) {
+        user = player;
+        deck = player.deck;
     }
     
-    public void receiveDmg(int dmg){
-        hp = (hp - dmg >= 0)? hp-dmg : 0;
+    public int getSP()
+    {
+        return SP;
     }
-    public void attack(Player p, Skill x){
-        //p.receiveDmg(x.);
+    
+    public void setSP(int value)
+    {
+        SP = value;
     }
-    public void useSkill(Skill x){
-        if(sp >= x.skillPoint)
-            sp -= x.skillPoint;
+    
+    public void removeSP(int amount)
+    {
+        SP -= amount;
+    }
+    
+    public void addSP(int amount)
+    {
+        SP += amount;
+    }
+    
+    public int getSHP()
+    {
+        return HP;
+    }
+    
+    public void setHP(int value)
+    {
+        HP = value;
+    }
+    
+    public void removeHP(int amount)
+    {
+        HP = (HP-amount < 0) ? 0 : HP-amount;
+    }
+    
+    public void addHP(int amount)
+    {
+        HP = (HP+amount > maxHP) ? maxHP : HP+amount;
+    }
+    
+    public void useSkill(Player target, int skillIndex)
+    {
+        removeSP(deck[skillIndex].skillPoint);
+        deck[skillIndex].use(this, target);
+    }
+    
+    public boolean isDead()
+    {
+        return HP == 0;
     }
     
 }
