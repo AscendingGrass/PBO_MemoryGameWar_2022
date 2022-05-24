@@ -421,7 +421,7 @@ public class Program extends javax.swing.JFrame {
 
     private void jp_ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseClicked
         // TODO add your handling code here:
-        switch(JOptionPane.showConfirmDialog(this,"Are you sure want to exit?","WARNING!", JOptionPane.YES_NO_OPTION)){
+        switch(JOptionPane.showConfirmDialog(this,"Are you sure want to exit?","WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)){
             case 0 -> {
                 System.exit(0);
             }
