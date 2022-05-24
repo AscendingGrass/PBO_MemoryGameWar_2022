@@ -4,6 +4,8 @@
  */
 package mgw.gameplay;
 
+import mgw.util.UtilArsa;
+
 /**
  *
  * @author mejap
