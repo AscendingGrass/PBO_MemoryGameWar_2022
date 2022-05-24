@@ -595,16 +595,16 @@ public class Program extends javax.swing.JFrame {
 
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
         // TODO add your handling code here:
-        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.QUESTION_MESSAGE);
+        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.WARNING_MESSAGE);
         active[0] = null;
         for(Account i : akun){
-            if(i.username.equals(x)){
+            if(i.toString().equals(x)){
                 JOptionPane.showMessageDialog(this, "Hello, " + i);
                 active[0] = i;
             }
         }
         if(active[0] == null){
-            JOptionPane.showMessageDialog(this, "Berhasil register!, Hello, " + x);
+            JOptionPane.showConfirmDialog(this, "Berhasil register!, Hello, " + x);
             akun.add(new Account(x));
         }
         
