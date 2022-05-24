@@ -12,12 +12,9 @@ public class Program extends javax.swing.JFrame {
     /**
      * Creates new form Program
      */
-    JOptionPane EXT = new JOptionPane();
     public Program() {
         this.setUndecorated(true);
         initComponents();
-        EXT.setBackground(Color.red);
-        EXT.setForeground(Color.white);
     }
     
     public final void fullScreen()
@@ -424,10 +421,14 @@ public class Program extends javax.swing.JFrame {
 
     private void jp_ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseClicked
         // TODO add your handling code here:
-        int exit = JOptionPane.showConfirmDialog(this,"Are you sure want to exit?","WARNING!", JOptionPane.YES_NO_OPTION);
-        if(exit == JOptionPane.YES_OPTION) System.exit(0);
-        else
-            EXT.setVisible(true);
+        switch(JOptionPane.showConfirmDialog(this,"Are you sure want to exit?","WARNING!", JOptionPane.YES_NO_OPTION)){
+            case 0 -> {
+                System.exit(0);
+            }
+            case 1 -> {
+                JOptionPane.showMessageDialog(this, "Tidak Jadi Keluar","Confirmation", JOptionPane.WHEN_IN_FOCUSED_WINDOW);
+            }
+        }
     }//GEN-LAST:event_jp_ExitButtonMouseClicked
     
     /**
