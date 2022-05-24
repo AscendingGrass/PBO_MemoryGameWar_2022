@@ -65,6 +65,7 @@ public class Program extends javax.swing.JFrame {
         jp_PlayLogo2 = new javax.swing.JPanel();
         jl_PlayLogo2 = new javax.swing.JLabel();
         jp_BackButton1 = new javax.swing.JButton();
+        jp_Optionmenu = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -191,6 +192,9 @@ public class Program extends javax.swing.JFrame {
 
         jp_OptionButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_OptionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_OptionButtonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jp_MenuButtonEntered(evt);
             }
@@ -394,6 +398,11 @@ public class Program extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_DeckMenuLayout = new javax.swing.GroupLayout(jp_DeckMenu);
         jp_DeckMenu.setLayout(jp_DeckMenuLayout);
@@ -467,6 +476,19 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Background.add(jp_HelpMenu, "card3");
+
+        javax.swing.GroupLayout jp_OptionmenuLayout = new javax.swing.GroupLayout(jp_Optionmenu);
+        jp_Optionmenu.setLayout(jp_OptionmenuLayout);
+        jp_OptionmenuLayout.setHorizontalGroup(
+            jp_OptionmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 813, Short.MAX_VALUE)
+        );
+        jp_OptionmenuLayout.setVerticalGroup(
+            jp_OptionmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 454, Short.MAX_VALUE)
+        );
+
+        jp_Background.add(jp_Optionmenu, "card6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -597,19 +619,33 @@ public class Program extends javax.swing.JFrame {
         // TODO add your handling code here:
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.WARNING_MESSAGE);
         active[0] = null;
-        for(Account i : akun){
-            if(i.toString().equals(x)){
-                JOptionPane.showMessageDialog(this, "Hello, " + i);
-                active[0] = i;
+        if(!x.equals ("")){
+            for(Account i : akun){
+                if(i.toString().equals(x)){
+                    JOptionPane.showMessageDialog(this, "Hello, " + i);
+                    active[0] = i;
+                }
             }
-        }
-        if(active[0] == null){
-            JOptionPane.showConfirmDialog(this, "Berhasil register!, Hello, " + x);
-            akun.add(new Account(x));
-        }
+            if(active[0] == null){
+                JOptionPane.showConfirmDialog(this, "Berhasil register!, Hello, " + x);
+                akun.add(new Account(x));
+            }
         
-        jl_AccountName.setText("welcome, " + x);
+            jl_AccountName.setText("welcome, " + x);
+        }
     }//GEN-LAST:event_jp_changeAccMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_Optionmenu);
+    }//GEN-LAST:event_jp_OptionButtonMouseClicked
     
     /**
      * @param args the command line arguments
@@ -669,6 +705,7 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jp_HelpMenu;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
+    private javax.swing.JPanel jp_Optionmenu;
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_PlayLogo;
     private javax.swing.JPanel jp_PlayLogo2;
