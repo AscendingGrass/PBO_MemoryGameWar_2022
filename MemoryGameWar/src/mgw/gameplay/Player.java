@@ -1,8 +1,10 @@
 package mgw.gameplay;
 
+import java.util.ArrayList;
 import mgw.main.Account;
 
 public class Player {
+    public final ArrayList<StatusEffect> status = new ArrayList();
     public final int maxHP = 100;
 
     private Account user;
@@ -61,9 +63,18 @@ public class Player {
         deck[skillIndex].use(this, target);
     }
     
+    public void nextTurn()
+    {
+        for(StatusEffect s : new ArrayList<>(status))
+            if(s instanceof IMultiTurn mt) mt.nextTurn();
+        
+    }
+    
     public boolean isDead()
     {
         return HP == 0;
     }
+    
+    
     
 }

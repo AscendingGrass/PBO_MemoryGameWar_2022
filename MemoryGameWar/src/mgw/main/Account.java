@@ -4,7 +4,7 @@ import mgw.gameplay.*;
 
 public class Account{
     public final String username;
-    public Skill[] deck = new Skill [5];
+    public final Skill[] deck = new Skill [5];
     public Account(String username) {
         this.username = username;
     }

@@ -8,7 +8,6 @@ package mgw.gameplay;
  *
  * @author mejap
  */
-public interface IMultiTurn {
-    int remainingTurns();
-    void nextTurn();
+public interface IDamageModifier {
+    int modify(int damage);
 }
