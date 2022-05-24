@@ -64,6 +64,8 @@ public class Program extends javax.swing.JFrame {
 
         jp_Background.setBackground(new java.awt.Color(102, 102, 102));
 
+        jp_MainMenu.setBackground(new java.awt.Color(0, 0, 0));
+
         jl_AccountName.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jl_AccountName.setForeground(new java.awt.Color(255, 255, 255));
         jl_AccountName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -256,7 +258,6 @@ public class Program extends javax.swing.JFrame {
         jp_MainMenuLayout.setHorizontalGroup(
             jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_MainMenuLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jp_ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_PlayButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
