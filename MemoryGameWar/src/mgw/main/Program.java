@@ -3,18 +3,23 @@ package mgw.main;
 
 import javax.swing.JFrame;
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Program extends javax.swing.JFrame {
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-    
+    ArrayList<Account> akun = new ArrayList<>();
+    Account active[] = new Account[1];
     /**
      * Creates new form Program
      */
     public Program() {
         this.setUndecorated(true);
         initComponents();
+        active[0] = null;
+        akun.add(new Account("Yurtan"));
+        jl_AccountName.setText("Haii " + akun.get(0).toString());
     }
     
     public final void fullScreen()
@@ -51,8 +56,15 @@ public class Program extends javax.swing.JFrame {
         jp_PlayMenu = new javax.swing.JPanel();
         jp_PlayLogo = new javax.swing.JPanel();
         jl_PlayLogo = new javax.swing.JLabel();
-        jp_BackBTN = new javax.swing.JPanel();
-        jl_BacKBTN = new javax.swing.JLabel();
+        jp_BackButton = new javax.swing.JButton();
+        jp_DeckMenu = new javax.swing.JPanel();
+        jp_DeckLogo = new javax.swing.JPanel();
+        jp_Deck = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jp_HelpMenu = new javax.swing.JPanel();
+        jp_PlayLogo2 = new javax.swing.JPanel();
+        jl_PlayLogo2 = new javax.swing.JLabel();
+        jp_BackButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -116,6 +128,9 @@ public class Program extends javax.swing.JFrame {
 
         jp_DeckButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_DeckButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_DeckButtonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jp_MenuButtonEntered(evt);
             }
@@ -143,6 +158,9 @@ public class Program extends javax.swing.JFrame {
 
         jp_HelpButton.setBackground(new java.awt.Color(0, 0, 0));
         jp_HelpButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_HelpButtonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jp_MenuButtonEntered(evt);
             }
@@ -232,6 +250,9 @@ public class Program extends javax.swing.JFrame {
 
         jp_changeAcc.setBackground(new java.awt.Color(255, 255, 255));
         jp_changeAcc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_changeAccMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jp_changeAccMouseEntered(evt);
             }
@@ -318,20 +339,13 @@ public class Program extends javax.swing.JFrame {
             .addComponent(jl_PlayLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        jl_BacKBTN.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jl_BacKBTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_BacKBTN.setText("BACK");
-
-        javax.swing.GroupLayout jp_BackBTNLayout = new javax.swing.GroupLayout(jp_BackBTN);
-        jp_BackBTN.setLayout(jp_BackBTNLayout);
-        jp_BackBTNLayout.setHorizontalGroup(
-            jp_BackBTNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_BacKBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-        );
-        jp_BackBTNLayout.setVerticalGroup(
-            jp_BackBTNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_BacKBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
+        jp_BackButton.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jp_BackButton.setText("BACK");
+        jp_BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jp_BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_PlayMenuLayout = new javax.swing.GroupLayout(jp_PlayMenu);
         jp_PlayMenu.setLayout(jp_PlayMenuLayout);
@@ -342,8 +356,8 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jp_BackBTN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jp_BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_PlayMenuLayout.setVerticalGroup(
@@ -351,12 +365,108 @@ public class Program extends javax.swing.JFrame {
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jp_BackBTN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(56, 56, 56)
+                .addComponent(jp_BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
+
+        jp_Deck.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jp_Deck.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jp_Deck.setText("ASAL LO TAU YA DECK");
+
+        javax.swing.GroupLayout jp_DeckLogoLayout = new javax.swing.GroupLayout(jp_DeckLogo);
+        jp_DeckLogo.setLayout(jp_DeckLogoLayout);
+        jp_DeckLogoLayout.setHorizontalGroup(
+            jp_DeckLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_Deck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jp_DeckLogoLayout.setVerticalGroup(
+            jp_DeckLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_Deck, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+
+        jButton2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jButton2.setText("BACK");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_DeckMenuLayout = new javax.swing.GroupLayout(jp_DeckMenu);
+        jp_DeckMenu.setLayout(jp_DeckMenuLayout);
+        jp_DeckMenuLayout.setHorizontalGroup(
+            jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
+                .addContainerGap(214, Short.MAX_VALUE)
+                .addComponent(jp_DeckLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(196, 196, 196))
+            .addGroup(jp_DeckMenuLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_DeckMenuLayout.setVerticalGroup(
+            jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DeckMenuLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jp_DeckLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+
+        jp_Background.add(jp_DeckMenu, "card3");
+
+        jl_PlayLogo2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jl_PlayLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_PlayLogo2.setText("PLAY");
+
+        javax.swing.GroupLayout jp_PlayLogo2Layout = new javax.swing.GroupLayout(jp_PlayLogo2);
+        jp_PlayLogo2.setLayout(jp_PlayLogo2Layout);
+        jp_PlayLogo2Layout.setHorizontalGroup(
+            jp_PlayLogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_PlayLogo2, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+        );
+        jp_PlayLogo2Layout.setVerticalGroup(
+            jp_PlayLogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_PlayLogo2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+
+        jp_BackButton1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jp_BackButton1.setText("BACK");
+        jp_BackButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jp_BackButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_HelpMenuLayout = new javax.swing.GroupLayout(jp_HelpMenu);
+        jp_HelpMenu.setLayout(jp_HelpMenuLayout);
+        jp_HelpMenuLayout.setHorizontalGroup(
+            jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HelpMenuLayout.createSequentialGroup()
+                .addContainerGap(267, Short.MAX_VALUE)
+                .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(196, 196, 196))
+            .addGroup(jp_HelpMenuLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jp_BackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_HelpMenuLayout.setVerticalGroup(
+            jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_HelpMenuLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jp_BackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
+
+        jp_Background.add(jp_HelpMenu, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -399,6 +509,7 @@ public class Program extends javax.swing.JFrame {
         jp_Background.add(jp_PlayMenu);
         jp_Background.repaint();
         jp_Background.revalidate();
+        resetColor(jp_PlayButton, jl_Play);
     }//GEN-LAST:event_jp_PlayButtonMouseClicked
 
     private void jp_MenuButtonEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MenuButtonEntered
@@ -425,11 +536,80 @@ public class Program extends javax.swing.JFrame {
             case 0 -> {
                 System.exit(0);
             }
-            case 1 -> {
-                JOptionPane.showMessageDialog(this, "Tidak Jadi Keluar","Confirmation", JOptionPane.WHEN_IN_FOCUSED_WINDOW);
-            }
         }
     }//GEN-LAST:event_jp_ExitButtonMouseClicked
+
+    private void jp_BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jp_BackButtonActionPerformed
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_MainMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        resetColor(jp_PlayButton, jl_Play);
+    }//GEN-LAST:event_jp_BackButtonActionPerformed
+
+    private void jp_BackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jp_BackButton1ActionPerformed
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_MainMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        
+    }//GEN-LAST:event_jp_BackButton1ActionPerformed
+
+    private void jp_DeckButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseClicked
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_DeckMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        resetColor(jp_DeckButton, jl_Deck);
+    }//GEN-LAST:event_jp_DeckButtonMouseClicked
+
+    private void jp_HelpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseClicked
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_HelpMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        resetColor(jp_HelpButton, jl_Help);
+    }//GEN-LAST:event_jp_HelpButtonMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_MainMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
+        // TODO add your handling code here:
+        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.QUESTION_MESSAGE);
+        active[0] = null;
+        for(Account i : akun){
+            if(i.username.equals(x)){
+                JOptionPane.showMessageDialog(this, "Hello, " + i);
+                active[0] = i;
+            }
+        }
+        if(active[0] == null){
+            JOptionPane.showMessageDialog(this, "Berhasil register!, Hello, " + x);
+            akun.add(new Account(x));
+        }
+        
+        jl_AccountName.setText("welcome, " + x);
+    }//GEN-LAST:event_jp_changeAccMouseClicked
     
     /**
      * @param args the command line arguments
@@ -466,25 +646,32 @@ public class Program extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_AccountName;
-    private javax.swing.JLabel jl_BacKBTN;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_Exit;
     private javax.swing.JLabel jl_Help;
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
     private javax.swing.JLabel jl_PlayLogo;
+    private javax.swing.JLabel jl_PlayLogo2;
     private javax.swing.JLabel jl_changeAcc;
-    private javax.swing.JPanel jp_BackBTN;
+    private javax.swing.JButton jp_BackButton;
+    private javax.swing.JButton jp_BackButton1;
     private javax.swing.JPanel jp_Background;
+    private javax.swing.JLabel jp_Deck;
     private javax.swing.JPanel jp_DeckButton;
+    private javax.swing.JPanel jp_DeckLogo;
+    private javax.swing.JPanel jp_DeckMenu;
     private javax.swing.JPanel jp_ExitButton;
     private javax.swing.JPanel jp_HelpButton;
+    private javax.swing.JPanel jp_HelpMenu;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_PlayLogo;
+    private javax.swing.JPanel jp_PlayLogo2;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_changeAcc;
     // End of variables declaration//GEN-END:variables
