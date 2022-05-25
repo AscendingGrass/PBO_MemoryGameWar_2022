@@ -484,6 +484,12 @@ public class Program extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jp_BackOptionMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_BackOptionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_BackOptionMouseExited(evt);
+            }
         });
 
         jl_BackOption.setBackground(new java.awt.Color(255, 255, 255));
@@ -678,6 +684,9 @@ public class Program extends javax.swing.JFrame {
         jp_Background.repaint();
         jp_Background.revalidate();
         jp_Background.add(jp_OptionMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        resetColor(jp_OptionButton, jl_Option);
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
 
     private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
@@ -687,7 +696,27 @@ public class Program extends javax.swing.JFrame {
         jp_Background.repaint();
         jp_Background.revalidate();
         jp_Background.add(jp_MainMenu);
+        jp_Background.repaint();
+        jp_Background.revalidate();
     }//GEN-LAST:event_jp_BackOptionMouseClicked
+
+    private void jp_BackOptionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseEntered
+        // TODO add your handling code here:
+        if(evt.getSource() instanceof JPanel jp)
+        {
+            ((JLabel)jp.getComponent(0)).setForeground(Color.BLACK);
+            jp.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_jp_BackOptionMouseEntered
+
+    private void jp_BackOptionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseExited
+        // TODO add your handling code here:
+        if(evt.getSource() instanceof JPanel jp)
+        {
+            ((JLabel)jp.getComponent(0)).setForeground(Color.WHITE);
+            jp.setBackground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jp_BackOptionMouseExited
     
     /**
      * @param args the command line arguments
