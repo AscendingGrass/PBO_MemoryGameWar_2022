@@ -659,18 +659,21 @@ public class Program extends javax.swing.JFrame {
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.WARNING_MESSAGE);
         active[0] = null;
         if(x != null){
-            for(Account i : akun){
-                if(i.username.equals(x)){
-                    JOptionPane.showMessageDialog(this, "Hello, " + i);
-                    active[0] = i;
+            if(!x.equals("")){
+                for(Account i : akun){
+                    if(i.username.equals(x)){
+                        JOptionPane.showMessageDialog(this, "Hello, " + i);
+                        active[0] = i;
+                    }
                 }
+                if(active[0] == null){
+                    JOptionPane.showConfirmDialog(this, "Berhasil register!, Hello, " + x);
+                    akun.add(new Account(x));
+                }
+
+                jl_AccountName.setText("welcome, " + x);
             }
-            if(active[0] == null){
-                JOptionPane.showConfirmDialog(this, "Berhasil register!, Hello, " + x);
-                akun.add(new Account(x));
-            }
-        
-            jl_AccountName.setText("welcome, " + x);
+            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
