@@ -621,7 +621,7 @@ public class Program extends javax.swing.JFrame {
         active[0] = null;
         if(!x.equals ("")){
             for(Account i : akun){
-                if(i.toString().equals(x)){
+                if(i.username.equals(x)){
                     JOptionPane.showMessageDialog(this, "Hello, " + i);
                     active[0] = i;
                 }
