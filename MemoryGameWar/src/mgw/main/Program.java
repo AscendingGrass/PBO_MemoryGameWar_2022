@@ -20,7 +20,7 @@ public class Program extends javax.swing.JFrame {
         initComponents();
         active[0] = null;
         akun.add(new Account("Yurtan"));
-        jl_AccountName.setText("Haii " + akun.get(0).toString());
+        welcomeAkun(akun.get(0));
     }
     
     public final void fullScreen()
@@ -28,7 +28,9 @@ public class Program extends javax.swing.JFrame {
         this.setResizable(false);
         gd.setFullScreenWindow(this);
     }
-
+    public void welcomeAkun(Account x){
+        jl_AccountName.setText("Haii " + x.toString());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1222,7 +1224,7 @@ public class Program extends javax.swing.JFrame {
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
         // TODO add your handling code here:
         
-        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.WARNING_MESSAGE);
+        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
         active[0] = null;
         if(x != null){
             if(!x.equals("")){
@@ -1230,14 +1232,18 @@ public class Program extends javax.swing.JFrame {
                     if(i.username.equals(x)){
                         active[0] = i;
                         JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
+                        welcomeAkun(i);
+                        return;
                     }
                 }
                 if(active[0] == null){
                     JOptionPane.showConfirmDialog(this, "Berhasil register! Hello, " + x);
                     akun.add(new Account(x));
+                    welcomeAkun(akun.get(akun.size()-1));
+                    return;
                 }
 
-                jl_AccountName.setText("welcome, " + x);
+                
             }else 
                 JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
         }
