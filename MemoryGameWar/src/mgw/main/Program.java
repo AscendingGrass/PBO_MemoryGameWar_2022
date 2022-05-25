@@ -14,6 +14,7 @@ public final class Program extends javax.swing.JFrame{
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     ArrayList<Account> akun = new ArrayList<>();
     Card card[] = new Card[Skill.list.length];
+    Deck deck[] = new Deck[5];
     Account active[] = new Account[1];
     int [] arr = new int[1];
     /**
@@ -24,6 +25,7 @@ public final class Program extends javax.swing.JFrame{
         initComponents();
         initCard();
         checkCard();
+        initDeck();
         active[0] = null;
         akun.add(new Account("Yurtan"));
         welcomeAkun(akun.get(0));
@@ -108,16 +110,11 @@ public final class Program extends javax.swing.JFrame{
         jp_BackDeck = new javax.swing.JPanel();
         jl_BackDeck = new javax.swing.JLabel();
         jp_ListOfCard = new javax.swing.JPanel();
-        jp_DeckDesc = new javax.swing.JPanel();
+        jp_SkillDesc = new javax.swing.JPanel();
         jp_DescriptionBody = new javax.swing.JPanel();
         jta_DescriptionBody = new javax.swing.JTextArea();
         jta_DescriptionBody_SP = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        jp_ListOfDeck = new javax.swing.JPanel();
         jp_DescriptionHeading = new javax.swing.JPanel();
         jl_DescriptionHeading = new javax.swing.JLabel();
         jp_HelpMenu = new javax.swing.JPanel();
@@ -508,6 +505,7 @@ public final class Program extends javax.swing.JFrame{
             .addGap(0, 429, Short.MAX_VALUE)
         );
 
+        jta_DescriptionBody.setEditable(false);
         jta_DescriptionBody.setColumns(20);
         jta_DescriptionBody.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jta_DescriptionBody.setLineWrap(true);
@@ -536,114 +534,30 @@ public final class Program extends javax.swing.JFrame{
                 .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jp_DeckDescLayout = new javax.swing.GroupLayout(jp_DeckDesc);
-        jp_DeckDesc.setLayout(jp_DeckDescLayout);
-        jp_DeckDescLayout.setHorizontalGroup(
-            jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_DeckDescLayout.createSequentialGroup()
+        javax.swing.GroupLayout jp_SkillDescLayout = new javax.swing.GroupLayout(jp_SkillDesc);
+        jp_SkillDesc.setLayout(jp_SkillDescLayout);
+        jp_SkillDescLayout.setHorizontalGroup(
+            jp_SkillDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_SkillDescLayout.createSequentialGroup()
                 .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jp_DeckDescLayout.setVerticalGroup(
-            jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jp_SkillDescLayout.setVerticalGroup(
+            jp_SkillDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jp_ListOfDeck.setBackground(new java.awt.Color(102, 102, 102));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout jp_ListOfDeckLayout = new javax.swing.GroupLayout(jp_ListOfDeck);
+        jp_ListOfDeck.setLayout(jp_ListOfDeckLayout);
+        jp_ListOfDeckLayout.setHorizontalGroup(
+            jp_ListOfDeckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel4.setBackground(new java.awt.Color(255, 51, 51));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel5.setBackground(new java.awt.Color(255, 51, 51));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel6.setBackground(new java.awt.Color(255, 51, 51));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel7.setBackground(new java.awt.Color(255, 51, 51));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+        jp_ListOfDeckLayout.setVerticalGroup(
+            jp_ListOfDeckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
         );
 
         jl_DescriptionHeading.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -670,9 +584,9 @@ public final class Program extends javax.swing.JFrame{
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 194, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_ListOfDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_ListOfCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -682,7 +596,7 @@ public final class Program extends javax.swing.JFrame{
                         .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_SkillDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(101, 101, 101))))
         );
         jp_DeckMenuLayout.setVerticalGroup(
@@ -693,14 +607,14 @@ public final class Program extends javax.swing.JFrame{
                 .addGap(10, 10, 10)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jp_ListOfCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jp_SkillDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
                         .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jp_ListOfDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
 
@@ -857,6 +771,15 @@ public final class Program extends javax.swing.JFrame{
     }
     public String skillPoint(Skill skill){
         return "SkillPoint = " + skill.skillPoint;
+    }
+    public void initDeck(){
+        int x = 20, y = 5;
+        for(int i = 0; i < deck.length; i++){
+            deck[i] = new Deck();
+            deck[i].setBounds(x,y, 100, 130);
+            jp_ListOfDeck.add(deck[i]);
+            x+= 120;
+        }
     }
     public void initCard(){
         int x = 37, y= 37;
@@ -1129,13 +1052,7 @@ public final class Program extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
@@ -1156,7 +1073,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_BackPlay;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JPanel jp_DeckButton;
-    private javax.swing.JPanel jp_DeckDesc;
     private javax.swing.JPanel jp_DeckMenu;
     private javax.swing.JPanel jp_DescriptionBody;
     private javax.swing.JPanel jp_DescriptionHeading;
@@ -1164,6 +1080,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_HelpMenu;
     private javax.swing.JPanel jp_ListOfCard;
+    private javax.swing.JPanel jp_ListOfDeck;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
     private javax.swing.JPanel jp_OptionMenu;
@@ -1171,6 +1088,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_PlayLogo;
     private javax.swing.JPanel jp_PlayLogo2;
     private javax.swing.JPanel jp_PlayMenu;
+    private javax.swing.JPanel jp_SkillDesc;
     private javax.swing.JPanel jp_changeAcc;
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
