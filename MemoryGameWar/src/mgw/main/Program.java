@@ -22,11 +22,11 @@ public final class Program extends javax.swing.JFrame{
     public Program() {
         this.setUndecorated(true);
         initComponents();
+        initCard();
+        checkCard();
         active[0] = null;
         akun.add(new Account("Yurtan"));
         welcomeAkun(akun.get(0));
-        initCard();
-        checkCard();
     }
     
     public final void fullScreen()
@@ -58,9 +58,11 @@ public final class Program extends javax.swing.JFrame{
     }
     private void cardEntered(java.awt.event.MouseEvent evt){
         card[arr[0]].setBackground(Color.red);
+        setDescription(Skill.list[arr[0]]);
     }
     private void cardExited(java.awt.event.MouseEvent evt){
         card[arr[0]].setBackground(Color.cyan);
+        setDescriptionDefault();
     }
     /**
      * This method is called from within the constructor to initialize the form.
