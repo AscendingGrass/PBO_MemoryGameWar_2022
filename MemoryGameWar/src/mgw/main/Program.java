@@ -78,8 +78,8 @@ public class Program extends javax.swing.JFrame {
         jp_Card13 = new javax.swing.JPanel();
         jp_DeckDesc = new javax.swing.JPanel();
         jp_DescriptionBody = new javax.swing.JPanel();
-        jta_DescriptionBody = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jta_DescriptionBody = new javax.swing.JTextArea();
+        jta_DescriptionBody_SP = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -470,6 +470,9 @@ public class Program extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jp_Card1MouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card1MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jp_Card1Layout = new javax.swing.GroupLayout(jp_Card1);
@@ -484,6 +487,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card2.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card2MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card2Layout = new javax.swing.GroupLayout(jp_Card2);
         jp_Card2.setLayout(jp_Card2Layout);
@@ -497,6 +508,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card3.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card3MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card3Layout = new javax.swing.GroupLayout(jp_Card3);
         jp_Card3.setLayout(jp_Card3Layout);
@@ -510,6 +529,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card4.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card4MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card4Layout = new javax.swing.GroupLayout(jp_Card4);
         jp_Card4.setLayout(jp_Card4Layout);
@@ -523,6 +550,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card5.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card5MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card5Layout = new javax.swing.GroupLayout(jp_Card5);
         jp_Card5.setLayout(jp_Card5Layout);
@@ -536,6 +571,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card6.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card6MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card6Layout = new javax.swing.GroupLayout(jp_Card6);
         jp_Card6.setLayout(jp_Card6Layout);
@@ -549,6 +592,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card7.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card7MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card7Layout = new javax.swing.GroupLayout(jp_Card7);
         jp_Card7.setLayout(jp_Card7Layout);
@@ -562,6 +613,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card8.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card8MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card8Layout = new javax.swing.GroupLayout(jp_Card8);
         jp_Card8.setLayout(jp_Card8Layout);
@@ -575,6 +634,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card9.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card9MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card9Layout = new javax.swing.GroupLayout(jp_Card9);
         jp_Card9.setLayout(jp_Card9Layout);
@@ -588,6 +655,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card10.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card10MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card10Layout = new javax.swing.GroupLayout(jp_Card10);
         jp_Card10.setLayout(jp_Card10Layout);
@@ -601,6 +676,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card11.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card11MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card11Layout = new javax.swing.GroupLayout(jp_Card11);
         jp_Card11.setLayout(jp_Card11Layout);
@@ -614,6 +697,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card12.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card12MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card12Layout = new javax.swing.GroupLayout(jp_Card12);
         jp_Card12.setLayout(jp_Card12Layout);
@@ -627,6 +718,14 @@ public class Program extends javax.swing.JFrame {
         );
 
         jp_Card13.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_Card13MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_Card13Layout = new javax.swing.GroupLayout(jp_Card13);
         jp_Card13.setLayout(jp_Card13Layout);
@@ -701,25 +800,37 @@ public class Program extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        jta_DescriptionBody.setBorder(null);
-        jta_DescriptionBody.setToolTipText("");
+        jta_DescriptionBody.setColumns(20);
+        jta_DescriptionBody.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jta_DescriptionBody.setLineWrap(true);
+        jta_DescriptionBody.setRows(5);
+        jta_DescriptionBody.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jta_DescriptionBody.setViewportView(jTextArea1);
+        jta_DescriptionBody_SP.setEditable(false);
+        jta_DescriptionBody_SP.setColumns(20);
+        jta_DescriptionBody_SP.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jta_DescriptionBody_SP.setLineWrap(true);
+        jta_DescriptionBody_SP.setRows(5);
+        jta_DescriptionBody_SP.setAutoscrolls(false);
 
         javax.swing.GroupLayout jp_DescriptionBodyLayout = new javax.swing.GroupLayout(jp_DescriptionBody);
         jp_DescriptionBody.setLayout(jp_DescriptionBodyLayout);
         jp_DescriptionBodyLayout.setHorizontalGroup(
             jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DescriptionBodyLayout.createSequentialGroup()
-                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 64, Short.MAX_VALUE))
+                .addGroup(jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                    .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_DescriptionBodyLayout.setVerticalGroup(
             jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout jp_DeckDescLayout = new javax.swing.GroupLayout(jp_DeckDesc);
@@ -732,7 +843,8 @@ public class Program extends javax.swing.JFrame {
             jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DeckDescLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -853,11 +965,11 @@ public class Program extends javax.swing.JFrame {
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 104, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+                .addContainerGap(148, Short.MAX_VALUE)
                 .addComponent(jp_ListOfCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,13 +983,13 @@ public class Program extends javax.swing.JFrame {
         jp_DeckMenuLayout.setVerticalGroup(
             jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_ListOfCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
                         .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1034,7 +1146,11 @@ public class Program extends javax.swing.JFrame {
         l.setForeground(Color.WHITE);
     }
     public void setDescriptionDefault(){
-        jta_DescriptionBody.setToolTipText("No Description");
+        jta_DescriptionBody.setText("No Description");
+        jta_DescriptionBody_SP.setText("SkillPoint = ~");
+    }
+    public String skillPoint(Skill skill){
+        return "SkillPoint = " + skill.skillPoint;
     }
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         resetColor(jp_changeAcc, jl_changeAcc);
@@ -1204,6 +1320,7 @@ public class Program extends javax.swing.JFrame {
         jp_Background.add(jp_MainMenu);
         jp_Background.repaint();
         jp_Background.revalidate();
+        setDescriptionDefault();
     }//GEN-LAST:event_jp_BackDeckMouseClicked
 
     private void jp_BackDeckMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseEntered
@@ -1244,8 +1361,146 @@ public class Program extends javax.swing.JFrame {
 
     private void jp_Card1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setToolTipText(Skill.list[0].description);
+        jta_DescriptionBody.setText(Skill.list[0].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[0]));
     }//GEN-LAST:event_jp_Card1MouseEntered
+
+    private void jp_Card2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card2MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[1].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[1]));
+    }//GEN-LAST:event_jp_Card2MouseEntered
+
+    private void jp_Card3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card3MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[2].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[2]));
+    }//GEN-LAST:event_jp_Card3MouseEntered
+
+    private void jp_Card4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card4MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[3].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[3]));
+    }//GEN-LAST:event_jp_Card4MouseEntered
+
+    private void jp_Card5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card5MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[4].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[4]));
+    }//GEN-LAST:event_jp_Card5MouseEntered
+
+    private void jp_Card6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card6MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[5].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[5]));
+    }//GEN-LAST:event_jp_Card6MouseEntered
+
+    private void jp_Card7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card7MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[6].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[6]));
+    }//GEN-LAST:event_jp_Card7MouseEntered
+
+    private void jp_Card8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card8MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[7].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[7]));
+    }//GEN-LAST:event_jp_Card8MouseEntered
+
+    private void jp_Card9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card9MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[8].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[8]));
+    }//GEN-LAST:event_jp_Card9MouseEntered
+
+    private void jp_Card10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card10MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[9].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[9]));
+    }//GEN-LAST:event_jp_Card10MouseEntered
+
+    private void jp_Card11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card11MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[10].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[10]));
+    }//GEN-LAST:event_jp_Card11MouseEntered
+
+    private void jp_Card12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card12MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[11].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[11]));
+    }//GEN-LAST:event_jp_Card12MouseEntered
+
+    private void jp_Card13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card13MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setText(Skill.list[12].toString());
+        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[12]));
+    }//GEN-LAST:event_jp_Card13MouseEntered
+
+    private void jp_Card1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card1MouseExited
+
+    private void jp_Card2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card2MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card2MouseExited
+
+    private void jp_Card3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card3MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card3MouseExited
+
+    private void jp_Card4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card4MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card4MouseExited
+
+    private void jp_Card5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card5MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card5MouseExited
+
+    private void jp_Card6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card6MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card6MouseExited
+
+    private void jp_Card7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card7MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card7MouseExited
+
+    private void jp_Card8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card8MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card8MouseExited
+
+    private void jp_Card10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card10MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card10MouseExited
+
+    private void jp_Card9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card9MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card9MouseExited
+
+    private void jp_Card11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card11MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card11MouseExited
+
+    private void jp_Card12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card12MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card12MouseExited
+
+    private void jp_Card13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card13MouseExited
+        // TODO add your handling code here:
+        setDescriptionDefault();
+    }//GEN-LAST:event_jp_Card13MouseExited
     
     /**
      * @param args the command line arguments
@@ -1289,7 +1544,6 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel jjl_DescriptionHeading;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
@@ -1339,6 +1593,7 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jp_PlayLogo2;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_changeAcc;
-    private javax.swing.JScrollPane jta_DescriptionBody;
+    private javax.swing.JTextArea jta_DescriptionBody;
+    private javax.swing.JTextArea jta_DescriptionBody_SP;
     // End of variables declaration//GEN-END:variables
 }
