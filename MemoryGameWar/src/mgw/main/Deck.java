@@ -13,6 +13,7 @@ public class Deck extends javax.swing.JPanel {
     /**
      * Creates new form Deck
      */
+    boolean clicked = false;
     public Deck() {
         initComponents();
         //jlabel1();
@@ -31,7 +32,7 @@ public class Deck extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\IconSkill\\icon_VincentS.jpg")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
