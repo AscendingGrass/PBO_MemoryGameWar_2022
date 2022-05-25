@@ -863,6 +863,7 @@ public final class Program extends javax.swing.JFrame{
         for(int i = 0; i < Skill.list.length; i++){
             card[i] = new Card(Skill.list[i]);
             card[i].setBounds(x, y, 100, 100);
+            card[i].setBackground(Color.CYAN);
             jp_ListOfCard.add(card[i]);
             x+= 137;
             if (x > 500){
