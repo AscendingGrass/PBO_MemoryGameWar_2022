@@ -19,7 +19,7 @@ public class Deck extends javax.swing.JPanel {
         //jlabel1();
     }
     public void jlabel1(){
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png"));
+        //jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png"));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,7 +32,7 @@ public class Deck extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\IconSkill\\icon_VincentS.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/apple-icon-114x114.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

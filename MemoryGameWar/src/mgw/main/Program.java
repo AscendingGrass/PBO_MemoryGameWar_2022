@@ -783,12 +783,12 @@ public final class Program extends javax.swing.JFrame{
         return "SkillPoint = " + skill.skillPoint;
     }
     public void initDeck(){
-        int x = 20, y = 5;
+        int x = 5, y = 13;
         for(int i = 0; i < deck.length; i++){
             deck[i] = new Deck();
-            deck[i].setBounds(x,y, 100, 130);
+            deck[i].setBounds(x,y, 114, 114);
             jp_ListOfDeck.add(deck[i]);
-            x+= 120;
+            x+= 125;
         }
     }
     public void initCard(){
