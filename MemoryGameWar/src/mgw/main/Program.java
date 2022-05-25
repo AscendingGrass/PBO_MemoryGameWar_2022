@@ -662,12 +662,12 @@ public class Program extends javax.swing.JFrame {
             if(!x.equals("")){
                 for(Account i : akun){
                     if(i.username.equals(x)){
-                        JOptionPane.showMessageDialog(this, "Hello, " + i);
                         active[0] = i;
+                        JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
                     }
                 }
                 if(active[0] == null){
-                    JOptionPane.showConfirmDialog(this, "Berhasil register!, Hello, " + x);
+                    JOptionPane.showConfirmDialog(this, "Berhasil register! Hello, " + x);
                     akun.add(new Account(x));
                 }
 
