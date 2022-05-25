@@ -30,6 +30,9 @@ public class Card extends javax.swing.JPanel {
         return (ImageIcon) jLabel1.getIcon();
     }
     
+    public void setIconNull(){
+        jLabel1.setIcon(null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
