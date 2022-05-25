@@ -65,7 +65,7 @@ public class Program extends javax.swing.JFrame {
         jp_PlayLogo2 = new javax.swing.JPanel();
         jl_PlayLogo2 = new javax.swing.JLabel();
         jp_BackButton1 = new javax.swing.JButton();
-        jp_Optionmenu = new javax.swing.JPanel();
+        jp_OptionMenu = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -477,18 +477,18 @@ public class Program extends javax.swing.JFrame {
 
         jp_Background.add(jp_HelpMenu, "card3");
 
-        javax.swing.GroupLayout jp_OptionmenuLayout = new javax.swing.GroupLayout(jp_Optionmenu);
-        jp_Optionmenu.setLayout(jp_OptionmenuLayout);
-        jp_OptionmenuLayout.setHorizontalGroup(
-            jp_OptionmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jp_OptionMenuLayout = new javax.swing.GroupLayout(jp_OptionMenu);
+        jp_OptionMenu.setLayout(jp_OptionMenuLayout);
+        jp_OptionMenuLayout.setHorizontalGroup(
+            jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 813, Short.MAX_VALUE)
         );
-        jp_OptionmenuLayout.setVerticalGroup(
-            jp_OptionmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jp_OptionMenuLayout.setVerticalGroup(
+            jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jp_Background.add(jp_Optionmenu, "card6");
+        jp_Background.add(jp_OptionMenu, "card6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -644,7 +644,7 @@ public class Program extends javax.swing.JFrame {
         jp_Background.removeAll();
         jp_Background.repaint();
         jp_Background.revalidate();
-        jp_Background.add(jp_Optionmenu);
+        jp_Background.add(jp_OptionMenu);
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
     
     /**
@@ -705,7 +705,7 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jp_HelpMenu;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
-    private javax.swing.JPanel jp_Optionmenu;
+    private javax.swing.JPanel jp_OptionMenu;
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_PlayLogo;
     private javax.swing.JPanel jp_PlayLogo2;
