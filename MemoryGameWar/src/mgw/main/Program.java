@@ -40,11 +40,7 @@ public final class Program extends javax.swing.JFrame{
     public void welcomeAkun(Account x){
         jl_AccountName.setText("Haii " + x.toString());
     }
-    public void initImage(){
-        for(int i = 0; i < skill.length; i++){
-            
-        }
-    }
+   
     public void checkCard(){
         for(int i = 0; i < card.length; i++){
             arr[0] = i;
@@ -68,9 +64,14 @@ public final class Program extends javax.swing.JFrame{
     private void cardClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c){
             if(!c.clicked){
-                c.clicked = true;
                 if(Deck.counter < 5){
                     deck[Deck.counter++].setIcon(c.getIcon());
+                    c.clicked = true;
+                    JPanel back = new JPanel();
+                    back.setBounds(114, 114, 0, 0);
+                    back.setBackground(new java.awt.Color(0,0,0));
+                    c.add(back);
+                    c.setIconNull();
                 }
             }
         }
@@ -79,7 +80,6 @@ public final class Program extends javax.swing.JFrame{
     private void cardEntered(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c)
         {
-            c.setBackground(Color.red);
             setDescription(c.skill);
         }
         
@@ -87,7 +87,6 @@ public final class Program extends javax.swing.JFrame{
     private void cardExited(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c)
         {
-            c.setBackground(Color.cyan);
             setDescriptionDefault();
         }
     }
