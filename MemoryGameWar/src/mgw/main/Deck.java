@@ -14,11 +14,14 @@ public class Deck extends javax.swing.JPanel {
      * Creates new form Deck
      */
     boolean clicked = false;
-    static int counter = 1;
+    static int counter = 0;
     public Deck() {
         initComponents();
         //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
         //jlabel1();
+    }
+    public void setIcon(javax.swing.ImageIcon x){
+        jLabel1.setIcon(x);
     }
     public void jlabel1(){
         //jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png"));

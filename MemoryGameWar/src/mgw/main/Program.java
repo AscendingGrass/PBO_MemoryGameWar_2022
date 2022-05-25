@@ -68,11 +68,10 @@ public final class Program extends javax.swing.JFrame{
     private void cardClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c){
             if(!c.clicked){
-                JPanel x = new JPanel();
-                x.setSize(c.getSize());
-                x.setBackground(Color.MAGENTA);
-                c.add(x);
                 c.clicked = true;
+                if(Deck.counter < 5){
+                    deck[Deck.counter++].setIcon(c.getIcon());
+                }
             }
         }
     }

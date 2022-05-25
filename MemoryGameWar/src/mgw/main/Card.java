@@ -4,8 +4,8 @@
  */
 package mgw.main;
 
+import javax.swing.ImageIcon;
 import mgw.gameplay.Skill;
-import static mgw.main.Deck.counter;
 
 /**
  *
@@ -26,6 +26,10 @@ public class Card extends javax.swing.JPanel {
        
     }
 
+    public javax.swing.ImageIcon getIcon() {
+        return (ImageIcon) jLabel1.getIcon();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
