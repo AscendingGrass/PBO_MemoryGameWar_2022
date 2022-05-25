@@ -672,8 +672,8 @@ public class Program extends javax.swing.JFrame {
                 }
 
                 jl_AccountName.setText("welcome, " + x);
-            }
-            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
+            }else 
+                JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
