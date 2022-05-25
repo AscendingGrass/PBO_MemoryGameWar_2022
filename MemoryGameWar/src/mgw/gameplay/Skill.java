@@ -11,7 +11,7 @@ public abstract class Skill
         new QuickSlash(),
         new Absorb(),
         new DoubleEdge(),
-        new VincentS(),
+        new ClownGaze(),
         new Dodge(),
         new RevengeCounter(),
         new Recover(),
@@ -191,12 +191,12 @@ class DoubleEdge extends DamagingSkill
     }
 }
 
-class VincentS extends DamagingSkill
+class ClownGaze extends DamagingSkill
 {
     private int damage = 50;
     
-    public VincentS(){
-	super("Vincent Soesanto", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%.", 20, 50);
+    public ClownGaze(){
+	super("Clown Gaze", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%.", 20, 50);
     }
     
     @Override

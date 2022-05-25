@@ -13,6 +13,7 @@ public final class Program extends javax.swing.JFrame{
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     ArrayList<Account> akun = new ArrayList<>();
+    Image skill[] = new Image[14];
     Card card[] = new Card[Skill.list.length];
     Deck deck[] = new Deck[5];
     Account active[] = new Account[1];
@@ -38,6 +39,11 @@ public final class Program extends javax.swing.JFrame{
     }
     public void welcomeAkun(Account x){
         jl_AccountName.setText("Haii " + x.toString());
+    }
+    public void initImage(){
+        for(int i = 0; i < skill.length; i++){
+            
+        }
     }
     public void checkCard(){
         for(int i = 0; i < card.length; i++){
@@ -792,16 +798,16 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     public void initCard(){
-        int x = 37, y= 37;
+        int x = 30, y= 30;
         for(int i = 0; i < Skill.list.length; i++){
             card[i] = new Card(Skill.list[i]);
-            card[i].setBounds(x, y, 100, 100);
+            card[i].setBounds(x, y, 114, 114);
             card[i].setBackground(Color.CYAN);
             jp_ListOfCard.add(card[i]);
-            x+= 137;
+            x+= 140;
             if (x > 500){
-                x = 37;
-                y += 137;
+                x = 30;
+                y += 140;
             }
         }
     }

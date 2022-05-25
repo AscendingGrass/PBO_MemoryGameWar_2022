@@ -14,8 +14,10 @@ public class Deck extends javax.swing.JPanel {
      * Creates new form Deck
      */
     boolean clicked = false;
+    static int counter = 1;
     public Deck() {
         initComponents();
+        //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
         //jlabel1();
     }
     public void jlabel1(){
@@ -31,8 +33,6 @@ public class Deck extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/apple-icon-114x114.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
