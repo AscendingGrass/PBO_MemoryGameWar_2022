@@ -1235,7 +1235,7 @@ public class Program extends javax.swing.JFrame {
                     }
                 }
                 if(active[0] == null){
-                    JOptionPane.showConfirmDialog(this, "Berhasil register! Hello, " + x);
+                    JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
                     akun.add(new Account(x));
                     welcomeAkun(akun.get(akun.size()-1));
                     return;
