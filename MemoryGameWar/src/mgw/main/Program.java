@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import mgw.gameplay.Skill;
 
 public class Program extends javax.swing.JFrame {
 
@@ -59,10 +60,34 @@ public class Program extends javax.swing.JFrame {
         jp_BackPlay = new javax.swing.JPanel();
         jl_BackPlay = new javax.swing.JLabel();
         jp_DeckMenu = new javax.swing.JPanel();
-        jp_DeckLogo = new javax.swing.JPanel();
-        jp_Deck = new javax.swing.JLabel();
         jp_BackDeck = new javax.swing.JPanel();
         jl_BackDeck = new javax.swing.JLabel();
+        jp_ListOfCard = new javax.swing.JPanel();
+        jp_Card1 = new javax.swing.JPanel();
+        jp_Card2 = new javax.swing.JPanel();
+        jp_Card3 = new javax.swing.JPanel();
+        jp_Card4 = new javax.swing.JPanel();
+        jp_Card5 = new javax.swing.JPanel();
+        jp_Card6 = new javax.swing.JPanel();
+        jp_Card7 = new javax.swing.JPanel();
+        jp_Card8 = new javax.swing.JPanel();
+        jp_Card9 = new javax.swing.JPanel();
+        jp_Card10 = new javax.swing.JPanel();
+        jp_Card11 = new javax.swing.JPanel();
+        jp_Card12 = new javax.swing.JPanel();
+        jp_Card13 = new javax.swing.JPanel();
+        jp_DeckDesc = new javax.swing.JPanel();
+        jp_DescriptionHeading = new javax.swing.JPanel();
+        jjl_DescriptionHeading = new javax.swing.JLabel();
+        jp_DescriptionBody = new javax.swing.JPanel();
+        jta_DescriptionBody = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jp_HelpMenu = new javax.swing.JPanel();
         jp_PlayLogo2 = new javax.swing.JPanel();
         jl_PlayLogo2 = new javax.swing.JLabel();
@@ -300,7 +325,7 @@ public class Program extends javax.swing.JFrame {
                     .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addContainerGap(647, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,7 +339,7 @@ public class Program extends javax.swing.JFrame {
         jp_MainMenuLayout.setVerticalGroup(
             jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,7 +349,7 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jp_ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jl_AccountName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,7 +413,7 @@ public class Program extends javax.swing.JFrame {
         jp_PlayMenuLayout.setHorizontalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayMenuLayout.createSequentialGroup()
-                .addContainerGap(276, Short.MAX_VALUE)
+                .addContainerGap(414, Short.MAX_VALUE)
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
@@ -401,27 +426,12 @@ public class Program extends javax.swing.JFrame {
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(jp_BackPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
-
-        jp_Deck.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jp_Deck.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jp_Deck.setText("ASAL LO TAU YA DECK");
-
-        javax.swing.GroupLayout jp_DeckLogoLayout = new javax.swing.GroupLayout(jp_DeckLogo);
-        jp_DeckLogo.setLayout(jp_DeckLogoLayout);
-        jp_DeckLogoLayout.setHorizontalGroup(
-            jp_DeckLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_Deck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jp_DeckLogoLayout.setVerticalGroup(
-            jp_DeckLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_Deck, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
 
         jp_BackDeck.setBackground(new java.awt.Color(0, 0, 0));
         jp_BackDeck.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -453,27 +463,406 @@ public class Program extends javax.swing.JFrame {
             .addComponent(jl_BackDeck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
+        jp_Card1.setBackground(new java.awt.Color(255, 51, 51));
+        jp_Card1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_Card1MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_Card1Layout = new javax.swing.GroupLayout(jp_Card1);
+        jp_Card1.setLayout(jp_Card1Layout);
+        jp_Card1Layout.setHorizontalGroup(
+            jp_Card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card1Layout.setVerticalGroup(
+            jp_Card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card2.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card2Layout = new javax.swing.GroupLayout(jp_Card2);
+        jp_Card2.setLayout(jp_Card2Layout);
+        jp_Card2Layout.setHorizontalGroup(
+            jp_Card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card2Layout.setVerticalGroup(
+            jp_Card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card3.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card3Layout = new javax.swing.GroupLayout(jp_Card3);
+        jp_Card3.setLayout(jp_Card3Layout);
+        jp_Card3Layout.setHorizontalGroup(
+            jp_Card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card3Layout.setVerticalGroup(
+            jp_Card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card4.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card4Layout = new javax.swing.GroupLayout(jp_Card4);
+        jp_Card4.setLayout(jp_Card4Layout);
+        jp_Card4Layout.setHorizontalGroup(
+            jp_Card4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card4Layout.setVerticalGroup(
+            jp_Card4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card5.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card5Layout = new javax.swing.GroupLayout(jp_Card5);
+        jp_Card5.setLayout(jp_Card5Layout);
+        jp_Card5Layout.setHorizontalGroup(
+            jp_Card5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card5Layout.setVerticalGroup(
+            jp_Card5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card6.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card6Layout = new javax.swing.GroupLayout(jp_Card6);
+        jp_Card6.setLayout(jp_Card6Layout);
+        jp_Card6Layout.setHorizontalGroup(
+            jp_Card6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card6Layout.setVerticalGroup(
+            jp_Card6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card7.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card7Layout = new javax.swing.GroupLayout(jp_Card7);
+        jp_Card7.setLayout(jp_Card7Layout);
+        jp_Card7Layout.setHorizontalGroup(
+            jp_Card7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card7Layout.setVerticalGroup(
+            jp_Card7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card8.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card8Layout = new javax.swing.GroupLayout(jp_Card8);
+        jp_Card8.setLayout(jp_Card8Layout);
+        jp_Card8Layout.setHorizontalGroup(
+            jp_Card8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card8Layout.setVerticalGroup(
+            jp_Card8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card9.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card9Layout = new javax.swing.GroupLayout(jp_Card9);
+        jp_Card9.setLayout(jp_Card9Layout);
+        jp_Card9Layout.setHorizontalGroup(
+            jp_Card9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card9Layout.setVerticalGroup(
+            jp_Card9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card10.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card10Layout = new javax.swing.GroupLayout(jp_Card10);
+        jp_Card10.setLayout(jp_Card10Layout);
+        jp_Card10Layout.setHorizontalGroup(
+            jp_Card10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card10Layout.setVerticalGroup(
+            jp_Card10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card11.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card11Layout = new javax.swing.GroupLayout(jp_Card11);
+        jp_Card11.setLayout(jp_Card11Layout);
+        jp_Card11Layout.setHorizontalGroup(
+            jp_Card11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card11Layout.setVerticalGroup(
+            jp_Card11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card12.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card12Layout = new javax.swing.GroupLayout(jp_Card12);
+        jp_Card12.setLayout(jp_Card12Layout);
+        jp_Card12Layout.setHorizontalGroup(
+            jp_Card12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card12Layout.setVerticalGroup(
+            jp_Card12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jp_Card13.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jp_Card13Layout = new javax.swing.GroupLayout(jp_Card13);
+        jp_Card13.setLayout(jp_Card13Layout);
+        jp_Card13Layout.setHorizontalGroup(
+            jp_Card13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jp_Card13Layout.setVerticalGroup(
+            jp_Card13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jp_ListOfCardLayout = new javax.swing.GroupLayout(jp_ListOfCard);
+        jp_ListOfCard.setLayout(jp_ListOfCardLayout);
+        jp_ListOfCardLayout.setHorizontalGroup(
+            jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_ListOfCardLayout.createSequentialGroup()
+                        .addComponent(jp_Card1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jp_Card2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jp_Card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jp_Card4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jp_Card5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_ListOfCardLayout.createSequentialGroup()
+                        .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jp_Card6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jp_Card11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
+                                .addComponent(jp_Card12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jp_Card13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
+                                .addComponent(jp_Card7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jp_Card8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jp_Card9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jp_Card10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_ListOfCardLayout.setVerticalGroup(
+            jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jp_Card5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_Card7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jp_Card12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Card13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jjl_DescriptionHeading.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jjl_DescriptionHeading.setText("Description");
+
+        javax.swing.GroupLayout jp_DescriptionHeadingLayout = new javax.swing.GroupLayout(jp_DescriptionHeading);
+        jp_DescriptionHeading.setLayout(jp_DescriptionHeadingLayout);
+        jp_DescriptionHeadingLayout.setHorizontalGroup(
+            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jjl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jp_DescriptionHeadingLayout.setVerticalGroup(
+            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jjl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+        );
+
+        jta_DescriptionBody.setBorder(null);
+        jta_DescriptionBody.setToolTipText("");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jta_DescriptionBody.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jp_DescriptionBodyLayout = new javax.swing.GroupLayout(jp_DescriptionBody);
+        jp_DescriptionBody.setLayout(jp_DescriptionBodyLayout);
+        jp_DescriptionBodyLayout.setHorizontalGroup(
+            jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DescriptionBodyLayout.createSequentialGroup()
+                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jp_DescriptionBodyLayout.setVerticalGroup(
+            jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jp_DeckDescLayout = new javax.swing.GroupLayout(jp_DeckDesc);
+        jp_DeckDesc.setLayout(jp_DeckDescLayout);
+        jp_DeckDescLayout.setHorizontalGroup(
+            jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jp_DeckDescLayout.setVerticalGroup(
+            jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DeckDescLayout.createSequentialGroup()
+                .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout jp_DeckMenuLayout = new javax.swing.GroupLayout(jp_DeckMenu);
         jp_DeckMenu.setLayout(jp_DeckMenuLayout);
         jp_DeckMenuLayout.setHorizontalGroup(
             jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
-                .addComponent(jp_DeckLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196))
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_ListOfCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(100, 100, 100))
         );
         jp_DeckMenuLayout.setVerticalGroup(
             jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jp_DeckLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_ListOfCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
+                        .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jp_Background.add(jp_DeckMenu, "card3");
@@ -528,7 +917,7 @@ public class Program extends javax.swing.JFrame {
         jp_HelpMenuLayout.setHorizontalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HelpMenuLayout.createSequentialGroup()
-                .addContainerGap(276, Short.MAX_VALUE)
+                .addContainerGap(414, Short.MAX_VALUE)
                 .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
@@ -541,7 +930,7 @@ public class Program extends javax.swing.JFrame {
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
@@ -585,12 +974,12 @@ public class Program extends javax.swing.JFrame {
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addContainerGap(782, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionMenuLayout.createSequentialGroup()
-                .addContainerGap(340, Short.MAX_VALUE)
+                .addContainerGap(343, Short.MAX_VALUE)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74))
         );
@@ -601,13 +990,13 @@ public class Program extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 804, Short.MAX_VALUE)
+            .addGap(0, 951, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jp_Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
+            .addGap(0, 461, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jp_Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -622,7 +1011,9 @@ public class Program extends javax.swing.JFrame {
         p.setBackground(Color.BLACK);
         l.setForeground(Color.WHITE);
     }
-
+    public void setDescriptionDefault(){
+        jta_DescriptionBody.setToolTipText("No Description");
+    }
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         resetColor(jp_changeAcc, jl_changeAcc);
     }//GEN-LAST:event_jp_changeAccMouseEntered
@@ -723,6 +1114,7 @@ public class Program extends javax.swing.JFrame {
         jp_Background.repaint();
         jp_Background.revalidate();
         resetColor(jp_OptionButton, jl_Option);
+        jta_DescriptionBody.setToolTipText("No Description");
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
 
     private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
@@ -827,6 +1219,11 @@ public class Program extends javax.swing.JFrame {
         jp_Background.repaint();
         jp_Background.revalidate();
     }//GEN-LAST:event_jl_BackPlayMouseClicked
+
+    private void jp_Card1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseEntered
+        // TODO add your handling code here:
+        jta_DescriptionBody.setToolTipText(Skill.list[0].description);
+    }//GEN-LAST:event_jp_Card1MouseEntered
     
     /**
      * @param args the command line arguments
@@ -863,7 +1260,15 @@ public class Program extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jjl_DescriptionHeading;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
@@ -882,13 +1287,28 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_BackPlay;
     private javax.swing.JPanel jp_Background;
-    private javax.swing.JLabel jp_Deck;
+    private javax.swing.JPanel jp_Card1;
+    private javax.swing.JPanel jp_Card10;
+    private javax.swing.JPanel jp_Card11;
+    private javax.swing.JPanel jp_Card12;
+    private javax.swing.JPanel jp_Card13;
+    private javax.swing.JPanel jp_Card2;
+    private javax.swing.JPanel jp_Card3;
+    private javax.swing.JPanel jp_Card4;
+    private javax.swing.JPanel jp_Card5;
+    private javax.swing.JPanel jp_Card6;
+    private javax.swing.JPanel jp_Card7;
+    private javax.swing.JPanel jp_Card8;
+    private javax.swing.JPanel jp_Card9;
     private javax.swing.JPanel jp_DeckButton;
-    private javax.swing.JPanel jp_DeckLogo;
+    private javax.swing.JPanel jp_DeckDesc;
     private javax.swing.JPanel jp_DeckMenu;
+    private javax.swing.JPanel jp_DescriptionBody;
+    private javax.swing.JPanel jp_DescriptionHeading;
     private javax.swing.JPanel jp_ExitButton;
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_HelpMenu;
+    private javax.swing.JPanel jp_ListOfCard;
     private javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
     private javax.swing.JPanel jp_OptionMenu;
@@ -897,5 +1317,6 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jp_PlayLogo2;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_changeAcc;
+    private javax.swing.JScrollPane jta_DescriptionBody;
     // End of variables declaration//GEN-END:variables
 }
