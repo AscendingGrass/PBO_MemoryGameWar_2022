@@ -649,9 +649,10 @@ public class Program extends javax.swing.JFrame {
 
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
         // TODO add your handling code here:
+        
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.WARNING_MESSAGE);
         active[0] = null;
-        if(!x.equals ("")){
+        if(x != null){
             for(Account i : akun){
                 if(i.username.equals(x)){
                     JOptionPane.showMessageDialog(this, "Hello, " + i);
