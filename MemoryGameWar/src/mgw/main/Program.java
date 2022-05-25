@@ -66,6 +66,8 @@ public class Program extends javax.swing.JFrame {
         jl_PlayLogo2 = new javax.swing.JLabel();
         jp_BackButton1 = new javax.swing.JButton();
         jp_OptionMenu = new javax.swing.JPanel();
+        jp_BackOption = new javax.swing.JPanel();
+        jl_BackOption = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -309,7 +311,7 @@ public class Program extends javax.swing.JFrame {
         jp_MainMenuLayout.setVerticalGroup(
             jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,7 +321,7 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jp_ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jl_AccountName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,7 +373,7 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(jp_BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
@@ -424,7 +426,7 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jp_DeckLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_DeckMenu, "card3");
@@ -470,22 +472,52 @@ public class Program extends javax.swing.JFrame {
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jp_BackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
 
         jp_Background.add(jp_HelpMenu, "card3");
 
+        jp_BackOption.setBackground(new java.awt.Color(0, 0, 0));
+        jp_BackOption.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_BackOptionMouseClicked(evt);
+            }
+        });
+
+        jl_BackOption.setBackground(new java.awt.Color(255, 255, 255));
+        jl_BackOption.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_BackOption.setForeground(new java.awt.Color(255, 255, 255));
+        jl_BackOption.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_BackOption.setText("back");
+
+        javax.swing.GroupLayout jp_BackOptionLayout = new javax.swing.GroupLayout(jp_BackOption);
+        jp_BackOption.setLayout(jp_BackOptionLayout);
+        jp_BackOptionLayout.setHorizontalGroup(
+            jp_BackOptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_BackOption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+        );
+        jp_BackOptionLayout.setVerticalGroup(
+            jp_BackOptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_BackOption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jp_OptionMenuLayout = new javax.swing.GroupLayout(jp_OptionMenu);
         jp_OptionMenu.setLayout(jp_OptionMenuLayout);
         jp_OptionMenuLayout.setHorizontalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(644, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionMenuLayout.createSequentialGroup()
+                .addContainerGap(340, Short.MAX_VALUE)
+                .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
 
         jp_Background.add(jp_OptionMenu, "card6");
@@ -500,7 +532,7 @@ public class Program extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addGap(0, 458, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jp_Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -646,6 +678,15 @@ public class Program extends javax.swing.JFrame {
         jp_Background.revalidate();
         jp_Background.add(jp_OptionMenu);
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
+
+    private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
+        
+        // TODO add your handling code here:
+        jp_Background.removeAll();
+        jp_Background.repaint();
+        jp_Background.revalidate();
+        jp_Background.add(jp_MainMenu);
+    }//GEN-LAST:event_jp_BackOptionMouseClicked
     
     /**
      * @param args the command line arguments
@@ -685,6 +726,7 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_AccountName;
+    private javax.swing.JLabel jl_BackOption;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_Exit;
     private javax.swing.JLabel jl_Help;
@@ -695,6 +737,7 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JLabel jl_changeAcc;
     private javax.swing.JButton jp_BackButton;
     private javax.swing.JButton jp_BackButton1;
+    private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JLabel jp_Deck;
     private javax.swing.JPanel jp_DeckButton;
