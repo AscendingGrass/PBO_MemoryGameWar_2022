@@ -25,7 +25,24 @@ public abstract class Skill
 
     @Override
     public String toString() {
-        return "Description : \n" + description;
+        String [] temp = description.split(" ");
+        
+        return "Description : \n" + cacahKata(temp);
+    }
+    
+    public String cacahKata(String [] temp){
+        int counter = 1;
+        String x = "";
+        for(String i : temp){
+            if(counter > 5){
+                x+= "\n";
+                counter = 1;
+            }
+            x += i + " ";
+            counter++;
+            
+        }
+        return x;
     }
     
     public Skill(String name, String description, int skillPoint)
