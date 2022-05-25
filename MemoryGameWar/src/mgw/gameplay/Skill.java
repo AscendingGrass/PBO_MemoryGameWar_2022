@@ -25,7 +25,7 @@ public abstract class Skill
 
     @Override
     public String toString() {
-        return "Skill name : " + name + "\nDescription : " + description;
+        return "Description : \n" + description;
     }
     
     public Skill(String name, String description, int skillPoint)

@@ -79,6 +79,8 @@ public class Program extends javax.swing.JFrame {
         jp_Card12 = new javax.swing.JPanel();
         jp_Card13 = new javax.swing.JPanel();
         jp_DeckDesc = new javax.swing.JPanel();
+        jp_DescriptionHeading = new javax.swing.JPanel();
+        jl_DescriptionHeading = new javax.swing.JLabel();
         jp_DescriptionBody = new javax.swing.JPanel();
         jta_DescriptionBody = new javax.swing.JTextArea();
         jta_DescriptionBody_SP = new javax.swing.JTextArea();
@@ -88,8 +90,6 @@ public class Program extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jp_DescriptionHeading = new javax.swing.JPanel();
-        jjl_DescriptionHeading = new javax.swing.JLabel();
         jp_HelpMenu = new javax.swing.JPanel();
         jp_PlayLogo2 = new javax.swing.JPanel();
         jl_PlayLogo2 = new javax.swing.JLabel();
@@ -802,6 +802,24 @@ public class Program extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
+        jl_DescriptionHeading.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_DescriptionHeading.setText("Description");
+
+        javax.swing.GroupLayout jp_DescriptionHeadingLayout = new javax.swing.GroupLayout(jp_DescriptionHeading);
+        jp_DescriptionHeading.setLayout(jp_DescriptionHeadingLayout);
+        jp_DescriptionHeadingLayout.setHorizontalGroup(
+            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
+        );
+        jp_DescriptionHeadingLayout.setVerticalGroup(
+            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 41, Short.MAX_VALUE)
+            .addGroup(jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+        );
+
         jta_DescriptionBody.setColumns(20);
         jta_DescriptionBody.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jta_DescriptionBody.setLineWrap(true);
@@ -828,7 +846,7 @@ public class Program extends javax.swing.JFrame {
         jp_DescriptionBodyLayout.setVerticalGroup(
             jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionBodyLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -840,13 +858,18 @@ public class Program extends javax.swing.JFrame {
         jp_DeckDescLayout.setHorizontalGroup(
             jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jp_DeckDescLayout.createSequentialGroup()
+                .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jp_DeckDescLayout.setVerticalGroup(
             jp_DeckDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DeckDescLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addContainerGap()
+                .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -946,20 +969,6 @@ public class Program extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        jjl_DescriptionHeading.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jjl_DescriptionHeading.setText("Description");
-
-        javax.swing.GroupLayout jp_DescriptionHeadingLayout = new javax.swing.GroupLayout(jp_DescriptionHeading);
-        jp_DescriptionHeading.setLayout(jp_DescriptionHeadingLayout);
-        jp_DescriptionHeadingLayout.setHorizontalGroup(
-            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jjl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jp_DescriptionHeadingLayout.setVerticalGroup(
-            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jjl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jp_DeckMenuLayout = new javax.swing.GroupLayout(jp_DeckMenu);
         jp_DeckMenu.setLayout(jp_DeckMenuLayout);
         jp_DeckMenuLayout.setHorizontalGroup(
@@ -971,27 +980,20 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(105, Short.MAX_VALUE))
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
+                .addContainerGap(164, Short.MAX_VALUE)
                 .addComponent(jp_ListOfCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(100, 100, 100))))
+                .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(100, 100, 100))
         );
         jp_DeckMenuLayout.setVerticalGroup(
             jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jp_DeckDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_ListOfCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
                         .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1148,6 +1150,7 @@ public class Program extends javax.swing.JFrame {
         l.setForeground(Color.WHITE);
     }
     public void setDescriptionDefault(){
+        jl_DescriptionHeading.setText("Description");
         jta_DescriptionBody.setText("No Description");
         jta_DescriptionBody_SP.setText("SkillPoint = ~");
     }
@@ -1364,83 +1367,74 @@ public class Program extends javax.swing.JFrame {
         jp_Background.repaint();
         jp_Background.revalidate();
     }//GEN-LAST:event_jl_BackPlayMouseClicked
-
+    private void setDescription(Skill x){
+        jl_DescriptionHeading.setText(x.name);
+        jta_DescriptionBody.setText(x.toString());
+        jta_DescriptionBody_SP.setText(skillPoint(x));
+    }
     private void jp_Card1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[0].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[0]));
+        setDescription(Skill.list[0]);
     }//GEN-LAST:event_jp_Card1MouseEntered
 
     private void jp_Card2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card2MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[1].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[1]));
+        setDescription(Skill.list[1]);
     }//GEN-LAST:event_jp_Card2MouseEntered
 
     private void jp_Card3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card3MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[2].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[2]));
+        setDescription(Skill.list[2]);
     }//GEN-LAST:event_jp_Card3MouseEntered
 
     private void jp_Card4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card4MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[3].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[3]));
+        setDescription(Skill.list[3]);
     }//GEN-LAST:event_jp_Card4MouseEntered
 
     private void jp_Card5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card5MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[4].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[4]));
+        setDescription(Skill.list[4]);
     }//GEN-LAST:event_jp_Card5MouseEntered
 
     private void jp_Card6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card6MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[5].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[5]));
+        setDescription(Skill.list[5]);
     }//GEN-LAST:event_jp_Card6MouseEntered
 
     private void jp_Card7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card7MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[6].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[6]));
+        setDescription(Skill.list[6]);
     }//GEN-LAST:event_jp_Card7MouseEntered
 
     private void jp_Card8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card8MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[7].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[7]));
+        setDescription(Skill.list[7]);
     }//GEN-LAST:event_jp_Card8MouseEntered
 
     private void jp_Card9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card9MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[8].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[8]));
+        setDescription(Skill.list[8]);
     }//GEN-LAST:event_jp_Card9MouseEntered
 
     private void jp_Card10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card10MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[9].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[9]));
+        setDescription(Skill.list[9]);
     }//GEN-LAST:event_jp_Card10MouseEntered
 
     private void jp_Card11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card11MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[10].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[10]));
+        setDescription(Skill.list[10]);
     }//GEN-LAST:event_jp_Card11MouseEntered
 
     private void jp_Card12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card12MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[11].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[11]));
+        setDescription(Skill.list[11]);
     }//GEN-LAST:event_jp_Card12MouseEntered
 
     private void jp_Card13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card13MouseEntered
         // TODO add your handling code here:
-        jta_DescriptionBody.setText(Skill.list[12].toString());
-        jta_DescriptionBody_SP.setText(skillPoint(Skill.list[12]));
+        setDescription(Skill.list[12]);
     }//GEN-LAST:event_jp_Card13MouseEntered
 
     private void jp_Card1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseExited
@@ -1550,13 +1544,13 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JLabel jjl_DescriptionHeading;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
     private javax.swing.JLabel jl_BackOption;
     private javax.swing.JLabel jl_BackPlay;
     private javax.swing.JLabel jl_Deck;
+    private javax.swing.JLabel jl_DescriptionHeading;
     private javax.swing.JLabel jl_Exit;
     private javax.swing.JLabel jl_Help;
     private javax.swing.JLabel jl_Option;
