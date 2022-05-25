@@ -16,6 +16,7 @@ public class Card extends javax.swing.JPanel {
      * Creates new form Card
      */
     public final Skill skill;
+    boolean clicked = false;
     static int counter = 1;
     public Card(Skill skill) {
         this.skill = skill;
