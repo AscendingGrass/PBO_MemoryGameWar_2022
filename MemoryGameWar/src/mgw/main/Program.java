@@ -3,16 +3,19 @@ package mgw.main;
 
 import javax.swing.JFrame;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import mgw.gameplay.Skill;
 
-public class Program extends javax.swing.JFrame {
+public final class Program extends javax.swing.JFrame{
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     ArrayList<Account> akun = new ArrayList<>();
     JPanel card[] = new JPanel[Skill.list.length];
     Account active[] = new Account[1];
+    int [] arr = new int[1];
     /**
      * Creates new form Program
      */
@@ -23,6 +26,7 @@ public class Program extends javax.swing.JFrame {
         akun.add(new Account("Yurtan"));
         welcomeAkun(akun.get(0));
         initCard();
+        checkCard();
     }
     
     public final void fullScreen()
@@ -32,6 +36,31 @@ public class Program extends javax.swing.JFrame {
     }
     public void welcomeAkun(Account x){
         jl_AccountName.setText("Haii " + x.toString());
+    }
+    public void checkCard(){
+        for(int i = 0; i < card.length; i++){
+            arr[0] = i;
+            card[i].addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    //jp_PlayButtonMouseClicked(evt);
+                }
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    cardEntered(evt);
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    cardExited(evt);
+                }
+                });
+        }
+    }
+    private void cardEntered(java.awt.event.MouseEvent evt){
+        card[arr[0]].setBackground(Color.red);
+    }
+    private void cardExited(java.awt.event.MouseEvent evt){
+        card[arr[0]].setBackground(Color.cyan);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -830,6 +859,12 @@ public class Program extends javax.swing.JFrame {
             }
         }
     }
+    
+    public void cardDesc(int x){
+        jl_DescriptionHeading.setText(Skill.list[x].name);
+        jta_DescriptionBody.setText(Skill.list[x].toString());
+        jta_DescriptionBody_SP.setText("SkillPoint = " + Skill.list[x].skillPoint);
+    }
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         resetColor(jp_changeAcc, jl_changeAcc);
     }//GEN-LAST:event_jp_changeAccMouseEntered
@@ -1127,4 +1162,45 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
     // End of variables declaration//GEN-END:variables
+
+    public void mouseClicked(MouseEvent e) {
+        for(int i = 0; i < card.length; i++){
+            if(e.getSource() == card[i]){
+                card[i].setBackground(Color.red);
+            }
+        }
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        if(e.getSource() == card[0]){
+            card[0].setBackground(Color.red);
+        }else if(e.getSource() == card[1]){
+            card[1].setBackground(Color.red);
+        }else if(e.getSource() == card[2]){
+            card[2].setBackground(Color.red);
+        }else if(e.getSource() == card[3]){
+            card[3].setBackground(Color.red);
+        }else if(e.getSource() == card[4]){
+            card[4].setBackground(Color.red);
+        }else if(e.getSource() == card[5]){
+            card[5].setBackground(Color.red);
+        }else if(e.getSource() == card[6]){
+            card[6].setBackground(Color.red);
+        }else if(e.getSource() == card[7]){
+            card[7].setBackground(Color.red);
+        }else if(e.getSource() == card[8]){
+            card[8].setBackground(Color.red);
+        }else if(e.getSource() == card[9]){
+            card[9].setBackground(Color.red);
+        }else if(e.getSource() == card[10]){
+            card[10].setBackground(Color.red);
+        }else if(e.getSource() == card[11]){
+            card[11].setBackground(Color.red);
+        }else if(e.getSource() == card[12]){
+            card[12].setBackground(Color.red);
+        }else if(e.getSource() == card[13]){
+            card[13].setBackground(Color.red);
+        }
+    }
+
 }
