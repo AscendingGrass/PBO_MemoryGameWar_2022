@@ -11,6 +11,7 @@ public class Program extends javax.swing.JFrame {
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     ArrayList<Account> akun = new ArrayList<>();
+    JPanel card[] = new JPanel[Skill.list.length];
     Account active[] = new Account[1];
     /**
      * Creates new form Program
@@ -21,6 +22,7 @@ public class Program extends javax.swing.JFrame {
         active[0] = null;
         akun.add(new Account("Yurtan"));
         welcomeAkun(akun.get(0));
+        initCard();
     }
     
     public final void fullScreen()
@@ -65,19 +67,6 @@ public class Program extends javax.swing.JFrame {
         jp_BackDeck = new javax.swing.JPanel();
         jl_BackDeck = new javax.swing.JLabel();
         jp_ListOfCard = new javax.swing.JPanel();
-        jp_Card1 = new javax.swing.JPanel();
-        jp_Card2 = new javax.swing.JPanel();
-        jp_Card3 = new javax.swing.JPanel();
-        jp_Card4 = new javax.swing.JPanel();
-        jp_Card5 = new javax.swing.JPanel();
-        jp_Card6 = new javax.swing.JPanel();
-        jp_Card7 = new javax.swing.JPanel();
-        jp_Card8 = new javax.swing.JPanel();
-        jp_Card9 = new javax.swing.JPanel();
-        jp_Card10 = new javax.swing.JPanel();
-        jp_Card11 = new javax.swing.JPanel();
-        jp_Card12 = new javax.swing.JPanel();
-        jp_Card13 = new javax.swing.JPanel();
         jp_DeckDesc = new javax.swing.JPanel();
         jp_DescriptionBody = new javax.swing.JPanel();
         jta_DescriptionBody = new javax.swing.JTextArea();
@@ -467,339 +456,15 @@ public class Program extends javax.swing.JFrame {
 
         jp_ListOfCard.setBackground(new java.awt.Color(153, 153, 153));
 
-        jp_Card1.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card1MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card1Layout = new javax.swing.GroupLayout(jp_Card1);
-        jp_Card1.setLayout(jp_Card1Layout);
-        jp_Card1Layout.setHorizontalGroup(
-            jp_Card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card1Layout.setVerticalGroup(
-            jp_Card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card2.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card2MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card2Layout = new javax.swing.GroupLayout(jp_Card2);
-        jp_Card2.setLayout(jp_Card2Layout);
-        jp_Card2Layout.setHorizontalGroup(
-            jp_Card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card2Layout.setVerticalGroup(
-            jp_Card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card3.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card3MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card3Layout = new javax.swing.GroupLayout(jp_Card3);
-        jp_Card3.setLayout(jp_Card3Layout);
-        jp_Card3Layout.setHorizontalGroup(
-            jp_Card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card3Layout.setVerticalGroup(
-            jp_Card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card4.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card4MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card4MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card4Layout = new javax.swing.GroupLayout(jp_Card4);
-        jp_Card4.setLayout(jp_Card4Layout);
-        jp_Card4Layout.setHorizontalGroup(
-            jp_Card4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card4Layout.setVerticalGroup(
-            jp_Card4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card5.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card5MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card5MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card5Layout = new javax.swing.GroupLayout(jp_Card5);
-        jp_Card5.setLayout(jp_Card5Layout);
-        jp_Card5Layout.setHorizontalGroup(
-            jp_Card5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card5Layout.setVerticalGroup(
-            jp_Card5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card6.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card6MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card6MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card6Layout = new javax.swing.GroupLayout(jp_Card6);
-        jp_Card6.setLayout(jp_Card6Layout);
-        jp_Card6Layout.setHorizontalGroup(
-            jp_Card6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card6Layout.setVerticalGroup(
-            jp_Card6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card7.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card7MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card7MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card7Layout = new javax.swing.GroupLayout(jp_Card7);
-        jp_Card7.setLayout(jp_Card7Layout);
-        jp_Card7Layout.setHorizontalGroup(
-            jp_Card7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card7Layout.setVerticalGroup(
-            jp_Card7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card8.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card8MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card8MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card8Layout = new javax.swing.GroupLayout(jp_Card8);
-        jp_Card8.setLayout(jp_Card8Layout);
-        jp_Card8Layout.setHorizontalGroup(
-            jp_Card8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card8Layout.setVerticalGroup(
-            jp_Card8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card9.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card9MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card9MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card9Layout = new javax.swing.GroupLayout(jp_Card9);
-        jp_Card9.setLayout(jp_Card9Layout);
-        jp_Card9Layout.setHorizontalGroup(
-            jp_Card9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card9Layout.setVerticalGroup(
-            jp_Card9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card10.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card10MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card10MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card10Layout = new javax.swing.GroupLayout(jp_Card10);
-        jp_Card10.setLayout(jp_Card10Layout);
-        jp_Card10Layout.setHorizontalGroup(
-            jp_Card10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card10Layout.setVerticalGroup(
-            jp_Card10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card11.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card11MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card11Layout = new javax.swing.GroupLayout(jp_Card11);
-        jp_Card11.setLayout(jp_Card11Layout);
-        jp_Card11Layout.setHorizontalGroup(
-            jp_Card11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card11Layout.setVerticalGroup(
-            jp_Card11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card12.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card12MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card12MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card12Layout = new javax.swing.GroupLayout(jp_Card12);
-        jp_Card12.setLayout(jp_Card12Layout);
-        jp_Card12Layout.setHorizontalGroup(
-            jp_Card12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card12Layout.setVerticalGroup(
-            jp_Card12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jp_Card13.setBackground(new java.awt.Color(255, 51, 51));
-        jp_Card13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_Card13MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_Card13MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_Card13Layout = new javax.swing.GroupLayout(jp_Card13);
-        jp_Card13.setLayout(jp_Card13Layout);
-        jp_Card13Layout.setHorizontalGroup(
-            jp_Card13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jp_Card13Layout.setVerticalGroup(
-            jp_Card13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jp_ListOfCardLayout = new javax.swing.GroupLayout(jp_ListOfCard);
         jp_ListOfCard.setLayout(jp_ListOfCardLayout);
         jp_ListOfCardLayout.setHorizontalGroup(
             jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_ListOfCardLayout.createSequentialGroup()
-                        .addComponent(jp_Card1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jp_Card2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jp_Card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jp_Card4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jp_Card5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_ListOfCardLayout.createSequentialGroup()
-                        .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jp_Card6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jp_Card11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
-                                .addComponent(jp_Card12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jp_Card13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
-                                .addComponent(jp_Card7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jp_Card8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jp_Card9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jp_Card10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(10, 10, 10))
+            .addGap(0, 590, Short.MAX_VALUE)
         );
         jp_ListOfCardLayout.setVerticalGroup(
             jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_ListOfCardLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jp_Card5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jp_Card7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jp_Card12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jp_Card13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
         jta_DescriptionBody.setColumns(20);
@@ -968,7 +633,7 @@ public class Program extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(195, Short.MAX_VALUE))
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_ListOfCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1151,6 +816,19 @@ public class Program extends javax.swing.JFrame {
     }
     public String skillPoint(Skill skill){
         return "SkillPoint = " + skill.skillPoint;
+    }
+    public void initCard(){
+        int x = 37, y= 37;
+        for(int i = 0; i < Skill.list.length; i++){
+            card[i] = new JPanel();
+            card[i].setBounds(x, y, 100, 100);
+            jp_ListOfCard.add(card[i]);
+            x+= 137;
+            if (x > 500){
+                x = 37;
+                y += 137;
+            }
+        }
     }
     private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
         resetColor(jp_changeAcc, jl_changeAcc);
@@ -1366,137 +1044,7 @@ public class Program extends javax.swing.JFrame {
         jl_DescriptionHeading.setText(x.name);
         jta_DescriptionBody.setText(x.toString());
         jta_DescriptionBody_SP.setText(skillPoint(x));
-    }
-    private void jp_Card1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[0]);
-    }//GEN-LAST:event_jp_Card1MouseEntered
-
-    private void jp_Card2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card2MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[1]);
-    }//GEN-LAST:event_jp_Card2MouseEntered
-
-    private void jp_Card3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card3MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[2]);
-    }//GEN-LAST:event_jp_Card3MouseEntered
-
-    private void jp_Card4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card4MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[3]);
-    }//GEN-LAST:event_jp_Card4MouseEntered
-
-    private void jp_Card5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card5MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[4]);
-    }//GEN-LAST:event_jp_Card5MouseEntered
-
-    private void jp_Card6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card6MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[5]);
-    }//GEN-LAST:event_jp_Card6MouseEntered
-
-    private void jp_Card7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card7MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[6]);
-    }//GEN-LAST:event_jp_Card7MouseEntered
-
-    private void jp_Card8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card8MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[7]);
-    }//GEN-LAST:event_jp_Card8MouseEntered
-
-    private void jp_Card9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card9MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[8]);
-    }//GEN-LAST:event_jp_Card9MouseEntered
-
-    private void jp_Card10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card10MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[9]);
-    }//GEN-LAST:event_jp_Card10MouseEntered
-
-    private void jp_Card11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card11MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[10]);
-    }//GEN-LAST:event_jp_Card11MouseEntered
-
-    private void jp_Card12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card12MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[11]);
-    }//GEN-LAST:event_jp_Card12MouseEntered
-
-    private void jp_Card13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card13MouseEntered
-        // TODO add your handling code here:
-        setDescription(Skill.list[12]);
-    }//GEN-LAST:event_jp_Card13MouseEntered
-
-    private void jp_Card1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card1MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card1MouseExited
-
-    private void jp_Card2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card2MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card2MouseExited
-
-    private void jp_Card3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card3MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card3MouseExited
-
-    private void jp_Card4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card4MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card4MouseExited
-
-    private void jp_Card5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card5MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card5MouseExited
-
-    private void jp_Card6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card6MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card6MouseExited
-
-    private void jp_Card7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card7MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card7MouseExited
-
-    private void jp_Card8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card8MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card8MouseExited
-
-    private void jp_Card10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card10MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card10MouseExited
-
-    private void jp_Card9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card9MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card9MouseExited
-
-    private void jp_Card11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card11MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card11MouseExited
-
-    private void jp_Card12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card12MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card12MouseExited
-
-    private void jp_Card13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_Card13MouseExited
-        // TODO add your handling code here:
-        setDescriptionDefault();
-    }//GEN-LAST:event_jp_Card13MouseExited
-    
+    }    
     /**
      * @param args the command line arguments
      */
@@ -1522,6 +1070,7 @@ public class Program extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Program.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -1558,19 +1107,6 @@ public class Program extends javax.swing.JFrame {
     private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_BackPlay;
     private javax.swing.JPanel jp_Background;
-    private javax.swing.JPanel jp_Card1;
-    private javax.swing.JPanel jp_Card10;
-    private javax.swing.JPanel jp_Card11;
-    private javax.swing.JPanel jp_Card12;
-    private javax.swing.JPanel jp_Card13;
-    private javax.swing.JPanel jp_Card2;
-    private javax.swing.JPanel jp_Card3;
-    private javax.swing.JPanel jp_Card4;
-    private javax.swing.JPanel jp_Card5;
-    private javax.swing.JPanel jp_Card6;
-    private javax.swing.JPanel jp_Card7;
-    private javax.swing.JPanel jp_Card8;
-    private javax.swing.JPanel jp_Card9;
     private javax.swing.JPanel jp_DeckButton;
     private javax.swing.JPanel jp_DeckDesc;
     private javax.swing.JPanel jp_DeckMenu;
