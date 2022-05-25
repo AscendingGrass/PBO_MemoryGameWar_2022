@@ -45,7 +45,7 @@ public final class Program extends javax.swing.JFrame{
             card[i].addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    //jp_PlayButtonMouseClicked(evt);
+                    cardClicked(evt);
                 }
                 @Override
                 public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -59,7 +59,17 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     
-    
+    private void cardClicked(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Card c){
+            if(!c.clicked){
+                JPanel x = new JPanel();
+                x.setSize(c.getSize());
+                x.setBackground(Color.MAGENTA);
+                c.add(x);
+                c.clicked = true;
+            }
+        }
+    }
     
     private void cardEntered(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c)
