@@ -13,7 +13,7 @@ public final class Program extends javax.swing.JFrame{
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     ArrayList<Account> akun = new ArrayList<>();
-    JPanel card[] = new JPanel[Skill.list.length];
+    Card card[] = new Card[Skill.list.length];
     Account active[] = new Account[1];
     int [] arr = new int[1];
     /**
@@ -56,13 +56,23 @@ public final class Program extends javax.swing.JFrame{
                 });
         }
     }
+    
+    
+    
     private void cardEntered(java.awt.event.MouseEvent evt){
-        card[arr[0]].setBackground(Color.red);
-        setDescription(Skill.list[arr[0]]);
+        if(evt.getSource() instanceof Card c)
+        {
+            c.setBackground(Color.red);
+            setDescription(c.skill);
+        }
+        
     }
     private void cardExited(java.awt.event.MouseEvent evt){
-        card[arr[0]].setBackground(Color.cyan);
-        setDescriptionDefault();
+        if(evt.getSource() instanceof Card c)
+        {
+            c.setBackground(Color.cyan);
+            setDescriptionDefault();
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -851,7 +861,7 @@ public final class Program extends javax.swing.JFrame{
     public void initCard(){
         int x = 37, y= 37;
         for(int i = 0; i < Skill.list.length; i++){
-            card[i] = new JPanel();
+            card[i] = new Card(Skill.list[i]);
             card[i].setBounds(x, y, 100, 100);
             jp_ListOfCard.add(card[i]);
             x+= 137;
