@@ -91,13 +91,8 @@ class Fireball extends DamagingSkill implements ISpecialEffect
     }
 
     @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        target.status.add(new Singed(user, target));
     }
 
 }
@@ -109,15 +104,10 @@ class IceBlast extends DamagingSkill implements ISpecialEffect
     public IceBlast(){
 	super("Ice Blast", "The user deals 5% damage to the opponent and reduce opponent's skill point by 1.", 3, 5);
     }
-    
-    @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+
      @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        target.removeSP(1);
     }
 }
 
@@ -125,11 +115,6 @@ class MeteorStorm extends DamagingSkill
 {
     public MeteorStorm(){
 	super("Meteor Storm", "The user deals 20% damage to the opponent.", 8, 20);
-    }
-    
-    @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 

@@ -29,7 +29,7 @@ public class Player {
     
     public void removeSP(int amount)
     {
-        SP -= amount;
+        SP = (SP-amount < 0) ? 0 : SP-amount;
     }
     
     public void addSP(int amount)
