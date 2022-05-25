@@ -718,6 +718,7 @@ public class Program extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jta_DescriptionBody.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jp_DescriptionBodyLayout = new javax.swing.GroupLayout(jp_DescriptionBody);
