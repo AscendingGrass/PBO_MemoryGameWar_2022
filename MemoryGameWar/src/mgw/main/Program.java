@@ -28,9 +28,9 @@ public final class Program extends javax.swing.JFrame{
         checkCard();
         initDeck();
         checkDeck();
-        active[0] = null;
         akun.add(new Account("Yurtan"));
-        welcomeAkun(akun.get(0));
+        active[0] = akun.get(0);
+        welcomeAkun(active[0]);
     }
     
     public final void fullScreen()
@@ -1013,6 +1013,8 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_BackDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseClicked
         // TODO add your handling code here:
+        active[0].isiDeck(deck);
+        active[0].testIsiDeck();
         jp_Background.removeAll();
         jp_Background.repaint();
         jp_Background.revalidate();
