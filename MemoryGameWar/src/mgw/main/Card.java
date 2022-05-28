@@ -5,6 +5,7 @@
 package mgw.main;
 
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import mgw.gameplay.Skill;
 
 /**
@@ -16,14 +17,22 @@ public class Card extends javax.swing.JPanel {
     /**
      * Creates new form Card
      */
-    public final Skill skill;
+    public Skill skill;
     boolean clicked = false;
     static int counter = 1;
     public Card(Skill skill) {
         this.skill = skill;
         initComponents();
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + ".png")));
-       
+    }
+
+    public Card() {
+    }
+    
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
     public javax.swing.ImageIcon getIcon() {
@@ -31,6 +40,10 @@ public class Card extends javax.swing.JPanel {
     }
     
     public void setIconNull(){
+        jLabel1.setIcon(null);
+    }
+    public void cardClicker(){
+        clicked = true;
         jLabel1.setIcon(null);
     }
     /**

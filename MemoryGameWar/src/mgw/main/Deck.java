@@ -4,6 +4,8 @@
  */
 package mgw.main;
 
+import mgw.gameplay.Skill;
+
 /**
  *
  * @author user
@@ -14,14 +16,22 @@ public class Deck extends javax.swing.JPanel {
      * Creates new form Deck
      */
     boolean clicked = false;
+    Skill skill;
     static int counter = 0;
     public Deck() {
         initComponents();
         //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
         //jlabel1();
     }
-    public void setIcon(javax.swing.ImageIcon x){
-        jLabel1.setIcon(x);
+    public Deck(Skill skill, Card c){
+        initComponents();
+        this.skill = skill;
+        jLabel1.setIcon(c.getIcon());
+    }
+    public void deckCopy(Card c){
+        skill = c.skill;
+        jLabel1.setIcon(c.getIcon());
+        counter++;
     }
     public void jlabel1(){
         //jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png"));

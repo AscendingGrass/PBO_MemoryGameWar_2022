@@ -42,9 +42,8 @@ public final class Program extends javax.swing.JFrame{
     }
    
     public void checkCard(){
-        for(int i = 0; i < card.length; i++){
-            arr[0] = i;
-            card[i].addMouseListener(new java.awt.event.MouseAdapter() {
+        for (Card card1 : card) {
+            card1.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     cardClicked(evt);
@@ -57,21 +56,43 @@ public final class Program extends javax.swing.JFrame{
                 public void mouseExited(java.awt.event.MouseEvent evt) {
                     cardExited(evt);
                 }
-                });
+            });
         }
+    }
+    public void checkDeck(){
+        for (Deck deck1 : deck) {
+            deck1.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    cardClicked(evt);
+                }
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    cardEntered(evt);
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    cardExited(evt);
+                }
+            });
+        }
+    }
+    public void deckClicked(){
+        
+    }
+    public void deckEntered(){
+        
+    }
+    public void deckExited(){
+        
     }
     
     private void cardClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c){
             if(!c.clicked){
                 if(Deck.counter < 5){
-                    deck[Deck.counter++].setIcon(c.getIcon());
-                    c.clicked = true;
-                    JPanel back = new JPanel();
-                    back.setBounds(114, 114, 0, 0);
-                    back.setBackground(new java.awt.Color(0,0,0));
-                    c.add(back);
-                    c.setIconNull();
+                    deck[Deck.counter].deckCopy(c);
+                    c.cardClicker();
                 }
             }
         }
