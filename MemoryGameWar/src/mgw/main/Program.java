@@ -98,12 +98,15 @@ public final class Program extends javax.swing.JFrame{
     
     private void cardClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Card c){
-            if(!c.clicked){
-                if(Deck.counter < 5){
-                    deck[Deck.counter].deckCopy(c);
-                    c.cardClicker();
+            if(c.clicked)
+                return;
+            if(Deck.counter > 5)
+                return;
+            for(Deck i : deck)
+                if(i.skill == null){
+                    i.deckCopy(c);
+                    return;
                 }
-            }
         }
     }
     
@@ -120,6 +123,7 @@ public final class Program extends javax.swing.JFrame{
             setDescriptionDefault();
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

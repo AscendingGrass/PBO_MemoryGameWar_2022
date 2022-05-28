@@ -45,7 +45,7 @@ public class Card extends javax.swing.JPanel {
     public void setIconNull(){
         jLabel1.setIcon(null);
     }
-    public void cardClicker(){
+    public void cardClicked(){
         clicked = true;
         jLabel1.setIcon(null);
     }

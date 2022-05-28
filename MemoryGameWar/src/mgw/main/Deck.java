@@ -28,17 +28,21 @@ public class Deck extends javax.swing.JPanel {
         skill = c.skill;
         jLabel1.setIcon(c.getIcon());
         counter++;
+        c.cardClicked();
     }
     public void deckRemove(Card [] card){
         for(Card i : card){
             if(i.skill.equals(skill)){
+                counter--;
                 empty = true;
                 skill = null;
                 jLabel1.setIcon(null);
                 i.deckClicked();
+                return;
             }
         }
     }
+    
     public void jlabel1(){
         //jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png"));
     }
