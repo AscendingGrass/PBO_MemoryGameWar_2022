@@ -15,23 +15,29 @@ public class Deck extends javax.swing.JPanel {
     /**
      * Creates new form Deck
      */
-    boolean clicked = false;
-    Skill skill;
+    boolean empty = true;
+    Skill skill = null;
     static int counter = 0;
     public Deck() {
         initComponents();
         //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
         //jlabel1();
     }
-    public Deck(Skill skill, Card c){
-        initComponents();
-        this.skill = skill;
-        jLabel1.setIcon(c.getIcon());
-    }
     public void deckCopy(Card c){
+        empty = false;
         skill = c.skill;
         jLabel1.setIcon(c.getIcon());
         counter++;
+    }
+    public void deckRemove(Card [] card){
+        for(Card i : card){
+            if(i.skill.equals(skill)){
+                empty = true;
+                skill = null;
+                jLabel1.setIcon(null);
+                i.deckClicked();
+            }
+        }
     }
     public void jlabel1(){
         //jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\cardType\\10.png"));

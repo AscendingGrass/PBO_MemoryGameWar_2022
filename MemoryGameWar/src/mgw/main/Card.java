@@ -4,6 +4,7 @@
  */
 package mgw.main;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import mgw.gameplay.Skill;
@@ -19,11 +20,13 @@ public class Card extends javax.swing.JPanel {
      */
     public Skill skill;
     boolean clicked = false;
+    Icon img;
     static int counter = 1;
     public Card(Skill skill) {
         this.skill = skill;
         initComponents();
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + ".png")));
+        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + ".png"));
+        jLabel1.setIcon(img);
     }
 
     public Card() {
@@ -45,6 +48,10 @@ public class Card extends javax.swing.JPanel {
     public void cardClicker(){
         clicked = true;
         jLabel1.setIcon(null);
+    }
+    public void deckClicked(){
+        clicked = false;
+        jLabel1.setIcon(img);
     }
     /**
      * This method is called from within the constructor to initialize the form.
