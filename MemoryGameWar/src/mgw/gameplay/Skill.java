@@ -1,6 +1,8 @@
 
 package mgw.gameplay;
 
+import mgw.util.UtilArsa;
+
 public abstract class Skill
 {
     public static Skill[] list = {
@@ -64,7 +66,7 @@ public abstract class Skill
 
 abstract class DamagingSkill extends Skill implements IDamaging
 {
-    private int damage;
+    private final int damage;
 
     public DamagingSkill(String name, String description, int skillPoint, int damage) {
         super(name, description, skillPoint);
@@ -120,13 +122,20 @@ class MeteorStorm extends DamagingSkill
 
 class ChainLightning extends DamagingSkill
 {
+    public final int procChance = 55;
+    
     public ChainLightning(){
 	super("Chain Lightning", "The user deals 10% damage to the opponent 1-3 times.", 7, 10);
     }
     
     @Override
     void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int hits = UtilArsa.nextRandom(1, 4);
+        
+        for (int i = 0; i < hits; i++) 
+            dealDamage(user, target);
+        
+        
     }
 }
 
@@ -139,7 +148,14 @@ class QuickSlash extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int hits = UtilArsa.nextRandom(1, 7);
+        
+        dealDamage(user, target);
+        for (int i = 0; i < hits; i++)
+            dealDamage(user, target);
+        
+        ++hits;
+        
     }
 }
 
@@ -149,17 +165,12 @@ class Absorb extends DamagingSkill implements ISpecialEffect
     public Absorb(){
 	super("Absorb", "The user deals 10% damage to the opponent and steals 2 skill point from your opponent.", 8, 10);
     }
-    
-    @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        target.removeSP(2);
+        user.addSP(2);
     }
-    
     
 }
 
@@ -172,21 +183,21 @@ class DoubleEdge extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        dealDamage(user, target);
+        user.removeHP(5);
     }
 }
 
 class ClownGaze extends DamagingSkill
 {
-    private int damage = 50;
-    
     public ClownGaze(){
 	super("Clown Gaze", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%.", 20, 50);
     }
     
     @Override
     void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        dealDamage(user, target);
+        user.removeHP(user.getHP()-1);
     }
 }
 
@@ -197,13 +208,24 @@ class Dodge extends Skill implements ISpecialEffect
     }
     
     @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-     @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean alreadyElusive = false;
+        for(StatusEffect se : user.status) 
+        {
+            if (se instanceof Elusive) {
+                alreadyElusive = true;
+                break;
+            }
+        }
+        
+        if(!alreadyElusive)
+        {
+            user.status.add(new Elusive(user, user));
+        }
+        else
+        {
+            
+        }
     }
 }
 
@@ -214,13 +236,24 @@ class RevengeCounter extends Skill implements ISpecialEffect
     }
     
     @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-     @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean alreadyTankingHits = false;
+        for(StatusEffect se : user.status) 
+        {
+            if (se instanceof TankingHits) {
+                alreadyTankingHits = true;
+                break;
+            }
+        }
+        
+        if(!alreadyTankingHits)
+        {
+            user.status.add(new TankingHits(user, target));
+        }
+        else
+        {
+            
+        }
     }
 }
 
@@ -231,13 +264,8 @@ class Recover extends Skill implements ISpecialEffect
     }
     
     @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-     @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        user.addHP(20);
     }
 }
 
@@ -248,13 +276,24 @@ class QuickSand extends Skill implements ISpecialEffect
     }
     
     @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-     @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean alreadySinking = false;
+        for(StatusEffect se : target.status) 
+        {
+            if (se instanceof Sinking) {
+                alreadySinking = true;
+                break;
+            }
+        }
+        
+        if(!alreadySinking)
+        {
+            target.status.add(new Sinking(user, target));
+        }
+        else
+        {
+            
+        }
     }
 }
 
@@ -265,13 +304,24 @@ class TrapHole extends Skill implements ISpecialEffect
     }
     
     @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-     @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean alreadyTrapped = false;
+        for(StatusEffect se : target.status) 
+        {
+            if (se instanceof Trapped) {
+                alreadyTrapped = true;
+                break;
+            }
+        }
+        
+        if(!alreadyTrapped)
+        {
+            target.status.add(new Trapped(user, target));
+        }
+        else
+        {
+            
+        }
     }
 }
 
@@ -281,13 +331,24 @@ class MirrorImage extends Skill implements ISpecialEffect
 	super("Mirror Image", "The user can use skill twice this turn (not including this skill), but the user must recharge on the next turn.", 10);
     }
     
-    @Override
-    void use(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
      @Override
     public void cast(Player user, Player target) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean alreadyBoosted = false;
+        for(StatusEffect se : user.status) 
+        {
+            if (se instanceof Boosted) {
+                alreadyBoosted = true;
+                break;
+            }
+        }
+        
+        if(!alreadyBoosted)
+        {
+            user.status.add(new Boosted(user, user));
+        }
+        else
+        {
+            
+        }
     }
 }

@@ -6,9 +6,9 @@ import mgw.main.Account;
 public class Player {
     public final ArrayList<StatusEffect> status = new ArrayList();
     public final int maxHP = 100;
-
-    private Account user;
-    private Skill[] deck;
+    public final Account user;
+    public final Skill[] deck;
+    
     private int HP = 100;
     private int SP = 0;
     
@@ -32,12 +32,12 @@ public class Player {
         SP = (SP-amount < 0) ? 0 : SP-amount;
     }
     
-    public void addSP(int amount)
+    public void addSP(int amount) // don forgor💀 to implement checking for sinking status effect!!
     {
         SP += amount;
     }
     
-    public int getSHP()
+    public int getHP()
     {
         return HP;
     }

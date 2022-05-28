@@ -28,6 +28,8 @@ public abstract class StatusEffect {
     {
         affected.status.remove(this);
     }
+    
+    
 }
 
 abstract class MultiTurnEffect extends StatusEffect implements IMultiTurn
