@@ -921,26 +921,24 @@ public final class Program extends javax.swing.JFrame{
         
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
         active[0] = null;
-        if(x != null){
-            if(!x.equals("")){
-                for(Account i : akun){
-                    if(i.username.equals(x)){
-                        active[0] = i;
-                        JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
-                        welcomeAkun(i);
-                        return;
-                    }
-                }
-                if(active[0] == null){
-                    JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
-                    akun.add(new Account(x));
-                    welcomeAkun(akun.get(akun.size()-1));
-                    return;
-                }
-
-                
-            }else 
-                JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
+        if(x == null)
+            return;
+        if(x.equals("")){
+            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        for(Account i : akun){
+            if(i.username.equals(x)){
+                active[0] = i;
+                JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
+                welcomeAkun(i);
+                return;
+            }
+        }
+        if(active[0] == null){
+            JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
+            akun.add(new Account(x));
+            welcomeAkun(akun.get(akun.size()-1));
         }
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
