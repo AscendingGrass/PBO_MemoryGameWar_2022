@@ -20,14 +20,15 @@ public class Card extends javax.swing.JPanel {
      */
     public Skill skill;
     boolean clicked = false;
-    Icon img;
+    Icon img, back;
     static int counter = 1;
     int count;
     public Card(Skill skill) {
         this.skill = skill;
         initComponents();
         count = counter;
-        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + ".png"));
+        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter + ".png"));
+        back = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + "t.png"));
         jLabel1.setIcon(img);
     }
 
@@ -49,7 +50,7 @@ public class Card extends javax.swing.JPanel {
     }
     public void cardClicked(){
         clicked = true;
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + count + "t.png")));
+        jLabel1.setIcon(back);
     }
     public void deckClicked(){
         clicked = false;
