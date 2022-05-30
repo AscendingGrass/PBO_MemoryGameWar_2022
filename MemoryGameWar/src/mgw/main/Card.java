@@ -22,9 +22,11 @@ public class Card extends javax.swing.JPanel {
     boolean clicked = false;
     Icon img;
     static int counter = 1;
+    int count;
     public Card(Skill skill) {
         this.skill = skill;
         initComponents();
+        count = counter;
         img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + ".png"));
         jLabel1.setIcon(img);
     }
@@ -47,7 +49,7 @@ public class Card extends javax.swing.JPanel {
     }
     public void cardClicked(){
         clicked = true;
-        jLabel1.setIcon(null);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + count + "t.png")));
     }
     public void deckClicked(){
         clicked = false;
