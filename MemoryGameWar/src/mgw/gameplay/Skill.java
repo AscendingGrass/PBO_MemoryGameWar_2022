@@ -1,6 +1,7 @@
 
 package mgw.gameplay;
 
+import java.util.ArrayList;
 import mgw.util.UtilArsa;
 
 public abstract class Skill
@@ -56,6 +57,8 @@ public abstract class Skill
     
     void use(Player user, Player target)
     {
+        System.out.println(user.user.username + " used " + name);
+        
         if (this instanceof IDamaging d) 
             d.dealDamage(user, target);
         
@@ -80,7 +83,33 @@ abstract class DamagingSkill extends Skill implements IDamaging
 
     @Override
     public void dealDamage(Player user, Player target) {
-        target.removeHP(damage);
+        boolean evaded = false;
+        for (StatusEffect se : target.status)
+        {
+            if (se instanceof Elusive) 
+            {
+                evaded = true;
+                se.remove();
+                break;
+            }
+        }
+        
+        if (!evaded) {
+            int modifiedDmg = damage;
+            for (StatusEffect se : new ArrayList<>(user.status))
+            {
+                if (se instanceof IDamageModifier dm) 
+                {
+                    modifiedDmg = dm.modify(modifiedDmg);
+                }
+            }
+            System.out.println(user.user.username + " dealt " + modifiedDmg + " damage to " + target.user.username);
+            target.removeHP(modifiedDmg);
+        }
+        else
+        {
+            System.out.println(target.user.username + " evaded the attack");
+        }
     }
     
 }
@@ -130,12 +159,13 @@ class ChainLightning extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
+        System.out.println(user.user.username + " used " + name);
         int hits = UtilArsa.nextRandom(1, 4);
         
         for (int i = 0; i < hits; i++) 
             dealDamage(user, target);
         
-        
+        System.out.println("hit " + hits + " time(s)");
     }
 }
 
@@ -148,6 +178,7 @@ class QuickSlash extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
+        System.out.println(user.user.username + " used " + name);
         int hits = UtilArsa.nextRandom(1, 7);
         
         dealDamage(user, target);
@@ -155,7 +186,7 @@ class QuickSlash extends DamagingSkill
             dealDamage(user, target);
         
         ++hits;
-        
+        System.out.println("hit " + hits + " times");
     }
 }
 
@@ -168,8 +199,10 @@ class Absorb extends DamagingSkill implements ISpecialEffect
 
     @Override
     public void cast(Player user, Player target) {
-        target.removeSP(2);
-        user.addSP(2);
+        int absorbedSP = target.getSP();
+        absorbedSP = absorbedSP > 2? 2 : absorbedSP;
+        target.removeSP(absorbedSP);
+        user.addSP(absorbedSP);
     }
     
 }
@@ -183,6 +216,7 @@ class DoubleEdge extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
+        System.out.println(user.user.username + " used " + name);
         dealDamage(user, target);
         user.removeHP(5);
     }
@@ -248,7 +282,7 @@ class RevengeCounter extends Skill implements ISpecialEffect
         
         if(!alreadyTankingHits)
         {
-            user.status.add(new TankingHits(user, target));
+            user.status.add(new TankingHits(user, user, target));
         }
         else
         {

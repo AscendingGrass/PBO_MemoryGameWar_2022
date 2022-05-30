@@ -32,8 +32,15 @@ public class Player {
         SP = (SP-amount < 0) ? 0 : SP-amount;
     }
     
-    public void addSP(int amount) // don forgor💀 to implement checking for sinking status effect!!
+    public void addSP(int amount) // don forgor💀 to implement checking for sinking status effect!! (done)
     {
+        for(StatusEffect se : status)
+        {
+            if (se instanceof Sinking) {
+                amount /= 2;
+                break;
+            }
+        }
         SP += amount;
     }
     
@@ -49,6 +56,13 @@ public class Player {
     
     public void removeHP(int amount)
     {
+        if(amount < 0) amount = 0;
+        for(StatusEffect se : status)
+        {
+            if (se instanceof TankingHits th) {
+                th.tank(amount);
+            }
+        }
         HP = (HP-amount < 0) ? 0 : HP-amount;
     }
     
@@ -74,7 +88,14 @@ public class Player {
     {
         return HP == 0;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        String str = user.username + " = {" + "HP=" + HP + ", SP=" + SP + '}';
+        for (StatusEffect se : status){
+            str += "\n *" + se.name;
+        }
+        return str;
+    }
+
 }
