@@ -42,6 +42,7 @@ public class Player {
             }
         }
         SP += amount;
+        System.out.println(user.username + " gained " + amount + " SP");
     }
     
     public int getHP()
@@ -73,8 +74,26 @@ public class Player {
     
     public void useSkill(Player target, int skillIndex)
     {
-        removeSP(deck[skillIndex].skillPoint);
-        deck[skillIndex].use(this, target);
+        StatusEffect temp = getStatusOfType("Tired");
+        if (temp == null) {
+            removeSP(deck[skillIndex].skillPoint);
+            deck[skillIndex].use(this, target);
+        }
+        else
+        {
+            System.out.println(user.username + " can't move this turn");
+        }
+        
+    }
+    
+    public StatusEffect getStatusOfType(String statusName)
+    {
+        for (StatusEffect se : status) {
+            if (se.name.equalsIgnoreCase(statusName)) {
+                return se;
+            }
+        }
+        return null;
     }
     
     public void nextTurn()

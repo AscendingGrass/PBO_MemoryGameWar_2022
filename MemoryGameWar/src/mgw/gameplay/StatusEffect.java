@@ -4,6 +4,8 @@
  */
 package mgw.gameplay;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mejap
@@ -17,11 +19,13 @@ public abstract class StatusEffect {
     
     public final String name;
     public final Player caster, affected;
+    public final Object source;
 
-    public StatusEffect(String name, Player caster, Player affected) {
+    public StatusEffect(String name, Object source,  Player caster, Player affected) {
         this.name = name;
         this.caster = caster;
         this.affected = affected;
+        this.source = source;
     }
     
     public void remove()
@@ -36,10 +40,10 @@ abstract class MultiTurnEffect extends StatusEffect implements IMultiTurn
 {
     protected int turnsLeft;
     
-    public MultiTurnEffect(String name, Player caster, Player affected, int turns) {
-        super(name, caster, affected);
+    public MultiTurnEffect(String name, Object source, Player caster, Player affected, int turns) {
+        super(name, source,  caster, affected);
         turnsLeft = turns;
-        if(caster.equals(affected)) turnsLeft++;
+        if(caster.equals(affected) && source instanceof Skill) turnsLeft++;
     }
     
     @Override
@@ -55,8 +59,8 @@ abstract class MultiTurnEffect extends StatusEffect implements IMultiTurn
 
 class Singed extends MultiTurnEffect implements IDebuff, IDamageModifier //After getting hit with fireball (reduces next damage from the affected by 5)
 {
-    public Singed(Player caster, Player affected) {
-        super("Singed", caster, affected, 1);
+    public Singed(Object source, Player caster, Player affected) {
+        super("Singed", source,  caster, affected, 1);
     }
     
     @Override
@@ -69,8 +73,8 @@ class Singed extends MultiTurnEffect implements IDebuff, IDamageModifier //After
 
 class Elusive extends StatusEffect implements IBuff //After using dodge (evades opponents next attack)
 {
-    public Elusive( Player caster, Player affected) {
-        super("Elusive", caster, affected);
+    public Elusive(Object source, Player caster, Player affected) {
+        super("Elusive", source, caster, affected);
     }
     
     //don't forget to call remove() later to remove the buff after it is used up (done)
@@ -81,8 +85,8 @@ class TankingHits extends MultiTurnEffect implements IBuff, IDamaging //After us
     public final Player target;
     private int collectedDamage = 0;
 
-    public TankingHits( Player caster, Player affected, Player target) {
-        super("Tanking Hits", caster, affected, 2);
+    public TankingHits(Object source, Player caster, Player affected, Player target) {
+        super("Tanking Hits", source, caster, affected, 2);
         this.target = target;
     }
 
@@ -90,12 +94,13 @@ class TankingHits extends MultiTurnEffect implements IBuff, IDamaging //After us
     public void nextTurn() {
         if(--turnsLeft <= 0) 
         {
+            
             dealDamage(affected, target);
             remove();
         }
         else if(turnsLeft == 1)
         {
-            affected.status.add(new Tired(affected, affected, 1));
+            affected.status.add(new Tired(this, affected, affected, 1));
         }
         
     }
@@ -112,23 +117,32 @@ class TankingHits extends MultiTurnEffect implements IBuff, IDamaging //After us
 
     @Override
     public void dealDamage(Player user, Player target) {
-        target.removeHP(getDamage());
+        int modifiedDmg = getDamage();
+        for (StatusEffect se : new ArrayList<>(user.status))
+        {
+            if (se instanceof IDamageModifier dm) 
+            {
+                modifiedDmg = dm.modify(modifiedDmg);
+            }
+        }
+        System.out.println(affected.user.username + " took revenge for all the damage it took and dealt " + modifiedDmg + " damage to " + target.user.username);
+        target.removeHP(modifiedDmg);
     }
     
 }
 
 class Sinking extends MultiTurnEffect implements IDebuff //After getting hit by quicksand (halves the affected's SP gain)
 {
-    public Sinking(Player caster, Player affected) {
-        super("Sinking", caster, affected, 1);
+    public Sinking(Object source, Player caster, Player affected) {
+        super("Sinking", source, caster, affected, 1);
     }
     
 }
 
 class Trapped extends MultiTurnEffect implements IDebuff //After getting hit by trap hole (prevents the affected from using non-offensive skills)
 {
-    public Trapped(Player caster, Player affected) {
-        super("Trapped", caster, affected, 1);
+    public Trapped(Object source, Player caster, Player affected) {
+        super("Trapped", source, caster, affected, 1);
     }
 }
 
@@ -136,14 +150,14 @@ class Boosted extends StatusEffect implements IBuff //mirror image buff
 {
     private int effect = 2;
 
-    public Boosted(Player caster, Player affected) {
-        super("Boosted", caster, affected);
+    public Boosted(Object source, Player caster, Player affected) {
+        super("Boosted", source,  caster, affected);
     }
     
     public boolean check()
     {
         if(effect-- > 0) return true;
-        affected.status.add(new Tired(caster, affected, 1));
+        affected.status.add(new Tired(this, caster, affected, 1));
         remove();
         return false;
     }
@@ -151,8 +165,8 @@ class Boosted extends StatusEffect implements IBuff //mirror image buff
 
 class Tired extends MultiTurnEffect implements IDebuff //The next turn after using mirror image
 {
-    public Tired(Player caster, Player affected, int turns) {
-        super("Tired", caster, affected, turns);
+    public Tired(Object source, Player caster, Player affected, int turns) {
+        super("Tired", source, caster, affected, turns);
     }
     
 }

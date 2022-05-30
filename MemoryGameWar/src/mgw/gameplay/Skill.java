@@ -60,9 +60,21 @@ public abstract class Skill
         System.out.println(user.user.username + " used " + name);
         
         if (this instanceof IDamaging d) 
-            d.dealDamage(user, target);
-        
-        if (this instanceof ISpecialEffect se) 
+        {
+            StatusEffect temp = target.getStatusOfType("Elusive");
+            if (temp == null) 
+            { 
+                d.dealDamage(user, target);
+                if (this instanceof ISpecialEffect se) 
+                    se.cast(user, target);
+            }
+            else
+            {
+                temp.remove();
+                System.out.println(target.user.username + " evaded the attack");
+            }
+        }
+        else if (this instanceof ISpecialEffect se) 
             se.cast(user, target);
     }
 }
@@ -83,33 +95,18 @@ abstract class DamagingSkill extends Skill implements IDamaging
 
     @Override
     public void dealDamage(Player user, Player target) {
-        boolean evaded = false;
-        for (StatusEffect se : target.status)
+
+        int modifiedDmg = damage;
+        for (StatusEffect se : new ArrayList<>(user.status))
         {
-            if (se instanceof Elusive) 
+            if (se instanceof IDamageModifier dm) 
             {
-                evaded = true;
-                se.remove();
-                break;
+                modifiedDmg = dm.modify(modifiedDmg);
             }
         }
-        
-        if (!evaded) {
-            int modifiedDmg = damage;
-            for (StatusEffect se : new ArrayList<>(user.status))
-            {
-                if (se instanceof IDamageModifier dm) 
-                {
-                    modifiedDmg = dm.modify(modifiedDmg);
-                }
-            }
-            System.out.println(user.user.username + " dealt " + modifiedDmg + " damage to " + target.user.username);
-            target.removeHP(modifiedDmg);
-        }
-        else
-        {
-            System.out.println(target.user.username + " evaded the attack");
-        }
+        System.out.println(user.user.username + " dealt " + modifiedDmg + " damage to " + target.user.username);
+        target.removeHP(modifiedDmg);
+
     }
     
 }
@@ -123,7 +120,7 @@ class Fireball extends DamagingSkill implements ISpecialEffect
 
     @Override
     public void cast(Player user, Player target) {
-        target.status.add(new Singed(user, target));
+        target.status.add(new Singed(this, user, target));
     }
 
 }
@@ -163,7 +160,16 @@ class ChainLightning extends DamagingSkill
         int hits = UtilArsa.nextRandom(1, 4);
         
         for (int i = 0; i < hits; i++) 
-            dealDamage(user, target);
+        {
+            StatusEffect temp = target.getStatusOfType("Elusive");
+            if (temp == null) 
+                dealDamage(user, target);
+            else
+            {
+                temp.remove();
+                System.out.println(target.user.username + " evaded the attack");
+            }
+        }
         
         System.out.println("hit " + hits + " time(s)");
     }
@@ -179,13 +185,20 @@ class QuickSlash extends DamagingSkill
     @Override
     void use(Player user, Player target) {
         System.out.println(user.user.username + " used " + name);
-        int hits = UtilArsa.nextRandom(1, 7);
+        int hits = UtilArsa.nextRandom(2, 8) ;
         
-        dealDamage(user, target);
         for (int i = 0; i < hits; i++)
-            dealDamage(user, target);
+        {
+            StatusEffect temp = target.getStatusOfType("Elusive");
+            if (temp == null) 
+                dealDamage(user, target);
+            else
+            {
+                temp.remove();
+                System.out.println(target.user.username + " evaded the attack");
+            }
+        }
         
-        ++hits;
         System.out.println("hit " + hits + " times");
     }
 }
@@ -243,22 +256,14 @@ class Dodge extends Skill implements ISpecialEffect
     
     @Override
     public void cast(Player user, Player target) {
-        boolean alreadyElusive = false;
-        for(StatusEffect se : user.status) 
+        StatusEffect temp = user.getStatusOfType("Elusive");
+        if(temp == null)
         {
-            if (se instanceof Elusive) {
-                alreadyElusive = true;
-                break;
-            }
-        }
-        
-        if(!alreadyElusive)
-        {
-            user.status.add(new Elusive(user, user));
+            user.status.add(new Elusive(this, user, user));
         }
         else
         {
-            
+            System.out.println(user.user.username + " is already Elusive");
         }
     }
 }
@@ -271,22 +276,15 @@ class RevengeCounter extends Skill implements ISpecialEffect
     
     @Override
     public void cast(Player user, Player target) {
-        boolean alreadyTankingHits = false;
-        for(StatusEffect se : user.status) 
+
+        StatusEffect temp = user.getStatusOfType("Tanking Hits");
+        if(temp == null)
         {
-            if (se instanceof TankingHits) {
-                alreadyTankingHits = true;
-                break;
-            }
-        }
-        
-        if(!alreadyTankingHits)
-        {
-            user.status.add(new TankingHits(user, user, target));
+            user.status.add(new TankingHits(this, user, user, target));
         }
         else
         {
-            
+            System.out.println(user.user.username + " is already Tanking Hits");
         }
     }
 }
@@ -311,22 +309,14 @@ class QuickSand extends Skill implements ISpecialEffect
     
     @Override
     public void cast(Player user, Player target) {
-        boolean alreadySinking = false;
-        for(StatusEffect se : target.status) 
+        StatusEffect temp = target.getStatusOfType("Sinking");
+        if(temp == null)
         {
-            if (se instanceof Sinking) {
-                alreadySinking = true;
-                break;
-            }
-        }
-        
-        if(!alreadySinking)
-        {
-            target.status.add(new Sinking(user, target));
+            target.status.add(new Sinking(this, user, target));
         }
         else
         {
-            
+            System.out.println(target.user.username + " is already Sinking");
         }
     }
 }
@@ -339,22 +329,14 @@ class TrapHole extends Skill implements ISpecialEffect
     
     @Override
     public void cast(Player user, Player target) {
-        boolean alreadyTrapped = false;
-        for(StatusEffect se : target.status) 
+        StatusEffect temp = target.getStatusOfType("Trapped");
+        if(temp == null)
         {
-            if (se instanceof Trapped) {
-                alreadyTrapped = true;
-                break;
-            }
-        }
-        
-        if(!alreadyTrapped)
-        {
-            target.status.add(new Trapped(user, target));
+            target.status.add(new Trapped(this, user, target));
         }
         else
         {
-            
+            System.out.println(target.user.username + " is already Trapped");
         }
     }
 }
@@ -367,22 +349,14 @@ class MirrorImage extends Skill implements ISpecialEffect
     
      @Override
     public void cast(Player user, Player target) {
-        boolean alreadyBoosted = false;
-        for(StatusEffect se : user.status) 
+        StatusEffect temp = user.getStatusOfType("Boosted");
+        if(temp == null)
         {
-            if (se instanceof Boosted) {
-                alreadyBoosted = true;
-                break;
-            }
-        }
-        
-        if(!alreadyBoosted)
-        {
-            user.status.add(new Boosted(user, user));
+            user.status.add(new Boosted(this, user, user));
         }
         else
         {
-            
+            System.out.println(user.user.username + " is already Boosted");
         }
     }
 }
