@@ -24,13 +24,13 @@ public final class Program extends javax.swing.JFrame{
     public Program() {
         this.setUndecorated(true);
         initComponents();
+        akun.add(new Account("Yurtan"));
+        active[0] = akun.get(0);
+        welcomeAkun(active[0]);
         initCard();
         checkCard();
         initDeck();
         checkDeck();
-        akun.add(new Account("Yurtan"));
-        active[0] = akun.get(0);
-        welcomeAkun(active[0]);
     }
     
     public final void fullScreen()
@@ -834,7 +834,6 @@ public final class Program extends javax.swing.JFrame{
         for(int i = 0; i < Skill.list.length; i++){
             card[i] = new Card(Skill.list[i]);
             card[i].setBounds(x, y, 114, 114);
-            card[i].setBackground(Color.CYAN);
             jp_ListOfCard.add(card[i]);
             x+= 140;
             if (x > 500){
@@ -920,11 +919,14 @@ public final class Program extends javax.swing.JFrame{
         // TODO add your handling code here:
         
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
+        Account temp = active[0];
         active[0] = null;
-        if(x == null)
+        if(x == null){
+            active[0] = temp;
             return;
-        if(x.equals("")){
+        }if(x.equals("")){
             JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
+            active[0] = temp;
             return;
         }
         for(Account i : akun){
@@ -938,7 +940,8 @@ public final class Program extends javax.swing.JFrame{
         if(active[0] == null){
             JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
             akun.add(new Account(x));
-            welcomeAkun(akun.get(akun.size()-1));
+            active[0] = akun.get(akun.size()-1);
+            welcomeAkun(active[0]);
         }
     }//GEN-LAST:event_jp_changeAccMouseClicked
 

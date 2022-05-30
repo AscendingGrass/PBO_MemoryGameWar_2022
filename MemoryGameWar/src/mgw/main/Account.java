@@ -4,9 +4,10 @@ import mgw.gameplay.*;
 
 public class Account{
     public final String username;
-    public final Skill[] deck = new Skill [5];
+    public Skill[] deck;
     public Account(String username) {
         this.username = username;
+        deck = new Skill [5];
     }
     
     public boolean deckIsNotFilled(){
@@ -15,9 +16,12 @@ public class Account{
 
         return false;
     }
-    public void isiDeck(Deck [] d){
-        for(int i =0; i < deck.length; i++)
-            deck[i] = (Skill) d[i].skill;
+    
+    public void isiDeck(Deck[] d){
+        int j = 0;
+        for(Deck i : d){
+            deck[j++] = i.skill;
+        }
     }
     public void testIsiDeck(){
         for(Skill i : deck)
