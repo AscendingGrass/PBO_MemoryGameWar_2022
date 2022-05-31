@@ -80,8 +80,6 @@ public final class Program extends javax.swing.JFrame{
         jl_changeAcc = new javax.swing.JLabel();
         jp_PlayMenu = new javax.swing.JPanel();
         gameUI1 = new mgw.main.GameUI();
-        jp_BackPlay = new javax.swing.JPanel();
-        jl_BackPlay = new javax.swing.JLabel();
         jp_DeckMenu = new javax.swing.JPanel();
         jp_BackDeck = new javax.swing.JPanel();
         jl_BackDeck = new javax.swing.JLabel();
@@ -90,9 +88,8 @@ public final class Program extends javax.swing.JFrame{
         jp_DescriptionBody = new javax.swing.JPanel();
         jta_DescriptionBody = new javax.swing.JTextArea();
         jta_DescriptionBody_SP = new javax.swing.JTextArea();
-        jp_ListOfDeck = new javax.swing.JPanel();
-        jp_DescriptionHeading = new javax.swing.JPanel();
         jl_DescriptionHeading = new javax.swing.JLabel();
+        jp_ListOfDeck = new javax.swing.JPanel();
         jp_HelpMenu = new javax.swing.JPanel();
         jp_PlayLogo2 = new javax.swing.JPanel();
         jl_PlayLogo2 = new javax.swing.JLabel();
@@ -363,62 +360,15 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_MainMenu, "card2");
 
-        jp_BackPlay.setBackground(new java.awt.Color(0, 0, 0));
-        jp_BackPlay.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jp_BackPlayMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_BackPlayMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_BackPlayMouseExited(evt);
-            }
-        });
-
-        jl_BackPlay.setBackground(new java.awt.Color(255, 255, 255));
-        jl_BackPlay.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        jl_BackPlay.setForeground(new java.awt.Color(255, 255, 255));
-        jl_BackPlay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_BackPlay.setText("back");
-        jl_BackPlay.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jl_BackPlayMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_BackPlayLayout = new javax.swing.GroupLayout(jp_BackPlay);
-        jp_BackPlay.setLayout(jp_BackPlayLayout);
-        jp_BackPlayLayout.setHorizontalGroup(
-            jp_BackPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_BackPlay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-        );
-        jp_BackPlayLayout.setVerticalGroup(
-            jp_BackPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_BackPlay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jp_PlayMenuLayout = new javax.swing.GroupLayout(jp_PlayMenu);
         jp_PlayMenu.setLayout(jp_PlayMenuLayout);
         jp_PlayMenuLayout.setHorizontalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_PlayMenuLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jp_BackPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayMenuLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(gameUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 1005, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addComponent(gameUI1, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
         );
         jp_PlayMenuLayout.setVerticalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_PlayMenuLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(gameUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_BackPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
@@ -463,7 +413,7 @@ public final class Program extends javax.swing.JFrame{
         );
         jp_ListOfCardLayout.setVerticalGroup(
             jp_ListOfCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         jta_DescriptionBody.setEditable(false);
@@ -480,18 +430,25 @@ public final class Program extends javax.swing.JFrame{
         jta_DescriptionBody_SP.setRows(5);
         jta_DescriptionBody_SP.setAutoscrolls(false);
 
+        jl_DescriptionHeading.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_DescriptionHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_DescriptionHeading.setText("Skill Name");
+
         javax.swing.GroupLayout jp_DescriptionBodyLayout = new javax.swing.GroupLayout(jp_DescriptionBody);
         jp_DescriptionBody.setLayout(jp_DescriptionBodyLayout);
         jp_DescriptionBodyLayout.setHorizontalGroup(
             jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jp_DescriptionBodyLayout.setVerticalGroup(
             jp_DescriptionBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionBodyLayout.createSequentialGroup()
-                .addComponent(jta_DescriptionBody)
-                .addGap(20, 20, 20)
+                .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -500,6 +457,7 @@ public final class Program extends javax.swing.JFrame{
         jp_SkillDescLayout.setHorizontalGroup(
             jp_SkillDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_SkillDescLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -521,21 +479,6 @@ public final class Program extends javax.swing.JFrame{
             .addGap(0, 140, Short.MAX_VALUE)
         );
 
-        jl_DescriptionHeading.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jl_DescriptionHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_DescriptionHeading.setText("Skill Name");
-
-        javax.swing.GroupLayout jp_DescriptionHeadingLayout = new javax.swing.GroupLayout(jp_DescriptionHeading);
-        jp_DescriptionHeading.setLayout(jp_DescriptionHeadingLayout);
-        jp_DescriptionHeadingLayout.setHorizontalGroup(
-            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-        );
-        jp_DescriptionHeadingLayout.setVerticalGroup(
-            jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jp_DeckMenuLayout = new javax.swing.GroupLayout(jp_DeckMenu);
         jp_DeckMenu.setLayout(jp_DeckMenuLayout);
         jp_DeckMenuLayout.setHorizontalGroup(
@@ -553,24 +496,15 @@ public final class Program extends javax.swing.JFrame{
                         .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jp_SkillDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jp_SkillDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_DeckMenuLayout.setVerticalGroup(
             jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addGap(7, 7, 7)
+                .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jp_ListOfCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_SkillDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1066,34 +1000,6 @@ public final class Program extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_jp_BackDeckMouseExited
 
-    private void jp_BackPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackPlayMouseClicked
-        // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
-        jp_Background.add(jp_MainMenu);
-        jp_Background.repaint();
-        jp_Background.revalidate();
-    }//GEN-LAST:event_jp_BackPlayMouseClicked
-
-    private void jp_BackPlayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackPlayMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jp_BackPlayMouseEntered
-
-    private void jp_BackPlayMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackPlayMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jp_BackPlayMouseExited
-
-    private void jl_BackPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_BackPlayMouseClicked
-        // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
-        jp_Background.add(jp_MainMenu);
-        jp_Background.repaint();
-        jp_Background.revalidate();
-    }//GEN-LAST:event_jl_BackPlayMouseClicked
-
     private void jp_PlayLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayLogoMouseClicked
         // TODO add your handling code here:
         jp_PlayMenu.add(new Popup());
@@ -1154,7 +1060,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
     private javax.swing.JLabel jl_BackOption;
-    private javax.swing.JLabel jl_BackPlay;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_DescriptionHeading;
     private javax.swing.JLabel jl_Exit;
@@ -1166,12 +1071,10 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_BackDeck;
     private javax.swing.JPanel jp_BackHelp;
     private javax.swing.JPanel jp_BackOption;
-    private javax.swing.JPanel jp_BackPlay;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JPanel jp_DeckButton;
     private javax.swing.JPanel jp_DeckMenu;
     private javax.swing.JPanel jp_DescriptionBody;
-    private javax.swing.JPanel jp_DescriptionHeading;
     private javax.swing.JPanel jp_ExitButton;
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_HelpMenu;
