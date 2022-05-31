@@ -738,11 +738,13 @@ public final class Program extends javax.swing.JFrame{
     public void initBackGround() throws IOException{
         Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
         Image arsa = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1333.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        Image yurtan = ImageIO.read(new File("src\\mgw\\main\\background\\4000 x 2000.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        Image yurtan = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1500.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        Image simon = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1000.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        Image vincent = ImageIO.read(new File("src\\mgw\\main\\background\\4000 x 2000.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
         jp_MainMenu.add(new LatarBelakang(vithun, width, height));
-        jp_PlayMenu.add(new LatarBelakang(vithun, width, height));
+        jp_PlayMenu.add(new LatarBelakang(simon, width, height));
         jp_OptionMenu.add(new LatarBelakang(yurtan, width, height));
-        jp_HelpMenu.add(new LatarBelakang(vithun, width, height));
+        jp_HelpMenu.add(new LatarBelakang(vincent, width, height));
         jp_DeckMenu.add(new LatarBelakang(arsa, width, height));
     }
     public final void fullScreen()
