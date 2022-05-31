@@ -735,10 +735,9 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void initBackGround(){
-        background = new Background();
-        background.setBounds(0, 0, width, height);
-        jp_MainMenu.add(background);
+    public void initBackGround() throws IOException{
+        Image vithun = ImageIO.read(new File("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\MemoryGameWar\\src\\mgw\\main\\background\\TikTok-1000x600.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        jp_MainMenu.add(new LatarBelakang(vithun, width, height));
     }
     public final void fullScreen()
     {
