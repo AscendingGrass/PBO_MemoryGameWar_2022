@@ -13,7 +13,7 @@ public final class Program extends javax.swing.JFrame{
 
     static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     ArrayList<Account> akun = new ArrayList<>();
-    Image skill[] = new Image[14];
+    Image skill[] = new Image[Skill.list.length];
     Card card[] = new Card[Skill.list.length];
     Deck deck[] = new Deck[5];
     Account active[] = new Account[1];
