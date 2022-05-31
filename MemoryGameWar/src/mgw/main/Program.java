@@ -738,6 +738,10 @@ public final class Program extends javax.swing.JFrame{
     public void initBackGround() throws IOException{
         Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
         jp_MainMenu.add(new LatarBelakang(vithun, width, height));
+        jp_PlayMenu.add(new LatarBelakang(vithun, width, height));
+        jp_OptionMenu.add(new LatarBelakang(vithun, width, height));
+        jp_HelpMenu.add(new LatarBelakang(vithun, width, height));
+        jp_DeckMenu.add(new LatarBelakang(vithun, width, height));
     }
     public final void fullScreen()
     {
