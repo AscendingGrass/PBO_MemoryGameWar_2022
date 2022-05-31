@@ -15,10 +15,7 @@ public class Background extends javax.swing.JPanel {
     /**
      * Creates new form Background
      */
-    Icon img;
     public Background() {
-        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/background/menu.png"));
-        background.setIcon(img);
         initComponents();
     }
 
@@ -34,6 +31,9 @@ public class Background extends javax.swing.JPanel {
         background = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/background/TikTok-1000x600.png"))); // NOI18N
+        background.setPreferredSize(new java.awt.Dimension(4000, 4000));
         add(background, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
