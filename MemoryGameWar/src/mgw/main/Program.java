@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import mgw.gameplay.Skill;
+import mgw.util.Size;
 
 public final class Program extends javax.swing.JFrame{
 
@@ -22,7 +23,6 @@ public final class Program extends javax.swing.JFrame{
     Image skill[] = new Image[Skill.list.length];
     Card card[] = new Card[Skill.list.length];
     Deck deck[] = new Deck[5];
-    Background background;
     Account active[] = new Account[1];
     Popup play = new Popup();
     int [] arr = new int[1];
@@ -39,6 +39,8 @@ public final class Program extends javax.swing.JFrame{
         initComponents();
         akun.add(new Account("Yurtan"));
         active[0] = akun.get(0);
+        jp_PlayMenu.revalidate();
+        jp_PlayMenu.repaint();
         welcomeAkun(active[0]);
         initCard();
         checkCard();
@@ -77,8 +79,7 @@ public final class Program extends javax.swing.JFrame{
         jp_changeAcc = new javax.swing.JPanel();
         jl_changeAcc = new javax.swing.JLabel();
         jp_PlayMenu = new javax.swing.JPanel();
-        jp_PlayLogo = new javax.swing.JPanel();
-        jl_PlayLogo = new javax.swing.JLabel();
+        gameUI1 = new mgw.main.GameUI();
         jp_BackPlay = new javax.swing.JPanel();
         jl_BackPlay = new javax.swing.JLabel();
         jp_DeckMenu = new javax.swing.JPanel();
@@ -329,7 +330,7 @@ public final class Program extends javax.swing.JFrame{
                     .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(733, Short.MAX_VALUE))
+                .addContainerGap(768, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,21 +362,6 @@ public final class Program extends javax.swing.JFrame{
         );
 
         jp_Background.add(jp_MainMenu, "card2");
-
-        jl_PlayLogo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jl_PlayLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_PlayLogo.setText("PLAY");
-
-        javax.swing.GroupLayout jp_PlayLogoLayout = new javax.swing.GroupLayout(jp_PlayLogo);
-        jp_PlayLogo.setLayout(jp_PlayLogoLayout);
-        jp_PlayLogoLayout.setHorizontalGroup(
-            jp_PlayLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_PlayLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
-        );
-        jp_PlayLogoLayout.setVerticalGroup(
-            jp_PlayLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_PlayLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
 
         jp_BackPlay.setBackground(new java.awt.Color(0, 0, 0));
         jp_BackPlay.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -416,21 +402,21 @@ public final class Program extends javax.swing.JFrame{
         jp_PlayMenu.setLayout(jp_PlayMenuLayout);
         jp_PlayMenuLayout.setHorizontalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayMenuLayout.createSequentialGroup()
-                .addContainerGap(500, Short.MAX_VALUE)
-                .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196))
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jp_BackPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayMenuLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(gameUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 1005, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jp_PlayMenuLayout.setVerticalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(gameUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_BackPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -645,7 +631,7 @@ public final class Program extends javax.swing.JFrame{
         jp_HelpMenuLayout.setHorizontalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HelpMenuLayout.createSequentialGroup()
-                .addContainerGap(500, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
@@ -702,7 +688,7 @@ public final class Program extends javax.swing.JFrame{
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(868, Short.MAX_VALUE))
+                .addContainerGap(903, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -718,7 +704,7 @@ public final class Program extends javax.swing.JFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1009, Short.MAX_VALUE)
+            .addGap(0, 1072, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jp_Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -743,6 +729,7 @@ public final class Program extends javax.swing.JFrame{
         jp_HelpMenu.add(new LatarBelakang(vincent, width, height));
         jp_DeckMenu.add(new LatarBelakang(arsa, width, height));
     }
+  
     public final void fullScreen()
     {
         this.setResizable(false);
@@ -1161,6 +1148,7 @@ public final class Program extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private mgw.main.GameUI gameUI1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
@@ -1173,7 +1161,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_Help;
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
-    private javax.swing.JLabel jl_PlayLogo;
     private javax.swing.JLabel jl_PlayLogo2;
     private javax.swing.JLabel jl_changeAcc;
     private javax.swing.JPanel jp_BackDeck;
@@ -1194,7 +1181,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_OptionButton;
     private javax.swing.JPanel jp_OptionMenu;
     private javax.swing.JPanel jp_PlayButton;
-    private javax.swing.JPanel jp_PlayLogo;
     private javax.swing.JPanel jp_PlayLogo2;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_SkillDesc;
