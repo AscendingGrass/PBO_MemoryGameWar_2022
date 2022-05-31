@@ -8,6 +8,7 @@ public class Popup extends JPanel{
     public Popup(){
         setBounds(5, 5, 400, 400);
         setBackground(new Color(0,0,0));
+        setVisible(true);
     }
 
     

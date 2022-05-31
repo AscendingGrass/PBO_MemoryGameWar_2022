@@ -169,8 +169,6 @@ public final class Program extends javax.swing.JFrame{
         jp_DescriptionHeading = new javax.swing.JPanel();
         jl_DescriptionHeading = new javax.swing.JLabel();
         jp_HelpMenu = new javax.swing.JPanel();
-        jp_PlayLogo2 = new javax.swing.JPanel();
-        jl_PlayLogo2 = new javax.swing.JLabel();
         jp_BackHelp = new javax.swing.JPanel();
         jl_BackHelp = new javax.swing.JLabel();
         jp_OptionMenu = new javax.swing.JPanel();
@@ -405,7 +403,7 @@ public final class Program extends javax.swing.JFrame{
                     .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(705, Short.MAX_VALUE))
+                .addContainerGap(725, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,6 +435,12 @@ public final class Program extends javax.swing.JFrame{
         );
 
         jp_Background.add(jp_MainMenu, "card2");
+
+        jp_PlayLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_PlayLogoMouseClicked(evt);
+            }
+        });
 
         jl_PlayLogo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jl_PlayLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -493,7 +497,7 @@ public final class Program extends javax.swing.JFrame{
         jp_PlayMenuLayout.setHorizontalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayMenuLayout.createSequentialGroup()
-                .addContainerGap(472, Short.MAX_VALUE)
+                .addContainerGap(492, Short.MAX_VALUE)
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
@@ -671,27 +675,6 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_DeckMenu, "card3");
 
-        jp_PlayLogo2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jp_PlayLogo2MouseClicked(evt);
-            }
-        });
-
-        jl_PlayLogo2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jl_PlayLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_PlayLogo2.setText("PLAY");
-
-        javax.swing.GroupLayout jp_PlayLogo2Layout = new javax.swing.GroupLayout(jp_PlayLogo2);
-        jp_PlayLogo2.setLayout(jp_PlayLogo2Layout);
-        jp_PlayLogo2Layout.setHorizontalGroup(
-            jp_PlayLogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_PlayLogo2, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
-        );
-        jp_PlayLogo2Layout.setVerticalGroup(
-            jp_PlayLogo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_PlayLogo2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-
         jp_BackHelp.setBackground(new java.awt.Color(0, 0, 0));
         jp_BackHelp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -726,21 +709,15 @@ public final class Program extends javax.swing.JFrame{
         jp_HelpMenu.setLayout(jp_HelpMenuLayout);
         jp_HelpMenuLayout.setHorizontalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HelpMenuLayout.createSequentialGroup()
-                .addContainerGap(472, Short.MAX_VALUE)
-                .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196))
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(880, Short.MAX_VALUE))
         );
         jp_HelpMenuLayout.setVerticalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
+                .addContainerGap(599, Short.MAX_VALUE)
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
@@ -784,7 +761,7 @@ public final class Program extends javax.swing.JFrame{
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(840, Short.MAX_VALUE))
+                .addContainerGap(860, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -800,7 +777,7 @@ public final class Program extends javax.swing.JFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1009, Short.MAX_VALUE)
+            .addGap(0, 1029, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jp_Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1072,12 +1049,13 @@ public final class Program extends javax.swing.JFrame{
         jp_Background.revalidate();
     }//GEN-LAST:event_jl_BackPlayMouseClicked
 
-    private void jp_PlayLogo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayLogo2MouseClicked
+    private void jp_PlayLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayLogoMouseClicked
         // TODO add your handling code here:
         jp_PlayMenu.add(new Popup());
         jp_PlayMenu.repaint();
         jp_PlayMenu.revalidate();
-    }//GEN-LAST:event_jp_PlayLogo2MouseClicked
+        System.out.println("clicked");
+    }//GEN-LAST:event_jp_PlayLogoMouseClicked
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
         jta_DescriptionBody.setText(x.toString());
@@ -1132,7 +1110,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
     private javax.swing.JLabel jl_PlayLogo;
-    private javax.swing.JLabel jl_PlayLogo2;
     private javax.swing.JLabel jl_changeAcc;
     private javax.swing.JPanel jp_BackDeck;
     private javax.swing.JPanel jp_BackHelp;
@@ -1153,7 +1130,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_OptionMenu;
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_PlayLogo;
-    private javax.swing.JPanel jp_PlayLogo2;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_SkillDesc;
     private javax.swing.JPanel jp_changeAcc;
