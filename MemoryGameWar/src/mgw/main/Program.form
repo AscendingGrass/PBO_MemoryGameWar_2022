@@ -798,6 +798,9 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jp_PlayLogo2">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jp_PlayLogo2MouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">

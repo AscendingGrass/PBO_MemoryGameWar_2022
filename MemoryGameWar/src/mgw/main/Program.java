@@ -17,6 +17,7 @@ public final class Program extends javax.swing.JFrame{
     Card card[] = new Card[Skill.list.length];
     Deck deck[] = new Deck[5];
     Account active[] = new Account[1];
+    Popup play = new Popup();
     int [] arr = new int[1];
     /**
      * Creates new form Program
@@ -32,7 +33,9 @@ public final class Program extends javax.swing.JFrame{
         initDeck();
         checkDeck();
     }
-    
+    private void initPopup(){
+        
+    }
     public final void fullScreen()
     {
         this.setResizable(false);
@@ -668,6 +671,12 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_DeckMenu, "card3");
 
+        jp_PlayLogo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_PlayLogo2MouseClicked(evt);
+            }
+        });
+
         jl_PlayLogo2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jl_PlayLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_PlayLogo2.setText("PLAY");
@@ -1062,6 +1071,13 @@ public final class Program extends javax.swing.JFrame{
         jp_Background.repaint();
         jp_Background.revalidate();
     }//GEN-LAST:event_jl_BackPlayMouseClicked
+
+    private void jp_PlayLogo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayLogo2MouseClicked
+        // TODO add your handling code here:
+        jp_PlayMenu.add(new Popup());
+        jp_PlayMenu.repaint();
+        jp_PlayMenu.revalidate();
+    }//GEN-LAST:event_jp_PlayLogo2MouseClicked
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
         jta_DescriptionBody.setText(x.toString());
@@ -1145,44 +1161,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JTextArea jta_DescriptionBody_SP;
     // End of variables declaration//GEN-END:variables
 
-    public void mouseClicked(MouseEvent e) {
-        for(int i = 0; i < card.length; i++){
-            if(e.getSource() == card[i]){
-                card[i].setBackground(Color.red);
-            }
-        }
-    }
-
-    public void mouseEntered(MouseEvent e) {
-        if(e.getSource() == card[0]){
-            card[0].setBackground(Color.red);
-        }else if(e.getSource() == card[1]){
-            card[1].setBackground(Color.red);
-        }else if(e.getSource() == card[2]){
-            card[2].setBackground(Color.red);
-        }else if(e.getSource() == card[3]){
-            card[3].setBackground(Color.red);
-        }else if(e.getSource() == card[4]){
-            card[4].setBackground(Color.red);
-        }else if(e.getSource() == card[5]){
-            card[5].setBackground(Color.red);
-        }else if(e.getSource() == card[6]){
-            card[6].setBackground(Color.red);
-        }else if(e.getSource() == card[7]){
-            card[7].setBackground(Color.red);
-        }else if(e.getSource() == card[8]){
-            card[8].setBackground(Color.red);
-        }else if(e.getSource() == card[9]){
-            card[9].setBackground(Color.red);
-        }else if(e.getSource() == card[10]){
-            card[10].setBackground(Color.red);
-        }else if(e.getSource() == card[11]){
-            card[11].setBackground(Color.red);
-        }else if(e.getSource() == card[12]){
-            card[12].setBackground(Color.red);
-        }else if(e.getSource() == card[13]){
-            card[13].setBackground(Color.red);
-        }
-    }
+   
 
 }
