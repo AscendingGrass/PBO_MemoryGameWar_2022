@@ -10,13 +10,13 @@ import mgw.gameplay.Player;
  *
  * @author mejap
  */
-public class StatusBarLeft extends javax.swing.JPanel {
+public class StatusBarRight extends javax.swing.JPanel {
 
     private Player player;
     /**
      * Creates new form StatusBar
      */
-    public StatusBarLeft() {
+    public StatusBarRight() {
         initComponents();
     }
     
@@ -63,9 +63,9 @@ public class StatusBarLeft extends javax.swing.JPanel {
         jp_HealthBar.setLayout(jp_HealthBarLayout);
         jp_HealthBarLayout.setHorizontalGroup(
             jp_HealthBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_HealthBarLayout.createSequentialGroup()
-                .addComponent(jl_HealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HealthBarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jl_HealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jp_HealthBarLayout.setVerticalGroup(
             jp_HealthBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,9 +95,9 @@ public class StatusBarLeft extends javax.swing.JPanel {
         jp_SkillPointBar.setLayout(jp_SkillPointBarLayout);
         jp_SkillPointBarLayout.setHorizontalGroup(
             jp_SkillPointBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_SkillPointBarLayout.createSequentialGroup()
-                .addComponent(jl_SkillPointBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 357, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_SkillPointBarLayout.createSequentialGroup()
+                .addGap(0, 357, Short.MAX_VALUE)
+                .addComponent(jl_SkillPointBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jp_SkillPointBarLayout.setVerticalGroup(
             jp_SkillPointBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,12 +120,12 @@ public class StatusBarLeft extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jp_SkillPointBarMax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jl_PlayerName)
-                    .addComponent(jp_HealthBarMax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jp_HealthBarMax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_PlayerName, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
