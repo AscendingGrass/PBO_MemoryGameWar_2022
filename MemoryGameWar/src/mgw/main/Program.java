@@ -5,7 +5,13 @@ import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import mgw.gameplay.Skill;
 
@@ -16,13 +22,19 @@ public final class Program extends javax.swing.JFrame{
     Image skill[] = new Image[Skill.list.length];
     Card card[] = new Card[Skill.list.length];
     Deck deck[] = new Deck[5];
+    Background background;
     Account active[] = new Account[1];
     Popup play = new Popup();
     int [] arr = new int[1];
     /**
      * Creates new form Program
      */
-    public Program() {
+    Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+    // width will store the width of the screen
+    int width = (int)size.getWidth();
+    // height will store the height of the screen
+    int height = (int)size.getHeight();
+    public Program() throws IOException {
         this.setUndecorated(true);
         initComponents();
         akun.add(new Account("Yurtan"));
@@ -32,15 +44,7 @@ public final class Program extends javax.swing.JFrame{
         checkCard();
         initDeck();
         checkDeck();
-        Dimension size
-            = Toolkit.getDefaultToolkit().getScreenSize();
-        
-        // width will store the width of the screen
-        int width = (int)size.getWidth();
-        
-        // height will store the height of the screen
-        int height = (int)size.getHeight();
-        
+        initBackGround();
         System.out.println("Current Screen resolution : "
                            + "width : " + width
                            + " height : " + height);
@@ -731,7 +735,11 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-     
+    public void initBackGround(){
+        background = new Background();
+        background.setBounds(0, 0, width, height);
+        jp_MainMenu.add(background);
+    }
     public final void fullScreen()
     {
         this.setResizable(false);
@@ -1111,7 +1119,7 @@ public final class Program extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1138,7 +1146,13 @@ public final class Program extends javax.swing.JFrame{
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            Program program = new Program();
+            Program program = null;
+            try {
+                program = new Program();
+            } catch (IOException ex) {
+                Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Ini error");
+            }
             program.fullScreen();
         });
     }

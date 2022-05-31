@@ -1,6 +1,9 @@
 package mgw.main;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,4 +25,20 @@ class PopupChangeAccount extends JPanel{
 }
 class PopupLagi extends JScrollPane{
     
+}
+class Background extends JPanel{
+    Image vithun;
+    int h, w;
+    public Background(Image icon, int height, int width) {
+        h=height;
+        w=width;
+        setBounds(0, 0, w, h);
+        vithun = icon;
+    }
+     @Override
+    public void paint(Graphics g) {
+        super.paint(g); 
+        g = (Graphics2D) g;
+        g.drawImage(vithun, 0,0, w, h, this);
+    }
 }
