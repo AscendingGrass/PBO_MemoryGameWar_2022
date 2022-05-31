@@ -45,97 +45,7 @@ public final class Program extends javax.swing.JFrame{
                            + "width : " + width
                            + " height : " + height);
     }
-    
-    public final void fullScreen()
-    {
-        this.setResizable(false);
-        gd.setFullScreenWindow(this);
-    }
-    public void welcomeAkun(Account x){
-        jl_AccountName.setText("Haii " + x.toString());
-    }
    
-    public void checkCard(){
-        for (Card card1 : card) {
-            card1.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    cardClicked(evt);
-                }
-                @Override
-                public void mouseEntered(java.awt.event.MouseEvent evt) {
-                    cardEntered(evt);
-                }
-                @Override
-                public void mouseExited(java.awt.event.MouseEvent evt) {
-                    cardExited(evt);
-                }
-            });
-        }
-    }
-    public void checkDeck(){
-        for (Deck deck1 : deck) {
-            deck1.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    deckClicked(evt);
-                }
-                @Override
-                public void mouseEntered(java.awt.event.MouseEvent evt) {
-                    deckEntered(evt);
-                }
-                @Override
-                public void mouseExited(java.awt.event.MouseEvent evt) {
-                    deckExited(evt);
-                }
-            });
-        }
-    }
-    public void deckClicked(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Deck d){
-            if(!d.empty){
-                d.deckRemove(card);
-            }
-        }
-    }
-    public void deckEntered(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Deck d){
-            
-        }
-    }
-    public void deckExited(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Deck d){
-            
-        }
-    }
-    
-    private void cardClicked(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Card c){
-            if(c.clicked)
-                return;
-            if(Deck.counter > 5)
-                return;
-            for(Deck i : deck)
-                if(i.skill == null){
-                    i.deckCopy(c);
-                    return;
-                }
-        }
-    }
-    
-    private void cardEntered(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Card c)
-        {
-            setDescription(c.skill);
-        }
-        
-    }
-    private void cardExited(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Card c)
-        {
-            setDescriptionDefault();
-        }
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -821,6 +731,97 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+     
+    public final void fullScreen()
+    {
+        this.setResizable(false);
+        gd.setFullScreenWindow(this);
+    }
+    public void welcomeAkun(Account x){
+        jl_AccountName.setText("Haii " + x.toString());
+    }
+   
+    public void checkCard(){
+        for (Card card1 : card) {
+            card1.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    cardClicked(evt);
+                }
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    cardEntered(evt);
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    cardExited(evt);
+                }
+            });
+        }
+    }
+    public void checkDeck(){
+        for (Deck deck1 : deck) {
+            deck1.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    deckClicked(evt);
+                }
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    deckEntered(evt);
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    deckExited(evt);
+                }
+            });
+        }
+    }
+    public void deckClicked(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Deck d){
+            if(!d.empty){
+                d.deckRemove(card);
+            }
+        }
+    }
+    public void deckEntered(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Deck d){
+            
+        }
+    }
+    public void deckExited(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Deck d){
+            
+        }
+    }
+    
+    private void cardClicked(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Card c){
+            if(c.clicked)
+                return;
+            if(Deck.counter > 5)
+                return;
+            for(Deck i : deck)
+                if(i.skill == null){
+                    i.deckCopy(c);
+                    return;
+                }
+        }
+    }
+    
+    private void cardEntered(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Card c)
+        {
+            setDescription(c.skill);
+        }
+        
+    }
+    private void cardExited(java.awt.event.MouseEvent evt){
+        if(evt.getSource() instanceof Card c)
+        {
+            setDescriptionDefault();
+        }
+    }
     public void setColor(JPanel p, JLabel x){
         p.setBackground(Color.WHITE);
         x.setForeground(Color.BLACK);
