@@ -1,13 +1,16 @@
 package mgw.gameplay;
 
+import mgw.main.GameUI;
 import mgw.util.UtilArsa;
 
 public class GameManager {
     private final Player[] players = new Player[2];
+    private final GameUI gu;
     private int turn = 1; 
     
-    public GameManager(Player player1, Player player2)
+    public GameManager(GameUI gu, Player player1, Player player2)
     {
+        this.gu = gu;
         if (UtilArsa.roll(1, 2))
         {
             players[0] = player1;
@@ -28,6 +31,7 @@ public class GameManager {
     private void nextTurn(Player player)
     {
         player.nextTurn();
+        // check if the game is already over
         matchCards(players[++turn % 2]);
     }
     
