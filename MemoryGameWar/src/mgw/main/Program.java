@@ -72,7 +72,6 @@ public final class Program extends javax.swing.JFrame{
         jl_Exit = new javax.swing.JLabel();
         jp_changeAcc = new javax.swing.JPanel();
         jl_changeAcc = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jp_PlayMenu = new javax.swing.JPanel();
         jp_PlayLogo = new javax.swing.JPanel();
         jl_PlayLogo = new javax.swing.JLabel();
@@ -326,9 +325,7 @@ public final class Program extends javax.swing.JFrame{
                     .addComponent(jp_OptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_DeckButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(733, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,20 +339,17 @@ public final class Program extends javax.swing.JFrame{
         jp_MainMenuLayout.setVerticalGroup(
             jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addGroup(jp_MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_MainMenuLayout.createSequentialGroup()
-                        .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jp_OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jp_ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addContainerGap(171, Short.MAX_VALUE)
+                .addComponent(jp_PlayButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jp_DeckButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jp_OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jp_HelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jp_ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(jl_AccountName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp_changeAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,7 +413,7 @@ public final class Program extends javax.swing.JFrame{
         jp_PlayMenuLayout.setHorizontalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_PlayMenuLayout.createSequentialGroup()
-                .addContainerGap(472, Short.MAX_VALUE)
+                .addContainerGap(500, Short.MAX_VALUE)
                 .addComponent(jp_PlayLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_PlayMenuLayout.createSequentialGroup()
@@ -651,7 +645,7 @@ public final class Program extends javax.swing.JFrame{
         jp_HelpMenuLayout.setHorizontalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HelpMenuLayout.createSequentialGroup()
-                .addContainerGap(472, Short.MAX_VALUE)
+                .addContainerGap(500, Short.MAX_VALUE)
                 .addComponent(jp_PlayLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(196, 196, 196))
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
@@ -708,7 +702,7 @@ public final class Program extends javax.swing.JFrame{
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(840, Short.MAX_VALUE))
+                .addContainerGap(868, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1151,7 +1145,6 @@ public final class Program extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
