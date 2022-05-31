@@ -935,7 +935,17 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
         // TODO add your handling code here:
+        //jp_MainMenu.removeAll();
+        jp_MainMenu.repaint();
+        jp_MainMenu.revalidate();
         jp_MainMenu.add(new Popup());
+        jp_MainMenu.add(jl_AccountName);
+        jp_MainMenu.add(jp_PlayButton);
+        jp_MainMenu.add(jp_HelpButton);
+        jp_MainMenu.add(jp_DeckButton);
+        jp_MainMenu.add(jp_OptionButton);
+        jp_MainMenu.add(jp_changeAcc);
+        jp_MainMenu.add(jp_ExitButton);
         jp_MainMenu.repaint();
         jp_MainMenu.revalidate();
         /*
