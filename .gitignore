@@ -2,6 +2,7 @@
 *.class
 
 # Log file
+built-jar.properties
 *.log
 
 # BlueJ files
