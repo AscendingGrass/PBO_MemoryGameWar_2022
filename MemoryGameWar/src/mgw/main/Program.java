@@ -736,7 +736,7 @@ public final class Program extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void initBackGround() throws IOException{
-        Image vithun = ImageIO.read(new File("E:\\Ruben Data\\Kuliah\\INFORMATIKA\\Semester 2\\PBO or OOP\\Projek\\2022_PBO_P1\\MemoryGameWar\\src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
         jp_MainMenu.add(new LatarBelakang(vithun, width, height));
     }
     public final void fullScreen()
