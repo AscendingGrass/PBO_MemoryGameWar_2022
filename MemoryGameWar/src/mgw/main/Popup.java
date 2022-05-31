@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class Popup extends JPanel{
@@ -18,4 +19,7 @@ class PopupChangeAccount extends JPanel{
     public PopupChangeAccount(int height, int width) {
         setBounds(width/2, height/2, JOptionPane.WIDTH, JOptionPane.HEIGHT);
     }
+}
+class PopupLagi extends JScrollPane{
+    
 }
