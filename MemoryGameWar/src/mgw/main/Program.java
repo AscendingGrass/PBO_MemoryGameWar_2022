@@ -935,7 +935,8 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
         // TODO add your handling code here:
-        //jp_MainMenu.removeAll();
+        /*
+        jp_MainMenu.removeAll();
         jp_MainMenu.repaint();
         jp_MainMenu.revalidate();
         jp_MainMenu.add(new Popup());
@@ -948,7 +949,8 @@ public final class Program extends javax.swing.JFrame{
         jp_MainMenu.add(jp_ExitButton);
         jp_MainMenu.repaint();
         jp_MainMenu.revalidate();
-        /*
+        */
+        
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
         Account temp = active[0];
         active[0] = null;
@@ -973,7 +975,7 @@ public final class Program extends javax.swing.JFrame{
             akun.add(new Account(x));
             active[0] = akun.get(akun.size()-1);
             welcomeAkun(active[0]);
-        }*/
+        }
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
     private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
