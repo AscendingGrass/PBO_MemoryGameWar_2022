@@ -16,7 +16,7 @@ public class TestingClass {
     static Player p3 = new Player(new Account("p3"));
     
     public static void main(String[] args) {
-        System.out.println("Vincent");
+        System.out.println("hello");
         
         p1.deck[0] = Skill.list[0]; //FireBall
         p1.deck[1] = Skill.list[1]; //IceBlast
