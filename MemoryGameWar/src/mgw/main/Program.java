@@ -515,7 +515,7 @@ public final class Program extends javax.swing.JFrame{
             jp_SkillDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_SkillDescLayout.createSequentialGroup()
                 .addComponent(jp_DescriptionBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_SkillDescLayout.setVerticalGroup(
             jp_SkillDescLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,9 +543,7 @@ public final class Program extends javax.swing.JFrame{
         jp_DescriptionHeading.setLayout(jp_DescriptionHeadingLayout);
         jp_DescriptionHeadingLayout.setHorizontalGroup(
             jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_DescriptionHeadingLayout.createSequentialGroup()
-                .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
         jp_DescriptionHeadingLayout.setVerticalGroup(
             jp_DescriptionHeadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -570,12 +568,10 @@ public final class Program extends javax.swing.JFrame{
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_SkillDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jp_DeckMenuLayout.createSequentialGroup()
-                        .addComponent(jp_SkillDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(101, 101, 101))))
+                        .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jp_DeckMenuLayout.setVerticalGroup(
             jp_DeckMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,7 +580,7 @@ public final class Program extends javax.swing.JFrame{
                     .addGroup(jp_DeckMenuLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jp_DescriptionHeading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
+                        .addGap(0, 0, 0))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DeckMenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jp_BackDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
