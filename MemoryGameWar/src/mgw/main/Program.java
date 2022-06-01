@@ -32,6 +32,11 @@ public final class Program extends javax.swing.JFrame{
     Account active[] = new Account[1];
     Popup play = new Popup();
     int [] arr = new int[1];
+    MP3Player player;
+    File songFile;
+    String currentDirectionary = "home.user";
+    String currentPath;
+    
     /**
      * Creates new form Program
      */
@@ -658,7 +663,8 @@ public final class Program extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
     public void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
         MP3Player mp;
-        File file = new File("src\\BGM\\apasih.wav");
+        songFile = new File("src\\BGM\\");
+        File file = new File("src\\BGM\\main menu.wav");
         AudioInputStream audioStream =  AudioSystem.getAudioInputStream(file);
         Clip clip = AudioSystem.getClip();
         clip.open(audioStream);
