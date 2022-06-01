@@ -657,6 +657,7 @@ public final class Program extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+        MP3Player mp;
         File file = new File("src\\BGM\\apasih.wav");
         AudioInputStream audioStream =  AudioSystem.getAudioInputStream(file);
         Clip clip = AudioSystem.getClip();
