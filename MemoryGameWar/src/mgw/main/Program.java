@@ -19,7 +19,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import mgw.gameplay.Skill;
-import mgw.util.Size;
+import mgw.util.Screen;
 import jaco.mp3.player.MP3Player;
 import java.nio.file.Paths;
 import javax.sound.sampled.FloatControl;
