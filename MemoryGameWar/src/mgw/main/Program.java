@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import mgw.gameplay.Skill;
 import mgw.util.Size;
@@ -34,7 +39,7 @@ public final class Program extends javax.swing.JFrame{
     int width = (int)size.getWidth();
     // height will store the height of the screen
     int height = (int)size.getHeight();
-    public Program() throws IOException {
+    public Program() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         this.setUndecorated(true);
         initComponents();
         akun.add(new Account("Yurtan"));
@@ -47,6 +52,7 @@ public final class Program extends javax.swing.JFrame{
         initDeck();
         checkDeck();
         initBackGround();
+        playMusic();
         System.out.println("Current Screen resolution : "
                            + "width : " + width
                            + " height : " + height);
@@ -649,6 +655,13 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+        File file = new File("src\\BGM\\apasih.wav");
+        AudioInputStream audioStream =  AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+    }
     public void initBackGround() throws IOException{
         Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
         Image arsa = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1333.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -1046,6 +1059,10 @@ public final class Program extends javax.swing.JFrame{
             } catch (IOException ex) {
                 Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Ini error");
+            } catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
             }
             program.fullScreen();
         });
