@@ -20,6 +20,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import mgw.gameplay.Skill;
 import mgw.util.Size;
+import jaco.mp3.player.MP3Player;
 
 public final class Program extends javax.swing.JFrame{
 
@@ -660,6 +661,7 @@ public final class Program extends javax.swing.JFrame{
         AudioInputStream audioStream =  AudioSystem.getAudioInputStream(file);
         Clip clip = AudioSystem.getClip();
         clip.open(audioStream);
+        clip.loop(-1);
         clip.start();
     }
     public void initBackGround() throws IOException{
