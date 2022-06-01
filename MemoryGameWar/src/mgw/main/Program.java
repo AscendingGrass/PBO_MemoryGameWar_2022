@@ -21,6 +21,11 @@ import javax.swing.*;
 import mgw.gameplay.Skill;
 import mgw.util.Size;
 import jaco.mp3.player.MP3Player;
+import java.nio.file.Paths;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.Line;
+import javax.sound.sampled.Mixer;
+import mgw.util.FileTypeFilter;
 
 public final class Program extends javax.swing.JFrame{
 
@@ -110,6 +115,10 @@ public final class Program extends javax.swing.JFrame{
         jp_OptionMenu = new javax.swing.JPanel();
         jp_BackOption = new javax.swing.JPanel();
         jl_BackOption = new javax.swing.JLabel();
+        volumeUp = new javax.swing.JButton();
+        volumeMute = new javax.swing.JButton();
+        volumeMax = new javax.swing.JButton();
+        volumeDown = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -625,19 +634,68 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackOption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
+        volumeUp.setText("+");
+        volumeUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                volumeUpMouseClicked(evt);
+            }
+        });
+
+        volumeMute.setText("mute");
+        volumeMute.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                volumeMuteMouseClicked(evt);
+            }
+        });
+
+        volumeMax.setText("max");
+        volumeMax.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                volumeMaxMouseClicked(evt);
+            }
+        });
+
+        volumeDown.setText("-");
+        volumeDown.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                volumeDownMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp_OptionMenuLayout = new javax.swing.GroupLayout(jp_OptionMenu);
         jp_OptionMenu.setLayout(jp_OptionMenuLayout);
         jp_OptionMenuLayout.setHorizontalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(903, Short.MAX_VALUE))
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                                .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                                .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(564, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionMenuLayout.createSequentialGroup()
-                .addContainerGap(575, Short.MAX_VALUE)
+                .addGap(242, 242, 242)
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74))
         );
@@ -662,14 +720,123 @@ public final class Program extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-        MP3Player mp;
+        
         songFile = new File("src\\BGM\\");
+        player = mp3Player();
+        openMusic();
+        player.addToPlayList(songFile);
+        currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        player.play();
+        player.setRepeat(true);
+        /*
         File file = new File("src\\BGM\\main menu.wav");
         AudioInputStream audioStream =  AudioSystem.getAudioInputStream(file);
         Clip clip = AudioSystem.getClip();
         clip.open(audioStream);
         clip.loop(-1);
-        clip.start();
+        clip.start();*/
+    }
+    private void openMusic(){
+        JFileChooser opFileChooser = new JFileChooser(currentDirectionary);
+        opFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!"));
+        int result = opFileChooser.showOpenDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            songFile = opFileChooser.getSelectedFile();
+            player.addToPlayList(songFile);
+            player.skipForward();
+            currentDirectionary = songFile.getAbsolutePath();
+        }
+        
+    }
+    private MP3Player mp3Player(){
+        return new MP3Player();
+    }
+    private void volumeDown(Double value){
+        Mixer.Info[] mixers = AudioSystem.getMixerInfo();
+        for(Mixer.Info i : mixers){
+            Mixer mixer = AudioSystem.getMixer(i);
+            Line.Info[] lineInfo = mixer.getTargetLineInfo();
+            for(Line.Info j : lineInfo){
+                Line line = null;
+                boolean opened = true;
+                try {
+                    line = mixer.getLine(j);
+                    opened = line.isOpen() || line instanceof Clip;
+                    if(!opened){
+                        line.open();
+                    }
+                    FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                    float currentVolume = volControl.getValue();
+                    Double volumeToCut = value;
+                    float changedCalc = (float)((float) currentVolume - (double) volumeToCut);
+                    volControl.setValue(changedCalc);
+                } catch (LineUnavailableException e) {
+                } catch (IllegalArgumentException illException){
+                } finally{
+                    if(line != null && !opened){
+                        line.close();
+                    }
+                }
+            }
+        }
+    }
+    private void volumeUp(Double value){
+        Mixer.Info[] mixers = AudioSystem.getMixerInfo();
+        for(Mixer.Info i : mixers){
+            Mixer mixer = AudioSystem.getMixer(i);
+            Line.Info[] lineInfo = mixer.getTargetLineInfo();
+            for(Line.Info j : lineInfo){
+                Line line = null;
+                boolean opened = true;
+                try {
+                    line = mixer.getLine(j);
+                    opened = line.isOpen() || line instanceof Clip;
+                    if(!opened){
+                        line.open();
+                    }
+                    FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                    float currentVolume = volControl.getValue();
+                    Double volumeToCut = value;
+                    float changedCalc = (float)((float) currentVolume + (double) volumeToCut);
+                    volControl.setValue(changedCalc);
+                } catch (LineUnavailableException e) {
+                } catch (IllegalArgumentException illException){
+                } finally{
+                    if(line != null && !opened){
+                        line.close();
+                    }
+                }
+            }
+        }
+    }
+    private void volumeControl(Double value){
+        Mixer.Info[] mixers = AudioSystem.getMixerInfo();
+        for(Mixer.Info i : mixers){
+            Mixer mixer = AudioSystem.getMixer(i);
+            Line.Info[] lineInfo = mixer.getTargetLineInfo();
+            for(Line.Info j : lineInfo){
+                Line line = null;
+                boolean opened = true;
+                try {
+                    line = mixer.getLine(j);
+                    opened = line.isOpen() || line instanceof Clip;
+                    if(!opened){
+                        line.open();
+                    }
+                    FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                    float currentVolume = volControl.getValue();
+                    Double volumeToCut = value;
+                    float changedCalc = (float)((double) volumeToCut);
+                    volControl.setValue(changedCalc);
+                } catch (LineUnavailableException e) {
+                } catch (IllegalArgumentException illException){
+                } finally{
+                    if(line != null && !opened){
+                        line.close();
+                    }
+                }
+            }
+        }
     }
     public void initBackGround() throws IOException{
         Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -1027,6 +1194,27 @@ public final class Program extends javax.swing.JFrame{
         jp_PlayMenu.revalidate();
         System.out.println("clicked");
     }//GEN-LAST:event_jp_PlayLogoMouseClicked
+
+    private void volumeUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeUpMouseClicked
+        // TODO add your handling code here:
+        volumeUp(0.1);
+    }//GEN-LAST:event_volumeUpMouseClicked
+
+    private void volumeDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeDownMouseClicked
+        // TODO add your handling code here:
+        volumeDown(0.1);
+    }//GEN-LAST:event_volumeDownMouseClicked
+
+    private void volumeMuteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMuteMouseClicked
+        // TODO add your handling code here:
+        volumeControl(0.0);
+        
+    }//GEN-LAST:event_volumeMuteMouseClicked
+
+    private void volumeMaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMaxMouseClicked
+        // TODO add your handling code here:
+        volumeControl(1.0);
+    }//GEN-LAST:event_volumeMaxMouseClicked
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
         jta_DescriptionBody.setText(x.toString());
@@ -1114,6 +1302,10 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_changeAcc;
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
+    private javax.swing.JButton volumeDown;
+    private javax.swing.JButton volumeMax;
+    private javax.swing.JButton volumeMute;
+    private javax.swing.JButton volumeUp;
     // End of variables declaration//GEN-END:variables
 
    
