@@ -46,7 +46,7 @@ public class StatusBarRight extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 51, 51));
         setForeground(new java.awt.Color(0, 0, 0));
 
-        jl_PlayerName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jl_PlayerName.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jl_PlayerName.setForeground(new java.awt.Color(255, 255, 255));
         jl_PlayerName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_PlayerName.setText("jLabel1");
@@ -136,7 +136,7 @@ public class StatusBarRight extends javax.swing.JPanel {
                 .addComponent(jp_HealthBarMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jp_SkillPointBarMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

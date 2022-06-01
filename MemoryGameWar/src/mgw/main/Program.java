@@ -364,11 +364,11 @@ public final class Program extends javax.swing.JFrame{
         jp_PlayMenu.setLayout(jp_PlayMenuLayout);
         jp_PlayMenuLayout.setHorizontalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gameUI1, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
+            .addComponent(gameUI1, javax.swing.GroupLayout.PREFERRED_SIZE, 1072, Short.MAX_VALUE)
         );
         jp_PlayMenuLayout.setVerticalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 693, Short.MAX_VALUE)
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
@@ -402,8 +402,6 @@ public final class Program extends javax.swing.JFrame{
             jp_BackDeckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jl_BackDeck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
-
-        jp_ListOfCard.setBackground(new java.awt.Color(153, 153, 153));
 
         javax.swing.GroupLayout jp_ListOfCardLayout = new javax.swing.GroupLayout(jp_ListOfCard);
         jp_ListOfCard.setLayout(jp_ListOfCardLayout);

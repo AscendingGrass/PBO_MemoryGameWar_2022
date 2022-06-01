@@ -39,9 +39,16 @@ public class GameUI extends javax.swing.JPanel {
         jp_TwinsCard = new javax.swing.JPanel();
         statusBarLeft1 = new mgw.main.StatusBarLeft();
         statusBarRight1 = new mgw.main.StatusBarRight();
-        jPanel2 = new javax.swing.JPanel();
+        jp_Description = new javax.swing.JPanel();
+        jl_PlayRound = new javax.swing.JLabel();
+        jl_NamePlayer = new javax.swing.JLabel();
+        jp_SkipButton = new javax.swing.JPanel();
+        jl_Skip = new javax.swing.JLabel();
 
-        jp_PlayListOfDeck.setBackground(new java.awt.Color(255, 51, 51));
+        setBackground(new java.awt.Color(0, 0, 0));
+
+        jp_PlayListOfDeck.setBackground(new java.awt.Color(102, 102, 102));
+        jp_PlayListOfDeck.setPreferredSize(new java.awt.Dimension(637, 140));
 
         javax.swing.GroupLayout jp_PlayListOfDeckLayout = new javax.swing.GroupLayout(jp_PlayListOfDeck);
         jp_PlayListOfDeck.setLayout(jp_PlayListOfDeckLayout);
@@ -51,10 +58,8 @@ public class GameUI extends javax.swing.JPanel {
         );
         jp_PlayListOfDeckLayout.setVerticalGroup(
             jp_PlayListOfDeckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
+            .addGap(0, 140, Short.MAX_VALUE)
         );
-
-        jp_TwinsCard.setBackground(new java.awt.Color(0, 0, 255));
 
         javax.swing.GroupLayout jp_TwinsCardLayout = new javax.swing.GroupLayout(jp_TwinsCard);
         jp_TwinsCard.setLayout(jp_TwinsCardLayout);
@@ -67,18 +72,61 @@ public class GameUI extends javax.swing.JPanel {
             .addGap(0, 451, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 0, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(300, 130));
+        jp_Description.setPreferredSize(new java.awt.Dimension(300, 130));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jl_PlayRound.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jl_PlayRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_PlayRound.setText("Round");
+        jl_PlayRound.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jl_NamePlayer.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jl_NamePlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_NamePlayer.setText("Name");
+
+        jp_SkipButton.setBackground(new java.awt.Color(51, 51, 255));
+
+        jl_Skip.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jl_Skip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Skip.setText("Skip");
+
+        javax.swing.GroupLayout jp_SkipButtonLayout = new javax.swing.GroupLayout(jp_SkipButton);
+        jp_SkipButton.setLayout(jp_SkipButtonLayout);
+        jp_SkipButtonLayout.setHorizontalGroup(
+            jp_SkipButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Skip, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+        jp_SkipButtonLayout.setVerticalGroup(
+            jp_SkipButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Skip, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jp_DescriptionLayout = new javax.swing.GroupLayout(jp_Description);
+        jp_Description.setLayout(jp_DescriptionLayout);
+        jp_DescriptionLayout.setHorizontalGroup(
+            jp_DescriptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DescriptionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_NamePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionLayout.createSequentialGroup()
+                .addContainerGap(104, Short.MAX_VALUE)
+                .addComponent(jp_SkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_PlayRound)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_DescriptionLayout.setVerticalGroup(
+            jp_DescriptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_DescriptionLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jl_NamePlayer)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jl_PlayRound, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_SkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -92,9 +140,9 @@ public class GameUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(statusBarLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_Description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusBarRight1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -105,16 +153,12 @@ public class GameUI extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(statusBarLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(statusBarRight1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 62, Short.MAX_VALUE)
+                    .addComponent(statusBarLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(statusBarRight1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jp_TwinsCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jp_PlayListOfDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,8 +168,12 @@ public class GameUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jl_NamePlayer;
+    private javax.swing.JLabel jl_PlayRound;
+    private javax.swing.JLabel jl_Skip;
+    private javax.swing.JPanel jp_Description;
     private javax.swing.JPanel jp_PlayListOfDeck;
+    private javax.swing.JPanel jp_SkipButton;
     private javax.swing.JPanel jp_TwinsCard;
     private mgw.main.StatusBarLeft statusBarLeft1;
     private mgw.main.StatusBarRight statusBarRight1;
