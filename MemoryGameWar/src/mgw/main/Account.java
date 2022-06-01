@@ -23,10 +23,12 @@ public class Account{
             deck[j++] = i.skill;
         }
     }
+    
     public void testIsiDeck(){
         for(Skill i : deck)
             if(i != null)System.out.println(i.name);
     }
+    
     @Override
     public String toString() {
         return username + "!";

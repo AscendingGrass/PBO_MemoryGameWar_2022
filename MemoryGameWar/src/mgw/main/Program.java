@@ -29,44 +29,38 @@ import mgw.util.FileTypeFilter;
 
 public final class Program extends javax.swing.JFrame{
 
-    static GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-    ArrayList<Account> akun = new ArrayList<>();
-    Image skill[] = new Image[Skill.list.length];
+    MP3Player player = new MP3Player();
+    File[] songFiles = {
+        new File("src//BGM//MP3//mystical_piano.mp3") //Main menu music 1
+    };
+    
+    ArrayList<Account> accounts = new ArrayList<>();
+    Account activeAccount = null;
     Card card[] = new Card[Skill.list.length];
     Deck deck[] = new Deck[5];
-    Account active[] = new Account[1];
-    Popup play = new Popup();
-    int [] arr = new int[1];
-    MP3Player player;
-    File songFile;
-    String currentDirectionary = "home.user";
-    String currentPath;
     
-    /**
-     * Creates new form Program
-     */
-    Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-    // width will store the width of the screen
-    int width = (int)size.getWidth();
-    // height will store the height of the screen
-    int height = (int)size.getHeight();
+    //String currentDirectionary = "home.user";
+    //String currentPath;
+    
+    int screenWidth = (int)Screen.size().getWidth(); // the width of the screen
+    int screenHeight = (int)Screen.size().getHeight(); // the height of the screen
+    
     public Program() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         this.setUndecorated(true);
         initComponents();
-        akun.add(new Account("Yurtan"));
-        active[0] = akun.get(0);
-        jp_PlayMenu.revalidate();
-        jp_PlayMenu.repaint();
-        welcomeAkun(active[0]);
+        
+        accounts.add(new Account("Yurtan"));
+        setActiveAccount(accounts.get(0));
+        
         initCard();
         checkCard();
+        
         initDeck();
         checkDeck();
+         
         initBackGround();
-        playMusic();
-        System.out.println("Current Screen resolution : "
-                           + "width : " + width
-                           + " height : " + height);
+        
+        playMusic(songFiles[0]);
     }
    
     
@@ -150,10 +144,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_PlayButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_MenuButtonEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_ExitButtonMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -186,10 +180,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_DeckButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_MenuButtonEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_ExitButtonMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -216,10 +210,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_HelpButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_MenuButtonEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_ExitButtonMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -249,10 +243,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_OptionButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_MenuButtonEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_ExitButtonMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -280,10 +274,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_ExitButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_MenuButtonEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_ExitButtonMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -311,10 +305,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_changeAccMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_changeAccMouseEntered(evt);
+                jp_MenuButtonBlack(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_changeAccMouseExited(evt);
+                jp_MenuButtonWhite(evt);
             }
         });
 
@@ -719,13 +713,12 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+    public void playMusic(File path) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
         
-        songFile = new File("src\\BGM\\");
-        player = mp3Player();
-        openMusic();
-        player.addToPlayList(songFile);
-        currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        //openMusic();
+        player.addToPlayList(path);
+        //currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        player.skipForward();
         player.play();
         player.setRepeat(true);
         /*
@@ -736,21 +729,24 @@ public final class Program extends javax.swing.JFrame{
         clip.loop(-1);
         clip.start();*/
     }
-    private void openMusic(){
-        JFileChooser opFileChooser = new JFileChooser(currentDirectionary);
-        opFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!"));
-        int result = opFileChooser.showOpenDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
-            songFile = opFileChooser.getSelectedFile();
-            player.addToPlayList(songFile);
-            player.skipForward();
-            currentDirectionary = songFile.getAbsolutePath();
-        }
-        
-    }
-    private MP3Player mp3Player(){
-        return new MP3Player();
-    }
+    
+//    private void openMusic(){
+//        JFileChooser opFileChooser = new JFileChooser(currentDirectionary);
+//        opFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!"));
+//        int result = opFileChooser.showOpenDialog(null);
+//        if(result == JFileChooser.APPROVE_OPTION){
+//            songFiles = opFileChooser.getSelectedFile();
+//            player.addToPlayList(songFiles);
+//            player.skipForward();
+//            currentDirectionary = songFiles.getAbsolutePath();
+//        }
+//        
+//    }
+    
+//    private MP3Player mp3Player(){
+//        return new MP3Player();
+//    }
+    
     private void volumeDown(Double value){
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
         for(Mixer.Info i : mixers){
@@ -759,7 +755,8 @@ public final class Program extends javax.swing.JFrame{
             for(Line.Info j : lineInfo){
                 Line line = null;
                 boolean opened = true;
-                try {
+                try
+                {
                     line = mixer.getLine(j);
                     opened = line.isOpen() || line instanceof Clip;
                     if(!opened){
@@ -770,9 +767,10 @@ public final class Program extends javax.swing.JFrame{
                     Double volumeToCut = value;
                     float changedCalc = (float)((float) currentVolume - (double) volumeToCut);
                     volControl.setValue(changedCalc);
-                } catch (LineUnavailableException e) {
-                } catch (IllegalArgumentException illException){
-                } finally{
+                } 
+                catch (LineUnavailableException | IllegalArgumentException e) {}
+                finally
+                {
                     if(line != null && !opened){
                         line.close();
                     }
@@ -839,25 +837,27 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     public void initBackGround() throws IOException{
-        Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        Image arsa = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1333.png")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        Image yurtan = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1500.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        Image simon = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1000.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        Image vincent = ImageIO.read(new File("src\\mgw\\main\\background\\4000 x 2000.jpg")).getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        jp_MainMenu.add(new LatarBelakang(vithun, width, height));
-        jp_PlayMenu.add(new LatarBelakang(simon, width, height));
-        jp_OptionMenu.add(new LatarBelakang(yurtan, width, height));
-        jp_HelpMenu.add(new LatarBelakang(vincent, width, height));
-        jp_DeckMenu.add(new LatarBelakang(arsa, width, height));
+        Image vithun = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1140.png")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
+        Image arsa = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1333.png")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
+        Image yurtan = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1500.jpg")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
+        Image simon = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1000.jpg")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
+        Image vincent = ImageIO.read(new File("src\\mgw\\main\\background\\4000 x 2000.jpg")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
+        jp_MainMenu.add(new LatarBelakang(vithun, screenWidth, screenHeight));
+        jp_PlayMenu.add(new LatarBelakang(simon, screenWidth, screenHeight));
+        jp_OptionMenu.add(new LatarBelakang(yurtan, screenWidth, screenHeight));
+        jp_HelpMenu.add(new LatarBelakang(vincent, screenWidth, screenHeight));
+        jp_DeckMenu.add(new LatarBelakang(arsa, screenWidth, screenHeight));
     }
   
     public final void fullScreen()
     {
         this.setResizable(false);
-        gd.setFullScreenWindow(this);
+        Screen.screenGD.setFullScreenWindow(this);
     }
-    public void welcomeAkun(Account x){
-        jl_AccountName.setText("Haii " + x.toString());
+    
+    public void setActiveAccount(Account a){
+        activeAccount = a;
+        jl_AccountName.setText("Haii " + a.toString());
     }
    
     public void checkCard(){
@@ -941,21 +941,14 @@ public final class Program extends javax.swing.JFrame{
             setDescriptionDefault();
         }
     }
-    public void setColor(JPanel p, JLabel x){
-        p.setBackground(Color.WHITE);
-        x.setForeground(Color.BLACK);
-    }
-    public void resetColor(JPanel p, JLabel l){
-        p.setBackground(Color.BLACK);
-        l.setForeground(Color.WHITE);
-    }
+
     public void setDescriptionDefault(){
         jl_DescriptionHeading.setText("Skill Name");
         jta_DescriptionBody.setText("");
         jta_DescriptionBody_SP.setText("");
     }
     public String skillPoint(Skill skill){
-        return "SkillPoint = " + skill.skillPoint;
+        return "SkillPoint : " + skill.skillPoint;
     }
     public void initDeck(){
         int x = 11, y = 13;
@@ -980,49 +973,38 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     
-    public void cardDesc(int x){
-        jl_DescriptionHeading.setText(Skill.list[x].name);
-        jta_DescriptionBody.setText(Skill.list[x].toString());
-        jta_DescriptionBody_SP.setText("SkillPoint = " + Skill.list[x].skillPoint);
-    }
-    private void jp_changeAccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseEntered
-        resetColor(jp_changeAcc, jl_changeAcc);
-    }//GEN-LAST:event_jp_changeAccMouseEntered
-
-    private void jp_changeAccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseExited
-        setColor(jp_changeAcc, jl_changeAcc);
-    }//GEN-LAST:event_jp_changeAccMouseExited
-
     private void jp_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseClicked
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_PlayMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
-        resetColor(jp_PlayButton, jl_Play);
+        
+        jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_PlayButtonMouseClicked
 
-    private void jp_MenuButtonEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MenuButtonEntered
+    private void jp_MenuButtonWhite(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MenuButtonWhite
         // TODO add your handling code here:
         if(evt.getSource() instanceof JPanel jp)
         {
             ((JLabel)jp.getComponent(0)).setForeground(Color.BLACK);
             jp.setBackground(Color.WHITE);
         }
-    }//GEN-LAST:event_jp_MenuButtonEntered
+    }//GEN-LAST:event_jp_MenuButtonWhite
 
-    private void jp_ExitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseExited
+    private void jp_MenuButtonBlack(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MenuButtonBlack
         // TODO add your handling code here:
         if(evt.getSource() instanceof JPanel jp)
         {
             ((JLabel)jp.getComponent(0)).setForeground(Color.WHITE);
             jp.setBackground(Color.BLACK);
         }
-    }//GEN-LAST:event_jp_ExitButtonMouseExited
+    }//GEN-LAST:event_jp_MenuButtonBlack
 
     private void jp_ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseClicked
         // TODO add your handling code here:
+        jp_MenuButtonBlack(evt);
+        
         switch(JOptionPane.showConfirmDialog(this,"Are you sure want to exit?","WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)){
             case 0 -> {
                 System.exit(0);
@@ -1033,23 +1015,23 @@ public final class Program extends javax.swing.JFrame{
     private void jp_DeckButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseClicked
         // TODO add your handling code here:
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_DeckMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
-        resetColor(jp_DeckButton, jl_Deck);
+        
+        jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_DeckButtonMouseClicked
 
     private void jp_HelpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseClicked
         // TODO add your handling code here:
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_HelpMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
-        resetColor(jp_HelpButton, jl_Help);
+        
+        jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_HelpButtonMouseClicked
 
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
@@ -1071,51 +1053,50 @@ public final class Program extends javax.swing.JFrame{
         */
         
         String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
-        Account temp = active[0];
-        active[0] = null;
+        Account temp = activeAccount;
+        activeAccount = null;
         if(x == null){
-            active[0] = temp;
+            activeAccount = temp;
             return;
         }if(x.equals("")){
             JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
-            active[0] = temp;
+            activeAccount = temp;
             return;
         }
-        for(Account i : akun){
+        for(Account i : accounts){
             if(i.username.equals(x)){
-                active[0] = i;
+                activeAccount = i;
                 JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
-                welcomeAkun(i);
+                setActiveAccount(i);
                 return;
             }
         }
-        if(active[0] == null){
+        if(activeAccount == null){
             JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
-            akun.add(new Account(x));
-            active[0] = akun.get(akun.size()-1);
-            welcomeAkun(active[0]);
+            accounts.add(new Account(x));
+            activeAccount = accounts.get(accounts.size()-1);
+            setActiveAccount(activeAccount);
         }
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
     private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
         // TODO add your handling code here:
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_OptionMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
-        resetColor(jp_OptionButton, jl_Option);
-        jta_DescriptionBody.setToolTipText("No Description");
+        
+        jp_MenuButtonBlack(evt);
+        //jta_DescriptionBody.setToolTipText("No Description");
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
 
     private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
         
         // TODO add your handling code here:
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_MainMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
     }//GEN-LAST:event_jp_BackOptionMouseClicked
@@ -1141,9 +1122,8 @@ public final class Program extends javax.swing.JFrame{
     private void jp_BackHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseClicked
         // TODO add your handling code here:
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_MainMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
     }//GEN-LAST:event_jp_BackHelpMouseClicked
@@ -1168,12 +1148,12 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_BackDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseClicked
         // TODO add your handling code here:
-        active[0].isiDeck(deck);
-        active[0].testIsiDeck();
+        activeAccount.isiDeck(deck);
+        //activeAccount.testIsiDeck();
+        
         jp_Background.removeAll();
-        jp_Background.repaint();
-        jp_Background.revalidate();
         jp_Background.add(jp_MainMenu);
+        
         jp_Background.repaint();
         jp_Background.revalidate();
         setDescriptionDefault();
@@ -1215,6 +1195,7 @@ public final class Program extends javax.swing.JFrame{
         // TODO add your handling code here:
         volumeControl(1.0);
     }//GEN-LAST:event_volumeMaxMouseClicked
+    
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
         jta_DescriptionBody.setText(x.toString());
@@ -1250,9 +1231,10 @@ public final class Program extends javax.swing.JFrame{
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            Program program = null;
+            Program program;
             try {
                 program = new Program();
+                program.fullScreen();
             } catch (IOException ex) {
                 Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Ini error");
@@ -1261,7 +1243,7 @@ public final class Program extends javax.swing.JFrame{
             } catch (LineUnavailableException ex) {
                 Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
             }
-            program.fullScreen();
+            
         });
     }
 
