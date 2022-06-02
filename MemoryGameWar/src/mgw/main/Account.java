@@ -1,9 +1,11 @@
 package mgw.main;
 
+import java.util.ArrayList;
 import mgw.gameplay.*;
 
 public class Account{
     public final String username;
+    public ArrayList<HistoryLog> history = new ArrayList();
     public Skill[] deck;
     public Account(String username) {
         this.username = username;
