@@ -34,15 +34,16 @@ public class GameUI extends javax.swing.JPanel {
         }
     }
     public void initCard(){
-       int x = 10, y = 10;
+       int x = 25, y = 6;
        for(int i = 0; i < card.length; i++){
            card[i] = new Card();
-           card[i].setBounds(x, y, 100, 100);
+           card[i].setBounds(x, y, 130, 130);
+           card[i].setBackground(Color.red);
            jp_TwinsCard.add(card[i]);
-           x+= 110;
-           if(x + 110 > 600){
-               x = 10;
-               y += 110;
+           x+= 180;
+           if(x  > 900){
+               x = 25;
+               y += 136;
            }
        }
     }
@@ -88,6 +89,7 @@ public class GameUI extends javax.swing.JPanel {
         jp_SkipButton = new javax.swing.JPanel();
         jl_Skip = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
@@ -174,15 +176,27 @@ public class GameUI extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Skill Name");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(495, Short.MAX_VALUE))
         );
 
         jPanel3.setPreferredSize(new java.awt.Dimension(350, 800));
@@ -263,6 +277,7 @@ public class GameUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_NamePlayer;
