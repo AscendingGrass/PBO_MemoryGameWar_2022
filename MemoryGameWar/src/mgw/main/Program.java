@@ -114,20 +114,16 @@ public final class Program extends javax.swing.JFrame{
         jp_OptionMenu = new javax.swing.JPanel();
         jp_BackOption = new javax.swing.JPanel();
         jl_BackOption = new javax.swing.JLabel();
-        volumeUp = new javax.swing.JButton();
-        volumeMute = new javax.swing.JButton();
-        volumeMax = new javax.swing.JButton();
-        volumeDown = new javax.swing.JButton();
         jp_VolumeDown = new javax.swing.JPanel();
         jl_VolumeDown = new javax.swing.JLabel();
         jp_VolumeUp = new javax.swing.JPanel();
         jl_VolumeUp = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jp_MuteButton = new javax.swing.JPanel();
+        jl_Mute = new javax.swing.JLabel();
+        jp_MaxButton = new javax.swing.JPanel();
+        jl_Max = new javax.swing.JLabel();
+        jp_Volume = new javax.swing.JPanel();
+        jl_Volume = new javax.swing.JLabel();
         jp_ExitConfirmation = new javax.swing.JPanel();
         jl_ExitConfirmation = new javax.swing.JLabel();
         jp_ExitOKButton = new javax.swing.JPanel();
@@ -681,47 +677,21 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackOption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
-        volumeUp.setText("+");
-        volumeUp.addMouseListener(new java.awt.event.MouseAdapter() {
+        jp_VolumeDown.setBackground(new java.awt.Color(0, 0, 0));
+        jp_VolumeDown.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volumeUpMouseClicked(evt);
+                jp_VolumeDownMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
             }
         });
-        volumeUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                volumeUpActionPerformed(evt);
-            }
-        });
-
-        volumeMute.setText("mute");
-        volumeMute.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volumeMuteMouseClicked(evt);
-            }
-        });
-        volumeMute.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                volumeMuteActionPerformed(evt);
-            }
-        });
-
-        volumeMax.setText("max");
-        volumeMax.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volumeMaxMouseClicked(evt);
-            }
-        });
-
-        volumeDown.setText("-");
-        volumeDown.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volumeDownMouseClicked(evt);
-            }
-        });
-
-        jp_VolumeDown.setBackground(new java.awt.Color(255, 0, 0));
 
         jl_VolumeDown.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+        jl_VolumeDown.setForeground(new java.awt.Color(255, 255, 255));
         jl_VolumeDown.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_VolumeDown.setText("-");
 
@@ -736,9 +706,21 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_VolumeDown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jp_VolumeUp.setBackground(new java.awt.Color(255, 0, 0));
+        jp_VolumeUp.setBackground(new java.awt.Color(0, 0, 0));
+        jp_VolumeUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_VolumeUpMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+        });
 
         jl_VolumeUp.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+        jl_VolumeUp.setForeground(new java.awt.Color(255, 255, 255));
         jl_VolumeUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_VolumeUp.setText("+");
 
@@ -753,51 +735,80 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_VolumeUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+        jp_MuteButton.setBackground(new java.awt.Color(0, 0, 0));
+        jp_MuteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_MuteButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Mute");
+        jl_Mute.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_Mute.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Mute.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Mute.setText("Mute");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout jp_MuteButtonLayout = new javax.swing.GroupLayout(jp_MuteButton);
+        jp_MuteButton.setLayout(jp_MuteButtonLayout);
+        jp_MuteButtonLayout.setHorizontalGroup(
+            jp_MuteButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Mute, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-        );
-
-        jPanel5.setBackground(new java.awt.Color(51, 51, 255));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Max");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        jp_MuteButtonLayout.setVerticalGroup(
+            jp_MuteButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Mute, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel1.setText("jLabel1");
+        jp_MaxButton.setBackground(new java.awt.Color(0, 0, 0));
+        jp_MaxButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_MaxButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+        jl_Max.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jl_Max.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Max.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Max.setText("Max");
+
+        javax.swing.GroupLayout jp_MaxButtonLayout = new javax.swing.GroupLayout(jp_MaxButton);
+        jp_MaxButton.setLayout(jp_MaxButtonLayout);
+        jp_MaxButtonLayout.setHorizontalGroup(
+            jp_MaxButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Max, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        jp_MaxButtonLayout.setVerticalGroup(
+            jp_MaxButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Max, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jp_Volume.setBackground(new java.awt.Color(0, 0, 0));
+
+        jl_Volume.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+        jl_Volume.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Volume.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Volume.setText("Volume");
+
+        javax.swing.GroupLayout jp_VolumeLayout = new javax.swing.GroupLayout(jp_Volume);
+        jp_Volume.setLayout(jp_VolumeLayout);
+        jp_VolumeLayout.setHorizontalGroup(
+            jp_VolumeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Volume, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        jp_VolumeLayout.setVerticalGroup(
+            jp_VolumeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_Volume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jp_OptionMenuLayout = new javax.swing.GroupLayout(jp_OptionMenu);
@@ -808,60 +819,33 @@ public final class Program extends javax.swing.JFrame{
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                            .addGap(230, 230, 230)
-                            .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                                    .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(32, 32, 32)
-                                    .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                                    .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                            .addGap(510, 510, 510)
-                            .addComponent(jp_VolumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(48, 48, 48)
-                            .addComponent(jp_VolumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(98, 98, 98)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addGap(551, 551, 551)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(710, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(jp_MuteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jp_VolumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jp_Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jp_VolumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jp_MaxButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1068, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionMenuLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(36, 36, 36)
                 .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jp_VolumeDown, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jp_VolumeUp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(62, 62, 62)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(359, Short.MAX_VALUE))
+                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jp_VolumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jp_MaxButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jp_VolumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jp_Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jp_MuteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(681, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_OptionMenu, "card6");
@@ -1391,27 +1375,6 @@ public final class Program extends javax.swing.JFrame{
         System.out.println("clicked");
     }//GEN-LAST:event_jp_PlayLogoMouseClicked
 
-    private void volumeUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeUpMouseClicked
-        // TODO add your handling code here:
-        volumeUp(0.1);
-    }//GEN-LAST:event_volumeUpMouseClicked
-
-    private void volumeDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeDownMouseClicked
-        // TODO add your handling code here:
-        volumeDown(0.1);
-    }//GEN-LAST:event_volumeDownMouseClicked
-
-    private void volumeMuteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMuteMouseClicked
-        // TODO add your handling code here:
-        volumeControl(0.0);
-        
-    }//GEN-LAST:event_volumeMuteMouseClicked
-
-    private void volumeMaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMaxMouseClicked
-        // TODO add your handling code here:
-        volumeControl(1.0);
-    }//GEN-LAST:event_volumeMaxMouseClicked
-
     private void jp_ExitOKButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitOKButtonMouseClicked
         // TODO add your handling code here:
         System.exit(0);
@@ -1459,13 +1422,25 @@ public final class Program extends javax.swing.JFrame{
         }
     }//GEN-LAST:event_jp_ExitCancelButtonPoppupButtonExited
 
-    private void volumeMuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeMuteActionPerformed
+    private void jp_VolumeUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_VolumeUpMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_volumeMuteActionPerformed
+        volumeUp(0.1);
+    }//GEN-LAST:event_jp_VolumeUpMouseClicked
 
-    private void volumeUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeUpActionPerformed
+    private void jp_VolumeDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_VolumeDownMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_volumeUpActionPerformed
+        volumeDown(0.1);
+    }//GEN-LAST:event_jp_VolumeDownMouseClicked
+
+    private void jp_MaxButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MaxButtonMouseClicked
+        // TODO add your handling code here:
+        volumeControl(1.0);
+    }//GEN-LAST:event_jp_MaxButtonMouseClicked
+
+    private void jp_MuteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_MuteButtonMouseClicked
+        // TODO add your handling code here:
+        volumeControl(0.0);
+    }//GEN-LAST:event_jp_MuteButtonMouseClicked
     
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
@@ -1520,13 +1495,7 @@ public final class Program extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mgw.main.GameUI gameUI1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
@@ -1540,8 +1509,11 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_ExitOk;
     private javax.swing.JLabel jl_Help;
     private javax.swing.JLabel jl_JudulDesk;
+    private javax.swing.JLabel jl_Max;
+    private javax.swing.JLabel jl_Mute;
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
+    private javax.swing.JLabel jl_Volume;
     private javax.swing.JLabel jl_VolumeDown;
     private javax.swing.JLabel jl_VolumeUp;
     private javax.swing.JLabel jl_changeAcc;
@@ -1563,20 +1535,19 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_ListOfCard;
     private javax.swing.JPanel jp_ListOfDeck;
     public static javax.swing.JPanel jp_MainMenu;
+    private javax.swing.JPanel jp_MaxButton;
+    private javax.swing.JPanel jp_MuteButton;
     private javax.swing.JPanel jp_OptionButton;
     private javax.swing.JPanel jp_OptionMenu;
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_SkillDesc;
+    private javax.swing.JPanel jp_Volume;
     private javax.swing.JPanel jp_VolumeDown;
     private javax.swing.JPanel jp_VolumeUp;
     private javax.swing.JPanel jp_changeAcc;
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
-    private javax.swing.JButton volumeDown;
-    private javax.swing.JButton volumeMax;
-    private javax.swing.JButton volumeMute;
-    private javax.swing.JButton volumeUp;
     // End of variables declaration//GEN-END:variables
 
    
