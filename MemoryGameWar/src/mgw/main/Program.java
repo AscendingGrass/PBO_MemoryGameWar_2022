@@ -62,7 +62,7 @@ public final class Program extends javax.swing.JFrame{
         checkDeck();
          
         initBackGround();
-       playMusic(songFiles[0]);
+        playMusic(songFiles[0]);
     }
    
     
