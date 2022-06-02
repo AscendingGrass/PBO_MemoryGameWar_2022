@@ -118,12 +118,28 @@ public final class Program extends javax.swing.JFrame{
         volumeMute = new javax.swing.JButton();
         volumeMax = new javax.swing.JButton();
         volumeDown = new javax.swing.JButton();
+        jp_VolumeDown = new javax.swing.JPanel();
+        jl_VolumeDown = new javax.swing.JLabel();
+        jp_VolumeUp = new javax.swing.JPanel();
+        jl_VolumeUp = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jp_ExitConfirmation = new javax.swing.JPanel();
         jl_ExitConfirmation = new javax.swing.JLabel();
         jp_ExitOKButton = new javax.swing.JPanel();
         jl_ExitOk = new javax.swing.JLabel();
         jp_ExitCancelButton = new javax.swing.JPanel();
         jl_ExitCancel = new javax.swing.JLabel();
+        jp_ChangeAccount = new javax.swing.JPanel();
+        jp_CreateAccount = new javax.swing.JPanel();
+        lb_CreateAccount = new javax.swing.JLabel();
+        jtf_AccountName = new javax.swing.JTextField();
+        jp_CreateAccountButton = new javax.swing.JPanel();
+        jl_CreateAccountButton = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -394,7 +410,7 @@ public final class Program extends javax.swing.JFrame{
         );
         jp_PlayMenuLayout.setVerticalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
@@ -677,11 +693,21 @@ public final class Program extends javax.swing.JFrame{
                 volumeUpMouseClicked(evt);
             }
         });
+        volumeUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volumeUpActionPerformed(evt);
+            }
+        });
 
         volumeMute.setText("mute");
         volumeMute.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 volumeMuteMouseClicked(evt);
+            }
+        });
+        volumeMute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volumeMuteActionPerformed(evt);
             }
         });
 
@@ -693,46 +719,155 @@ public final class Program extends javax.swing.JFrame{
         });
 
         volumeDown.setText("-");
-        volumeDown.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volumeDownMouseClicked(evt);
+        volumeDown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volumeDownActionPerformed(evt);
             }
         });
+
+        jp_VolumeDown.setBackground(new java.awt.Color(255, 0, 0));
+
+        jl_VolumeDown.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+        jl_VolumeDown.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_VolumeDown.setText("-");
+
+        javax.swing.GroupLayout jp_VolumeDownLayout = new javax.swing.GroupLayout(jp_VolumeDown);
+        jp_VolumeDown.setLayout(jp_VolumeDownLayout);
+        jp_VolumeDownLayout.setHorizontalGroup(
+            jp_VolumeDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_VolumeDown, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+        );
+        jp_VolumeDownLayout.setVerticalGroup(
+            jp_VolumeDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_VolumeDown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jp_VolumeUp.setBackground(new java.awt.Color(255, 0, 0));
+
+        jl_VolumeUp.setFont(new java.awt.Font("Segoe UI Symbol", 1, 24)); // NOI18N
+        jl_VolumeUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_VolumeUp.setText("+");
+
+        javax.swing.GroupLayout jp_VolumeUpLayout = new javax.swing.GroupLayout(jp_VolumeUp);
+        jp_VolumeUp.setLayout(jp_VolumeUpLayout);
+        jp_VolumeUpLayout.setHorizontalGroup(
+            jp_VolumeUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_VolumeUp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+        );
+        jp_VolumeUpLayout.setVerticalGroup(
+            jp_VolumeUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_VolumeUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Mute");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+        );
+
+        jPanel5.setBackground(new java.awt.Color(51, 51, 255));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Max");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jp_OptionMenuLayout = new javax.swing.GroupLayout(jp_OptionMenu);
         jp_OptionMenu.setLayout(jp_OptionMenuLayout);
         jp_OptionMenuLayout.setHorizontalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1022, Short.MAX_VALUE))
-            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                            .addGap(230, 230, 230)
+                            .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                                    .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(32, 32, 32)
+                                    .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                                    .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                            .addGap(510, 510, 510)
+                            .addComponent(jp_VolumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(48, 48, 48)
+                            .addComponent(jp_VolumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(98, 98, 98)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                        .addGap(551, 551, 551)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(710, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionMenuLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176)
-                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(443, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jp_VolumeDown, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_VolumeUp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(359, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_OptionMenu, "card6");
@@ -838,6 +973,92 @@ public final class Program extends javax.swing.JFrame{
         );
 
         jp_Background.add(jp_ExitConfirmation, "card7");
+
+        jp_ChangeAccount.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jp_ChangeAccountLayout = new javax.swing.GroupLayout(jp_ChangeAccount);
+        jp_ChangeAccount.setLayout(jp_ChangeAccountLayout);
+        jp_ChangeAccountLayout.setHorizontalGroup(
+            jp_ChangeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1530, Short.MAX_VALUE)
+        );
+        jp_ChangeAccountLayout.setVerticalGroup(
+            jp_ChangeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+
+        jp_Background.add(jp_ChangeAccount, "card8");
+
+        jp_CreateAccount.setBackground(new java.awt.Color(0, 0, 0));
+
+        lb_CreateAccount.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        lb_CreateAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_CreateAccount.setText("Create Account");
+
+        jtf_AccountName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        jp_CreateAccountButton.setBackground(new java.awt.Color(255, 255, 255));
+        jp_CreateAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_CreateAccountButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+        });
+
+        jl_CreateAccountButton.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_CreateAccountButton.setForeground(new java.awt.Color(0, 0, 0));
+        jl_CreateAccountButton.setText("Create");
+
+        javax.swing.GroupLayout jp_CreateAccountButtonLayout = new javax.swing.GroupLayout(jp_CreateAccountButton);
+        jp_CreateAccountButton.setLayout(jp_CreateAccountButtonLayout);
+        jp_CreateAccountButtonLayout.setHorizontalGroup(
+            jp_CreateAccountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountButtonLayout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(jl_CreateAccountButton)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jp_CreateAccountButtonLayout.setVerticalGroup(
+            jp_CreateAccountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountButtonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_CreateAccountButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jp_CreateAccountLayout = new javax.swing.GroupLayout(jp_CreateAccount);
+        jp_CreateAccount.setLayout(jp_CreateAccountLayout);
+        jp_CreateAccountLayout.setHorizontalGroup(
+            jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtf_AccountName)
+                    .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_CreateAccountLayout.setVerticalGroup(
+            jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(lb_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jtf_AccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jp_Background.add(jp_CreateAccount, "card9");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1198,31 +1419,33 @@ public final class Program extends javax.swing.JFrame{
         jp_MainMenu.revalidate();
         */
         
-        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
-        Account temp = activeAccount;
-        activeAccount = null;
-        if(x == null){
-            activeAccount = temp;
-            return;
-        }if(x.equals("")){
-            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
-            activeAccount = temp;
-            return;
-        }
-        for(Account i : accounts){
-            if(i.username.equals(x)){
-                activeAccount = i;
-                JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
-                setActiveAccount(i);
-                return;
-            }
-        }
-        if(activeAccount == null){
-            JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
-            accounts.add(new Account(x));
-            activeAccount = accounts.get(accounts.size()-1);
-            setActiveAccount(activeAccount);
-        }
+//        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
+//        Account temp = activeAccount;
+//        activeAccount = null;
+//        if(x == null){
+//            activeAccount = temp;
+//            return;
+//        }if(x.equals("")){
+//            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
+//            activeAccount = temp;
+//            return;
+//        }
+//        for(Account i : accounts){
+//            if(i.username.equals(x)){
+//                activeAccount = i;
+//                JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
+//                setActiveAccount(i);
+//                return;
+//            }
+//        }
+//        if(activeAccount == null){
+//            JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
+//            accounts.add(new Account(x));
+//            activeAccount = accounts.get(accounts.size()-1);
+//            setActiveAccount(activeAccount);
+//        }
+        jp_MenuButtonWhite(evt);
+        changeTo(jp_CreateAccount);
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
     private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
@@ -1266,11 +1489,6 @@ public final class Program extends javax.swing.JFrame{
         // TODO add your handling code here:
         volumeUp(0.1);
     }//GEN-LAST:event_volumeUpMouseClicked
-
-    private void volumeDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeDownMouseClicked
-        // TODO add your handling code here:
-        volumeDown(0.1);
-    }//GEN-LAST:event_volumeDownMouseClicked
 
     private void volumeMuteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMuteMouseClicked
         // TODO add your handling code here:
@@ -1329,6 +1547,27 @@ public final class Program extends javax.swing.JFrame{
             jp.setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_jp_ExitCancelButtonPoppupButtonExited
+
+
+    private void volumeMuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeMuteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volumeMuteActionPerformed
+
+    private void volumeUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeUpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volumeUpActionPerformed
+
+    private void volumeDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeDownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volumeDownActionPerformed
+
+    private void jp_CreateAccountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_CreateAccountButtonMouseClicked
+        // TODO add your handling code here:
+        jp_MenuButtonWhite(evt);
+        String str = jtf_AccountName.getText();
+        changeTo(jp_MainMenu);
+    }//GEN-LAST:event_jp_CreateAccountButtonMouseClicked
+
     
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
@@ -1383,11 +1622,18 @@ public final class Program extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mgw.main.GameUI gameUI1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
     private javax.swing.JLabel jl_BackOption;
+    private javax.swing.JLabel jl_CreateAccountButton;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_DescriptionHeading;
     private javax.swing.JLabel jl_Deskripsi;
@@ -1399,12 +1645,17 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_JudulDesk;
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
+    private javax.swing.JLabel jl_VolumeDown;
+    private javax.swing.JLabel jl_VolumeUp;
     private javax.swing.JLabel jl_changeAcc;
     private javax.swing.JPanel jp_BackDeck;
     private javax.swing.JPanel jp_BackHelp;
     private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JPanel jp_BodyHelp;
+    private javax.swing.JPanel jp_ChangeAccount;
+    private javax.swing.JPanel jp_CreateAccount;
+    private javax.swing.JPanel jp_CreateAccountButton;
     private javax.swing.JPanel jp_DeckButton;
     private javax.swing.JPanel jp_DeckMenu;
     private javax.swing.JPanel jp_DescriptionBody;
@@ -1423,9 +1674,13 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_PlayButton;
     private javax.swing.JPanel jp_PlayMenu;
     private javax.swing.JPanel jp_SkillDesc;
+    private javax.swing.JPanel jp_VolumeDown;
+    private javax.swing.JPanel jp_VolumeUp;
     private javax.swing.JPanel jp_changeAcc;
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
+    private javax.swing.JTextField jtf_AccountName;
+    private javax.swing.JLabel lb_CreateAccount;
     private javax.swing.JButton volumeDown;
     private javax.swing.JButton volumeMax;
     private javax.swing.JButton volumeMute;
