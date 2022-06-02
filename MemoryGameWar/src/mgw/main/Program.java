@@ -31,7 +31,9 @@ public final class Program extends javax.swing.JFrame{
     
     MP3Player player = new MP3Player();
     File[] songFiles = {
-        new File("src//BGM//MP3//mystical_piano.mp3") //Main menu music 1
+        new File("src//BGM//MP3//mystical_piano.mp3"), //Main menu music 1
+        new File("src//BGM//MP3//Main menu.mp3"), //Main menu music 2
+        new File("src//BGM//MP3//Battle.mp3") //Battle music 1
     };
     
     ArrayList<Account> accounts = new ArrayList<>();
@@ -951,11 +953,11 @@ public final class Program extends javax.swing.JFrame{
         Image arsa = ImageIO.read(new File("src\\mgw\\main\\background\\2000 x 1333.png")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
         Image yurtan = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1500.jpg")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
         Image simon = ImageIO.read(new File("src\\mgw\\main\\background\\3000 x 1000.jpg")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
-        Image vincent = ImageIO.read(new File("src\\mgw\\main\\background\\4000 x 2000.jpg")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
+        Image help = ImageIO.read(new File("src\\mgw\\main\\background\\help.png")).getScaledInstance(screenWidth, screenHeight, Image.SCALE_SMOOTH);
         jp_MainMenu.add(new LatarBelakang(vithun, screenWidth, screenHeight));
         jp_PlayMenu.add(new LatarBelakang(simon, screenWidth, screenHeight));
         jp_OptionMenu.add(new LatarBelakang(yurtan, screenWidth, screenHeight));
-        jp_HelpMenu.add(new LatarBelakang(vincent, screenWidth, screenHeight));
+        jp_HelpMenu.add(new LatarBelakang(help, screenWidth, screenHeight));
         jp_DeckMenu.add(new LatarBelakang(arsa, screenWidth, screenHeight));
     }
   
