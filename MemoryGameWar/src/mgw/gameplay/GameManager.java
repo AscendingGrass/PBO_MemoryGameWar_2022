@@ -4,7 +4,7 @@ import mgw.main.GameUI;
 import mgw.util.UtilArsa;
 
 public class GameManager {
-    private final Player[] players = new Player[2];
+    public final Player[] players = new Player[2];
     private final GameUI gu;
     private int turn = 1; 
     

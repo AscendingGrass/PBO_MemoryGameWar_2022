@@ -11,25 +11,35 @@ import mgw.gameplay.GameManager;
  * @author mejap
  */
 public class GameUI extends javax.swing.JPanel {
-
+    public Program parent;
     private GameManager gm;
     /**
      * Creates new form GameUI
      */
     public GameUI() {
-        initComponents();
-        
+        initComponents(); 
     }
     
     public void setGameManager(GameManager gm)
     {
         this.gm = gm;
-        
+        statusBarLeft1.setPlayer(gm.players[1]);
+        statusBarRight1.setPlayer(gm.players[0]);
+    }
+    
+    public void setProgram(Program p)
+    {
+        parent = p;
     }
     
     public GameManager getGM()
     {
         return gm;
+    }
+    
+    public void back()
+    {
+        parent.toMainMenu();
     }
     
 

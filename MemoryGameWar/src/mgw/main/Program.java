@@ -50,6 +50,7 @@ public final class Program extends javax.swing.JFrame{
     public Program() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         this.setUndecorated(true);
         initComponents();
+        gameUI1.setProgram(this);
         
         accounts.add(new Account("Yurtan"));
         setActiveAccount(accounts.get(0));
@@ -816,6 +817,11 @@ public final class Program extends javax.swing.JFrame{
         clip.open(audioStream);
         clip.loop(-1);
         clip.start();*/
+    }
+    
+    public void toMainMenu()
+    {
+        changeTo(jp_MainMenu);
     }
     
 //    private void openMusic(){
