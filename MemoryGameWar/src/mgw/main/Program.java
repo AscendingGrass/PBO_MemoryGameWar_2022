@@ -406,10 +406,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_BackDeckMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_BackDeckMouseEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_BackDeckMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -647,10 +647,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_BackOptionMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_BackOptionMouseEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_BackOptionMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -664,7 +664,7 @@ public final class Program extends javax.swing.JFrame{
         jp_BackOption.setLayout(jp_BackOptionLayout);
         jp_BackOptionLayout.setHorizontalGroup(
             jp_BackOptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_BackOption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+            .addComponent(jl_BackOption, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         jp_BackOptionLayout.setVerticalGroup(
             jp_BackOptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -704,37 +704,35 @@ public final class Program extends javax.swing.JFrame{
         jp_OptionMenuLayout.setHorizontalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(230, 230, 230)
+                .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                                .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
-                                .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1022, Short.MAX_VALUE))
+            .addGroup(jp_OptionMenuLayout.createSequentialGroup()
+                .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jp_OptionMenuLayout.setVerticalGroup(
             jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_OptionMenuLayout.createSequentialGroup()
-                .addGap(242, 242, 242)
+                .addGap(7, 7, 7)
+                .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(176, 176, 176)
                 .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(volumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(34, 34, 34)
                 .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volumeMute, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(volumeMax, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
-                .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_OptionMenu, "card6");
@@ -1235,28 +1233,10 @@ public final class Program extends javax.swing.JFrame{
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
 
     private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
-        
+        jp_MenuButtonBlack(evt);
         // TODO add your handling code here:
         changeTo(jp_MainMenu);
     }//GEN-LAST:event_jp_BackOptionMouseClicked
-
-    private void jp_BackOptionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseEntered
-        // TODO add your handling code here:
-        if(evt.getSource() instanceof JPanel jp)
-        {
-            ((JLabel)jp.getComponent(0)).setForeground(Color.BLACK);
-            jp.setBackground(Color.WHITE);
-        }
-    }//GEN-LAST:event_jp_BackOptionMouseEntered
-
-    private void jp_BackOptionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseExited
-        // TODO add your handling code here:
-        if(evt.getSource() instanceof JPanel jp)
-        {
-            ((JLabel)jp.getComponent(0)).setForeground(Color.WHITE);
-            jp.setBackground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jp_BackOptionMouseExited
 
     private void jp_BackHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseClicked
         // TODO add your handling code here:
@@ -1266,20 +1246,13 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_BackDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseClicked
         // TODO add your handling code here:
+        jp_MenuButtonBlack(evt);
         activeAccount.isiDeck(deck);
         //activeAccount.testIsiDeck();
         
         changeTo(jp_MainMenu);
         setDescriptionDefault();
     }//GEN-LAST:event_jp_BackDeckMouseClicked
-
-    private void jp_BackDeckMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jp_BackDeckMouseEntered
-
-    private void jp_BackDeckMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jp_BackDeckMouseExited
 
     private void jp_PlayLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayLogoMouseClicked
         // TODO add your handling code here:
