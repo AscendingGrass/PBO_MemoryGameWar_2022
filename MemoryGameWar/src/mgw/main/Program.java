@@ -106,6 +106,7 @@ public final class Program extends javax.swing.JFrame{
         jp_HelpMenu = new javax.swing.JPanel();
         jp_BackHelp = new javax.swing.JPanel();
         jl_BackHelp = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jp_OptionMenu = new javax.swing.JPanel();
         jp_BackOption = new javax.swing.JPanel();
         jl_BackOption = new javax.swing.JLabel();
@@ -467,7 +468,7 @@ public final class Program extends javax.swing.JFrame{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionBodyLayout.createSequentialGroup()
                 .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
-                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
                 .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -535,6 +536,8 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_DeckMenu, "card3");
 
+        jp_HelpMenu.setPreferredSize(new java.awt.Dimension(1200, 800));
+
         jp_BackHelp.setBackground(new java.awt.Color(0, 0, 0));
         jp_BackHelp.setPreferredSize(new java.awt.Dimension(100, 40));
         jp_BackHelp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -566,20 +569,39 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 650));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1200, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 650, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jp_HelpMenuLayout = new javax.swing.GroupLayout(jp_HelpMenu);
         jp_HelpMenu.setLayout(jp_HelpMenuLayout);
         jp_HelpMenuLayout.setHorizontalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1430, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jp_HelpMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_HelpMenuLayout.setVerticalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(646, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_HelpMenu, "card3");
@@ -1365,6 +1387,7 @@ public final class Program extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mgw.main.GameUI gameUI1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
