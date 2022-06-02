@@ -134,6 +134,12 @@ public final class Program extends javax.swing.JFrame{
         jl_ExitOk = new javax.swing.JLabel();
         jp_ExitCancelButton = new javax.swing.JPanel();
         jl_ExitCancel = new javax.swing.JLabel();
+        jp_ChangeAccount = new javax.swing.JPanel();
+        jp_CreateAccount = new javax.swing.JPanel();
+        lb_CreateAccount = new javax.swing.JLabel();
+        jtf_AccountName = new javax.swing.JTextField();
+        jp_CreateAccountButton = new javax.swing.JPanel();
+        jl_CreateAccountButton = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -404,7 +410,7 @@ public final class Program extends javax.swing.JFrame{
         );
         jp_PlayMenuLayout.setVerticalGroup(
             jp_PlayMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(gameUI1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         jp_Background.add(jp_PlayMenu, "card3");
@@ -713,9 +719,9 @@ public final class Program extends javax.swing.JFrame{
         });
 
         volumeDown.setText("-");
-        volumeDown.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                volumeDownMouseClicked(evt);
+        volumeDown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volumeDownActionPerformed(evt);
             }
         });
 
@@ -967,6 +973,92 @@ public final class Program extends javax.swing.JFrame{
         );
 
         jp_Background.add(jp_ExitConfirmation, "card7");
+
+        jp_ChangeAccount.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jp_ChangeAccountLayout = new javax.swing.GroupLayout(jp_ChangeAccount);
+        jp_ChangeAccount.setLayout(jp_ChangeAccountLayout);
+        jp_ChangeAccountLayout.setHorizontalGroup(
+            jp_ChangeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1530, Short.MAX_VALUE)
+        );
+        jp_ChangeAccountLayout.setVerticalGroup(
+            jp_ChangeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+
+        jp_Background.add(jp_ChangeAccount, "card8");
+
+        jp_CreateAccount.setBackground(new java.awt.Color(0, 0, 0));
+
+        lb_CreateAccount.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        lb_CreateAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_CreateAccount.setText("Create Account");
+
+        jtf_AccountName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        jp_CreateAccountButton.setBackground(new java.awt.Color(255, 255, 255));
+        jp_CreateAccountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_CreateAccountButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+        });
+
+        jl_CreateAccountButton.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_CreateAccountButton.setForeground(new java.awt.Color(0, 0, 0));
+        jl_CreateAccountButton.setText("Create");
+
+        javax.swing.GroupLayout jp_CreateAccountButtonLayout = new javax.swing.GroupLayout(jp_CreateAccountButton);
+        jp_CreateAccountButton.setLayout(jp_CreateAccountButtonLayout);
+        jp_CreateAccountButtonLayout.setHorizontalGroup(
+            jp_CreateAccountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountButtonLayout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(jl_CreateAccountButton)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jp_CreateAccountButtonLayout.setVerticalGroup(
+            jp_CreateAccountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountButtonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_CreateAccountButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jp_CreateAccountLayout = new javax.swing.GroupLayout(jp_CreateAccount);
+        jp_CreateAccount.setLayout(jp_CreateAccountLayout);
+        jp_CreateAccountLayout.setHorizontalGroup(
+            jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtf_AccountName)
+                    .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_CreateAccountLayout.setVerticalGroup(
+            jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(lb_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jtf_AccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jp_Background.add(jp_CreateAccount, "card9");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1327,31 +1419,33 @@ public final class Program extends javax.swing.JFrame{
         jp_MainMenu.revalidate();
         */
         
-        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
-        Account temp = activeAccount;
-        activeAccount = null;
-        if(x == null){
-            activeAccount = temp;
-            return;
-        }if(x.equals("")){
-            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
-            activeAccount = temp;
-            return;
-        }
-        for(Account i : accounts){
-            if(i.username.equals(x)){
-                activeAccount = i;
-                JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
-                setActiveAccount(i);
-                return;
-            }
-        }
-        if(activeAccount == null){
-            JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
-            accounts.add(new Account(x));
-            activeAccount = accounts.get(accounts.size()-1);
-            setActiveAccount(activeAccount);
-        }
+//        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
+//        Account temp = activeAccount;
+//        activeAccount = null;
+//        if(x == null){
+//            activeAccount = temp;
+//            return;
+//        }if(x.equals("")){
+//            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
+//            activeAccount = temp;
+//            return;
+//        }
+//        for(Account i : accounts){
+//            if(i.username.equals(x)){
+//                activeAccount = i;
+//                JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
+//                setActiveAccount(i);
+//                return;
+//            }
+//        }
+//        if(activeAccount == null){
+//            JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
+//            accounts.add(new Account(x));
+//            activeAccount = accounts.get(accounts.size()-1);
+//            setActiveAccount(activeAccount);
+//        }
+        jp_MenuButtonWhite(evt);
+        changeTo(jp_CreateAccount);
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
     private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
@@ -1395,11 +1489,6 @@ public final class Program extends javax.swing.JFrame{
         // TODO add your handling code here:
         volumeUp(0.1);
     }//GEN-LAST:event_volumeUpMouseClicked
-
-    private void volumeDownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeDownMouseClicked
-        // TODO add your handling code here:
-        volumeDown(0.1);
-    }//GEN-LAST:event_volumeDownMouseClicked
 
     private void volumeMuteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMuteMouseClicked
         // TODO add your handling code here:
@@ -1459,6 +1548,7 @@ public final class Program extends javax.swing.JFrame{
         }
     }//GEN-LAST:event_jp_ExitCancelButtonPoppupButtonExited
 
+
     private void volumeMuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeMuteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_volumeMuteActionPerformed
@@ -1466,6 +1556,18 @@ public final class Program extends javax.swing.JFrame{
     private void volumeUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeUpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_volumeUpActionPerformed
+
+    private void volumeDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volumeDownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volumeDownActionPerformed
+
+    private void jp_CreateAccountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_CreateAccountButtonMouseClicked
+        // TODO add your handling code here:
+        jp_MenuButtonWhite(evt);
+        String str = jtf_AccountName.getText();
+        changeTo(jp_MainMenu);
+    }//GEN-LAST:event_jp_CreateAccountButtonMouseClicked
+
     
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
@@ -1531,6 +1633,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
     private javax.swing.JLabel jl_BackOption;
+    private javax.swing.JLabel jl_CreateAccountButton;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_DescriptionHeading;
     private javax.swing.JLabel jl_Deskripsi;
@@ -1550,6 +1653,9 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JPanel jp_BodyHelp;
+    private javax.swing.JPanel jp_ChangeAccount;
+    private javax.swing.JPanel jp_CreateAccount;
+    private javax.swing.JPanel jp_CreateAccountButton;
     private javax.swing.JPanel jp_DeckButton;
     private javax.swing.JPanel jp_DeckMenu;
     private javax.swing.JPanel jp_DescriptionBody;
@@ -1573,6 +1679,8 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_changeAcc;
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
+    private javax.swing.JTextField jtf_AccountName;
+    private javax.swing.JLabel lb_CreateAccount;
     private javax.swing.JButton volumeDown;
     private javax.swing.JButton volumeMax;
     private javax.swing.JButton volumeMute;
