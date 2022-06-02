@@ -38,7 +38,7 @@ public final class Program extends javax.swing.JFrame{
     
     ArrayList<Account> accounts = new ArrayList<>();
     Account activeAccount = null;
-    Card card[] = new Card[Skill.list.length];
+    SkillCard card[] = new SkillCard[Skill.list.length];
     Deck deck[] = new Deck[5];
     
     //String currentDirectionary = "home.user";
@@ -1010,7 +1010,7 @@ public final class Program extends javax.swing.JFrame{
     }
    
     public void checkCard(){
-        for (Card card1 : card) {
+        for (SkillCard card1 : card) {
             card1.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1065,7 +1065,7 @@ public final class Program extends javax.swing.JFrame{
     }
     
     private void cardClicked(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Card c){
+        if(evt.getSource() instanceof SkillCard c){
             if(c.clicked)
                 return;
             if(Deck.counter > 5)
@@ -1079,14 +1079,14 @@ public final class Program extends javax.swing.JFrame{
     }
     
     private void cardEntered(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Card c)
+        if(evt.getSource() instanceof SkillCard c)
         {
             setDescription(c.skill);
         }
         
     }
     private void cardExited(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Card c)
+        if(evt.getSource() instanceof SkillCard c)
         {
             setDescriptionDefault();
         }
@@ -1112,7 +1112,7 @@ public final class Program extends javax.swing.JFrame{
     public void initCard(){
         int x = 30, y= 30;
         for(int i = 0; i < Skill.list.length; i++){
-            card[i] = new Card(Skill.list[i]);
+            card[i] = new SkillCard(Skill.list[i]);
             card[i].setBounds(x, y, 114, 114);
             jp_ListOfCard.add(card[i]);
             x+= 140;

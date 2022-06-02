@@ -5,57 +5,24 @@
 package mgw.main;
 
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import mgw.gameplay.Skill;
 
 /**
  *
- * @author mejap
+ * @author user
  */
 public class Card extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form Card
      */
-    public Skill skill;
-    boolean clicked = false;
-    Icon img, back;
-    static int counter = 1;
-    int count;
-    public Card(Skill skill) {
-        this.skill = skill;
-        initComponents();
-        count = counter;
-        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter + ".png"));
-        back = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + "t.png"));
-        jLabel1.setIcon(img);
-    }
-
+    boolean flip = false;
+    Icon img;
     public Card() {
-    }
-    
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
-
-    public javax.swing.ImageIcon getIcon() {
-        return (ImageIcon) jLabel1.getIcon();
-    }
-    
-    public void setIconNull(){
-        jLabel1.setIcon(null);
-    }
-    public void cardClicked(){
-        clicked = true;
-        jLabel1.setIcon(back);
-    }
-    public void deckClicked(){
-        clicked = false;
+        initComponents();
+        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/1.png"));
         jLabel1.setIcon(img);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,33 +33,21 @@ public class Card extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
 
-        setPreferredSize(new java.awt.Dimension(100, 100));
-        setLayout(new java.awt.CardLayout());
-
-        jLabel1.setPreferredSize(new java.awt.Dimension(114, 114));
-        add(jLabel1, "card2");
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0,10));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 173, Short.MAX_VALUE)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
-
-        add(jPanel2, "card3");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
