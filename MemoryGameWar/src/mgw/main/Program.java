@@ -107,6 +107,10 @@ public final class Program extends javax.swing.JFrame{
         jp_HelpMenu = new javax.swing.JPanel();
         jp_BackHelp = new javax.swing.JPanel();
         jl_BackHelp = new javax.swing.JLabel();
+        jp_BodyHelp = new javax.swing.JPanel();
+        jp_JudulDesk = new javax.swing.JPanel();
+        jl_JudulDesk = new javax.swing.JLabel();
+        jl_Deskripsi = new javax.swing.JLabel();
         jp_OptionMenu = new javax.swing.JPanel();
         jp_BackOption = new javax.swing.JPanel();
         jl_BackOption = new javax.swing.JLabel();
@@ -468,7 +472,7 @@ public final class Program extends javax.swing.JFrame{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionBodyLayout.createSequentialGroup()
                 .addComponent(jl_DescriptionHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
-                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                .addComponent(jta_DescriptionBody, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
                 .addComponent(jta_DescriptionBody_SP, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -536,6 +540,8 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_DeckMenu, "card3");
 
+        jp_HelpMenu.setPreferredSize(new java.awt.Dimension(1200, 800));
+
         jp_BackHelp.setBackground(new java.awt.Color(0, 0, 0));
         jp_BackHelp.setPreferredSize(new java.awt.Dimension(100, 40));
         jp_BackHelp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -567,20 +573,70 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jp_BodyHelp.setBackground(new java.awt.Color(0, 51, 255));
+        jp_BodyHelp.setPreferredSize(new java.awt.Dimension(1200, 650));
+
+        jl_JudulDesk.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jl_JudulDesk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_JudulDesk.setText("Judul Deskripsi");
+
+        javax.swing.GroupLayout jp_JudulDeskLayout = new javax.swing.GroupLayout(jp_JudulDesk);
+        jp_JudulDesk.setLayout(jp_JudulDeskLayout);
+        jp_JudulDeskLayout.setHorizontalGroup(
+            jp_JudulDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_JudulDesk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+        );
+        jp_JudulDeskLayout.setVerticalGroup(
+            jp_JudulDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_JudulDesk, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+        );
+
+        jl_Deskripsi.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        jl_Deskripsi.setText("contoh saja kalau mau diganti silakan");
+        jl_Deskripsi.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout jp_BodyHelpLayout = new javax.swing.GroupLayout(jp_BodyHelp);
+        jp_BodyHelp.setLayout(jp_BodyHelpLayout);
+        jp_BodyHelpLayout.setHorizontalGroup(
+            jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_BodyHelpLayout.createSequentialGroup()
+                .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jp_BodyHelpLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_Deskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 888, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(300, Short.MAX_VALUE))
+        );
+        jp_BodyHelpLayout.setVerticalGroup(
+            jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_BodyHelpLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jl_Deskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(185, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jp_HelpMenuLayout = new javax.swing.GroupLayout(jp_HelpMenu);
         jp_HelpMenu.setLayout(jp_HelpMenuLayout);
         jp_HelpMenuLayout.setHorizontalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1430, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jp_HelpMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_BodyHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_HelpMenuLayout.setVerticalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(646, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_BodyHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_HelpMenu, "card3");
@@ -1378,11 +1434,13 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_BackOption;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_DescriptionHeading;
+    private javax.swing.JLabel jl_Deskripsi;
     private javax.swing.JLabel jl_Exit;
     private javax.swing.JLabel jl_ExitCancel;
     private javax.swing.JLabel jl_ExitConfirmation;
     private javax.swing.JLabel jl_ExitOk;
     private javax.swing.JLabel jl_Help;
+    private javax.swing.JLabel jl_JudulDesk;
     private javax.swing.JLabel jl_Option;
     private javax.swing.JLabel jl_Play;
     private javax.swing.JLabel jl_changeAcc;
@@ -1390,6 +1448,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_BackHelp;
     private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_Background;
+    private javax.swing.JPanel jp_BodyHelp;
     private javax.swing.JPanel jp_DeckButton;
     private javax.swing.JPanel jp_DeckMenu;
     private javax.swing.JPanel jp_DescriptionBody;
@@ -1399,6 +1458,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_ExitOKButton;
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_HelpMenu;
+    private javax.swing.JPanel jp_JudulDesk;
     private javax.swing.JPanel jp_ListOfCard;
     private javax.swing.JPanel jp_ListOfDeck;
     public static javax.swing.JPanel jp_MainMenu;
