@@ -585,10 +585,13 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jp_BodyHelp.setBackground(new java.awt.Color(0, 51, 102));
+        jp_BodyHelp.setBackground(new java.awt.Color(0, 0, 0));
         jp_BodyHelp.setPreferredSize(new java.awt.Dimension(1200, 650));
 
+        jp_JudulDesk.setBackground(new java.awt.Color(255, 255, 255));
+
         jl_JudulDesk.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jl_JudulDesk.setForeground(new java.awt.Color(0, 0, 0));
         jl_JudulDesk.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jl_JudulDesk.setText("How To Play");
 
@@ -596,7 +599,7 @@ public final class Program extends javax.swing.JFrame{
         jp_JudulDesk.setLayout(jp_JudulDeskLayout);
         jp_JudulDeskLayout.setHorizontalGroup(
             jp_JudulDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_JudulDesk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+            .addComponent(jl_JudulDesk, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         jp_JudulDeskLayout.setVerticalGroup(
             jp_JudulDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,8 +607,10 @@ public final class Program extends javax.swing.JFrame{
         );
 
         Help_desc.setEditable(false);
+        Help_desc.setBackground(new java.awt.Color(0, 0, 0));
         Help_desc.setColumns(20);
         Help_desc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Help_desc.setForeground(new java.awt.Color(255, 255, 255));
         Help_desc.setLineWrap(true);
         Help_desc.setRows(5);
         Help_desc.setText("In the Main Menu, you can add a user or change user by clicking the \"change user\" button.\n\nAfter adding the user, you need to set up your deck in order to play the game.\nIn the Main Menu, click on the \"DECK\" button.\nIn the DECK menu, you can arrange several skills to the deck (don't forget to read the skill description).\n\nAfter you finish your deck set up, click on the \"PLAY\" button.\nOn the game board, there are always two identical images. \nStart the game by flipping a card. \nThen try to find another card that has the same image as the first. \nIf you can't find a pair, the flipped cards will be flipped back with the face down.\nYour turn will be ended if you cant find a pair, or if you flipped all the cards on the board\n\nEvery time you find a pair, you will get 2 Skill Points (SP).\nYou can use the skill points you get to activate the skills in your deck to defeat your opponent.");
@@ -616,10 +621,9 @@ public final class Program extends javax.swing.JFrame{
         jp_BodyHelpLayout.setHorizontalGroup(
             jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_BodyHelpLayout.createSequentialGroup()
-                .addGroup(jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 318, Short.MAX_VALUE))
+                .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1060, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         jp_BodyHelpLayout.setVerticalGroup(
             jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -627,8 +631,7 @@ public final class Program extends javax.swing.JFrame{
                 .addGap(20, 20, 20)
                 .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jp_HelpMenuLayout = new javax.swing.GroupLayout(jp_HelpMenu);
@@ -639,9 +642,9 @@ public final class Program extends javax.swing.JFrame{
                 .addComponent(jp_BackHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jp_HelpMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(165, Short.MAX_VALUE)
                 .addComponent(jp_BodyHelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         jp_HelpMenuLayout.setVerticalGroup(
             jp_HelpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
