@@ -20,11 +20,18 @@ public class GameUI extends javax.swing.JPanel {
         initComponents();
         
     }
+    
     public void setGameManager(GameManager gm)
     {
         this.gm = gm;
         
     }
+    
+    public GameManager getGM()
+    {
+        return gm;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

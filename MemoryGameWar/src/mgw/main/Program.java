@@ -113,7 +113,7 @@ public final class Program extends javax.swing.JFrame{
         volumeMute = new javax.swing.JButton();
         volumeMax = new javax.swing.JButton();
         volumeDown = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jp_ExitConfirmation = new javax.swing.JPanel();
         jl_ExitConfirmation = new javax.swing.JLabel();
         jp_ExitOKButton = new javax.swing.JPanel();
         jl_ExitOk = new javax.swing.JLabel();
@@ -702,7 +702,7 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_OptionMenu, "card6");
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jp_ExitConfirmation.setBackground(new java.awt.Color(0, 0, 0));
 
         jl_ExitConfirmation.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jl_ExitConfirmation.setForeground(new java.awt.Color(255, 255, 255));
@@ -776,34 +776,34 @@ public final class Program extends javax.swing.JFrame{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jp_ExitConfirmationLayout = new javax.swing.GroupLayout(jp_ExitConfirmation);
+        jp_ExitConfirmation.setLayout(jp_ExitConfirmationLayout);
+        jp_ExitConfirmationLayout.setHorizontalGroup(
+            jp_ExitConfirmationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ExitConfirmationLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_ExitOKButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
                 .addComponent(jp_ExitCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(600, 600, 600)
+            .addGroup(jp_ExitConfirmationLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_ExitConfirmation)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(274, Short.MAX_VALUE)
+        jp_ExitConfirmationLayout.setVerticalGroup(
+            jp_ExitConfirmationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ExitConfirmationLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_ExitConfirmation)
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_ExitConfirmationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jp_ExitOKButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jp_ExitCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jp_Background.add(jPanel1, "card7");
+        jp_Background.add(jp_ExitConfirmation, "card7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1094,12 +1094,7 @@ public final class Program extends javax.swing.JFrame{
     }
     
     private void jp_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseClicked
-        jp_Background.removeAll();
-        jp_Background.add(jp_PlayMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
-        
+        changeTo(jp_PlayMenu);
         jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_PlayButtonMouseClicked
 
@@ -1131,28 +1126,18 @@ public final class Program extends javax.swing.JFrame{
 //            }
 //        }
 
-        changeTo(jPanel1);
+        changeTo(jp_ExitConfirmation);
     }//GEN-LAST:event_jp_ExitButtonMouseClicked
 
     private void jp_DeckButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DeckButtonMouseClicked
         // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.add(jp_DeckMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
-        
+        changeTo(jp_DeckMenu);
         jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_DeckButtonMouseClicked
 
     private void jp_HelpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HelpButtonMouseClicked
         // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.add(jp_HelpMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
-        
+        changeTo(jp_HelpMenu);
         jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_HelpButtonMouseClicked
 
@@ -1203,12 +1188,7 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
         // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.add(jp_OptionMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
-        
+        changeTo(jp_OptionMenu);
         jp_MenuButtonBlack(evt);
         //jta_DescriptionBody.setToolTipText("No Description");
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
@@ -1216,11 +1196,7 @@ public final class Program extends javax.swing.JFrame{
     private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
         
         // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.add(jp_MainMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
+        changeTo(jp_MainMenu);
     }//GEN-LAST:event_jp_BackOptionMouseClicked
 
     private void jp_BackOptionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseEntered
@@ -1243,11 +1219,7 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_BackHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseClicked
         // TODO add your handling code here:
-        jp_Background.removeAll();
-        jp_Background.add(jp_MainMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
+        changeTo(jp_MainMenu);
     }//GEN-LAST:event_jp_BackHelpMouseClicked
 
     private void jp_BackHelpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseEntered
@@ -1273,11 +1245,7 @@ public final class Program extends javax.swing.JFrame{
         activeAccount.isiDeck(deck);
         //activeAccount.testIsiDeck();
         
-        jp_Background.removeAll();
-        jp_Background.add(jp_MainMenu);
-        
-        jp_Background.repaint();
-        jp_Background.revalidate();
+        changeTo(jp_MainMenu);
         setDescriptionDefault();
     }//GEN-LAST:event_jp_BackDeckMouseClicked
 
@@ -1418,7 +1386,6 @@ public final class Program extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mgw.main.GameUI gameUI1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
@@ -1444,12 +1411,13 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_DescriptionBody;
     private javax.swing.JPanel jp_ExitButton;
     private javax.swing.JPanel jp_ExitCancelButton;
+    private javax.swing.JPanel jp_ExitConfirmation;
     private javax.swing.JPanel jp_ExitOKButton;
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_HelpMenu;
     private javax.swing.JPanel jp_ListOfCard;
     private javax.swing.JPanel jp_ListOfDeck;
-    private javax.swing.JPanel jp_MainMenu;
+    public static javax.swing.JPanel jp_MainMenu;
     private javax.swing.JPanel jp_OptionButton;
     private javax.swing.JPanel jp_OptionMenu;
     private javax.swing.JPanel jp_PlayButton;
