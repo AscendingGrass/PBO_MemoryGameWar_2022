@@ -14,7 +14,7 @@ import mgw.gameplay.GameManager;
 public class GameUI extends javax.swing.JPanel {
     public Program parent;
     private GameManager gm;
-    Deck[] deck = new Deck[5];
+    Deck2[] deck = new Deck2[5];
     Card[] card = new Card[20];
     /**
      * Creates new form GameUI
@@ -27,7 +27,7 @@ public class GameUI extends javax.swing.JPanel {
     public void initDeck(){
         int x = 10, y = 7;
         for(int i = 0; i < deck.length; i++){
-            deck[i] = new Deck();
+            deck[i] = new Deck2();
             deck[i].setBounds(x,y, 114, 114);
             jp_PlayListOfDeck.add(deck[i]);
             x+= 125;

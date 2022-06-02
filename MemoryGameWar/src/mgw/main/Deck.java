@@ -4,6 +4,7 @@
  */
 package mgw.main;
 
+import javax.swing.Icon;
 import mgw.gameplay.Skill;
 
 /**
@@ -23,17 +24,14 @@ public class Deck extends javax.swing.JPanel {
         //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
         //jlabel1();
     }
-    public Deck(int gakpenting){
-        initComponents();
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
-    }
     public void deckCopy(SkillCard c){
         empty = false;
         skill = c.skill;
-        jLabel1.setIcon(c.getIcon());
+        jLabel1.setIcon(c.img);
         counter++;
         c.cardClicked();
     }
+    
     public void deckRemove(SkillCard [] card){
         for(SkillCard i : card){
             if(i.skill.equals(skill)){
@@ -47,8 +45,8 @@ public class Deck extends javax.swing.JPanel {
         }
     }
     
-    public void jlabel1(){
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/1.png")));
+    public Icon jlabel1(){
+        return jLabel1.getIcon();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,4 +75,34 @@ public class Deck extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+}
+class Deck2 extends javax.swing.JPanel{
+    private javax.swing.JLabel jLabel;
+
+    public Deck2() {
+    }
+    
+    public Deck2(Deck d) {
+        jLabel.setIcon(d.jlabel1());
+    }
+    public void deckCopy(Deck d){
+        jLabel.setIcon(d.jlabel1());
+    }
+    private void initComponents() {
+
+        jLabel = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel)
+        );
+    }
+    
+    
 }
