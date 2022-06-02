@@ -740,7 +740,7 @@
             <Container class="javax.swing.JPanel" name="jp_BodyHelp">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="33" red="0" type="rgb"/>
+                  <Color blue="66" green="33" red="0" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[1200, 650]"/>
@@ -750,14 +750,12 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jp_JudulDesk" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jl_Deskripsi" min="-2" pref="888" max="-2" attributes="0"/>
-                          <EmptySpace pref="300" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jp_JudulDesk" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="882" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="318" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -766,9 +764,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jp_JudulDesk" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jl_Deskripsi" min="-2" pref="376" max="-2" attributes="0"/>
-                          <EmptySpace pref="185" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="510" max="-2" attributes="0"/>
+                          <EmptySpace pref="63" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -794,21 +792,33 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Symbol" size="18" style="0"/>
                         </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="text" type="java.lang.String" value="Judul Deskripsi"/>
+                        <Property name="horizontalAlignment" type="int" value="2"/>
+                        <Property name="text" type="java.lang.String" value="How To Play"/>
                       </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="jl_Deskripsi">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="12" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="contoh saja kalau mau diganti silakan"/>
-                    <Property name="verticalAlignment" type="int" value="1"/>
-                  </Properties>
-                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="Help_desc">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="18" style="0"/>
+                        </Property>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="In the Main Menu, you can add a user or change user by clicking the &quot;change user&quot; button.&#xa;&#xa;After adding the user, you need to set up your deck in order to play the game.&#xa;In the Main Menu, click on the &quot;DECK&quot; button.&#xa;In the DECK menu, you can arrange several skills to the deck (don&apos;t forget to read the skill description).&#xa;&#xa;After you finish your deck set up, click on the &quot;PLAY&quot; button.&#xa;On the game board, there are always two identical images. &#xa;Start the game by flipping a card. &#xa;Then try to find another card that has the same image as the first. &#xa;If you can&apos;t find a pair, the flipped cards will be flipped back with the face down.&#xa;Your turn will be ended if you cant find a pair, or if you flipped all the cards on the board&#xa;&#xa;Every time you find a pair, you will get 2 Skill Points (SP).&#xa;You can use the skill points you get to activate the skills in your deck to defeat your opponent."/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -849,10 +859,8 @@
                       <Component id="jp_BackOption" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jp_VolumeUp" min="-2" max="-2" attributes="0"/>
-                              <Component id="jp_MaxButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jp_VolumeUp" min="-2" max="-2" attributes="0"/>
+                          <Component id="jp_MaxButton" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="jp_VolumeDown" min="-2" max="-2" attributes="0"/>
                               <Component id="jp_Volume" min="-2" max="-2" attributes="0"/>

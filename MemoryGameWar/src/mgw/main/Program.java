@@ -109,7 +109,8 @@ public final class Program extends javax.swing.JFrame{
         jp_BodyHelp = new javax.swing.JPanel();
         jp_JudulDesk = new javax.swing.JPanel();
         jl_JudulDesk = new javax.swing.JLabel();
-        jl_Deskripsi = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Help_desc = new javax.swing.JTextArea();
         jp_OptionMenu = new javax.swing.JPanel();
         jp_BackOption = new javax.swing.JPanel();
         jl_BackOption = new javax.swing.JLabel();
@@ -584,12 +585,12 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jp_BodyHelp.setBackground(new java.awt.Color(0, 51, 255));
+        jp_BodyHelp.setBackground(new java.awt.Color(0, 51, 102));
         jp_BodyHelp.setPreferredSize(new java.awt.Dimension(1200, 650));
 
         jl_JudulDesk.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
-        jl_JudulDesk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_JudulDesk.setText("Judul Deskripsi");
+        jl_JudulDesk.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jl_JudulDesk.setText("How To Play");
 
         javax.swing.GroupLayout jp_JudulDeskLayout = new javax.swing.GroupLayout(jp_JudulDesk);
         jp_JudulDesk.setLayout(jp_JudulDeskLayout);
@@ -602,30 +603,32 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_JudulDesk, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
-        jl_Deskripsi.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
-        jl_Deskripsi.setText("contoh saja kalau mau diganti silakan");
-        jl_Deskripsi.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Help_desc.setEditable(false);
+        Help_desc.setColumns(20);
+        Help_desc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Help_desc.setLineWrap(true);
+        Help_desc.setRows(5);
+        Help_desc.setText("In the Main Menu, you can add a user or change user by clicking the \"change user\" button.\n\nAfter adding the user, you need to set up your deck in order to play the game.\nIn the Main Menu, click on the \"DECK\" button.\nIn the DECK menu, you can arrange several skills to the deck (don't forget to read the skill description).\n\nAfter you finish your deck set up, click on the \"PLAY\" button.\nOn the game board, there are always two identical images. \nStart the game by flipping a card. \nThen try to find another card that has the same image as the first. \nIf you can't find a pair, the flipped cards will be flipped back with the face down.\nYour turn will be ended if you cant find a pair, or if you flipped all the cards on the board\n\nEvery time you find a pair, you will get 2 Skill Points (SP).\nYou can use the skill points you get to activate the skills in your deck to defeat your opponent.");
+        jScrollPane1.setViewportView(Help_desc);
 
         javax.swing.GroupLayout jp_BodyHelpLayout = new javax.swing.GroupLayout(jp_BodyHelp);
         jp_BodyHelp.setLayout(jp_BodyHelpLayout);
         jp_BodyHelpLayout.setHorizontalGroup(
             jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_BodyHelpLayout.createSequentialGroup()
-                .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jp_BodyHelpLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jl_Deskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 888, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addGroup(jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 318, Short.MAX_VALUE))
         );
         jp_BodyHelpLayout.setVerticalGroup(
             jp_BodyHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_BodyHelpLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jp_JudulDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jl_Deskripsi, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jp_HelpMenuLayout = new javax.swing.GroupLayout(jp_HelpMenu);
@@ -843,9 +846,8 @@ public final class Program extends javax.swing.JFrame{
                 .addComponent(jp_BackOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jp_VolumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jp_MaxButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jp_VolumeUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_MaxButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp_OptionMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jp_VolumeDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jp_Volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1020,13 +1022,11 @@ public final class Program extends javax.swing.JFrame{
             jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_CreateAccountLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtf_AccountName)
-                    .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jtf_AccountName)
+                        .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                    .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_CreateAccountLayout.setVerticalGroup(
@@ -1594,8 +1594,10 @@ public final class Program extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Help_desc;
     private mgw.main.GameUI gameUI1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
@@ -1603,7 +1605,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_CreateAccountButton;
     private javax.swing.JLabel jl_Deck;
     private javax.swing.JLabel jl_DescriptionHeading;
-    private javax.swing.JLabel jl_Deskripsi;
     private javax.swing.JLabel jl_Exit;
     private javax.swing.JLabel jl_ExitCancel;
     private javax.swing.JLabel jl_ExitConfirmation;
@@ -1652,7 +1653,6 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_changeAcc;
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
-
     private javax.swing.JTextField jtf_AccountName;
     private javax.swing.JLabel lb_CreateAccount;
     // End of variables declaration//GEN-END:variables
