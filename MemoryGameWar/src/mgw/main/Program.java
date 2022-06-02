@@ -549,10 +549,10 @@ public final class Program extends javax.swing.JFrame{
                 jp_BackHelpMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jp_BackHelpMouseEntered(evt);
+                jp_MenuButtonWhite(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jp_BackHelpMouseExited(evt);
+                jp_MenuButtonBlack(evt);
             }
         });
 
@@ -1260,26 +1260,9 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_BackHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseClicked
         // TODO add your handling code here:
+        jp_MenuButtonBlack(evt);
         changeTo(jp_MainMenu);
     }//GEN-LAST:event_jp_BackHelpMouseClicked
-
-    private void jp_BackHelpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseEntered
-        // TODO add your handling code here:
-        if(evt.getSource() instanceof JPanel jp)
-        {
-            ((JLabel)jp.getComponent(0)).setForeground(Color.BLACK);
-            jp.setBackground(Color.WHITE);
-        }
-    }//GEN-LAST:event_jp_BackHelpMouseEntered
-
-    private void jp_BackHelpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackHelpMouseExited
-        // TODO add your handling code here:
-        if(evt.getSource() instanceof JPanel jp)
-        {
-            ((JLabel)jp.getComponent(0)).setForeground(Color.WHITE);
-            jp.setBackground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jp_BackHelpMouseExited
 
     private void jp_BackDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseClicked
         // TODO add your handling code here:
