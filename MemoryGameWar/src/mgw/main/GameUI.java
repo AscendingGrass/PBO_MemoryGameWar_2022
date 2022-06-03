@@ -12,6 +12,7 @@ import mgw.gameplay.GameManager;
  * @author mejap
  */
 public class GameUI extends javax.swing.JPanel {
+    public static GameUI activeGameUI;
     public Program parent;
     private GameManager gm;
     Deck2[] deck = new Deck2[5];
@@ -23,7 +24,14 @@ public class GameUI extends javax.swing.JPanel {
         initComponents(); 
         initDeck();
         initCard();
+        GameUI.activeGameUI = this;
     }
+    
+    public void log(String value)
+    {
+        jta_Log.append(value + "\n");
+    }
+    
     public void initDeck(){
         int x = 10, y = 7;
         for(int i = 0; i < deck.length; i++){
@@ -93,6 +101,8 @@ public class GameUI extends javax.swing.JPanel {
         SkillLabel = new javax.swing.JLabel();
         DescriptionLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jta_Log = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -211,15 +221,19 @@ public class GameUI extends javax.swing.JPanel {
 
         jPanel3.setPreferredSize(new java.awt.Dimension(350, 800));
 
+        jta_Log.setColumns(20);
+        jta_Log.setRows(5);
+        jScrollPane1.setViewportView(jta_Log);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
 
         jButton1.setText("back");
@@ -234,7 +248,7 @@ public class GameUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,6 +305,7 @@ public class GameUI extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jl_NamePlayer;
     private javax.swing.JLabel jl_PlayRound;
     private javax.swing.JLabel jl_Skip;
@@ -298,6 +313,7 @@ public class GameUI extends javax.swing.JPanel {
     private javax.swing.JPanel jp_PlayListOfDeck;
     private javax.swing.JPanel jp_SkipButton;
     private javax.swing.JPanel jp_TwinsCard;
+    private javax.swing.JTextArea jta_Log;
     private mgw.main.StatusBarLeft statusBarLeft1;
     private mgw.main.StatusBarRight statusBarRight1;
     // End of variables declaration//GEN-END:variables
