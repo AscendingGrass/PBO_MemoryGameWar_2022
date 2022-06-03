@@ -21,14 +21,11 @@ public class SkillCard extends javax.swing.JPanel {
     public Skill skill;
     boolean clicked = false;
     Icon img, back;
-    static int counter = 1;
-    int count;
     public SkillCard(Skill skill) {
         this.skill = skill;
         initComponents();
-        count = counter;
-        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter + ".png"));
-        back = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + counter++ + "t.png"));
+        img = skill.img;
+        back = skill.back;
         jLabel1.setIcon(img);
     }
 

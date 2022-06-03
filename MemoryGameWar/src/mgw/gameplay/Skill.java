@@ -2,6 +2,7 @@
 package mgw.gameplay;
 
 import java.util.ArrayList;
+import javax.swing.Icon;
 import mgw.util.UtilArsa;
 
 public abstract class Skill
@@ -25,7 +26,8 @@ public abstract class Skill
     
     public final String name, description;
     public final int skillPoint;
-
+    public final Icon img;
+    public final Icon back;
     @Override
     public String toString() {
         String [] temp = description.split(" ");
@@ -53,6 +55,8 @@ public abstract class Skill
         this.name = name;
         this.description = description;
 	this.skillPoint = skillPoint;
+        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + this.name + ".png"));
+        back = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/" + this.name + " Dark.png"));
     }
     
     void use(Player user, Player target)

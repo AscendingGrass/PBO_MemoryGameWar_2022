@@ -19,7 +19,7 @@ public class Card extends javax.swing.JPanel {
     Icon img;
     public Card() {
         initComponents();
-        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/1.png"));
+        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/Chain Lightning.png"));
         jLabel1.setIcon(img);
     }
 

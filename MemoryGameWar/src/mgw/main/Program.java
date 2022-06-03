@@ -1454,12 +1454,11 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     public void checkDeck(){
-        int counter = 0;
         for (Deck deck1 : deck) {
             deck1.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    deckClicked(evt, counter);
+                    deckClicked(evt);
                 }
                 @Override
                 public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1473,11 +1472,15 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     
-    public void deckClicked(java.awt.event.MouseEvent evt, int counter){
+    public void deckClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Deck d){
             if(!d.empty){
+                for(Deck2 i : gameUI1.deck)
+                    if(i.skill.equals(d.skill)){
+                        i.deckRemove(card); 
+                        break;
+                    }
                 d.deckRemove(card);
-                gameUI1.deck[counter].deckRemove(card);
             }
         }
     }
