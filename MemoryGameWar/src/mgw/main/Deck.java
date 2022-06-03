@@ -78,7 +78,9 @@ public class Deck extends javax.swing.JPanel {
 }
 class Deck2 extends javax.swing.JPanel{
     private javax.swing.JLabel jLabel;
-
+    boolean used = false;
+    Skill skill = null;
+    static int counter = 0;
     public Deck2() {
     }
     
@@ -87,6 +89,17 @@ class Deck2 extends javax.swing.JPanel{
     }
     public void deckCopy(Deck d){
         jLabel.setIcon(d.jlabel1());
+        counter++;
+    }
+    public void deckRemove(SkillCard [] card){
+        for(SkillCard i : card){
+            if(i.skill.equals(skill)){
+                counter--;
+                skill = null;
+                jLabel.setIcon(null);
+                return;
+            }
+        }
     }
     private void initComponents() {
 

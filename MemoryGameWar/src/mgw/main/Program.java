@@ -41,9 +41,6 @@ public final class Program extends javax.swing.JFrame{
     SkillCard card[] = new SkillCard[Skill.list.length];
     Deck deck[] = new Deck[5];
     
-    //String currentDirectionary = "home.user";
-    //String currentPath;
-    
     int screenWidth = (int)Screen.size().getWidth(); // the width of the screen
     int screenHeight = (int)Screen.size().getHeight(); // the height of the screen
     
@@ -1180,43 +1177,17 @@ public final class Program extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void playMusic(File path) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-        
-        //openMusic();
         player.addToPlayList(path);
-        //currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
         player.skipForward();
         player.play();
         player.setRepeat(true);
-        /*
-        File file = new File("src\\BGM\\main menu.wav");
-        AudioInputStream audioStream =  AudioSystem.getAudioInputStream(file);
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
-        clip.loop(-1);
-        clip.start();*/
+      
     }
     
     public void toMainMenu()
     {
         changeTo(jp_MainMenu);
     }
-    
-//    private void openMusic(){
-//        JFileChooser opFileChooser = new JFileChooser(currentDirectionary);
-//        opFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!"));
-//        int result = opFileChooser.showOpenDialog(null);
-//        if(result == JFileChooser.APPROVE_OPTION){
-//            songFiles = opFileChooser.getSelectedFile();
-//            player.addToPlayList(songFiles);
-//            player.skipForward();
-//            currentDirectionary = songFiles.getAbsolutePath();
-//        }
-//        
-//    }
-    
-//    private MP3Player mp3Player(){
-//        return new MP3Player();
-//    }
     
     private void volumeDown(Double value){
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
@@ -1351,11 +1322,12 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     public void checkDeck(){
+        int counter = 0;
         for (Deck deck1 : deck) {
             deck1.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    deckClicked(evt);
+                    deckClicked(evt, counter);
                 }
                 @Override
                 public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1369,10 +1341,11 @@ public final class Program extends javax.swing.JFrame{
         }
     }
     
-    public void deckClicked(java.awt.event.MouseEvent evt){
+    public void deckClicked(java.awt.event.MouseEvent evt, int counter){
         if(evt.getSource() instanceof Deck d){
             if(!d.empty){
                 d.deckRemove(card);
+                gameUI1.deck[counter].deckRemove(card);
             }
         }
     }
@@ -1481,13 +1454,6 @@ public final class Program extends javax.swing.JFrame{
     private void jp_ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitButtonMouseClicked
         // TODO add your handling code here:
         jp_MenuButtonBlack(evt);
-        
-//        switch(JOptionPane.showConfirmDialog(this,"Are you sure want to exit?","WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)){
-//            case 0 -> {
-//                System.exit(0);
-//            }
-//        }
-
         changeTo(jp_ExitConfirmation);
     }//GEN-LAST:event_jp_ExitButtonMouseClicked
 
@@ -1505,47 +1471,7 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_changeAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_changeAccMouseClicked
         // TODO add your handling code here:
-        /*
-        jp_MainMenu.removeAll();
-        jp_MainMenu.repaint();
-        jp_MainMenu.revalidate();
-        jp_MainMenu.add(new Popup());
-        jp_MainMenu.add(jl_AccountName);
-        jp_MainMenu.add(jp_PlayButton);
-        jp_MainMenu.add(jp_HelpButton);
-        jp_MainMenu.add(jp_DeckButton);
-        jp_MainMenu.add(jp_OptionButton);
-        jp_MainMenu.add(jp_changeAcc);
-        jp_MainMenu.add(jp_ExitButton);
-        jp_MainMenu.repaint();
-        jp_MainMenu.revalidate();
-        */
-        
-//        String x = JOptionPane.showInputDialog(this, "Inpur your Name", "Account", JOptionPane.UNDEFINED_CONDITION);
-//        Account temp = activeAccount;
-//        activeAccount = null;
-//        if(x == null){
-//            activeAccount = temp;
-//            return;
-//        }if(x.equals("")){
-//            JOptionPane.showMessageDialog(this, "No Username found!", "WARNING!", JOptionPane.ERROR_MESSAGE);
-//            activeAccount = temp;
-//            return;
-//        }
-//        for(Account i : accounts){
-//            if(i.username.equals(x)){
-//                activeAccount = i;
-//                JOptionPane.showMessageDialog(this, "Welcome, " + i.username);
-//                setActiveAccount(i);
-//                return;
-//            }
-//        }
-//        if(activeAccount == null){
-//            JOptionPane.showMessageDialog(this, "Hai, "+ x, "Account Registered", JOptionPane.INFORMATION_MESSAGE);
-//            accounts.add(new Account(x));
-//            activeAccount = accounts.get(accounts.size()-1);
-//            setActiveAccount(activeAccount);
-//        }
+
         jp_MenuButtonWhite(evt);
         jcb_ChooseAccount.removeAllItems();
         for (Account a : accounts) {
@@ -1559,12 +1485,11 @@ public final class Program extends javax.swing.JFrame{
         // TODO add your handling code here:
         changeTo(jp_OptionMenu);
         jp_MenuButtonBlack(evt);
-        //jta_DescriptionBody.setToolTipText("No Description");
+        
     }//GEN-LAST:event_jp_OptionButtonMouseClicked
 
     private void jp_BackOptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackOptionMouseClicked
         jp_MenuButtonBlack(evt);
-        // TODO add your handling code here:
         changeTo(jp_MainMenu);
     }//GEN-LAST:event_jp_BackOptionMouseClicked
 
