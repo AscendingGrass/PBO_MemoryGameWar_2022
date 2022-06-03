@@ -82,13 +82,15 @@ class Deck2 extends javax.swing.JPanel{
     Skill skill = null;
     static int counter = 0;
     public Deck2() {
+        jLabel = new javax.swing.JLabel();
+        add(jLabel);
     }
     
-    public Deck2(Deck d) {
-        jLabel.setIcon(d.jlabel1());
+    public void deck(){
+        jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/4.png")));
     }
-    public void deckCopy(Deck d){
-        jLabel.setIcon(d.jlabel1());
+    public void deckCopy(SkillCard d){
+        jLabel.setIcon(d.img);
         counter++;
     }
     public void deckRemove(SkillCard [] card){
