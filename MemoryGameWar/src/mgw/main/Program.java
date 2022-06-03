@@ -1501,8 +1501,14 @@ public final class Program extends javax.swing.JFrame{
             for(Deck i : deck)
                 if(i.skill == null){
                     i.deckCopy(c);
+                    break;
+                }
+            for(Deck2 i : gameUI1.deck){
+                if(i.skill == null){
+                    i.deckCopy(c);
                     return;
                 }
+            }
         }
     }
     

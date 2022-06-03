@@ -29,7 +29,6 @@ public class GameUI extends javax.swing.JPanel {
         for(int i = 0; i < deck.length; i++){
             deck[i] = new Deck2();
             deck[i].setBounds(x,y, 114, 114);
-            deck[i].deck();
             jp_PlayListOfDeck.add(deck[i]);
             x+= 125;
         }

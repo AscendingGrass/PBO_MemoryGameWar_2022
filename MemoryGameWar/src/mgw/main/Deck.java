@@ -86,11 +86,9 @@ class Deck2 extends javax.swing.JPanel{
         add(jLabel);
     }
     
-    public void deck(){
-        jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/4.png")));
-    }
     public void deckCopy(SkillCard d){
         jLabel.setIcon(d.img);
+        skill = d.skill;
         counter++;
     }
     public void deckRemove(SkillCard [] card){
