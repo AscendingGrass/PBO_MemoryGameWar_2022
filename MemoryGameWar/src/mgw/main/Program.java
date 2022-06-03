@@ -63,6 +63,7 @@ public final class Program extends javax.swing.JFrame{
          
         initBackGround();
         playMusic(songFiles[1]);
+        
     }
    
     
@@ -132,7 +133,7 @@ public final class Program extends javax.swing.JFrame{
         jl_ExitCancel = new javax.swing.JLabel();
         jp_ChangeAccount = new javax.swing.JPanel();
         lb_ChangeAccount = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcb_ChooseAccount = new javax.swing.JComboBox<>();
         jp_ChangeAccountSelectButton = new javax.swing.JPanel();
         jl_ChangeAccountSelectButton = new javax.swing.JLabel();
         jp_ChangeAccountCreateButton = new javax.swing.JPanel();
@@ -976,7 +977,7 @@ public final class Program extends javax.swing.JFrame{
         lb_ChangeAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_ChangeAccount.setText("Change Account");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcb_ChooseAccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jp_ChangeAccountSelectButton.setBackground(new java.awt.Color(255, 255, 255));
         jp_ChangeAccountSelectButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1063,7 +1064,7 @@ public final class Program extends javax.swing.JFrame{
                 .addContainerGap(418, Short.MAX_VALUE))
             .addGroup(jp_ChangeAccountLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcb_ChooseAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_ChangeAccountLayout.setVerticalGroup(
@@ -1072,7 +1073,7 @@ public final class Program extends javax.swing.JFrame{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lb_ChangeAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcb_ChooseAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(jp_ChangeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jp_ChangeAccountSelectButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1134,12 +1135,12 @@ public final class Program extends javax.swing.JFrame{
         jp_CreateAccountLayout.setHorizontalGroup(
             jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_CreateAccountLayout.createSequentialGroup()
-                .addContainerGap(619, Short.MAX_VALUE)
+                .addContainerGap(281, Short.MAX_VALUE)
                 .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtf_AccountName)
                     .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addComponent(jl_CreateAccountFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(619, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_CreateAccountLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1546,7 +1547,12 @@ public final class Program extends javax.swing.JFrame{
 //            setActiveAccount(activeAccount);
 //        }
         jp_MenuButtonWhite(evt);
+        jcb_ChooseAccount.removeAllItems();
+        for (Account a : accounts) {
+            jcb_ChooseAccount.addItem(a.username);
+        }
         changeTo(jp_ChangeAccount);
+        
     }//GEN-LAST:event_jp_changeAccMouseClicked
 
     private void jp_OptionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_OptionButtonMouseClicked
@@ -1693,7 +1699,8 @@ public final class Program extends javax.swing.JFrame{
     private void jp_ChangeAccountSelectButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ChangeAccountSelectButtonMouseClicked
         // TODO add your handling code here:
         jp_MenuButtonWhite(evt);
-
+        setActiveAccount(accounts.get(jcb_ChooseAccount.getSelectedIndex()));
+        changeTo(jp_MainMenu);
     }//GEN-LAST:event_jp_ChangeAccountSelectButtonMouseClicked
 
     private void jp_ChangeAccountCreateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ChangeAccountCreateButtonMouseClicked
@@ -1757,9 +1764,9 @@ public final class Program extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Help_desc;
     private mgw.main.GameUI gameUI1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcb_ChooseAccount;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
