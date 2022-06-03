@@ -25,6 +25,8 @@ import java.nio.file.Paths;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.Line;
 import javax.sound.sampled.Mixer;
+import mgw.gameplay.GameManager;
+import mgw.gameplay.Player;
 import mgw.util.FileTypeFilter;
 
 public final class Program extends javax.swing.JFrame{
@@ -141,6 +143,14 @@ public final class Program extends javax.swing.JFrame{
         jp_CreateAccountButton = new javax.swing.JPanel();
         jl_CreateAccountButton = new javax.swing.JLabel();
         jl_CreateAccountFailed = new javax.swing.JLabel();
+        jp_ChooseBattle = new javax.swing.JPanel();
+        lb_ChallengePlayer = new javax.swing.JLabel();
+        jcb_ChallengePlayer = new javax.swing.JComboBox<>();
+        jp_CancelChallengePlayer = new javax.swing.JPanel();
+        jl_CancelChallengePlayer = new javax.swing.JLabel();
+        jp_ConfirmChallengePlayer = new javax.swing.JPanel();
+        jl_ConfirmChallengePlayer = new javax.swing.JLabel();
+        jl_ChallengePlayerFailed = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1132,13 +1142,13 @@ public final class Program extends javax.swing.JFrame{
         jp_CreateAccountLayout.setHorizontalGroup(
             jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_CreateAccountLayout.createSequentialGroup()
-                .addContainerGap(281, Short.MAX_VALUE)
+                .addContainerGap(619, Short.MAX_VALUE)
                 .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtf_AccountName)
                     .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addComponent(jl_CreateAccountFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(282, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(619, Short.MAX_VALUE))
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1146,18 +1156,136 @@ public final class Program extends javax.swing.JFrame{
         jp_CreateAccountLayout.setVerticalGroup(
             jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_CreateAccountLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(280, Short.MAX_VALUE)
                 .addComponent(lb_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jtf_AccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jl_CreateAccountFailed)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         jp_Background.add(jp_CreateAccount, "card9");
+
+        jp_ChooseBattle.setBackground(new java.awt.Color(0, 0, 0));
+
+        lb_ChallengePlayer.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        lb_ChallengePlayer.setForeground(new java.awt.Color(255, 255, 255));
+        lb_ChallengePlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_ChallengePlayer.setText("Challenge Player");
+
+        jcb_ChallengePlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jp_CancelChallengePlayer.setBackground(new java.awt.Color(255, 255, 255));
+        jp_CancelChallengePlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_CancelChallengePlayerMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+        });
+
+        jl_CancelChallengePlayer.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_CancelChallengePlayer.setForeground(new java.awt.Color(0, 0, 0));
+        jl_CancelChallengePlayer.setText("Cancel");
+
+        javax.swing.GroupLayout jp_CancelChallengePlayerLayout = new javax.swing.GroupLayout(jp_CancelChallengePlayer);
+        jp_CancelChallengePlayer.setLayout(jp_CancelChallengePlayerLayout);
+        jp_CancelChallengePlayerLayout.setHorizontalGroup(
+            jp_CancelChallengePlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CancelChallengePlayerLayout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(jl_CancelChallengePlayer)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        jp_CancelChallengePlayerLayout.setVerticalGroup(
+            jp_CancelChallengePlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_CancelChallengePlayerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_CancelChallengePlayer)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jp_ConfirmChallengePlayer.setBackground(new java.awt.Color(255, 255, 255));
+        jp_ConfirmChallengePlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_ConfirmChallengePlayerMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonBlack(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_MenuButtonWhite(evt);
+            }
+        });
+
+        jl_ConfirmChallengePlayer.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_ConfirmChallengePlayer.setForeground(new java.awt.Color(0, 0, 0));
+        jl_ConfirmChallengePlayer.setText("Challenge");
+
+        javax.swing.GroupLayout jp_ConfirmChallengePlayerLayout = new javax.swing.GroupLayout(jp_ConfirmChallengePlayer);
+        jp_ConfirmChallengePlayer.setLayout(jp_ConfirmChallengePlayerLayout);
+        jp_ConfirmChallengePlayerLayout.setHorizontalGroup(
+            jp_ConfirmChallengePlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ConfirmChallengePlayerLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jl_ConfirmChallengePlayer)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jp_ConfirmChallengePlayerLayout.setVerticalGroup(
+            jp_ConfirmChallengePlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ConfirmChallengePlayerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_ConfirmChallengePlayer)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jl_ChallengePlayerFailed.setForeground(new java.awt.Color(255, 0, 0));
+        jl_ChallengePlayerFailed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_ChallengePlayerFailed.setText(" ");
+
+        javax.swing.GroupLayout jp_ChooseBattleLayout = new javax.swing.GroupLayout(jp_ChooseBattle);
+        jp_ChooseBattle.setLayout(jp_ChooseBattleLayout);
+        jp_ChooseBattleLayout.setHorizontalGroup(
+            jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
+                        .addComponent(jp_CancelChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)
+                        .addComponent(jp_ConfirmChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_ChallengePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_ChallengePlayerFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
+            .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jcb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_ChooseBattleLayout.setVerticalGroup(
+            jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
+                .addContainerGap(291, Short.MAX_VALUE)
+                .addComponent(lb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jcb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_ChallengePlayerFailed)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_CancelChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_ConfirmChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(292, Short.MAX_VALUE))
+        );
+
+        jp_Background.add(jp_ChooseBattle, "card10");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1176,11 +1304,15 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void playMusic(File path) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-        player.addToPlayList(path);
-        player.skipForward();
-        player.play();
-        player.setRepeat(true);
+    public void playMusic(File path){
+        try
+        {
+            player.addToPlayList(path);
+            player.skipForward();
+            player.play();
+            player.setRepeat(true);
+        }
+        catch(Exception e){}
       
     }
     
@@ -1429,7 +1561,11 @@ public final class Program extends javax.swing.JFrame{
     }
     
     private void jp_PlayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayButtonMouseClicked
-        changeTo(jp_PlayMenu);
+        jcb_ChallengePlayer.removeAllItems();
+        for (Account a : accounts) {
+            jcb_ChallengePlayer.addItem(a.username);
+        }
+        changeTo(jp_ChooseBattle);
         jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_PlayButtonMouseClicked
 
@@ -1634,6 +1770,30 @@ public final class Program extends javax.swing.JFrame{
         changeTo(jp_CreateAccount);
     }//GEN-LAST:event_jp_ChangeAccountCreateButtonMouseClicked
 
+    private void jp_CancelChallengePlayerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_CancelChallengePlayerMouseClicked
+        // TODO add your handling code here:
+        jp_MenuButtonWhite(evt);
+        jl_ChallengePlayerFailed.setText(" ");
+        changeTo(jp_MainMenu);
+    }//GEN-LAST:event_jp_CancelChallengePlayerMouseClicked
+
+    private void jp_ConfirmChallengePlayerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ConfirmChallengePlayerMouseClicked
+        // TODO add your handling code here:
+        jp_MenuButtonWhite(evt);
+        Account challenged = accounts.get(jcb_ChallengePlayer.getSelectedIndex());
+        if (activeAccount == challenged) {
+            jl_ChallengePlayerFailed.setText("You can't challenge yourself");
+        }
+        else
+        {
+            jl_ChallengePlayerFailed.setText(" ");
+            gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
+            playMusic(songFiles[2]);
+            changeTo(jp_PlayMenu);
+        }
+        
+    }//GEN-LAST:event_jp_ConfirmChallengePlayerMouseClicked
+
     
     private void setDescription(Skill x){
         jl_DescriptionHeading.setText(x.name);
@@ -1691,13 +1851,17 @@ public final class Program extends javax.swing.JFrame{
     private mgw.main.GameUI gameUI1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcb_ChallengePlayer;
     private javax.swing.JComboBox<String> jcb_ChooseAccount;
     private javax.swing.JLabel jl_AccountName;
     private javax.swing.JLabel jl_BackDeck;
     private javax.swing.JLabel jl_BackHelp;
     private javax.swing.JLabel jl_BackOption;
+    private javax.swing.JLabel jl_CancelChallengePlayer;
+    private javax.swing.JLabel jl_ChallengePlayerFailed;
     private javax.swing.JLabel jl_ChangeAccountCreateButton;
     private javax.swing.JLabel jl_ChangeAccountSelectButton;
+    private javax.swing.JLabel jl_ConfirmChallengePlayer;
     private javax.swing.JLabel jl_CreateAccountButton;
     private javax.swing.JLabel jl_CreateAccountFailed;
     private javax.swing.JLabel jl_Deck;
@@ -1721,9 +1885,12 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_BackOption;
     private javax.swing.JPanel jp_Background;
     private javax.swing.JPanel jp_BodyHelp;
+    private javax.swing.JPanel jp_CancelChallengePlayer;
     private javax.swing.JPanel jp_ChangeAccount;
     private javax.swing.JPanel jp_ChangeAccountCreateButton;
     private javax.swing.JPanel jp_ChangeAccountSelectButton;
+    private javax.swing.JPanel jp_ChooseBattle;
+    private javax.swing.JPanel jp_ConfirmChallengePlayer;
     private javax.swing.JPanel jp_CreateAccount;
     private javax.swing.JPanel jp_CreateAccountButton;
     private javax.swing.JPanel jp_DeckButton;
@@ -1753,6 +1920,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JTextArea jta_DescriptionBody;
     private javax.swing.JTextArea jta_DescriptionBody_SP;
     private javax.swing.JTextField jtf_AccountName;
+    private javax.swing.JLabel lb_ChallengePlayer;
     private javax.swing.JLabel lb_ChangeAccount;
     private javax.swing.JLabel lb_CreateAccount;
     // End of variables declaration//GEN-END:variables

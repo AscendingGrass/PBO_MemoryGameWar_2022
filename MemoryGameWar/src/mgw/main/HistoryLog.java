@@ -10,4 +10,4 @@ import mgw.gameplay.Player;
  *
  * @author mejap
  */
-public record HistoryLog(Player challenger, Player challenged, Player winner, int turns){}
+public record HistoryLog(Account challenger, Account challenged, Account winner, int turns){}
