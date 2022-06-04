@@ -52,7 +52,17 @@ public final class Program extends javax.swing.JFrame{
         gameUI1.setProgram(this);
         
         accounts.add(new Account("一龍馬"));
+        var temp = new Account("bing chilling");
         setActiveAccount(accounts.get(0));
+        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
+        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+        activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
+        activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
+        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
+        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
+        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
         
         initCard();
         checkCard();
@@ -108,6 +118,14 @@ public final class Program extends javax.swing.JFrame{
         jp_HistoryMenu = new javax.swing.JPanel();
         jp_BackHistory = new javax.swing.JPanel();
         jl_BackHistory = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jp_HistoryLog = new javax.swing.JPanel();
+        jl_Challenger = new javax.swing.JLabel();
+        jl_Challenged = new javax.swing.JLabel();
+        jl_Challenged1 = new javax.swing.JLabel();
+        jl_Challenged2 = new javax.swing.JLabel();
+        jp_HistoryLogOwner = new javax.swing.JPanel();
+        jl_HistoryLogOwner = new javax.swing.JLabel();
         jp_OptionMenu = new javax.swing.JPanel();
         jp_BackOption = new javax.swing.JPanel();
         jl_BackOption = new javax.swing.JLabel();
@@ -609,6 +627,8 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_DeckMenu, "card3");
 
+        jp_HistoryMenu.setBackground(new java.awt.Color(0, 0, 0));
+
         jp_BackHistory.setBackground(new java.awt.Color(0, 0, 0));
         jp_BackHistory.setPreferredSize(new java.awt.Dimension(100, 40));
         jp_BackHistory.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -639,20 +659,94 @@ public final class Program extends javax.swing.JFrame{
             .addComponent(jl_BackHistory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jScrollPane2.setBackground(new java.awt.Color(51, 51, 51));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jp_HistoryLog.setBackground(new java.awt.Color(51, 51, 51));
+        jp_HistoryLog.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
+        jScrollPane2.setViewportView(jp_HistoryLog);
+
+        jl_Challenger.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_Challenger.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Challenger.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Challenger.setText("Challenger");
+
+        jl_Challenged.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_Challenged.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Challenged.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Challenged.setText("Challenged");
+
+        jl_Challenged1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_Challenged1.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Challenged1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Challenged1.setText("Status");
+
+        jl_Challenged2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_Challenged2.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Challenged2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Challenged2.setText("Turns");
+
+        jp_HistoryLogOwner.setBackground(new java.awt.Color(255, 255, 255));
+
+        jl_HistoryLogOwner.setBackground(new java.awt.Color(0, 0, 0));
+        jl_HistoryLogOwner.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jl_HistoryLogOwner.setForeground(new java.awt.Color(0, 0, 0));
+        jl_HistoryLogOwner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_HistoryLogOwner.setText("jLabel1");
+
+        javax.swing.GroupLayout jp_HistoryLogOwnerLayout = new javax.swing.GroupLayout(jp_HistoryLogOwner);
+        jp_HistoryLogOwner.setLayout(jp_HistoryLogOwnerLayout);
+        jp_HistoryLogOwnerLayout.setHorizontalGroup(
+            jp_HistoryLogOwnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_HistoryLogOwner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+        );
+        jp_HistoryLogOwnerLayout.setVerticalGroup(
+            jp_HistoryLogOwnerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jl_HistoryLogOwner, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jp_HistoryMenuLayout = new javax.swing.GroupLayout(jp_HistoryMenu);
         jp_HistoryMenu.setLayout(jp_HistoryMenuLayout);
         jp_HistoryMenuLayout.setHorizontalGroup(
             jp_HistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HistoryMenuLayout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
+            .addGroup(jp_HistoryMenuLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jl_Challenger, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jl_Challenged, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jl_Challenged1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(jl_Challenged2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jp_HistoryMenuLayout.createSequentialGroup()
                 .addComponent(jp_BackHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1430, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_HistoryLogOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jp_HistoryMenuLayout.setVerticalGroup(
             jp_HistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_HistoryMenuLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jp_BackHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(753, Short.MAX_VALUE))
+                .addGroup(jp_HistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_HistoryMenuLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jp_BackHistory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_HistoryMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jp_HistoryLogOwner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46)
+                .addGroup(jp_HistoryMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_Challenger, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_Challenged, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_Challenged1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_Challenged2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jp_Background.add(jp_HistoryMenu, "card11");
@@ -1896,6 +1990,22 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_HistoryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HistoryButtonMouseClicked
         // TODO add your handling code here:
+        jl_HistoryLogOwner.setText(activeAccount.username + "'s History");
+        
+        jp_HistoryLog.removeAll();
+        
+        Dimension d = jScrollPane2.getSize();
+        d.setSize(d.getWidth(), activeAccount.history.size() * 105 + 5);
+        jp_HistoryLog.setPreferredSize(d);
+        
+        for(HistoryLog hl : activeAccount.history)
+        {
+            jp_HistoryLog.add(new HistoryLogPanel(activeAccount, hl.challenger(), hl.challenged(), hl.winner(), hl.turns()));
+        }
+        
+        jp_HistoryLog.repaint();
+        jp_HistoryLog.revalidate();
+        
         changeTo(jp_HistoryMenu);
         jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_HistoryButtonMouseClicked
@@ -1963,6 +2073,7 @@ public final class Program extends javax.swing.JFrame{
     private mgw.main.GameUI gameUI1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> jcb_ChallengePlayer;
     private javax.swing.JComboBox<String> jcb_ChooseAccount;
     private javax.swing.JLabel jl_AccountName;
@@ -1972,6 +2083,10 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_BackOption;
     private javax.swing.JLabel jl_CancelChallengePlayer;
     private javax.swing.JLabel jl_ChallengePlayerFailed;
+    private javax.swing.JLabel jl_Challenged;
+    private javax.swing.JLabel jl_Challenged1;
+    private javax.swing.JLabel jl_Challenged2;
+    private javax.swing.JLabel jl_Challenger;
     private javax.swing.JLabel jl_ChangeAccountCreateButton;
     private javax.swing.JLabel jl_ChangeAccountSelectButton;
     private javax.swing.JLabel jl_ConfirmChallengePlayer;
@@ -1985,6 +2100,7 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JLabel jl_ExitOk;
     private javax.swing.JLabel jl_Help;
     private javax.swing.JLabel jl_History;
+    private javax.swing.JLabel jl_HistoryLogOwner;
     private javax.swing.JLabel jl_JudulDesk;
     private javax.swing.JLabel jl_Max;
     private javax.swing.JLabel jl_Min;
@@ -2018,6 +2134,8 @@ public final class Program extends javax.swing.JFrame{
     private javax.swing.JPanel jp_HelpButton;
     private javax.swing.JPanel jp_HelpMenu;
     private javax.swing.JPanel jp_HistoryButton;
+    private javax.swing.JPanel jp_HistoryLog;
+    private javax.swing.JPanel jp_HistoryLogOwner;
     private javax.swing.JPanel jp_HistoryMenu;
     private javax.swing.JPanel jp_JudulDesk;
     private javax.swing.JPanel jp_ListOfCard;
