@@ -54,6 +54,8 @@ public final class Program extends javax.swing.JFrame{
         accounts.add(new Account("一龍馬"));
         var temp = new Account("bing chilling");
         setActiveAccount(accounts.get(0));
+        gameUI1 = new GameUI(activeAccount);
+        gameUI1.setProgram(this);
         activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
         activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
         activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
@@ -64,12 +66,6 @@ public final class Program extends javax.swing.JFrame{
         activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
         activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
         
-        initCard();
-        checkCard();
-        
-        initDeck();
-        checkDeck();
-         
         initBackGround();
         playMusic(songFiles[1]);
         
@@ -1618,8 +1614,14 @@ public final class Program extends javax.swing.JFrame{
     public void setActiveAccount(Account a){
         activeAccount = a;
         jl_AccountName.setText("Welcome, " + a.username);
+        checkComponent();
     }
-   
+    public void checkComponent(){
+        initDeck();
+        initCard();
+        checkCard();
+        checkDeck();  
+    }
     public void checkCard(){
         for (SkillCard card1 : card) {
             card1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1659,7 +1661,7 @@ public final class Program extends javax.swing.JFrame{
     
     public void deckClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Deck d){
-            if(!d.empty)d.deckRemove(card);
+            if(!d.empty)d.deckRemove(card, activeAccount);
         }
         
     }
@@ -1677,10 +1679,10 @@ public final class Program extends javax.swing.JFrame{
     private void cardClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof SkillCard c){
             if(c.clicked) return;
-            if(Deck.counter > 5) return;
+            if(activeAccount.counter > 5) return;
             for(Deck i : deck)
                 if(i.skill == null){
-                    i.deckCopy(c);
+                    i.deckCopy(c, activeAccount);
                     return;
                 }
         }
@@ -1713,18 +1715,21 @@ public final class Program extends javax.swing.JFrame{
         jp_ListOfDeck.removeAll();
         jp_ListOfDeck.repaint();
         jp_ListOfDeck.revalidate();
+        deck = activeAccount.cardDeck;
         int x = 11, y = 13;
         for(int i = 0; i < deck.length; i++){
-            deck[i] = (activeAccount.listSkill[i] == null? new Deck() : new Deck());
             deck[i].setBounds(x,y, 114, 114);
             jp_ListOfDeck.add(deck[i]);
             x+= 125;
         }
     }
     public void initCard(){
+        jp_ListOfCard.removeAll();
+        jp_ListOfCard.repaint();
+        jp_ListOfCard.revalidate();
+        card = activeAccount.cardSkill;
         int x = 30, y= 30;
         for(int i = 0; i < Skill.list.length; i++){
-            card[i] = new SkillCard(Skill.list[i]);
             card[i].setBounds(x, y, 114, 114);
             jp_ListOfCard.add(card[i]);
             x+= 140;
@@ -1971,6 +1976,7 @@ public final class Program extends javax.swing.JFrame{
         else
         {
             jl_ChallengePlayerFailed.setText(" ");
+            gameUI1.initDeck(activeAccount);
             gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
             playMusic(songFiles[2]);
             changeTo(jp_PlayMenu);

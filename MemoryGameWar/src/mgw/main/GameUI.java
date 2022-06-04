@@ -6,6 +6,7 @@ package mgw.main;
 
 import java.awt.Color;
 import mgw.gameplay.GameManager;
+import mgw.gameplay.Skill;
 
 /**
  *
@@ -26,6 +27,12 @@ public class GameUI extends javax.swing.JPanel {
         initCard();
         GameUI.activeGameUI = this;
     }
+    public GameUI(Account active) {
+        initComponents(); 
+        initDeck(active);
+        initCard();
+        GameUI.activeGameUI = this;
+    }
     
     public void log(String value)
     {
@@ -33,6 +40,9 @@ public class GameUI extends javax.swing.JPanel {
     }
     
     private void initDeck(){
+        jp_PlayListOfDeck.removeAll();
+        jp_PlayListOfDeck.repaint();
+        jp_PlayListOfDeck.revalidate();
         int x = 10, y = 7;
         for(int i = 0; i < deck.length; i++){
             deck[i] = new Deck2();
@@ -41,19 +51,33 @@ public class GameUI extends javax.swing.JPanel {
             x+= 125;
         }
     }
-    
+    public void initDeck(Account active){
+        jp_PlayListOfDeck.removeAll();
+        jp_PlayListOfDeck.repaint();
+        jp_PlayListOfDeck.revalidate();
+        int x = 10, y = 7;
+        for(int i = 0; i < deck.length; i++){
+            deck[i] = new Deck2(active.cardDeck[i]);
+            deck[i].setBounds(x,y, 114, 114);
+            jp_PlayListOfDeck.add(deck[i]);
+            x+= 125;
+        }
+    }
     private void initCard(){
-       int x = 25, y = 6;
-       for(int i = 0; i < card.length; i++){
-           card[i] = new Card();
-           card[i].setBounds(x, y, 130, 130);
-           jp_TwinsCard.add(card[i]);
-           x+= 180;
-           if(x  > 900){
-               x = 25;
-               y += 136;
-           }
-       }
+        jp_TwinsCard.removeAll();
+        jp_TwinsCard.repaint();
+        jp_TwinsCard.revalidate();
+        int x = 25, y = 6;
+        for(int i = 0; i < card.length; i++){
+            card[i] = new Card();
+            card[i].setBounds(x, y, 130, 130);
+            jp_TwinsCard.add(card[i]);
+            x+= 180;
+            if(x  > 900){
+                x = 25;
+                y += 136;
+            }
+        }
     }
     public void setGameManager(GameManager gm)
     {

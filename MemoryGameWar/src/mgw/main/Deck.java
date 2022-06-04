@@ -18,7 +18,6 @@ public class Deck extends javax.swing.JPanel {
      */
     boolean empty = true;
     Skill skill = null;
-    static int counter = 0;
     public Deck() {
         initComponents();
         //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
@@ -28,21 +27,21 @@ public class Deck extends javax.swing.JPanel {
         initComponents();
         jLabel1.setIcon(s.img);
     }
-    public void deckCopy(SkillCard c){
+    public void deckCopy(SkillCard c, Account active){
         empty = false;
         skill = c.skill;
         jLabel1.setIcon(c.img);
-        counter++;
+        active.counter++;
         c.cardClicked();
     }
     
-    public void deckRemove(SkillCard [] card){
+    public void deckRemove(SkillCard [] card, Account active){
         for(SkillCard i : card){
             if(i.skill.equals(skill)){
-                counter--;
                 empty = true;
                 skill = null;
                 jLabel1.setIcon(null);
+                active.counter--;
                 i.deckClicked();
                 return;
             }
@@ -89,8 +88,12 @@ class Deck2 extends javax.swing.JPanel{
         jLabel = new javax.swing.JLabel();
         add(jLabel);
     }
-    
-    public void deckCopy(SkillCard d){
+    public Deck2(Deck d){
+        jLabel = new javax.swing.JLabel();
+        jLabel.setIcon(d.jlabel1());
+        add(jLabel);
+    }
+    /*public void deckCopy(SkillCard d){
         jLabel.setIcon(d.img);
         skill = d.skill;
         counter++;
@@ -104,7 +107,7 @@ class Deck2 extends javax.swing.JPanel{
                 return;
             }
         }
-    }
+    }*/
     private void initComponents() {
 
         jLabel = new javax.swing.JLabel();
