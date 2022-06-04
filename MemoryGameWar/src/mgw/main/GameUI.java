@@ -3,10 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package mgw.main;
-
-import java.awt.Color;
 import mgw.gameplay.GameManager;
-import mgw.gameplay.Skill;
+
 
 /**
  *
@@ -23,6 +21,8 @@ public class GameUI extends javax.swing.JPanel {
         initComponents(); 
         initDeck();
         initCard();
+        checkCard();
+        
         GameUI.activeGameUI = this;
     }
    
@@ -47,8 +47,9 @@ public class GameUI extends javax.swing.JPanel {
     public void initDeck(Account active){
         for(int i = 0; i < deck.length; i++){
             deck[i].setLogo(active.cardDeck[i]);
-            
+            deck[i].skill = active.cardDeck[i].skill;
         }
+        checkDeck();
     }
     private void initCard(){
         jp_TwinsCard.removeAll();
@@ -64,6 +65,57 @@ public class GameUI extends javax.swing.JPanel {
                 x = 25;
                 y += 136;
             }
+        }
+    }
+    private void checkCard(){
+        for (Card i : card) {
+            i.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    if(evt.getSource() instanceof Card c){
+                        
+                    }
+                }
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    if(evt.getSource() instanceof Card c){
+                        
+                    }
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    if(evt.getSource() instanceof Card c){
+                        
+                    }
+                }
+            });
+        }
+    }
+    
+    public void checkDeck(){
+        for (Deck2 deck1 : deck) {
+            deck1.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    if(evt.getSource() instanceof Deck2 d){
+                        d.jLabel.setIcon(null);
+                    }
+                }
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    if(evt.getSource() instanceof Deck2 d){
+                        SkillLabel.setText(d.skill.name);
+                        DescriptionLabel.setText(d.skill.description);
+                    }
+                }
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    if(evt.getSource() instanceof Deck2 d){
+                        SkillLabel.setText("Skill Name");
+                        DescriptionLabel.setText("Description");
+                    }
+                }
+            });
         }
     }
     public void setGameManager(GameManager gm)

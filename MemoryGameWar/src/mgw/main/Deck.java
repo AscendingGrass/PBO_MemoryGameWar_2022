@@ -80,7 +80,7 @@ public class Deck extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 }
 class Deck2 extends javax.swing.JPanel{
-    private javax.swing.JLabel jLabel;
+    public javax.swing.JLabel jLabel;
     boolean used = false;
     Skill skill = null;
     static int counter = 0;
