@@ -54,7 +54,6 @@ public final class Program extends javax.swing.JFrame{
         accounts.add(new Account("一龍馬"));
         var temp = new Account("bing chilling");
         setActiveAccount(accounts.get(0));
-        gameUI1 = new GameUI(activeAccount);
         gameUI1.setProgram(this);
         activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
         activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
@@ -1976,8 +1975,8 @@ public final class Program extends javax.swing.JFrame{
         else
         {
             jl_ChallengePlayerFailed.setText(" ");
-            gameUI1.initDeck(activeAccount);
             gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
+            gameUI1.initDeck(activeAccount);
             playMusic(songFiles[2]);
             changeTo(jp_PlayMenu);
         }

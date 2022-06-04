@@ -27,12 +27,7 @@ public class GameUI extends javax.swing.JPanel {
         initCard();
         GameUI.activeGameUI = this;
     }
-    public GameUI(Account active) {
-        initComponents(); 
-        initDeck(active);
-        initCard();
-        GameUI.activeGameUI = this;
-    }
+   
     
     public void log(String value)
     {
@@ -52,15 +47,9 @@ public class GameUI extends javax.swing.JPanel {
         }
     }
     public void initDeck(Account active){
-        jp_PlayListOfDeck.removeAll();
-        jp_PlayListOfDeck.repaint();
-        jp_PlayListOfDeck.revalidate();
-        int x = 10, y = 7;
         for(int i = 0; i < deck.length; i++){
-            deck[i] = new Deck2(active.cardDeck[i]);
-            deck[i].setBounds(x,y, 114, 114);
-            jp_PlayListOfDeck.add(deck[i]);
-            x+= 125;
+            deck[i].setLogo(active.cardDeck[i]);
+            
         }
     }
     private void initCard(){
