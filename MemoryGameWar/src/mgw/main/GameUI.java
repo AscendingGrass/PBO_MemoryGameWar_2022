@@ -32,7 +32,7 @@ public class GameUI extends javax.swing.JPanel {
         jta_Log.append(value + "\n");
     }
     
-    public void initDeck(){
+    private void initDeck(){
         int x = 10, y = 7;
         for(int i = 0; i < deck.length; i++){
             deck[i] = new Deck2();
@@ -42,12 +42,11 @@ public class GameUI extends javax.swing.JPanel {
         }
     }
     
-    public void initCard(){
+    private void initCard(){
        int x = 25, y = 6;
        for(int i = 0; i < card.length; i++){
            card[i] = new Card();
            card[i].setBounds(x, y, 130, 130);
-           card[i].setBackground(Color.red);
            jp_TwinsCard.add(card[i]);
            x+= 180;
            if(x  > 900){
