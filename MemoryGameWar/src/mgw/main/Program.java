@@ -1971,16 +1971,17 @@ public final class Program extends javax.swing.JFrame{
         Account challenged = accounts.get(jcb_ChallengePlayer.getSelectedIndex());
         if (activeAccount == challenged) {
             jl_ChallengePlayerFailed.setText("You can't challenge yourself");
+            return;
         }
-        else
-        {
-            jl_ChallengePlayerFailed.setText(" ");
-            gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
-            gameUI1.initDeck(activeAccount);
-            playMusic(songFiles[2]);
-            changeTo(jp_PlayMenu);
+        if (activeAccount.deckIsNotFilled()){
+            jl_ChallengePlayerFailed.setText("Your deck doesnt meet requirement!");
+            return;
         }
-        
+        jl_ChallengePlayerFailed.setText(" ");
+        gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
+        gameUI1.initDeck(activeAccount);
+        playMusic(songFiles[2]);
+        changeTo(jp_PlayMenu);
     }//GEN-LAST:event_jp_ConfirmChallengePlayerMouseClicked
 
     private void jp_HistoryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_HistoryButtonMouseClicked

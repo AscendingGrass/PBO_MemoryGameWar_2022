@@ -18,9 +18,7 @@ public class GameUI extends javax.swing.JPanel {
     private GameManager gm;
     Deck2[] deck = new Deck2[5];
     Card[] card = new Card[20];
-    /**
-     * Creates new form GameUI
-     */
+    
     public GameUI() {
         initComponents(); 
         initDeck();
