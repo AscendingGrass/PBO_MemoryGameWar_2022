@@ -16,11 +16,11 @@ public class Card extends javax.swing.JPanel {
      * Creates new form Card
      */
     boolean flip = false;
-    Icon img;
+    Icon img, isi = img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/cardimg/card back.png"));
     public Card() {
         initComponents();
         img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/Chain Lightning.png"));
-        jLabel1.setIcon(img);
+        jLabel1.setIcon(isi);
     }
 
     /**

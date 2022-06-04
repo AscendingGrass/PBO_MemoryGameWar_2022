@@ -1659,15 +1659,9 @@ public final class Program extends javax.swing.JFrame{
     
     public void deckClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Deck d){
-            if(!d.empty){
-                for(Deck2 i : gameUI1.deck)
-                    if(i.skill.equals(d.skill)){
-                        i.deckRemove(card); 
-                        break;
-                    }
-                d.deckRemove(card);
-            }
+            if(!d.empty)d.deckRemove(card);
         }
+        
     }
     public void deckEntered(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Deck d){
@@ -1682,22 +1676,15 @@ public final class Program extends javax.swing.JFrame{
     
     private void cardClicked(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof SkillCard c){
-            if(c.clicked)
-                return;
-            if(Deck.counter > 5)
-                return;
+            if(c.clicked) return;
+            if(Deck.counter > 5) return;
             for(Deck i : deck)
-                if(i.skill == null){
-                    i.deckCopy(c);
-                    break;
-                }
-            for(Deck2 i : gameUI1.deck){
                 if(i.skill == null){
                     i.deckCopy(c);
                     return;
                 }
-            }
         }
+       
     }
     
     private void cardEntered(java.awt.event.MouseEvent evt){
@@ -1723,9 +1710,12 @@ public final class Program extends javax.swing.JFrame{
         return "SkillPoint : " + skill.skillPoint;
     }
     public void initDeck(){
+        jp_ListOfDeck.removeAll();
+        jp_ListOfDeck.repaint();
+        jp_ListOfDeck.revalidate();
         int x = 11, y = 13;
         for(int i = 0; i < deck.length; i++){
-            deck[i] = new Deck();
+            deck[i] = (activeAccount.listSkill[i] == null? new Deck() : new Deck());
             deck[i].setBounds(x,y, 114, 114);
             jp_ListOfDeck.add(deck[i]);
             x+= 125;

@@ -14,7 +14,7 @@ public class Player {
     
     public Player(Account player) {
         user = player;
-        deck = player.deck;
+        deck = player.listSkill;
     }
     
     public int getSP()
