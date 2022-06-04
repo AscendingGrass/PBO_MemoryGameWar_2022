@@ -221,9 +221,13 @@ public class GameUI extends javax.swing.JPanel {
 
         jPanel3.setPreferredSize(new java.awt.Dimension(350, 800));
 
+        jta_Log.setEditable(false);
         jta_Log.setColumns(20);
         jta_Log.setRows(5);
+        jta_Log.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jta_Log.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jta_Log);
+        jScrollPane1.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

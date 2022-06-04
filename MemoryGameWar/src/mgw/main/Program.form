@@ -624,11 +624,12 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jl_DescriptionHeading" max="32767" attributes="0"/>
+                              <Component id="jl_DescriptionHeading" pref="87" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="jta_DescriptionBody" pref="308" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jta_DescriptionBody" pref="361" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jta_DescriptionBody_SP" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -643,10 +644,18 @@
                         </Property>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                            <EtchetBorder/>
+                          </Border>
+                        </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Text Cursor"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jta_DescriptionBody.setHighlighter(null);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextArea" name="jta_DescriptionBody_SP">
                       <Properties>
@@ -658,7 +667,15 @@
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="autoscrolls" type="boolean" value="false"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                            <EtchetBorder/>
+                          </Border>
+                        </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jta_DescriptionBody_SP.setHighlighter(null);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jl_DescriptionHeading">
                       <Properties>
@@ -1070,9 +1087,9 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="165" max="32767" attributes="0"/>
                       <Component id="jp_BodyHelp" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="165" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1147,11 +1164,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" pref="1200" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jp_JudulDesk" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="1060" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1159,8 +1176,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jp_JudulDesk" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="573" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" pref="579" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1176,7 +1193,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jl_JudulDesk" alignment="0" pref="140" max="32767" attributes="0"/>
+                          <Component id="jl_JudulDesk" alignment="0" pref="159" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -1189,12 +1206,12 @@
                     <Component class="javax.swing.JLabel" name="jl_JudulDesk">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Symbol" size="18" style="0"/>
+                          <Font name="Segoe UI Symbol" size="18" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="0" type="rgb"/>
                         </Property>
-                        <Property name="horizontalAlignment" type="int" value="2"/>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="How To Play"/>
                       </Properties>
                     </Component>
@@ -1222,8 +1239,15 @@
                         </Property>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="In the Main Menu, you can add a user or change user by clicking the &quot;change user&quot; button.&#xa;&#xa;After adding the user, you need to set up your deck in order to play the game.&#xa;In the Main Menu, click on the &quot;DECK&quot; button.&#xa;In the DECK menu, you can arrange several skills to the deck (don&apos;t forget to read the skill description).&#xa;&#xa;After you finish your deck set up, click on the &quot;PLAY&quot; button.&#xa;On the game board, there are always two identical images. &#xa;Start the game by flipping a card. &#xa;Then try to find another card that has the same image as the first. &#xa;If you can&apos;t find a pair, the flipped cards will be flipped back with the face down.&#xa;Your turn will be ended if you cant find a pair, or if you flipped all the cards on the board&#xa;&#xa;Every time you find a pair, you will get 2 Skill Points (SP).&#xa;You can use the skill points you get to activate the skills in your deck to defeat your opponent."/>
+                        <Property name="text" type="java.lang.String" value="    &#xa;    In the Main Menu, you can add a user or change user by clicking the &quot;change user&quot; button.&#xa;&#xa;    After adding the user, you need to set up your deck in order to play the game.&#xa;    In the Main Menu, click on the &quot;DECK&quot; button.&#xa;    In the DECK menu, you can arrange several skills to the deck (don&apos;t forget to read the skill description).&#xa;&#xa;    After you finish your deck set up, click on the &quot;PLAY&quot; button.&#xa;    On the game board, there are always two identical images. &#xa;    Start the game by flipping a card. &#xa;    Then try to find another card that has the same image as the first. &#xa;    If you can&apos;t find a pair, the flipped cards will be flipped back with the face down.&#xa;    Your turn will be ended if you cant find a pair, or if you flipped all the cards on the board&#xa;&#xa;    Every time you find a pair, you will get 2 Skill Points (SP).&#xa;    You can use the skill points you get to activate the skills in your deck to defeat your opponent."/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jScrollPane1.setBackground(Color.black);&#xa;jScrollPane1.setBorder(null);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Help_desc.setHighlighter(null);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
