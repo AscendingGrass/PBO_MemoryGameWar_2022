@@ -25,6 +25,12 @@ public class StatusBarRight extends javax.swing.JPanel {
         this.player = player;
         jl_PlayerName.setText(player.user.username);
     }
+    
+    public void update()
+    {
+        jl_HealthBar.setText(Integer.toString(player.getHP()));
+        jl_SkillPointBar.setText(Integer.toString(player.getSP()));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,9 +45,11 @@ public class StatusBarRight extends javax.swing.JPanel {
         jp_HealthBarMax = new javax.swing.JPanel();
         jp_HealthBar = new javax.swing.JPanel();
         jl_HealthBar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jp_SkillPointBarMax = new javax.swing.JPanel();
         jp_SkillPointBar = new javax.swing.JPanel();
         jl_SkillPointBar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setForeground(new java.awt.Color(0, 0, 0));
@@ -59,17 +67,27 @@ public class StatusBarRight extends javax.swing.JPanel {
         jl_HealthBar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_HealthBar.setText("100");
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("HP");
+        jLabel1.setPreferredSize(new java.awt.Dimension(40, 27));
+
         javax.swing.GroupLayout jp_HealthBarLayout = new javax.swing.GroupLayout(jp_HealthBar);
         jp_HealthBar.setLayout(jp_HealthBarLayout);
         jp_HealthBarLayout.setHorizontalGroup(
             jp_HealthBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_HealthBarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jl_HealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_HealthBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jp_HealthBarLayout.setVerticalGroup(
             jp_HealthBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_HealthBar, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+            .addGroup(jp_HealthBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jl_HealthBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jp_HealthBarMaxLayout = new javax.swing.GroupLayout(jp_HealthBarMax);
@@ -91,17 +109,27 @@ public class StatusBarRight extends javax.swing.JPanel {
         jl_SkillPointBar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_SkillPointBar.setText("100");
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("SP");
+        jLabel2.setPreferredSize(new java.awt.Dimension(20, 27));
+
         javax.swing.GroupLayout jp_SkillPointBarLayout = new javax.swing.GroupLayout(jp_SkillPointBar);
         jp_SkillPointBar.setLayout(jp_SkillPointBarLayout);
         jp_SkillPointBarLayout.setHorizontalGroup(
             jp_SkillPointBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_SkillPointBarLayout.createSequentialGroup()
-                .addGap(0, 357, Short.MAX_VALUE)
-                .addComponent(jl_SkillPointBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(311, Short.MAX_VALUE)
+                .addComponent(jl_SkillPointBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jp_SkillPointBarLayout.setVerticalGroup(
             jp_SkillPointBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jl_SkillPointBar, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+            .addGroup(jp_SkillPointBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jl_SkillPointBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jp_SkillPointBarMaxLayout = new javax.swing.GroupLayout(jp_SkillPointBarMax);
@@ -142,6 +170,8 @@ public class StatusBarRight extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jl_HealthBar;
     private javax.swing.JLabel jl_PlayerName;
     private javax.swing.JLabel jl_SkillPointBar;

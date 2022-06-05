@@ -120,8 +120,14 @@
       </Layout>
     </Container>
     <Component class="mgw.main.StatusBarLeft" name="statusBarLeft1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="mgw.main.StatusBarRight" name="statusBarRight1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JPanel" name="jp_Description">
       <Properties>

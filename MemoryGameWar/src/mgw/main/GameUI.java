@@ -121,6 +121,8 @@ public class GameUI extends javax.swing.JPanel {
         this.gm = gm;
         statusBarLeft1.setPlayer(gm.players[1]);
         statusBarRight1.setPlayer(gm.players[0]);
+        statusBarLeft1.update();
+        statusBarRight1.update();
     }
     
     public void setProgram(Program p)
@@ -380,7 +382,7 @@ public class GameUI extends javax.swing.JPanel {
     private javax.swing.JPanel jp_SkipButton;
     private javax.swing.JPanel jp_TwinsCard;
     private javax.swing.JTextArea jta_Log;
-    private mgw.main.StatusBarLeft statusBarLeft1;
-    private mgw.main.StatusBarRight statusBarRight1;
+    public mgw.main.StatusBarLeft statusBarLeft1;
+    public mgw.main.StatusBarRight statusBarRight1;
     // End of variables declaration//GEN-END:variables
 }

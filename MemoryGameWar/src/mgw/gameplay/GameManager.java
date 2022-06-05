@@ -21,7 +21,9 @@ public class GameManager {
             players[1] = player1;
             players[0] = player2;
         }
-        GameUI.activeGameUI.log(players[1].user.username + " moves first");
+        
+
+        gu.log(players[1].user.username + " moves first");
     }
     
     private void matchCards(Player player)
