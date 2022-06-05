@@ -4,10 +4,10 @@
  */
 package mgw.main;
 
-import mgw.gameplay.Player;
+import java.io.Serializable;
 
 /**
  *
  * @author mejap
  */
-public record HistoryLog(Account challenger, Account challenged, Account winner, int turns){}
+public record HistoryLog(Account challenger, Account challenged, Account winner, int turns)implements Serializable{}

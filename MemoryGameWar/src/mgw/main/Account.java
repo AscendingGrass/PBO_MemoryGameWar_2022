@@ -1,9 +1,10 @@
 package mgw.main;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import mgw.gameplay.*;
 
-public class Account{
+public class Account implements Serializable{
     public final String username;
     public ArrayList<HistoryLog> history = new ArrayList();
     public Skill[] listSkill;

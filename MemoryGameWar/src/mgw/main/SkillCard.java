@@ -4,6 +4,7 @@
  */
 package mgw.main;
 
+import java.io.Serializable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -13,7 +14,7 @@ import mgw.gameplay.Skill;
  *
  * @author mejap
  */
-public class SkillCard extends javax.swing.JPanel {
+public class SkillCard extends javax.swing.JPanel implements Serializable {
 
     /**
      * Creates new form Card

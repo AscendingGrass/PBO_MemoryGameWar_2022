@@ -21,6 +21,10 @@ import javax.swing.*;
 import mgw.gameplay.Skill;
 import mgw.util.Screen;
 import jaco.mp3.player.MP3Player;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Paths;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.Line;
@@ -67,6 +71,7 @@ public final class Program extends javax.swing.JFrame{
         
         initBackGround();
         playMusic(songFiles[1]);
+        //saveData();
         
     }
    
@@ -1483,6 +1488,36 @@ public final class Program extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void saveData()
+    {
+        try 
+        {
+            File f = new File("accounts.sav");
+            f.createNewFile();
+            FileOutputStream fileOut = new FileOutputStream(f,false);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(accounts);
+            
+            out.close();
+            fileOut.close();
+      } catch (IOException i) {
+            i.printStackTrace();
+      }
+    }
+    
+    public void loadData()
+    {
+        try(FileInputStream fis = new FileInputStream("accounts.sav"))
+        {
+            ObjectInputStream in = new ObjectInputStream(fis);
+            accounts = (ArrayList<Account>)in.readObject();
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void playMusic(File path){
         try
         {

@@ -4,6 +4,7 @@
  */
 package mgw.main;
 
+import java.io.Serializable;
 import javax.swing.Icon;
 import mgw.gameplay.Skill;
 
@@ -11,7 +12,7 @@ import mgw.gameplay.Skill;
  *
  * @author user
  */
-public class Deck extends javax.swing.JPanel {
+public class Deck extends javax.swing.JPanel implements Serializable {
 
     /**
      * Creates new form Deck

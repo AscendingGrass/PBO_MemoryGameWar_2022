@@ -1,11 +1,12 @@
 
 package mgw.gameplay;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import mgw.util.UtilArsa;
 
-public abstract class Skill
+public abstract class Skill implements Serializable
 {
     public static Skill[] list = {
         new Fireball(),
