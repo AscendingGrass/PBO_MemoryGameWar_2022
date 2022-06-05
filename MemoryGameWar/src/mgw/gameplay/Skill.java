@@ -4,6 +4,7 @@ package mgw.gameplay;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.Icon;
+import mgw.main.GameUI;
 import mgw.util.UtilArsa;
 
 public abstract class Skill implements Serializable
@@ -62,7 +63,7 @@ public abstract class Skill implements Serializable
     
     void use(Player user, Player target)
     {
-        System.out.println(user.user.username + " used " + name);
+        GameUI.activeGameUI.log(user.user.username + " used " + name);
         
         if (this instanceof IDamaging d) 
         {
@@ -76,7 +77,7 @@ public abstract class Skill implements Serializable
             else
             {
                 temp.remove();
-                System.out.println(target.user.username + " evaded the attack");
+                GameUI.activeGameUI.log(target.user.username + " evaded the attack");
             }
         }
         else if (this instanceof ISpecialEffect se) 
@@ -109,7 +110,7 @@ abstract class DamagingSkill extends Skill implements IDamaging
                 modifiedDmg = dm.modify(modifiedDmg);
             }
         }
-        System.out.println(user.user.username + " dealt " + modifiedDmg + " damage to " + target.user.username);
+        GameUI.activeGameUI.log(user.user.username + " dealt " + modifiedDmg + " damage to " + target.user.username);
         target.removeHP(modifiedDmg);
 
     }
@@ -141,6 +142,7 @@ class IceBlast extends DamagingSkill implements ISpecialEffect
      @Override
     public void cast(Player user, Player target) {
         target.removeSP(1);
+        GameUI.activeGameUI.log(target.user.username + "'s SP is reduced by 1");
     }
 }
 
@@ -161,7 +163,7 @@ class ChainLightning extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
-        System.out.println(user.user.username + " used " + name);
+        GameUI.activeGameUI.log(user.user.username + " used " + name);
         int hits = UtilArsa.nextRandom(1, 4);
         
         for (int i = 0; i < hits; i++) 
@@ -172,11 +174,11 @@ class ChainLightning extends DamagingSkill
             else
             {
                 temp.remove();
-                System.out.println(target.user.username + " evaded the attack");
+                GameUI.activeGameUI.log(target.user.username + " evaded the attack");
             }
         }
         
-        System.out.println("hit " + hits + " time(s)");
+        GameUI.activeGameUI.log("hit " + hits + " time(s)");
     }
 }
 
@@ -189,7 +191,7 @@ class QuickSlash extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
-        System.out.println(user.user.username + " used " + name);
+        GameUI.activeGameUI.log(user.user.username + " used " + name);
         int hits = UtilArsa.nextRandom(2, 8) ;
         
         for (int i = 0; i < hits; i++)
@@ -200,11 +202,11 @@ class QuickSlash extends DamagingSkill
             else
             {
                 temp.remove();
-                System.out.println(target.user.username + " evaded the attack");
+                GameUI.activeGameUI.log(target.user.username + " evaded the attack");
             }
         }
         
-        System.out.println("hit " + hits + " times");
+        GameUI.activeGameUI.log("hit " + hits + " times");
     }
 }
 
@@ -220,6 +222,7 @@ class Absorb extends DamagingSkill implements ISpecialEffect
         int absorbedSP = target.getSP();
         absorbedSP = absorbedSP > 2? 2 : absorbedSP;
         target.removeSP(absorbedSP);
+        GameUI.activeGameUI.log(user.user.username + " absorbed 2 SP from " + target.user.username);
         user.addSP(absorbedSP);
     }
     
@@ -234,9 +237,10 @@ class DoubleEdge extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
-        System.out.println(user.user.username + " used " + name);
+        GameUI.activeGameUI.log(user.user.username + " used " + name);
         dealDamage(user, target);
         user.removeHP(5);
+        GameUI.activeGameUI.log(user.user.username + " got hit by recoil and lost 5 HP");
     }
 }
 
@@ -248,8 +252,10 @@ class ClownGaze extends DamagingSkill
     
     @Override
     void use(Player user, Player target) {
+        GameUI.activeGameUI.log(user.user.username + " used " + name);
         dealDamage(user, target);
         user.removeHP(user.getHP()-1);
+        GameUI.activeGameUI.log(user.user.username + " got hit by recoil and is left with 1 HP");
     }
 }
 
@@ -268,7 +274,7 @@ class Dodge extends Skill implements ISpecialEffect
         }
         else
         {
-            System.out.println(user.user.username + " is already Elusive");
+            GameUI.activeGameUI.log(user.user.username + " is already Elusive");
         }
     }
 }
@@ -289,7 +295,7 @@ class RevengeCounter extends Skill implements ISpecialEffect
         }
         else
         {
-            System.out.println(user.user.username + " is already Tanking Hits");
+            GameUI.activeGameUI.log(user.user.username + " is already Tanking Hits");
         }
     }
 }
@@ -303,6 +309,7 @@ class Recover extends Skill implements ISpecialEffect
     @Override
     public void cast(Player user, Player target) {
         user.addHP(20);
+        GameUI.activeGameUI.log(user.user.username + " recovered 20 HP");
     }
 }
 
@@ -321,7 +328,7 @@ class QuickSand extends Skill implements ISpecialEffect
         }
         else
         {
-            System.out.println(target.user.username + " is already Sinking");
+            GameUI.activeGameUI.log(target.user.username + " is already Sinking");
         }
     }
 }
@@ -341,7 +348,7 @@ class TrapHole extends Skill implements ISpecialEffect
         }
         else
         {
-            System.out.println(target.user.username + " is already Trapped");
+            GameUI.activeGameUI.log(target.user.username + " is already Trapped");
         }
     }
 }
@@ -361,7 +368,7 @@ class MirrorImage extends Skill implements ISpecialEffect
         }
         else
         {
-            System.out.println(user.user.username + " is already Boosted");
+            GameUI.activeGameUI.log(user.user.username + " is already Boosted");
         }
     }
 }

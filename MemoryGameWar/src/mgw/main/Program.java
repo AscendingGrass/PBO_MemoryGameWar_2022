@@ -468,6 +468,8 @@ public final class Program extends javax.swing.JFrame{
 
         jp_Background.add(jp_MainMenu, "card8");
 
+        GameUI.activeGameUI = gameUI1;
+
         javax.swing.GroupLayout jp_PlayMenuLayout = new javax.swing.GroupLayout(jp_PlayMenu);
         jp_PlayMenu.setLayout(jp_PlayMenuLayout);
         jp_PlayMenuLayout.setHorizontalGroup(
@@ -2031,7 +2033,7 @@ public final class Program extends javax.swing.JFrame{
         
         for(HistoryLog hl : activeAccount.history)
         {
-            jp_HistoryLog.add(new HistoryLogPanel(activeAccount, hl.challenger(), hl.challenged(), hl.winner(), hl.turns()));
+            jp_HistoryLog.add(new HistoryLogPanel(activeAccount, hl));
         }
         
         jp_HistoryLog.repaint();

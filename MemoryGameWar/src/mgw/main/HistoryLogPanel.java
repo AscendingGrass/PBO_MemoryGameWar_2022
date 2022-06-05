@@ -15,17 +15,17 @@ public class HistoryLogPanel extends javax.swing.JPanel {
     /**
      * Creates new form HistoryLogPanel
      */
-    public HistoryLogPanel(Account activeAccount, Account challenger, Account challenged, Account winner, int turns) {
+    public HistoryLogPanel(Account activeAccount, HistoryLog hl) {
         initComponents();
-        if(activeAccount == winner)
+        if(activeAccount == hl.winner())
             this.setBackground(new Color(204,255,204));
         else
             this.setBackground(new Color(255,204,204));
         
-        jp_Challenger.setText(challenger.username);
-        jp_Challenged.setText(challenged.username);
-        jp_Status.setText(activeAccount == winner ? "WON" : "LOST");
-        jp_Turns.setText(Integer.toString(turns));
+        jp_Challenger.setText(hl.challenger().username);
+        jp_Challenged.setText(hl.challenged().username);
+        jp_Status.setText(activeAccount == hl.winner() ? "WON" : "LOST");
+        jp_Turns.setText(Integer.toString(hl.turns()));
             
     }
 

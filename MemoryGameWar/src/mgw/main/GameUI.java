@@ -22,8 +22,6 @@ public class GameUI extends javax.swing.JPanel {
         initDeck();
         initCard();
         checkCard();
-        
-        GameUI.activeGameUI = this;
     }
    
     
@@ -285,9 +283,11 @@ public class GameUI extends javax.swing.JPanel {
 
         jta_Log.setEditable(false);
         jta_Log.setColumns(20);
+        jta_Log.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jta_Log.setRows(5);
         jta_Log.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jta_Log.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jta_Log.setHighlighter(null);
         jScrollPane1.setViewportView(jta_Log);
         jScrollPane1.setBorder(null);
 

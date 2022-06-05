@@ -5,6 +5,7 @@
 package mgw.gameplay;
 
 import java.util.ArrayList;
+import mgw.main.GameUI;
 
 /**
  *
@@ -61,6 +62,7 @@ class Singed extends MultiTurnEffect implements IDebuff, IDamageModifier //After
 {
     public Singed(Object source, Player caster, Player affected) {
         super("Singed", source,  caster, affected, 1);
+        GameUI.activeGameUI.log(affected.user.username + " became singed");
     }
     
     @Override
@@ -75,6 +77,7 @@ class Elusive extends StatusEffect implements IBuff //After using dodge (evades 
 {
     public Elusive(Object source, Player caster, Player affected) {
         super("Elusive", source, caster, affected);
+        GameUI.activeGameUI.log(affected.user.username + " became elusive");
     }
     
     //don't forget to call remove() later to remove the buff after it is used up (done)
@@ -88,6 +91,7 @@ class TankingHits extends MultiTurnEffect implements IBuff, IDamaging //After us
     public TankingHits(Object source, Player caster, Player affected, Player target) {
         super("Tanking Hits", source, caster, affected, 2);
         this.target = target;
+        GameUI.activeGameUI.log(affected.user.username + " started to tank hits and store damage against " + target.user.username);
     }
 
     @Override
@@ -135,6 +139,7 @@ class Sinking extends MultiTurnEffect implements IDebuff //After getting hit by 
 {
     public Sinking(Object source, Player caster, Player affected) {
         super("Sinking", source, caster, affected, 1);
+        GameUI.activeGameUI.log(affected.user.username + " started sinking");
     }
     
 }
@@ -143,6 +148,7 @@ class Trapped extends MultiTurnEffect implements IDebuff //After getting hit by 
 {
     public Trapped(Object source, Player caster, Player affected) {
         super("Trapped", source, caster, affected, 1);
+        GameUI.activeGameUI.log(affected.user.username + " became trapped");
     }
 }
 
@@ -152,6 +158,7 @@ class Boosted extends StatusEffect implements IBuff //mirror image buff
 
     public Boosted(Object source, Player caster, Player affected) {
         super("Boosted", source,  caster, affected);
+        GameUI.activeGameUI.log(affected.user.username + " is boosted");
     }
     
     public boolean check()
@@ -167,6 +174,7 @@ class Tired extends MultiTurnEffect implements IDebuff //The next turn after usi
 {
     public Tired(Object source, Player caster, Player affected, int turns) {
         super("Tired", source, caster, affected, turns);
+        GameUI.activeGameUI.log(affected.user.username + " can't move for " + turns + " turn(s)");
     }
     
 }

@@ -2,6 +2,7 @@ package mgw.gameplay;
 
 import java.util.ArrayList;
 import mgw.main.Account;
+import mgw.main.GameUI;
 
 public class Player {
     public final ArrayList<StatusEffect> status = new ArrayList();
@@ -42,7 +43,7 @@ public class Player {
             }
         }
         SP += amount;
-        System.out.println(user.username + " gained " + amount + " SP");
+        GameUI.activeGameUI.log(user.username + " gained " + amount + " SP");
     }
     
     public int getHP()
@@ -81,7 +82,7 @@ public class Player {
         }
         else
         {
-            System.out.println(user.username + " can't move this turn");
+            GameUI.activeGameUI.log(user.username + " can't move this turn");
         }
         
     }

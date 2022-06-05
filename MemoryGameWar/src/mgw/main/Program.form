@@ -479,6 +479,9 @@
           </Layout>
           <SubComponents>
             <Component class="mgw.main.GameUI" name="gameUI1">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="GameUI.activeGameUI = gameUI1;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
