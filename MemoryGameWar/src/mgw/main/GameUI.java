@@ -34,7 +34,8 @@ public class GameUI extends javax.swing.JPanel {
     
     public void clearDeck()
     {
-        
+       for(int i = 0; i < deck.length; i++)
+           deck[i] = new Deck2();
     }
     
     public void showDeck()
