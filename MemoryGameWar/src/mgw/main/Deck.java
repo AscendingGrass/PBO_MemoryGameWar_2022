@@ -17,15 +17,17 @@ public class Deck extends javax.swing.JPanel implements Serializable {
     /**
      * Creates new form Deck
      */
-    boolean empty = true;
-    Skill skill = null;
+    boolean empty;
+    Skill skill;
     public Deck() {
         initComponents();
-        //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mgw/main/" + counter++ + ".png")));
-        //jlabel1();
+        empty = true;
+        skill = null;
     }
     public Deck(Skill s){
         initComponents();
+        empty = false;
+        skill = s;
         jLabel1.setIcon(s.img);
     }
     public void deckCopy(SkillCard c, Account active){

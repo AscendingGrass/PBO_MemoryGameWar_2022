@@ -22,12 +22,13 @@ public class SkillCard extends javax.swing.JPanel implements Serializable {
     public Skill skill;
     boolean clicked = false;
     Icon img, back;
-    public SkillCard(Skill skill) {
+    public SkillCard(Skill skill, boolean cek) {
         this.skill = skill;
+        clicked = cek;
         initComponents();
         img = skill.img;
         back = skill.back;
-        jLabel1.setIcon(img);
+        jLabel1.setIcon((clicked?back : img));
     }
 
     public SkillCard() {
@@ -93,4 +94,7 @@ public class SkillCard extends javax.swing.JPanel implements Serializable {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+}
+class SaveCard{
+    
 }

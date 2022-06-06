@@ -1751,7 +1751,7 @@ public final class Program extends javax.swing.JFrame{
         jp_ListOfDeck.removeAll();
         jp_ListOfDeck.repaint();
         jp_ListOfDeck.revalidate();
-        deck = activeAccount.cardDeck;
+        activeAccount.cardDeck(deck);
         int x = 11, y = 13;
         for(int i = 0; i < deck.length; i++){
             deck[i].setBounds(x,y, 114, 114);
@@ -1763,7 +1763,7 @@ public final class Program extends javax.swing.JFrame{
         jp_ListOfCard.removeAll();
         jp_ListOfCard.repaint();
         jp_ListOfCard.revalidate();
-        card = activeAccount.cardSkill;
+        activeAccount.cardSkill(card);
         int x = 30, y= 30;
         for(int i = 0; i < Skill.list.length; i++){
             card[i].setBounds(x, y, 114, 114);
@@ -1863,8 +1863,8 @@ public final class Program extends javax.swing.JFrame{
     private void jp_BackDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_BackDeckMouseClicked
         // TODO add your handling code here:
         jp_MenuButtonBlack(evt);
-        activeAccount.isiDeck(deck);
-        //activeAccount.testIsiDeck();
+        activeAccount.isiDeck(deck, card);
+        activeAccount.testIsiDeck();
         
         changeTo(jp_MainMenu);
         setDescriptionDefault();
