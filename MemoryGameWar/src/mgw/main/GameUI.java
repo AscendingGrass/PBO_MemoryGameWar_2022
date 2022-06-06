@@ -175,8 +175,8 @@ public class GameUI extends javax.swing.JPanel {
                 @Override
                 public void mouseEntered(java.awt.event.MouseEvent evt) {
                     if(evt.getSource() instanceof Deck2 d){
-                        SkillLabel.setText(d.skill.name);
-                        DescriptionLabel.setText(d.skill.description);
+                        //SkillLabel.setText(d.skill.name);
+                        //DescriptionLabel.setText(d.skill.description);
                     }
                 }
                 @Override
@@ -194,6 +194,7 @@ public class GameUI extends javax.swing.JPanel {
         this.gm = gm;
         statusBarLeft1.setPlayer(gm.players[1]);
         statusBarRight1.setPlayer(gm.players[0]);
+        initDeck(gm.challenger);
         updateStatusBars();
     }
     

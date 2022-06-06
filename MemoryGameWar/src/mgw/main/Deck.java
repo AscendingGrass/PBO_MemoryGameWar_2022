@@ -91,7 +91,7 @@ public class Deck extends javax.swing.JPanel implements Serializable {
 }
 class Deck2 extends javax.swing.JPanel{
     public javax.swing.JLabel jLabel;
-    boolean used = false;
+    boolean available = true;
     Skill skill = null;
     static int counter = 0;
     public Deck2() {
