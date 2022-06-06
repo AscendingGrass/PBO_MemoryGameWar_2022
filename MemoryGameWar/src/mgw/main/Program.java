@@ -1684,7 +1684,9 @@ public final class Program extends javax.swing.JFrame{
             deck1.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    deckClicked(evt);
+                    if(evt.getSource() instanceof Deck d){
+                        if(!d.empty)d.deckRemove(card, activeAccount);
+                    }
                 }
                 @Override
                 public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1699,19 +1701,17 @@ public final class Program extends javax.swing.JFrame{
     }
     
     public void deckClicked(java.awt.event.MouseEvent evt){
-        if(evt.getSource() instanceof Deck d){
-            if(!d.empty)d.deckRemove(card, activeAccount);
-        }
+        
         
     }
     public void deckEntered(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Deck d){
-            
+            d.setNull();
         }
     }
     public void deckExited(java.awt.event.MouseEvent evt){
         if(evt.getSource() instanceof Deck d){
-            
+            d.reset();
         }
     }
     

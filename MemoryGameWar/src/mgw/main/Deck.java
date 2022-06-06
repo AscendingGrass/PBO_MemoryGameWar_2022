@@ -30,6 +30,12 @@ public class Deck extends javax.swing.JPanel implements Serializable {
         skill = s;
         jLabel1.setIcon(s.img);
     }
+    public void setNull(){
+        if(skill != null)jLabel1.setIcon(skill.back);
+    }
+    public void reset(){
+        if(skill != null)jLabel1.setIcon(skill.img);
+    }
     public void deckCopy(SkillCard c, Account active){
         empty = false;
         skill = c.skill;
@@ -41,6 +47,7 @@ public class Deck extends javax.swing.JPanel implements Serializable {
     public void deckRemove(SkillCard [] card, Account active){
         for(SkillCard i : card){
             if(i.skill.equals(skill)){
+                System.out.println(i.skill.equals(skill));
                 empty = true;
                 skill = null;
                 jLabel1.setIcon(null);

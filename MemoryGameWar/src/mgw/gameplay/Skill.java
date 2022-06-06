@@ -3,6 +3,7 @@ package mgw.gameplay;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 import javax.swing.Icon;
 import mgw.main.GameUI;
 import mgw.util.UtilArsa;
@@ -25,6 +26,22 @@ public abstract class Skill implements Serializable
         new TrapHole(),
         new MirrorImage()
     };
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Skill other = (Skill) obj;
+        return Objects.equals(this.name, other.name);
+    }
     
     public final String name, description;
     public final int skillPoint;
