@@ -44,6 +44,7 @@ public class Player {
         }
         SP += amount;
         GameUI.activeGameUI.log(user.username + " gained " + amount + " SP");
+        GameUI.activeGameUI.updateStatusBars();
     }
     
     public int getHP()

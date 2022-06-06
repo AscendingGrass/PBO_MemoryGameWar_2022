@@ -4,24 +4,114 @@
  */
 package mgw.main;
 
+import java.util.Objects;
 import javax.swing.Icon;
 
 /**
  *
  * @author user
  */
-public class Card extends javax.swing.JPanel {
+public class Card extends javax.swing.JPanel implements Cloneable {
+    public static String[] resourceImages = {
+        "/mgw/main/cardimg/1.jpeg",
+        "/mgw/main/cardimg/2.jpeg",
+        "/mgw/main/cardimg/3.jpeg",
+        "/mgw/main/cardimg/4.jpeg",
+        "/mgw/main/cardimg/5.jpeg",
+        "/mgw/main/cardimg/6.jpeg",
+        "/mgw/main/cardimg/7.jpeg",
+        "/mgw/main/cardimg/8.jpeg",
+        "/mgw/main/cardimg/9.jpeg",
+        "/mgw/main/cardimg/10.jpeg",
+    };
     
     /**
      * Creates new form Card
      */
-    boolean flip = false;
-    Icon img, isi = img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/cardimg/card back.png"));
+    public final String imagePath;
+    boolean flip = false, paired = false;
+    Icon img, back = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/cardimg/card back.png"));
+    
     public Card() {
         initComponents();
-        img = new javax.swing.ImageIcon(getClass().getResource("/mgw/main/imgdeck/Chain Lightning.png"));
-        jLabel1.setIcon(isi);
+        img = new javax.swing.ImageIcon(getClass().getResource(imagePath = "/mgw/main/imgdeck/Chain Lightning.png"));
+        
+        jLabel1.setIcon(back);
     }
+    
+    public Card(String iconResourcePath) {
+        initComponents();
+        flip = true;
+        img = new javax.swing.ImageIcon(getClass().getResource(iconResourcePath));
+        imagePath = iconResourcePath;
+        jLabel1.setIcon(img);
+    }
+    
+    public void reset()
+    {
+        flipOpen();
+        paired = false;
+    }
+    
+    public void flipOpen()
+    {
+        flip = true;
+        jLabel1.setIcon(img);
+    }
+    
+    public void flipDown()
+    {
+        flip = false;
+        jLabel1.setIcon(back);
+    }
+    
+    public void setIconNull()
+    {
+        flip = true;
+        paired = true;
+        jLabel1.setIcon(null);
+    }
+
+    @Override
+    protected Object clone() {
+        try
+        {
+            return super.clone();
+        }
+        catch(CloneNotSupportedException e)
+        {
+            return null;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.imagePath);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Card other = (Card) obj;
+        return Objects.equals(this.imagePath, other.imagePath);
+    }
+
+
+
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

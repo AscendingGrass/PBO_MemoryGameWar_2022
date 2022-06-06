@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package mgw.main;
+import javax.swing.Timer;
 import mgw.gameplay.GameManager;
+import mgw.util.UtilArsa;
 
 
 /**
@@ -16,12 +18,12 @@ public class GameUI extends javax.swing.JPanel {
     private GameManager gm;
     Deck2[] deck = new Deck2[5];
     Card[] card = new Card[20];
+    Card opened = null;
     
     public GameUI() {
         initComponents(); 
         initDeck();
-        initCard();
-        checkCard();
+        shuffleCard();
     }
    
     
@@ -34,6 +36,7 @@ public class GameUI extends javax.swing.JPanel {
         jp_PlayListOfDeck.removeAll();
         jp_PlayListOfDeck.repaint();
         jp_PlayListOfDeck.revalidate();
+        
         int x = 10, y = 7;
         for(int i = 0; i < deck.length; i++){
             deck[i] = new Deck2();
@@ -49,13 +52,18 @@ public class GameUI extends javax.swing.JPanel {
         }
         checkDeck();
     }
-    private void initCard(){
+    
+    public void shuffleCard(){
         jp_TwinsCard.removeAll();
         jp_TwinsCard.repaint();
         jp_TwinsCard.revalidate();
+        for (int i = 0; i < Card.resourceImages.length * 2; i++) {
+            card[i] = new Card(Card.resourceImages[i/2]);
+        }
+        UtilArsa.shuffle(card);
+        checkCard();
         int x = 25, y = 6;
         for(int i = 0; i < card.length; i++){
-            card[i] = new Card();
             card[i].setBounds(x, y, 130, 130);
             jp_TwinsCard.add(card[i]);
             x+= 180;
@@ -64,14 +72,29 @@ public class GameUI extends javax.swing.JPanel {
                 y += 136;
             }
         }
+        Timer timer = new Timer(5000, (evt)->{
+            flipDownAllCards();
+        });
+        timer.setRepeats(false);
+        timer.start();
     }
+    
     private void checkCard(){
         for (Card i : card) {
             i.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    if(evt.getSource() instanceof Card c){
-                        
+                    if(evt.getSource() instanceof Card c && !c.flip){
+                        c.flipOpen();
+                        if (opened == null) {
+                            opened = c;
+                        }
+                        else if(opened.equals(c))
+                        {
+                            gm.getCurrentPlayer().addSP(2);
+                            opened.flipDown();
+                            c.flipDown();
+                        }
                     }
                 }
                 @Override
@@ -87,6 +110,13 @@ public class GameUI extends javax.swing.JPanel {
                     }
                 }
             });
+        }
+    }
+    
+    public void flipDownAllCards()
+    {
+        for (Card c : card) {
+            c.flipDown();
         }
     }
     
@@ -121,6 +151,11 @@ public class GameUI extends javax.swing.JPanel {
         this.gm = gm;
         statusBarLeft1.setPlayer(gm.players[1]);
         statusBarRight1.setPlayer(gm.players[0]);
+        updateStatusBars();
+    }
+    
+    public void updateStatusBars()
+    {
         statusBarLeft1.update();
         statusBarRight1.update();
     }

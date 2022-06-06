@@ -24,6 +24,7 @@ public class GameManager {
         
 
         gu.log(players[1].user.username + " moves first");
+        gu.shuffleCard();
     }
     
     private void matchCards(Player player)
