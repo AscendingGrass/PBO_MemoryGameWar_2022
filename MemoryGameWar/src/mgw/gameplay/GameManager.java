@@ -44,14 +44,25 @@ public final class GameManager {
     
     private void nextTurn(Player player)
     {
-        player.nextTurn();
-        // check if the game is already over
-        if(!checkGameState())
+        StatusEffect temp = getCurrentPlayer().getStatusOfType("Boosted");
+        if (temp != null && ((Boosted)temp).check()) 
         {
-            ++turn;
-            gu.updateName();
-            matchCards(getCurrentPlayer());
+            //call method to pick moves again
+            gu.initDeck(getCurrentPlayer());
         }
+        else
+        {
+            if (checkGameState()) return;
+            player.nextTurn();
+            gu.updateStatusBars();
+            // check if the game is already over
+            if(!checkGameState())
+            {
+                ++turn;
+                gu.updateName();
+                matchCards(getCurrentPlayer());
+            }
+        }  
     }
     
     public void start()
@@ -101,16 +112,9 @@ public final class GameManager {
         gu.initDeck();
         getCurrentPlayer().useSkill(players[(turn+1) % 2], skillIndex);
         gu.updateStatusBars();
-        StatusEffect temp = getCurrentPlayer().getStatusOfType("Boosted");
-        if (temp != null && ((Boosted)temp).check()) 
-        {
-            //call method to pick moves again
-            gu.initDeck(getCurrentPlayer());
-        }
-        else
-        {
-            nextTurn();
-        }
+        nextTurn();
+
+
     }
     
     public Player getCurrentPlayer()

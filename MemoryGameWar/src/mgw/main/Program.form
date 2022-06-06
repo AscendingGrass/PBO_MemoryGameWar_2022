@@ -1747,15 +1747,17 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jtf_AccountName" max="32767" attributes="0"/>
-                              <Component id="lb_CreateAccount" pref="292" max="32767" attributes="0"/>
-                              <Component id="jl_CreateAccountFailed" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jp_CreateAccountButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="619" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jtf_AccountName" max="32767" attributes="0"/>
+                          <Component id="lb_CreateAccount" pref="292" max="32767" attributes="0"/>
+                          <Component id="jl_CreateAccountFailed" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="619" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jp_CreateAccountButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1869,20 +1871,21 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jp_CancelChallengePlayer" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="jp_ConfirmChallengePlayer" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lb_ChallengePlayer" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jl_ChallengePlayerFailed" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace pref="570" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jp_CancelChallengePlayer" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="jp_ConfirmChallengePlayer" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jcb_ChallengePlayer" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                          <Component id="lb_ChallengePlayer" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jl_ChallengePlayerFailed" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jcb_ChallengePlayer" min="-2" pref="239" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="570" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1891,9 +1894,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace pref="291" max="32767" attributes="0"/>
                       <Component id="lb_ChallengePlayer" min="-2" pref="66" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jcb_ChallengePlayer" min="-2" pref="46" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Component id="jl_ChallengePlayerFailed" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1929,6 +1932,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcb_ChallengePlayerActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>

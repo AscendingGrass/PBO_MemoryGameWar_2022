@@ -11,7 +11,7 @@ public class Player {
     public final Skill[] deck;
     
     private int HP = 100;
-    private int SP = 0;
+    private int SP = 3;
     
     public Player(Account player) {
         user = player;

@@ -5,8 +5,10 @@
 package mgw.main;
 import javax.swing.Timer;
 import mgw.gameplay.GameManager;
+import mgw.gameplay.IDamaging;
 import mgw.gameplay.Player;
 import mgw.gameplay.Skill;
+import mgw.gameplay.StatusEffect;
 import mgw.util.UtilArsa;
 
 
@@ -18,14 +20,15 @@ public class GameUI extends javax.swing.JPanel {
     public static GameUI activeGameUI;
     public Program parent;
     private GameManager gm;
+    private boolean skippable = false;
     Deck2[] deck = new Deck2[5];
     Card[] card = new Card[20];
     Card opened = null;
     
     public GameUI() {
         initComponents(); 
-        initDeck();
-        shuffleCard();
+//        initDeck();
+//        shuffleCard();
     }
    
     
@@ -34,11 +37,9 @@ public class GameUI extends javax.swing.JPanel {
         jta_Log.append(value + "\n");
     }
     
-    
-    
-    public void showDeck()
+    public void clearLog()
     {
-        
+        jta_Log.setText("");
     }
     
     public void initDeck(){
@@ -55,15 +56,21 @@ public class GameUI extends javax.swing.JPanel {
         }
     }
     public void initDeck(Player active){
+        skippable = true;
+        StatusEffect tired = active.getStatusOfType("Tired");
+        StatusEffect trapped = active.getStatusOfType("Trapped");
+        if (tired != null) log(active.user.username + " can't move this turn");
+        if (trapped != null) log(active.user.username + " can't use offensive skills this turn");
         for(int i = 0; i < deck.length; i++){
             deck[i].skill = active.deck[i];
-            deck[i].available = active.getSP() > active.deck[i].skillPoint;
+            deck[i].available = (active.getSP() > active.deck[i].skillPoint) && !(trapped != null && active.deck[i] instanceof IDamaging) && tired == null;
             deck[i].jLabel.setIcon(deck[i].available? active.deck[i].img : active.deck[i].back);
         }
         checkDeck();
     }
     
     public void shuffleCard(){
+        skippable = false;
         jp_TwinsCard.removeAll();
         jp_TwinsCard.repaint();
         jp_TwinsCard.revalidate();
@@ -196,6 +203,7 @@ public class GameUI extends javax.swing.JPanel {
     public void setGameManager(GameManager gm)
     {
         this.gm = gm;
+        skippable = false;
         statusBarLeft1.setPlayer(gm.players[1]);
         statusBarRight1.setPlayer(gm.players[0]);
         updateStatusBars();
@@ -327,7 +335,7 @@ public class GameUI extends javax.swing.JPanel {
                         .addComponent(jp_SkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 92, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jp_DescriptionLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_DescriptionLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jl_PlayRound)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -430,7 +438,7 @@ public class GameUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -463,7 +471,7 @@ public class GameUI extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(statusBarLeft1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(statusBarRight1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jp_Description, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                        .addComponent(jp_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 132, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
@@ -494,7 +502,10 @@ public class GameUI extends javax.swing.JPanel {
     private void jp_SkipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_SkipButtonMouseClicked
         // TODO add your handling code here:
         initDeck();
-        gm.nextTurn();
+        if (skippable) {
+            gm.nextTurn();
+        }
+        
     }//GEN-LAST:event_jp_SkipButtonMouseClicked
     public void updateName(){
         jl_NamePlayer.setText(gm.getCurrentPlayer().user.username);

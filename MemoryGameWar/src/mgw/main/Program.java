@@ -1334,13 +1334,15 @@ public final class Program extends javax.swing.JFrame{
         jp_CreateAccountLayout.setHorizontalGroup(
             jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(619, Short.MAX_VALUE)
+                .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jtf_AccountName)
+                    .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                    .addComponent(jl_CreateAccountFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(619, Short.MAX_VALUE))
+            .addGroup(jp_CreateAccountLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jtf_AccountName)
-                        .addComponent(lb_CreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                        .addComponent(jl_CreateAccountFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jp_CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_CreateAccountLayout.setVerticalGroup(
@@ -1367,6 +1369,11 @@ public final class Program extends javax.swing.JFrame{
         lb_ChallengePlayer.setText("Challenge Player");
 
         jcb_ChallengePlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcb_ChallengePlayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_ChallengePlayerActionPerformed(evt);
+            }
+        });
 
         jp_CancelChallengePlayer.setBackground(new java.awt.Color(255, 255, 255));
         jp_CancelChallengePlayer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1445,26 +1452,27 @@ public final class Program extends javax.swing.JFrame{
         jp_ChooseBattleLayout.setHorizontalGroup(
             jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
-                            .addComponent(jp_CancelChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(110, 110, 110)
-                            .addComponent(jp_ConfirmChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(lb_ChallengePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jl_ChallengePlayerFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jcb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(570, Short.MAX_VALUE)
+                .addGroup(jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
+                        .addComponent(jp_CancelChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)
+                        .addComponent(jp_ConfirmChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_ChallengePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_ChallengePlayerFailed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_ChooseBattleLayout.createSequentialGroup()
+                        .addComponent(jcb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)))
+                .addContainerGap(570, Short.MAX_VALUE))
         );
         jp_ChooseBattleLayout.setVerticalGroup(
             jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_ChooseBattleLayout.createSequentialGroup()
                 .addContainerGap(291, Short.MAX_VALUE)
                 .addComponent(lb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addComponent(jcb_ChallengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addComponent(jl_ChallengePlayerFailed)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_ChooseBattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2009,6 +2017,7 @@ public final class Program extends javax.swing.JFrame{
     private void jp_ConfirmChallengePlayerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ConfirmChallengePlayerMouseClicked
         // TODO add your handling code here:
         jp_MenuButtonWhite(evt);
+        
         Account challenged = accounts.get(jcb_ChallengePlayer.getSelectedIndex());
         if (activeAccount == challenged) {
             jl_ChallengePlayerFailed.setText("You can't challenge yourself");
@@ -2020,6 +2029,7 @@ public final class Program extends javax.swing.JFrame{
         }
         jl_ChallengePlayerFailed.setText(" ");
         gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
+        gameUI1.clearLog();
         playMusic(songFiles[2]);
         changeTo(jp_PlayMenu);
     }//GEN-LAST:event_jp_ConfirmChallengePlayerMouseClicked
@@ -2051,6 +2061,10 @@ public final class Program extends javax.swing.JFrame{
         changeTo(jp_MainMenu);
         jp_MenuButtonBlack(evt);
     }//GEN-LAST:event_jp_BackHistoryMouseClicked
+
+    private void jcb_ChallengePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_ChallengePlayerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_ChallengePlayerActionPerformed
 
     
     private void setDescription(Skill x){

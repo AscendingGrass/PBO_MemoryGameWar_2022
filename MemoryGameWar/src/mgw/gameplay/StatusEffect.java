@@ -44,7 +44,7 @@ abstract class MultiTurnEffect extends StatusEffect implements IMultiTurn
     public MultiTurnEffect(String name, Object source, Player caster, Player affected, int turns) {
         super(name, source,  caster, affected);
         turnsLeft = turns;
-        if(caster.equals(affected) && source instanceof Skill) turnsLeft++;
+        if(caster.equals(affected) && (source instanceof Skill || source instanceof Boosted)) turnsLeft++;
     }
     
     @Override
