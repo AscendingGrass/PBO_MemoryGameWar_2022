@@ -27,6 +27,12 @@ public abstract class Skill implements Serializable
         new MirrorImage()
     };
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.name);
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -42,7 +48,8 @@ public abstract class Skill implements Serializable
         final Skill other = (Skill) obj;
         return Objects.equals(this.name, other.name);
     }
-    
+
+
     public final String name, description;
     public final int skillPoint;
     public final Icon img;
