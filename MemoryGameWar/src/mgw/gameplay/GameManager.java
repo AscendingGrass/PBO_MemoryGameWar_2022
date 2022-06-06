@@ -55,8 +55,10 @@ public final class GameManager {
     
     public void start()
     {
-        gu.clearDeck();
+        gu.initDeck();
         matchCards(players[turn%2]);
+        gu.initDeck(challenger);
+        //gu.initDeck(challenger);
     }
     
     public boolean checkGameState()

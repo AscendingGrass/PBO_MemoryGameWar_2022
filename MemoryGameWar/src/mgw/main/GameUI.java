@@ -43,7 +43,7 @@ public class GameUI extends javax.swing.JPanel {
         
     }
     
-    private void initDeck(){
+    public void initDeck(){
         jp_PlayListOfDeck.removeAll();
         jp_PlayListOfDeck.repaint();
         jp_PlayListOfDeck.revalidate();
@@ -60,6 +60,7 @@ public class GameUI extends javax.swing.JPanel {
         for(int i = 0; i < deck.length; i++){
             deck[i].setLogo(active.listSkill[i].img);
             deck[i].skill = active.listSkill[i];
+            System.out.println("berhasil");
         }
         checkDeck();
     }
@@ -195,7 +196,6 @@ public class GameUI extends javax.swing.JPanel {
         this.gm = gm;
         statusBarLeft1.setPlayer(gm.players[1]);
         statusBarRight1.setPlayer(gm.players[0]);
-        initDeck(gm.challenger);
         updateStatusBars();
     }
     
@@ -246,6 +246,7 @@ public class GameUI extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_Log = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -391,6 +392,13 @@ public class GameUI extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Clear");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -416,7 +424,9 @@ public class GameUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(statusBarRight1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -428,7 +438,10 @@ public class GameUI extends javax.swing.JPanel {
                         .addComponent(statusBarLeft1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(statusBarRight1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jp_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 132, Short.MAX_VALUE))
-                    .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -446,11 +459,17 @@ public class GameUI extends javax.swing.JPanel {
         back();
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        clearDeck();
+    }//GEN-LAST:event_jButton2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescriptionLabel;
     private javax.swing.JLabel SkillLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

@@ -98,7 +98,7 @@ class Deck2 extends javax.swing.JPanel{
         jLabel = new javax.swing.JLabel();
         add(jLabel);
     }
-    
+   
     public void setLogo(Icon i){
         jLabel.setIcon(i);
     }
