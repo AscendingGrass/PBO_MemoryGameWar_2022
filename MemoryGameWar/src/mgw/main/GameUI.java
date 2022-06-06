@@ -6,6 +6,7 @@ package mgw.main;
 import javax.swing.Timer;
 import mgw.gameplay.GameManager;
 import mgw.gameplay.Player;
+import mgw.gameplay.Skill;
 import mgw.util.UtilArsa;
 
 
@@ -33,11 +34,7 @@ public class GameUI extends javax.swing.JPanel {
         jta_Log.append(value + "\n");
     }
     
-    public void clearDeck()
-    {
-       for(int i = 0; i < deck.length; i++)
-           deck[i] = new Deck2();
-    }
+    
     
     public void showDeck()
     {
@@ -62,7 +59,6 @@ public class GameUI extends javax.swing.JPanel {
             deck[i].skill = active.deck[i];
             deck[i].available = active.getSP() > active.deck[i].skillPoint;
             deck[i].jLabel.setIcon(deck[i].available? active.deck[i].img : active.deck[i].back);
-            System.out.println("berhasil");
         }
         checkDeck();
     }
@@ -173,32 +169,37 @@ public class GameUI extends javax.swing.JPanel {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     if(evt.getSource() instanceof Deck2 d){
-                        
+                        if(d.available)
+                            gm.useCurrentPlayerSkill(d.skill);
                     }
                 }
                 @Override
                 public void mouseEntered(java.awt.event.MouseEvent evt) {
                     if(evt.getSource() instanceof Deck2 d){
-                        //SkillLabel.setText(d.skill.name);
-                        //DescriptionLabel.setText(d.skill.description);
+                        SkillLabel.setText(d.skill.name);
+                        jTextArea2.setText(d.skill.description);
+                        jTextArea3.setText("SkillPoint : "+d.skill.skillPoint);
                     }
                 }
                 @Override
                 public void mouseExited(java.awt.event.MouseEvent evt) {
                     if(evt.getSource() instanceof Deck2 d){
                         SkillLabel.setText("Skill Name");
-                        DescriptionLabel.setText("Description");
+                        jTextArea2.setText("");
+                        jTextArea3.setText("");
                     }
                 }
             });
         }
     }
+    
     public void setGameManager(GameManager gm)
     {
         this.gm = gm;
         statusBarLeft1.setPlayer(gm.players[1]);
         statusBarRight1.setPlayer(gm.players[0]);
         updateStatusBars();
+        updateName();
     }
     
     public void updateStatusBars()
@@ -243,7 +244,8 @@ public class GameUI extends javax.swing.JPanel {
         jl_Skip = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         SkillLabel = new javax.swing.JLabel();
-        DescriptionLabel = new javax.swing.JLabel();
+        jTextArea2 = new javax.swing.JTextArea();
+        jTextArea3 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_Log = new javax.swing.JTextArea();
@@ -288,9 +290,16 @@ public class GameUI extends javax.swing.JPanel {
         jl_NamePlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_NamePlayer.setText("Name");
 
-        jp_SkipButton.setBackground(new java.awt.Color(51, 51, 255));
+        jp_SkipButton.setBackground(new java.awt.Color(0, 0, 0));
+        jp_SkipButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_SkipButtonMouseClicked(evt);
+            }
+        });
 
+        jl_Skip.setBackground(new java.awt.Color(255, 255, 255));
         jl_Skip.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
+        jl_Skip.setForeground(new java.awt.Color(255, 255, 255));
         jl_Skip.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_Skip.setText("Skip");
 
@@ -315,11 +324,13 @@ public class GameUI extends javax.swing.JPanel {
                     .addComponent(jl_NamePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_DescriptionLayout.createSequentialGroup()
                         .addGap(0, 91, Short.MAX_VALUE)
-                        .addGroup(jp_DescriptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jp_SkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_PlayRound))
+                        .addComponent(jp_SkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 92, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jp_DescriptionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_PlayRound)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_DescriptionLayout.setVerticalGroup(
             jp_DescriptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,19 +350,30 @@ public class GameUI extends javax.swing.JPanel {
         SkillLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SkillLabel.setText("Skill Name");
 
-        DescriptionLabel.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        DescriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DescriptionLabel.setText("Description");
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(DescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SkillLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SkillLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextArea3)
+                    .addComponent(jTextArea2))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -359,9 +381,11 @@ public class GameUI extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SkillLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextArea2, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextArea3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel3.setPreferredSize(new java.awt.Dimension(350, 800));
@@ -406,7 +430,7 @@ public class GameUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -439,7 +463,7 @@ public class GameUI extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(statusBarLeft1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(statusBarRight1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jp_Description, javax.swing.GroupLayout.PREFERRED_SIZE, 132, Short.MAX_VALUE))
+                        .addComponent(jp_Description, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
@@ -459,22 +483,33 @@ public class GameUI extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         back();
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        clearDeck();
+        initDeck();
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jp_SkipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_SkipButtonMouseClicked
+        // TODO add your handling code here:
+        initDeck();
+        gm.nextTurn();
+    }//GEN-LAST:event_jp_SkipButtonMouseClicked
+    public void updateName(){
+        jl_NamePlayer.setText(gm.getCurrentPlayer().user.username);
+        jl_PlayRound.setText("Turn " + gm.getTurn());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel DescriptionLabel;
     private javax.swing.JLabel SkillLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel jl_NamePlayer;
     private javax.swing.JLabel jl_PlayRound;
     private javax.swing.JLabel jl_Skip;

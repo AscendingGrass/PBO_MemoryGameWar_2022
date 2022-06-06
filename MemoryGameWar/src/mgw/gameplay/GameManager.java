@@ -49,6 +49,7 @@ public final class GameManager {
         if(!checkGameState())
         {
             ++turn;
+            gu.updateName();
             matchCards(getCurrentPlayer());
         }
     }
@@ -57,8 +58,6 @@ public final class GameManager {
     {
         gu.initDeck();
         matchCards(players[turn%2]);
-        gu.initDeck(getCurrentPlayer());
-        //gu.initDeck(challenger);
     }
     
     public boolean checkGameState()
@@ -83,7 +82,9 @@ public final class GameManager {
         }
         return false;
     }
-    
+    public int getTurn() {
+        return turn;
+    }
     public void useCurrentPlayerSkill(Skill skill)
     {
         Player p = getCurrentPlayer();
@@ -97,12 +98,14 @@ public final class GameManager {
     
     public void useCurrentPlayerSkill(int skillIndex)
     {
-        gu.clearDeck();
+        gu.initDeck();
         getCurrentPlayer().useSkill(players[(turn+1) % 2], skillIndex);
+        gu.updateStatusBars();
         StatusEffect temp = getCurrentPlayer().getStatusOfType("Boosted");
         if (temp != null && ((Boosted)temp).check()) 
         {
             //call method to pick moves again
+            gu.initDeck(getCurrentPlayer());
         }
         else
         {
