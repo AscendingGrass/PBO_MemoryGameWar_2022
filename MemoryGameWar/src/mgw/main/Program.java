@@ -2016,7 +2016,6 @@ public final class Program extends javax.swing.JFrame{
         }
         jl_ChallengePlayerFailed.setText(" ");
         gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
-        gameUI1.initDeck(activeAccount);
         playMusic(songFiles[2]);
         changeTo(jp_PlayMenu);
     }//GEN-LAST:event_jp_ConfirmChallengePlayerMouseClicked

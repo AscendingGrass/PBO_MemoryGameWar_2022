@@ -32,6 +32,16 @@ public class GameUI extends javax.swing.JPanel {
         jta_Log.append(value + "\n");
     }
     
+    public void clearDeck()
+    {
+        
+    }
+    
+    public void showDeck()
+    {
+        
+    }
+    
     private void initDeck(){
         jp_PlayListOfDeck.removeAll();
         jp_PlayListOfDeck.repaint();
@@ -47,8 +57,8 @@ public class GameUI extends javax.swing.JPanel {
     }
     public void initDeck(Account active){
         for(int i = 0; i < deck.length; i++){
-            deck[i].setLogo(active.cardDeck[i]);
-            deck[i].skill = active.cardDeck[i].skill;
+            deck[i].setLogo(active.listSkill[i].img);
+            deck[i].skill = active.listSkill[i];
         }
         checkDeck();
     }
@@ -74,7 +84,7 @@ public class GameUI extends javax.swing.JPanel {
             }
         }
         Timer timer = new Timer(5000, (evt)->{
-            flipDownAllCards();
+            flipShutAllCards();
         });
         timer.setRepeats(false);
         timer.start();
@@ -135,13 +145,14 @@ public class GameUI extends javax.swing.JPanel {
     public void pickSkill()
     {
         setAllCardsNull();
-        shuffleCard();
+        initDeck(gm.getCurrentPlayer().user);
+        //shuffleCard();
     }
     
-    public void flipDownAllCards()
+    public void flipShutAllCards()
     {
         for (Card c : card) {
-            c.flipDown();
+            c.flipShut();
         }
     }
     

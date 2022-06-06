@@ -11,7 +11,7 @@ import javax.swing.Icon;
  *
  * @author user
  */
-public class Card extends javax.swing.JPanel implements Cloneable {
+public class Card extends javax.swing.JPanel{
     public static String[] resourceImages = {
         "/mgw/main/cardimg/1.jpeg",
         "/mgw/main/cardimg/2.jpeg",
@@ -59,7 +59,7 @@ public class Card extends javax.swing.JPanel implements Cloneable {
         jLabel1.setIcon(img);
     }
     
-    public void flipDown()
+    public void flipShut()
     {
         flip = false;
         jLabel1.setIcon(back);
@@ -70,18 +70,6 @@ public class Card extends javax.swing.JPanel implements Cloneable {
         flip = true;
         paired = true;
         jLabel1.setIcon(null);
-    }
-
-    @Override
-    protected Object clone() {
-        try
-        {
-            return super.clone();
-        }
-        catch(CloneNotSupportedException e)
-        {
-            return null;
-        }
     }
 
     @Override
