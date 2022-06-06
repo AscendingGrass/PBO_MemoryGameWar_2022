@@ -53,26 +53,28 @@ public final class Program extends javax.swing.JFrame{
     public Program() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         this.setUndecorated(true);
         initComponents();
+        loadData();
         gameUI1.setProgram(this);
         
-        accounts.add(new Account("一龍馬"));
-        var temp = new Account("bing chilling");
-        setActiveAccount(accounts.get(0));
-        gameUI1.setProgram(this);
-        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
-        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
-        activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
-        activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
-        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
-        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
-        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
-        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
-        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+//        accounts.add(new Account("一龍馬"));
+//        var temp = new Account("bing chilling");
+//        setActiveAccount(accounts.get(0));
+//        gameUI1.setProgram(this);
+//        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
+//        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+//        activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
+//        activeAccount.history.add(new HistoryLog(temp,activeAccount,activeAccount,10));
+//        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+//        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
+//        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
+//        activeAccount.history.add(new HistoryLog(activeAccount,activeAccount,activeAccount,10));
+//        activeAccount.history.add(new HistoryLog(activeAccount,temp,temp,10));
         
         initBackGround();
         playMusic(songFiles[1]);
-        //saveData();
-        
+        if (accounts.isEmpty()) {
+            changeTo(jp_CreateAccount);
+        }
     }
    
     
@@ -1514,6 +1516,7 @@ public final class Program extends javax.swing.JFrame{
         {
             ObjectInputStream in = new ObjectInputStream(fis);
             accounts = (ArrayList<Account>)in.readObject();
+            setActiveAccount(accounts.get(0));
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -1880,6 +1883,7 @@ public final class Program extends javax.swing.JFrame{
 
     private void jp_ExitOKButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitOKButtonMouseClicked
         // TODO add your handling code here:
+        saveData();
         System.exit(0);
     }//GEN-LAST:event_jp_ExitOKButtonMouseClicked
 
