@@ -5,6 +5,7 @@
 package mgw.main;
 import javax.swing.Timer;
 import mgw.gameplay.GameManager;
+import mgw.gameplay.Player;
 import mgw.util.UtilArsa;
 
 
@@ -56,10 +57,11 @@ public class GameUI extends javax.swing.JPanel {
             x+= 125;
         }
     }
-    public void initDeck(Account active){
+    public void initDeck(Player active){
         for(int i = 0; i < deck.length; i++){
-            deck[i].setLogo(active.listSkill[i].img);
-            deck[i].skill = active.listSkill[i];
+            deck[i].skill = active.deck[i];
+            deck[i].available = active.getSP() > active.deck[i].skillPoint;
+            deck[i].jLabel.setIcon(deck[i].available? active.deck[i].img : active.deck[i].back);
             System.out.println("berhasil");
         }
         checkDeck();
@@ -147,7 +149,7 @@ public class GameUI extends javax.swing.JPanel {
     public void pickSkill()
     {
         setAllCardsNull();
-        initDeck(gm.getCurrentPlayer().user);
+        initDeck(gm.getCurrentPlayer());
         //shuffleCard();
     }
     
@@ -171,7 +173,7 @@ public class GameUI extends javax.swing.JPanel {
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     if(evt.getSource() instanceof Deck2 d){
-                        d.jLabel.setIcon(null);
+                        
                     }
                 }
                 @Override

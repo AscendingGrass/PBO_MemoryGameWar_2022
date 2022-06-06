@@ -57,7 +57,7 @@ public final class GameManager {
     {
         gu.initDeck();
         matchCards(players[turn%2]);
-        gu.initDeck(challenger);
+        gu.initDeck(getCurrentPlayer());
         //gu.initDeck(challenger);
     }
     
