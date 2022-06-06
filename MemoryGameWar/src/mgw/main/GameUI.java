@@ -57,6 +57,7 @@ public class GameUI extends javax.swing.JPanel {
         jp_TwinsCard.removeAll();
         jp_TwinsCard.repaint();
         jp_TwinsCard.revalidate();
+        opened = null;
         for (int i = 0; i < Card.resourceImages.length * 2; i++) {
             card[i] = new Card(Card.resourceImages[i/2]);
         }
@@ -92,8 +93,16 @@ public class GameUI extends javax.swing.JPanel {
                         else if(opened.equals(c))
                         {
                             gm.getCurrentPlayer().addSP(2);
-                            opened.flipDown();
-                            c.flipDown();
+                            opened.setIconNull();
+                            c.setIconNull();
+                            opened = null;
+                            if (allCardsArePaired()) {
+                                pickSkill();
+                            }
+                        }
+                        else
+                        {
+                            pickSkill();
                         }
                     }
                 }
@@ -113,10 +122,33 @@ public class GameUI extends javax.swing.JPanel {
         }
     }
     
+    public boolean allCardsArePaired()
+    {
+        for (Card c : card) {
+            if (!c.paired) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public void pickSkill()
+    {
+        setAllCardsNull();
+        shuffleCard();
+    }
+    
     public void flipDownAllCards()
     {
         for (Card c : card) {
             c.flipDown();
+        }
+    }
+    
+    public void setAllCardsNull()
+    {
+        for (Card c : card) {
+            c.setIconNull();
         }
     }
     
