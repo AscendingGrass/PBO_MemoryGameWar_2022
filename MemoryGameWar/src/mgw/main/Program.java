@@ -2024,7 +2024,11 @@ public final class Program extends javax.swing.JFrame{
             return;
         }
         if (activeAccount.deckIsNotFilled()){
-            jl_ChallengePlayerFailed.setText("Your deck doesnt meet requirement!");
+            jl_ChallengePlayerFailed.setText("Your deck doesn't meet requirement!");
+            return;
+        }
+        if  (challenged.deckIsNotFilled()){
+            jl_ChallengePlayerFailed.setText("Enemy deck doesn't meet the requirement!");
             return;
         }
         jl_ChallengePlayerFailed.setText(" ");

@@ -1747,17 +1747,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="619" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jtf_AccountName" max="32767" attributes="0"/>
-                          <Component id="lb_CreateAccount" pref="292" max="32767" attributes="0"/>
-                          <Component id="jl_CreateAccountFailed" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="619" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jp_CreateAccountButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jtf_AccountName" max="32767" attributes="0"/>
+                              <Component id="lb_CreateAccount" pref="292" max="32767" attributes="0"/>
+                              <Component id="jl_CreateAccountFailed" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jp_CreateAccountButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
