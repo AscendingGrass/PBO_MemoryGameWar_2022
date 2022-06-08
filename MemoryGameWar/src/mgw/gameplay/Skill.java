@@ -256,7 +256,7 @@ class DoubleEdge extends DamagingSkill
 {
 
     public DoubleEdge(){
-	super("Double Edge", "The user deals 15% damage to the opponent, but the user receives 5% damage in recoil.", 5, 15);
+	super("Double Edge", "The user deals 15% damage to the opponent, but the user receives 5% damage in recoil(Pierce Evasion).", 5, 15);
     }
     
     @Override
@@ -271,7 +271,7 @@ class DoubleEdge extends DamagingSkill
 class ClownGaze extends DamagingSkill
 {
     public ClownGaze(){
-	super("Clown Gaze", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%.", 20, 50);
+	super("Clown Gaze", "The user deals 50% damage to the opponent, but the user HP will be reduced to 1%(Pierce Evasion).", 20, 50);
     }
     
     @Override
