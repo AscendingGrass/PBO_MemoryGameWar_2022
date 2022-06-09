@@ -27,8 +27,6 @@ public final class GameManager {
             players[1] = challenger;
             players[0] = challenged;
         }
-        
-        gu.log(players[1].user.username + " moves first");
         start();
     }
     
@@ -68,6 +66,8 @@ public final class GameManager {
     public void start()
     {
         gu.initDeck();
+        gu.clearLog();
+        gu.log(players[1].user.username + " moves first");
         matchCards(players[turn%2]);
     }
     

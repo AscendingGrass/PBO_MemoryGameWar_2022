@@ -25,13 +25,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Paths;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.Line;
 import javax.sound.sampled.Mixer;
 import mgw.gameplay.GameManager;
 import mgw.gameplay.Player;
-import mgw.util.FileTypeFilter;
 
 public final class Program extends javax.swing.JFrame{
     
@@ -2033,7 +2031,6 @@ public final class Program extends javax.swing.JFrame{
         }
         jl_ChallengePlayerFailed.setText(" ");
         gameUI1.setGameManager(new GameManager(gameUI1, new Player(activeAccount), new Player(challenged)));
-        gameUI1.clearLog();
         playMusic(songFiles[2]);
         changeTo(jp_PlayMenu);
     }//GEN-LAST:event_jp_ConfirmChallengePlayerMouseClicked
@@ -2050,7 +2047,14 @@ public final class Program extends javax.swing.JFrame{
         
         for(HistoryLog hl : activeAccount.history)
         {
-            jp_HistoryLog.add(new HistoryLogPanel(activeAccount, hl));
+            try
+            {
+                jp_HistoryLog.add(new HistoryLogPanel(activeAccount, hl));
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         
         jp_HistoryLog.repaint();

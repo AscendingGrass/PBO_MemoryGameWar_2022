@@ -129,7 +129,7 @@ class TankingHits extends MultiTurnEffect implements IBuff, IDamaging //After us
                 modifiedDmg = dm.modify(modifiedDmg);
             }
         }
-        System.out.println(affected.user.username + " took revenge for all the damage it took and dealt " + modifiedDmg + " damage to " + target.user.username);
+        GameUI.activeGameUI.log(affected.user.username + " took revenge for all the damage it took and dealt " + modifiedDmg + " damage to " + target.user.username);
         target.removeHP(modifiedDmg);
     }
     
@@ -174,7 +174,7 @@ class Tired extends MultiTurnEffect implements IDebuff //The next turn after usi
 {
     public Tired(Object source, Player caster, Player affected, int turns) {
         super("Tired", source, caster, affected, turns);
-        GameUI.activeGameUI.log(affected.user.username + " can't move for " + turns + " turn(s)");
+        GameUI.activeGameUI.log(affected.user.username + " won't be able to move for " + turns + " turn(s)");
     }
     
 }

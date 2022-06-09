@@ -262,6 +262,12 @@ class DoubleEdge extends DamagingSkill
     @Override
     void use(Player user, Player target) {
         GameUI.activeGameUI.log(user.user.username + " used " + name);
+        StatusEffect temp = target.getStatusOfType("Elusive");
+        if (temp != null) 
+        { 
+            GameUI.activeGameUI.log(user.user.username + " broke through the evasion");
+            temp.remove();
+        }
         dealDamage(user, target);
         user.removeHP(5);
         GameUI.activeGameUI.log(user.user.username + " got hit by recoil and lost 5 HP");
@@ -277,6 +283,12 @@ class ClownGaze extends DamagingSkill
     @Override
     void use(Player user, Player target) {
         GameUI.activeGameUI.log(user.user.username + " used " + name);
+        StatusEffect temp = target.getStatusOfType("Elusive");
+        if (temp != null) 
+        { 
+            GameUI.activeGameUI.log(user.user.username + " broke through the evasion");
+            temp.remove();
+        }
         dealDamage(user, target);
         user.removeHP(user.getHP()-1);
         GameUI.activeGameUI.log(user.user.username + " got hit by recoil and is left with 1 HP");
