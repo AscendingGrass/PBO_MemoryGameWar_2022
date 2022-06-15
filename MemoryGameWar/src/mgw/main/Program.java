@@ -1880,11 +1880,7 @@ public final class Program extends javax.swing.JFrame{
     }//GEN-LAST:event_jp_BackDeckMouseClicked
 
     private void jp_PlayLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_PlayLogoMouseClicked
-        // TODO add your handling code here:
-        jp_PlayMenu.add(new Popup());
-        jp_PlayMenu.repaint();
-        jp_PlayMenu.revalidate();
-        System.out.println("clicked");
+        
     }//GEN-LAST:event_jp_PlayLogoMouseClicked
 
     private void jp_ExitOKButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ExitOKButtonMouseClicked
