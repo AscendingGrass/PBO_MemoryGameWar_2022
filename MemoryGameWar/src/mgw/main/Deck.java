@@ -95,8 +95,7 @@ class Deck2 extends javax.swing.JPanel{
     Skill skill = null;
     static int counter = 0;
     public Deck2() {
-        jLabel = new javax.swing.JLabel();
-        add(jLabel);
+        initComponents();
     }
    
     public void setLogo(Icon i){
@@ -104,6 +103,7 @@ class Deck2 extends javax.swing.JPanel{
     }
     public void setSkill(Skill i){
         jLabel.setIcon(i.img);
+        setSize(114, 114);
     }
     /*public void deckCopy(SkillCard d){
         jLabel.setIcon(d.img);
