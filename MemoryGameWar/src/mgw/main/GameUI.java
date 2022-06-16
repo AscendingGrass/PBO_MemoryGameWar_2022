@@ -178,6 +178,9 @@ public class GameUI extends javax.swing.JPanel {
                     if(evt.getSource() instanceof Deck2 d){
                         if(d.available)
                             gm.useCurrentPlayerSkill(d.skill);
+                            SkillLabel.setText("Skill Name");
+                            jTextArea2.setText("");
+                            jTextArea3.setText(""); 
                     }
                 }
                 @Override
